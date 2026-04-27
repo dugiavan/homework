@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tiếng Anh Lớp 6 – Thầy Du Gia Văn</title>
+  <title>Tiếng Anh – Thầy Du Gia Văn</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
@@ -1594,12 +1594,25 @@
       </div>
     </div>
 
-    <div
-      style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation: slideUp .5s ease .6s both;margin-top:1.8rem;">
-      <button class="btn-start" onclick="goToTopics()">Khám Phá →</button>
-      <button class="btn-start"
-        style="background:linear-gradient(135deg,#e07b5a 0%,#c05a3a 100%);box-shadow:0 8px 28px rgba(224,123,90,.38);"
-        onclick="goToExam()">🎓 Thi →</button>
+    <div style="display: flex; justify-content: center; animation: slideUp .5s ease .6s both; margin-top: 1.8rem;">
+      <button class="btn-start" onclick="goToTopics()" style="
+      padding: 14px 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(110, 142, 251, 0.3);
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      outline: none;
+    " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 25px rgba(110, 142, 251, 0.4)';"
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 20px rgba(110, 142, 251, 0.3)';">
+        Khám Phá →
+      </button>
     </div>
 
     <!-- Nút xem lịch sử -->
@@ -3860,7 +3873,70 @@
             { type: "multiple_choice", q: "'Don't cry!' → Mother told the baby ___ to cry.", options: ["not", "no", "don't"], a: "not", lesson: "💡 Lệnh cấm: 'Đừng' làm gì thì dùng 'not to'. Nhớ 'NOT' đứng trước 'TO' nha!" },
             { type: "fill_blank", q: "'Clean the floor.' → She told me ___ clean the floor.", a: "to", lesson: "💡 Câu lệnh: Cứ bảo ai làm gì là thêm 'to' vào trước hành động đó. Rất dễ!" },
             { type: "multiple_choice", q: "'Please sit down.' → The teacher told us ___ sit down.", options: ["to", "that", "for"], a: "to", lesson: "💡 Câu yêu cầu: Dùng 'told + người + to-V'. 'TO' là từ khóa quan trọng nhất!" },
-            { type: "multiple_choice", q: "'Don't eat that!' → He told me ___ to eat that.", options: ["not", "no", "don't"], a: "not", lesson: "💡 Mẹo: Bảo đừng làm gì thì cứ 'not to' mà chọn. Tuyệt đối không dùng 'don't to' nhé!" }
+            { type: "multiple_choice", q: "'Don't eat that!' → He told me ___ to eat that.", options: ["not", "no", "don't"], a: "not", lesson: "💡 Mẹo: Bảo đừng làm gì thì cứ 'not to' mà chọn. Tuyệt đối không dùng 'don't to' nhé!" },
+            { type: "fill_blank", q: "Dùng 'She said' để tường thuật: 'I clean my room today.'", a: "She said she cleaned her room that day", lesson: "💡 Cách làm: 1. Giữ 'She said' - 2. Đổi 'I' thành 'she', 'my' thành 'her' - 3. Lùi 'clean' (hiện tại) về 'cleaned' (quá khứ) - 4. Đổi 'today' thành 'that day'." },
+            { type: "fill_blank", q: "Dùng 'He told me' để tường thuật: 'I want a new toy now.'", a: "He told me he wanted a new toy then", lesson: "💡 Cách làm: 1. Giữ 'He told me' - 2. Đổi 'I' thành 'he' - 3. Lùi 'want' (hiện tại) về 'wanted' (quá khứ) - 4. Đổi 'now' thành 'then'." },
+            { type: "fill_blank", q: "Dùng 'Nam said' để tường thuật: 'I like apples.'", a: "Nam said he liked apples", lesson: "💡 Cách làm: 1. Giữ 'Nam said' - 2. Đổi 'I' thành 'he' (vì Nam là con trai) - 3. Lùi động từ 'like' thành 'liked' là xong!" },
+            { type: "fill_blank", q: "Dùng 'They said' để tường thuật: 'We play soccer here.'", a: "They said they played soccer there", lesson: "💡 Cách làm: 1. Giữ 'They said' - 2. Đổi 'We' thành 'they' - 3. Lùi 'play' thành 'played' - 4. Đổi trạng từ chỉ nơi chốn 'here' thành 'there'." },
+            { type: "fill_blank", q: "Dùng 'The teacher told us' để tường thuật: 'I love my students.'", a: "The teacher told us she loved her students", lesson: "💡 Cách làm: 1. Giữ 'The teacher told us' - 2. Đổi 'I' thành 'she' (hoặc 'he'), 'my' thành 'her' - 3. Lùi 'love' về quá khứ thành 'loved'." },
+            { type: "fill_blank", q: "Dùng 'Lan said' để tường thuật: 'I drink milk every day.'", a: "Lan said she drank milk every day", lesson: "💡 Cách làm: 1. Giữ 'Lan said' - 2. Đổi 'I' thành 'she' (vì Lan là con gái) - 3. Lùi động từ bất quy tắc 'drink' về quá khứ thành 'drank'." },
+            { type: "fill_blank", q: "Dùng 'My dad said' để tường thuật: 'I buy a new pen.'", a: "My dad said he bought a new pen", lesson: "💡 Cách làm: 1. Giữ 'My dad said' - 2. Đổi 'I' thành 'he' - 3. Lùi động từ bất quy tắc 'buy' thành 'bought'." },
+            { type: "fill_blank", q: "Dùng 'She said' để tường thuật: 'I watch TV every night.'", a: "She said she watched TV every night", lesson: "💡 Cách làm: 1. Giữ 'She said' - 2. Đổi 'I' thành 'she' - 3. Thêm đuôi '-ed' vào sau 'watch' thành 'watched'." },
+            { type: "fill_blank", q: "Dùng 'The boys said' để tường thuật: 'We eat cake.'", a: "The boys said they ate cake", lesson: "💡 Cách làm: 1. Giữ 'The boys said' - 2. Đổi 'We' thành 'they' - 3. Đổi 'eat' thành 'ate' (quá khứ)." },
+            { type: "fill_blank", q: "Dùng 'He told me' để tường thuật: 'I see a big bird.'", a: "He told me he saw a big bird", lesson: "💡 Cách làm: 1. Giữ 'He told me' - 2. Đổi 'I' thành 'he' - 3. Đổi 'see' thành 'saw' (đã nhìn thấy)." },
+            { type: "fill_blank", q: "Dùng 'Hoa said' để tường thuật: 'I walk to school.'", a: "Hoa said she walked to school", lesson: "💡 Cách làm: 1. Giữ 'Hoa said' - 2. Đổi 'I' thành 'she' - 3. Thêm đuôi '-ed' vào sau 'walk' thành 'walked'." },
+            { type: "fill_blank", q: "Dùng 'They said' để tường thuật: 'We have a cat.'", a: "They said they had a cat", lesson: "💡 Cách làm: 1. Giữ 'They said' - 2. Đổi 'We' thành 'they' - 3. Đổi 'have' thành 'had' (quá khứ của have)." },
+            { type: "fill_blank", q: "Dùng 'My mom said' để tường thuật: 'I read a book.'", a: "My mom said she read a book", lesson: "💡 Cách làm: 1. Giữ 'My mom said' - 2. Đổi 'I' thành 'she' - 3. 'Read' quá khứ viết giống hệt hiện tại nhưng đọc là /red/ nha!" },
+            { type: "fill_blank", q: "Dùng 'Ba told me' để tường thuật: 'I go to the park.'", a: "Ba told me he went to the park", lesson: "💡 Cách làm: 1. Giữ 'Ba told me' - 2. Đổi 'I' thành 'he' - 3. Đổi 'go' thành 'went' để lùi về quá khứ." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'Nam' nói với tôi: 'I like this book.'", a: "Nam told me he liked that book", lesson: "💡 Phân tích: Sử dụng 'Nam told me'. Đổi 'I' -> 'he', 'like' -> 'liked', 'this' -> 'that'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'Mom' nói với Lan: 'I buy a cake for you.'", a: "Mom told Lan she bought a cake for her", lesson: "💡 Phân tích: Sử dụng 'Mom told Lan'. Đổi 'I' -> 'she', 'buy' -> 'bought', 'you' -> 'her'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'The boys' nói với chúng tôi: 'We play soccer.'", a: "The boys told us they played soccer", lesson: "💡 Phân tích: Sử dụng 'The boys told us'. Đổi 'We' -> 'they', 'play' -> 'played'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'Ba' nói với Tom: 'I want an ice cream now.'", a: "Ba told Tom he wanted an ice cream then", lesson: "💡 Phân tích: Sử dụng 'Ba told Tom'. Đổi 'I' -> 'he', 'want' -> 'wanted', 'now' -> 'then'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'The teacher' nói với học sinh: 'I love you.'", a: "The teacher told the students she loved them", lesson: "💡 Phân tích: Sử dụng 'The teacher told the students'. Đổi 'love' -> 'loved', 'you' -> 'them'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'Linda' nói với tôi: 'I have a new doll.'", a: "Linda told me she had a new doll", lesson: "💡 Phân tích: Sử dụng 'Linda told me'. Đổi 'I' -> 'she', 'have' -> 'had'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'Peter' nói với Mary: 'I see a cat here.'", a: "Peter told Mary he saw a cat there", lesson: "💡 Phân tích: Sử dụng 'Peter told Mary'. Đổi 'I' -> 'he', 'see' -> 'saw', 'here' -> 'there'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'They' nói với chúng tôi: 'We go to the park today.'", a: "They told us they went to the park that day", lesson: "💡 Phân tích: Sử dụng 'They told us'. Đổi 'We' -> 'they', 'go' -> 'went', 'today' -> 'that day'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'You' nói với tôi: 'I drink orange juice.'", a: "You told me you drank orange juice", lesson: "💡 Phân tích: Sử dụng 'You told me'. 'I' lúc này là 'you', đổi 'drink' -> 'drank'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'She' nói với anh ấy: 'I read your letter.'", a: "She told him she read his letter", lesson: "💡 Phân tích: Sử dụng 'She told him'. Đổi 'I' -> 'she', 'read' -> 'read', 'your' -> 'his'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'Dad' nói với tôi: 'I need your help.'", a: "Dad told me he needed my help", lesson: "💡 Phân tích: Sử dụng 'Dad told me'. Đổi 'I' -> 'he', 'need' -> 'needed', 'your' -> 'my'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'She' nói với Nam: 'I see you today.'", a: "She told Nam she saw him that day", lesson: "💡 Phân tích: Sử dụng 'She told Nam'. 'I' -> 'she', 'see' -> 'saw', 'you' -> 'him', 'today' -> 'that day'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'We' nói với họ: 'We want to play.'", a: "We told them we wanted to play", lesson: "💡 Phân tích: Sử dụng 'We told them'. Giữ nguyên 'we', đổi 'want' -> 'wanted'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'Mary' nói với tôi: 'I visit my aunt.'", a: "Mary told me she visited her aunt", lesson: "💡 Phân tích: Sử dụng 'Mary told me'. Đổi 'I' -> 'she', 'my' -> 'her', 'visit' -> 'visited'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'You' nói với cô ấy: 'I have an apple.'", a: "You told her you had an apple", lesson: "💡 Phân tích: Sử dụng 'You told her'. 'I' đổi thành 'you', 'have' -> 'had'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'The cats' nói với 'the dog': 'We hate you.'", a: "The cats told the dog they hated him", lesson: "💡 Phân tích: Sử dụng 'The cats told the dog'. 'We' -> 'they', 'hate' -> 'hated', 'you' -> 'him'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'Brother' nói với 'Sister': 'I give you this toy.'", a: "Brother told sister he gave her that toy", lesson: "💡 Phân tích: Sử dụng 'Brother told sister'. Đổi 'I' -> 'he', 'give' -> 'gave', 'this' -> 'that'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'Hoa' nói với 'Mom': 'I clean the kitchen now.'", a: "Hoa told mom she cleaned the kitchen then", lesson: "💡 Phân tích: Sử dụng 'Hoa told mom'. Đổi 'I' -> 'she', 'clean' -> 'cleaned', 'now' -> 'then'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'told'): 'They' nói với cảnh sát: 'We find a bag.'", a: "They told the police they found a bag", lesson: "💡 Phân tích: Sử dụng 'They told the police'. Đổi 'We' -> 'they', 'find' -> 'found'." }, { type: "fill_blank", q: "Tường thuật (dùng 'told'): Thầy giáo nói với tôi: 'I check your homework.'", a: "The teacher told me he checked my homework", lesson: "💡 Phân tích: 'The teacher told me'. 'I' thành 'he'. 'check' thành 'checked'. 'your' đổi thành 'my' (bài của tôi)." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'Nam' nói: 'I like apples.'", a: "Nam said he liked apples", lesson: "💡 Phân tích: Sử dụng 'Nam said'. 'I' đổi theo Nam thành 'he'. 'like' lùi về quá khứ thành 'liked'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'Lan' nói: 'I eat an orange today.'", a: "Lan said she ate an orange that day", lesson: "💡 Phân tích: Sử dụng 'Lan said'. 'I' là Lan (she). 'eat' lùi về 'ate'. 'today' đổi thành 'that day'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'The kids' nói: 'We play in the park.'", a: "The kids said they played in the park", lesson: "💡 Phân tích: Sử dụng 'The kids said'. 'We' đổi thành 'they'. 'play' thêm '-ed' thành 'played'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'Minh' nói: 'I see a bird now.'", a: "Minh said he saw a bird then", lesson: "💡 Phân tích: Sử dụng 'Minh said'. 'I' thành 'he'. 'see' lùi về 'saw'. 'now' bắt buộc đổi thành 'then'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'She' nói: 'I want this doll.'", a: "She said she wanted that doll", lesson: "💡 Phân tích: Sử dụng 'She said'. 'I' giữ nguyên là 'she'. 'want' thành 'wanted'. 'this' đổi thành 'that'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'The teacher' nói: 'I check the homework.'", a: "The teacher said she checked the homework", lesson: "💡 Phân tích: Sử dụng 'The teacher said'. 'I' thành 'she'. 'check' thêm '-ed' thành 'checked'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'They' nói: 'We have a big dog.'", a: "They said they had a big dog", lesson: "💡 Phân tích: Sử dụng 'They said'. 'We' thành 'they'. 'have' lùi thì thành 'had'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'Tom' nói: 'I go to school every day.'", a: "Tom said he went to school every day", lesson: "💡 Phân tích: Sử dụng 'Tom said'. 'I' thành 'he'. 'go' là động từ bất quy tắc, lùi về 'went'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'Mom' nói: 'I drink coffee here.'", a: "Mom said she drank coffee there", lesson: "💡 Phân tích: Sử dụng 'Mom said'. 'I' thành 'she'. 'drink' lùi về 'drank'. 'here' đổi thành 'there'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'The students' nói: 'We read books.'", a: "The students said they read books", lesson: "💡 Phân tích: Sử dụng 'The students said'. 'We' thành 'they'. 'read' lùi về quá khứ vẫn viết là 'read'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'Ba' nói: 'I love my cat.'", a: "Ba said he loved his cat", lesson: "💡 Phân tích: 'I' đổi thành 'he', 'my' thành 'his'. 'love' thêm '-ed' thành 'loved'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'Hoa' nói: 'I help my mom today.'", a: "Hoa said she helped her mom that day", lesson: "💡 Phân tích: 'I' -> 'she', 'my' -> 'her'. 'help' -> 'helped'. 'today' -> 'that day'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'The girls' nói: 'We like cakes.'", a: "The girls said they liked cakes", lesson: "💡 Phân tích: 'We' thành 'they'. 'like' lùi về quá khứ thành 'liked'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'My brother' nói: 'I want a bike now.'", a: "My brother said he wanted a bike then", lesson: "💡 Phân tích: Giữ nguyên 'My brother said'. 'want' -> 'wanted', 'now' -> 'then'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'The doctor' nói: 'I need a pen.'", a: "The doctor said he needed a pen", lesson: "💡 Phân tích: 'I' -> 'he'. 'need' thêm đuôi '-ed' thành 'needed'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'Lan' nói: 'I visit my grandma here.'", a: "Lan said she visited her grandma there", lesson: "💡 Phân tích: 'I' -> 'she'. 'visit' -> 'visited'. 'here' đổi thành 'there'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'The boys' nói: 'We find a ball.'", a: "The boys said they found a ball", lesson: "💡 Phân tích: 'We' -> 'they'. 'find' là động từ bất quy tắc, lùi về 'found'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'Dad' nói: 'I buy this hat today.'", a: "Dad said he bought that hat that day", lesson: "💡 Phân tích: 'buy' -> 'bought'. 'this' -> 'that'. 'today' -> 'that day'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'The cat' nói: 'I want milk now.'", a: "The cat said it wanted milk then", lesson: "💡 Phân tích: 'The cat' dùng ngôi 'it'. 'want' -> 'wanted', 'now' -> 'then'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'She' nói: 'I clean the house.'", a: "She said she cleaned the house", lesson: "💡 Phân tích: 'I' -> 'she'. 'clean' lùi về quá khứ thành 'cleaned'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'They' nói: 'We live here.'", a: "They said they lived there", lesson: "💡 Phân tích: 'We' -> 'they'. 'live' lùi về 'lived'. 'here' đổi thành 'there'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'Nam' nói: 'I have an apple.'", a: "Nam said he had an apple", lesson: "💡 Phân tích: 'I' -> 'he'. 'have' lùi thì về quá khứ thành 'had'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'The nurse' nói: 'I help the baby.'", a: "The nurse said she helped the baby", lesson: "💡 Phân tích: 'I' -> 'she'. 'help' thêm '-ed' thành 'helped'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'Mary' nói: 'I sing a song today.'", a: "Mary said she sang a song that day", lesson: "💡 Phân tích: 'sing' lùi về quá khứ thành 'sang'. 'today' đổi thành 'that day'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'The men' nói: 'We drink water now.'", a: "The men said they drank water then", lesson: "💡 Phân tích: 'We' -> 'they'. 'drink' -> 'drank'. 'now' -> 'then'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'Peter' nói: 'I see a red car.'", a: "Peter said he saw a red car", lesson: "💡 Phân tích: 'I' -> 'he'. 'see' lùi về quá khứ thành 'saw'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'The teacher' nói: 'I write on the board.'", a: "The teacher said she wrote on the board", lesson: "💡 Phân tích: 'write' là bất quy tắc, lùi về quá khứ thành 'wrote'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'Linda' nói: 'I draw this picture.'", a: "Linda said she drew that picture", lesson: "💡 Phân tích: 'draw' -> 'drew'. 'this' lùi xa thành 'that'." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'They' nói: 'We make a cake today.'", a: "They said they made a cake that day", lesson: "💡 Phân tích: 'make' -> 'made'. 'today' đổi thành 'that day' cho đúng quy tắc." },
+            { type: "fill_blank", q: "Tường thuật (dùng 'said'): 'The boy' nói: 'I take my bag now.'", a: "The boy said he took his bag then", lesson: "💡 Phân tích: 'take' -> 'took'. 'my' -> 'his'. 'now' chuyển thành 'then'." },
           ],
           medium: [
             { type: "error_correction", q: "He said he would go there now.", a: "then", lesson: "Lỗi trạng ngữ: Trong câu tường thuật, 'now' phải chuyển thành 'then'.", error_word: "now" },
