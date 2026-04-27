@@ -1770,7 +1770,7 @@
        DATABASE
     ═══════════════════════════════════════════════ */
     const DATABASE = {
-      presensimpple: {
+      presensimpplepossitive: {
         title: "Thì Hiện tại đơn (Câu khẳng định)",
         icon: "✍️",
         theory: `
@@ -1944,6 +1944,425 @@
             { type: "fill_blank", q: "Viết lại câu: 'They play basketball.' → He ___ basketball.", a: "plays", lesson: "Chủ ngữ They (số nhiều) giữ nguyên play. Khi viết lại với chủ ngữ He (số ít thứ 3) phải thêm -s thành plays." },
             { type: "fill_blank", q: "Viết lại câu: 'We watch TV every night.' → My father ___ TV every night.", a: "watches", lesson: "Chủ ngữ My father là ngôi thứ 3 số ít. Động từ watch kết thúc bằng -ch nên phải thêm -es thành watches." },
             { type: "fill_blank", q: "Viết lại câu: 'I have two dogs.' → She ___ two dogs.", a: "has", lesson: "Động từ have là bất quy tắc. Khi chủ ngữ là She phải đổi thành has (không phải haves)." }
+          ]
+        }
+      },
+      presensimplenegative: {
+        title: "Thì Hiện tại đơn (Câu phủ định)",
+        icon: "✍️",
+        theory: `
+<div style="font-family: sans-serif; line-height: 1.6; color: #2c3e50;">
+    <h3 style="text-align: center; color: #e74c3c;">✅ THÌ HIỆN TẠI ĐƠN (CÂU PHỦ ĐỊNH)</h3>
+    <p style="text-align: center; font-style: italic; color: #7f8c8d;">(Rất dễ hiểu, dễ nhớ)</p>
+
+    <h4 style="background: #fdf2f2; padding: 10px; border-radius: 8px; color: #c0392b;">📝 Phần 1: Ý NGHĨA CỦA CÂU PHỦ ĐỊNH</h4>
+    <p><b>Thì Hiện tại đơn ở dạng phủ định</b> dùng để nói về những việc:</p>
+    <ul>
+        <li><b>Không</b> làm thói quen</li>
+        <li><b>Không</b> đúng sự thật</li>
+        <li><b>Không</b> có sở thích hoặc thói quen đó</li>
+    </ul>
+    <p>Ví dụ: "Tôi không thích cà phê", "Cô ấy không đi học bằng xe buýt", "Chúng tôi không xem ti vi mỗi tối".</p>
+
+    <h4 style="background: #fdf2f2; padding: 10px; border-radius: 8px; color: #c0392b;">📝 Phần 2: CÔNG THỨC CÂU PHỦ ĐỊNH</h4>
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 15px;">
+        <tr style="background: #e74c3c; color: white;">
+            <th style="border: 1px solid #ddd; padding: 10px;">Chủ ngữ</th>
+            <th style="border: 1px solid #ddd; padding: 10px;">Cấu trúc phủ định</th>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #ddd; padding: 10px;"><b>I / You / We / They</b></td>
+            <td style="border: 1px solid #ddd; padding: 10px;"><b>do not</b> + động từ nguyên thể<br>(viết tắt: <b>don't</b>)</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #ddd; padding: 10px;"><b>He / She / It</b><br>(hoặc danh từ số ít: Lan, My brother, The dog...)</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"><b>does not</b> + động từ nguyên thể<br>(viết tắt: <b>doesn't</b>)</td>
+        </tr>
+    </table>
+
+    <div style="background: #fdfefe; border-left: 6px solid #e74c3c; padding: 15px; font-size: 0.95em; border-radius: 8px;">
+        <b>Siêu dễ nhớ:</b><br><br>
+        • I, You, We, They → dùng <b>do not</b> (don't = không)<br>
+        • He, She, It, Lan, My brother... → dùng <b>does not</b> (doesn't = không)<br>
+        • Sau <b>do not</b> và <b>does not</b> phải dùng **động từ nguyên thể** (không thêm s/es)
+    </div>
+
+    <h4 style="background: #fdf2f2; padding: 10px; border-radius: 8px; color: #c0392b;">📝 Phần 3: Giải thích chi tiết & Nghĩa của từ</h4>
+    <ul>
+        <li><b>Do not (don't)</b> = <b>không</b> → dùng khi chủ ngữ là I, You, We, They<br>
+            Ví dụ: I <b>don't</b> like coffee. = Tôi <b>không</b> thích cà phê.</li>
+        <li><b>Does not (doesn't)</b> = <b>không</b> → dùng khi chủ ngữ là He, She, It hoặc danh từ số ít<br>
+            Ví dụ: She <b>doesn't</b> play tennis. = Cô ấy <b>không</b> chơi quần vợt.</li>
+        <li>Sau "don't" và "doesn't" luôn dùng **động từ nguyên thể** (dạng gốc), không thêm -s, -es.<br>
+            Sai: She doesn't plays → Đúng: She doesn't play</li>
+    </ul>
+
+    <h4 style="background: #f39c12; color: white; padding: 10px; border-radius: 8px;">📝 Phần 4: 10 CÂU VÍ DỤ + NGHĨA</h4>
+    <ol style="font-size: 0.92em; background: #fffcf0; padding: 18px; border-radius: 10px; line-height: 1.7;">
+        <li><b>I don't like coffee.</b><br>→ Tôi không thích cà phê.</li>
+        <li><b>She doesn't play tennis.</b><br>→ Cô ấy không chơi quần vợt.</li>
+        <li><b>They don't live here.</b><br>→ Họ không sống ở đây.</li>
+        <li><b>He doesn't go to school by bus.</b><br>→ Anh ấy không đi học bằng xe buýt.</li>
+        <li><b>We don't watch TV every night.</b><br>→ Chúng tôi không xem ti vi mỗi tối.</li>
+        <li><b>My brother doesn't study hard.</b><br>→ Anh trai tôi không học hành chăm chỉ.</li>
+        <li><b>The dog doesn't eat vegetables.</b><br>→ Con chó không ăn rau củ.</li>
+        <li><b>Lan doesn't speak French.</b><br>→ Lan không nói tiếng Pháp.</li>
+        <li><b>You don't need a car.</b><br>→ Bạn không cần xe hơi.</li>
+        <li><b>It doesn't rain much in this city.</b><br>→ Ở thành phố này không mưa nhiều.</li>
+    </ol>
+
+    <h4 style="background: #34495e; color: white; padding: 10px; border-radius: 8px;">💡 Mẹo học nhanh cho học sinh</h4>
+    <ul style="font-size: 0.95em;">
+        <li>Nhớ ngay: "He/She/It → DOESN'T", còn lại dùng "DON'T"</li>
+        <li>Sau "doesn't" và "don't" phải là động từ nguyên thể (không chia s/es)</li>
+        <li>Thường xuyên thực hành bằng cách đổi từ câu khẳng định sang phủ định</li>
+        <li>Viết tắt: don't = do not, doesn't = does not (rất hay dùng trong văn nói)</li>
+    </ul>
+</div>`,
+
+        levels: {
+          easy: [
+            // Nhóm phân biệt do / does
+            { type: "multiple_choice", q: "Chủ ngữ 'He' phải dùng trợ động từ nào trong câu phủ định?", options: ["do not", "does not", "did not", "don't"], a: "does not", lesson: "Chủ ngữ He/She/It dùng 'does not' (doesn't) + động từ nguyên thể." },
+            { type: "multiple_choice", q: "Câu nào đúng khi chủ ngữ là 'They'?", options: ["They doesn't like fish.", "They don't like fish.", "They not like fish.", "They does not like fish."], a: "They don't like fish.", lesson: "Chủ ngữ They (số nhiều) phải dùng 'do not' hoặc 'don't'." },
+            { type: "multiple_choice", q: "Điền trợ động từ phù hợp: '___ your mother like cooking?'", options: ["Do", "Does", "Is", "Are"], a: "Does", lesson: "'Your mother' tương ứng với chủ ngữ 'She' (số ít) nên ta dùng trợ động từ 'Does' cho câu hỏi." },
+            { type: "multiple_choice", q: "Câu phủ định nào sau đây là ĐÚNG?", options: ["We doesn't play soccer.", "We don't plays soccer.", "We don't play soccer.", "We not play soccer."], a: "We don't play soccer.", lesson: "Chủ ngữ 'We' dùng 'don't'. Sau trợ động từ 'don't/doesn't', động từ 'play' phải giữ nguyên thể." },
+            { type: "multiple_choice", q: "Trong câu nghi vấn, chủ ngữ 'You and Nam' dùng trợ động từ nào?", options: ["Does", "Do", "Is", "Are"], a: "Do", lesson: "'You and Nam' là 2 người (số nhiều), tương ứng với 'They' nên phải dùng 'Do'." },
+            { type: "multiple_choice", q: "Hoàn thành câu: 'My cat ___ want to eat fish.'", options: ["don't", "not", "doesn't", "is not"], a: "doesn't", lesson: "'My cat' (con mèo của tôi) là danh từ số ít, tương ứng với 'It' nên dùng 'doesn't'." },
+            { type: "multiple_choice", q: "Chọn câu hỏi ĐÚNG ngữ pháp:", options: ["Do she live in Hue?", "Does she lives in Hue?", "Does she live in Hue?", "She does live in Hue?"], a: "Does she live in Hue?", lesson: "Cấu trúc câu hỏi: Does + she + V(nguyên thể). Khi đã có 'Does', động từ 'live' không thêm 's'." },
+            { type: "multiple_choice", q: "Điền vào chỗ trống: '___ your friends go to school by bus?'", options: ["Does", "Do", "Is", "Are"], a: "Do", lesson: "Chủ ngữ 'your friends' là số nhiều (có đuôi -s), tương ứng với 'They' nên ta dùng trợ động từ 'Do'." },
+            { type: "multiple_choice", q: "Tìm câu ĐÚNG trong các câu phủ định sau:", options: ["He don't have a car.", "He doesn't has a car.", "He doesn't have a car.", "He not has a car."], a: "He doesn't have a car.", lesson: "Chủ ngữ 'He' dùng 'doesn't'. Lưu ý: Sau 'doesn't', động từ 'has' phải đưa về nguyên thể là 'have'." },
+            { type: "multiple_choice", q: "Chủ ngữ 'An and Ba' dùng trợ động từ nào trong câu hỏi?", options: ["Do", "Does", "Is", "Did"], a: "Do", lesson: "'An and Ba' là hai người (số nhiều), tương ứng với 'They'. Quy tắc: I/You/We/They đi với 'Do'." },
+            { type: "multiple_choice", q: "Hoàn thành câu: 'The robot ___ need any water.'", options: ["don't", "is not", "doesn't", "does"], a: "doesn't", lesson: "'The robot' là danh từ số ít (một con robot), tương ứng với 'It'. Quy tắc: He/She/It đi với 'doesn't'." },
+            { type: "multiple_choice", q: "Câu hỏi nào sau đây đúng quy tắc 'đảo trợ động từ'?", options: ["Do you like music?", "Does you like music?", "Do you likes music?", "You do like music?"], a: "Do you like music?", lesson: "Với chủ ngữ 'You', ta phải đảo trợ động từ 'Do' lên trước. Động từ 'like' giữ nguyên không thêm 's'." },
+
+            // Nhóm chia động từ sau do/does not
+            { type: "fill_blank", q: "'I like coffee.' (Điền trợ động từ phủ định) → She ___ like coffee.", a: "doesn't", lesson: "Chủ ngữ She → dùng 'does not' (doesn't). Động từ like giữ nguyên dạng (không thêm s)." },
+            { type: "fill_blank", q: "'They play football.' (Điền trợ động từ phủ định) → He ___ play football.", a: "doesn't", lesson: "Chủ ngữ He phải dùng 'does not'. Động từ play giữ nguyên sau 'doesn't'." },
+            { type: "fill_blank", q: "'We go to school by bus.' (Điền trợ động từ phủ định) → My sister ___ go to school by bus.", a: "doesn't", lesson: "Chủ ngữ My sister là ngôi thứ 3 số ít → dùng 'doesn't' + go (nguyên thể)." },
+            { type: "fill_blank", q: "'I watch TV every day.' (Điền trợ động từ phủ định) → My father ___ watch TV every day.", a: "doesn't", lesson: "Chủ ngữ 'My father' (số ít) dùng 'doesn't'. Động từ 'watch' phải giữ nguyên, không được thêm 'es'." },
+            { type: "fill_blank", q: "'The birds fly in the sky.' (Điền trợ động từ phủ định) → The plane ___ fly in the sky.", a: "doesn't", lesson: "Chủ ngữ 'The plane' (số ít) dùng 'doesn't'. Lưu ý động từ 'fly' giữ nguyên mẫu sau trợ động từ." },
+            { type: "fill_blank", q: "'They have breakfast at 7 AM.' (Điền trợ động từ phủ định) → She ___ have breakfast at 7 AM.", a: "doesn't", lesson: "Chủ ngữ 'She' dùng 'doesn't'. Sau 'doesn't', ta dùng 'have' nguyên thể, không dùng 'has'." },
+            { type: "fill_blank", q: "'We study English on Mondays.' (Điền trợ động từ phủ định) → Nam ___ study English on Mondays.", a: "doesn't", lesson: "Chủ ngữ 'Nam' (ngôi thứ 3 số ít) dùng 'doesn't'. Động từ 'study' giữ nguyên dạng, không đổi 'y' thành 'i'." },
+            { type: "fill_blank", q: "'I do my homework in the evening.' (Điền trợ động từ phủ định) → My sister ___ do her homework in the evening.", a: "doesn't", lesson: "Chủ ngữ 'My sister' dùng 'doesn't'. Sau 'doesn't', động từ chính 'do' vẫn giữ nguyên mẫu." },
+            // Nhóm viết lại câu phủ định
+            { type: "fill_blank", q: "'My brother plays games every day.' (Viết câu phủ định) → My brother ___ games every day.", a: "doesn't play", lesson: "Chuyển sang phủ định: Chủ ngữ My brother → doesn't + play (nguyên thể)." },
+            { type: "fill_blank", q: "'Lan studies English.' (Viết câu phủ định) → Lan ___ English.", a: "doesn't study", lesson: "Chủ ngữ Lan → doesn't + study (nguyên thể). Không được viết 'doesn't studies'." },
+            { type: "fill_blank", q: "'The children like milk.' (Viết câu phủ định) → The children ___ milk.", a: "don't like", lesson: "Chủ ngữ The children (số nhiều) → dùng 'don't like' + động từ nguyên thể." },
+            { type: "fill_blank", q: "'My cat eats fish.' (Viết câu phủ định) → My cat ___ fish.", a: "doesn't eat", lesson: "Phủ định số ít: 'My cat' (It) dùng 'doesn't'. Động từ 'eats' phải bỏ 's' để về nguyên thể 'eat'." },
+            { type: "fill_blank", q: "'They go to the park.' (Viết câu phủ định) → They ___ to the park.", a: "don't go", lesson: "Phủ định số nhiều: Chủ ngữ 'They' dùng 'don't'. Động từ 'go' giữ nguyên mẫu." },
+            { type: "fill_blank", q: "'He has a new bike.' (Viết câu phủ định) → He ___ a new bike.", a: "doesn't have", lesson: "Lưu ý đặc biệt: Trong câu phủ định, 'has' phải chuyển thành 'doesn't have' (không bao giờ dùng doesn't has)." },
+            { type: "fill_blank", q: "'The sun rises in the East.' (Viết câu phủ định) → The sun ___ in the West.", a: "doesn't rise", lesson: "Chủ ngữ 'The sun' (số ít) dùng 'doesn't'. Động từ 'rises' đưa về nguyên thể là 'rise'." },
+            { type: "fill_blank", q: "'My parents watch TV.' (Viết câu phủ định) → My parents ___ TV.", a: "don't watch", lesson: "Chủ ngữ 'My parents' là số nhiều (2 người) dùng 'don't'. Động từ 'watch' giữ nguyên mẫu." },
+
+            // Nhóm phân biệt do/does + viết lại
+            { type: "multiple_choice", q: "Câu phủ định đúng là:", options: ["He don't like apples.", "He doesn't like apples.", "He not like apples.", "He does like apples."], a: "He doesn't like apples.", lesson: "Chủ ngữ He phải dùng 'doesn't' + động từ nguyên thể." },
+            { type: "multiple_choice", q: "'I do my homework.' → She ___ her homework.", options: ["don't do", "doesn't do", "doesn't does", "don't does"], a: "doesn't do", lesson: "Chủ ngữ She → doesn't + do (nguyên thể). Động từ sau 'doesn't' luôn ở dạng nguyên thể." },
+            // Nhóm phân biệt do/does + viết lại
+            { type: "multiple_choice", q: "Chọn câu phủ định đúng ngữ pháp:", options: ["My mother don't cook.", "My mother doesn't cook.", "My mother doesn't cooks.", "My mother not cook."], a: "My mother doesn't cook.", lesson: "Chủ ngữ 'My mother' (She) dùng 'doesn't'. Sau 'doesn't', động từ 'cook' phải ở dạng nguyên thể." },
+            { type: "multiple_choice", q: "'They have a big house.' → Nam ___ a big house.", options: ["don't have", "doesn't has", "doesn't have", "don't has"], a: "doesn't have", lesson: "Chủ ngữ Nam (He) dùng 'doesn't'. Động từ 'has' phải chuyển về nguyên thể là 'have'." },
+            { type: "multiple_choice", q: "'I study math.' → She ___ math.", options: ["doesn't studies", "doesn't study", "don't study", "not studies"], a: "doesn't study", lesson: "Chủ ngữ 'She' dùng 'doesn't'. Động từ 'studies' bỏ đuôi 'ies' và chuyển về nguyên thể 'study'." },
+            { type: "multiple_choice", q: "Câu nào sau đây diễn đạt ý phủ định ĐÚNG?", options: ["The car don't work.", "The car doesn't works.", "The car doesn't work.", "The car is not work."], a: "The car doesn't work.", lesson: "'The car' là số ít (It) dùng 'doesn't'. Khi có 'doesn't', động từ 'work' không được thêm 's'." },
+            { type: "multiple_choice", q: "'We wash the dishes.' → Lan ___ the dishes.", options: ["doesn't wash", "doesn't washes", "don't wash", "not wash"], a: "doesn't wash", lesson: "Chủ ngữ Lan (She) dùng 'doesn't'. Động từ 'wash' giữ nguyên dạng nguyên thể, không thêm 'es'." },
+            // Nhóm phân biệt do/does + viết lại (tiếp theo)
+            { type: "multiple_choice", q: "'Cats like milk.' → That dog ___ milk.", options: ["don't like", "doesn't likes", "doesn't like", "not like"], a: "doesn't like", lesson: "Chủ ngữ 'That dog' là số ít (It) dùng 'doesn't'. Động từ 'like' phải ở dạng nguyên thể." },
+            { type: "multiple_choice", q: "Câu nào sau đây là câu phủ định ĐÚNG?", options: ["He don't goes to school.", "He doesn't go to school.", "He doesn't goes to school.", "He not go to school."], a: "He doesn't go to school.", lesson: "Chủ ngữ 'He' dùng 'doesn't'. Khi mượn 'doesn't', động từ 'goes' phải trả về nguyên thể là 'go'." },
+            { type: "multiple_choice", q: "'I do morning exercise.' → My grandpa ___ morning exercise.", options: ["don't do", "doesn't does", "doesn't do", "not do"], a: "doesn't do", lesson: "Chủ ngữ 'My grandpa' (He) dùng 'doesn't'. Động từ chính 'do' giữ nguyên mẫu sau trợ động từ." },
+            { type: "multiple_choice", q: "Chọn cách viết phủ định đúng cho: 'She watches TV.'", options: ["She don't watch TV.", "She doesn't watches TV.", "She doesn't watch TV.", "She not watches TV."], a: "She doesn't watch TV.", lesson: "Chủ ngữ 'She' dùng 'doesn't'. Động từ 'watches' phải bỏ đuôi 'es' để về nguyên thể 'watch'." },
+            { type: "multiple_choice", q: "'We have English today.' → Mai ___ English today.", options: ["doesn't have", "doesn't has", "don't have", "don't has"], a: "doesn't have", lesson: "Chủ ngữ 'Mai' (She) dùng 'doesn't'. Động từ 'have' giữ nguyên thể (không dùng has sau doesn't)." },
+            { type: "multiple_choice", q: "'The students play football.' → The teacher ___ football.", options: ["don't play", "doesn't plays", "doesn't play", "not plays"], a: "doesn't play", lesson: "Chủ ngữ 'The teacher' là số ít dùng 'doesn't'. Động từ 'play' không thêm 's' trong câu phủ định." },
+            { type: "multiple_choice", q: "Tìm câu ĐÚNG ngữ pháp:", options: ["My bird don't fly.", "My bird doesn't fly.", "My bird doesn't flies.", "My bird not flies."], a: "My bird doesn't fly.", lesson: "Chủ ngữ 'My bird' (It) dùng 'doesn't'. Động từ 'flies' phải đổi lại thành 'fly' (nguyên thể)." },
+            { type: "multiple_choice", q: "'You know the answer.' → He ___ the answer.", options: ["don't know", "doesn't knows", "doesn't know", "not knows"], a: "doesn't know", lesson: "Chủ ngữ 'He' đi với 'doesn't'. Động từ 'know' phải giữ nguyên mẫu." },
+            { type: "multiple_choice", q: "Câu phủ định của 'He fixes cars' là gì?", options: ["He doesn't fix cars.", "He doesn't fixes cars.", "He don't fix cars.", "He not fix cars."], a: "He doesn't fix cars.", lesson: "Mượn trợ động từ 'doesn't' cho chủ ngữ 'He' và bỏ đuôi 'es' của động từ 'fixes'." },
+            { type: "multiple_choice", q: "'They speak French.' → This man ___ French.", options: ["don't speak", "doesn't speaks", "doesn't speak", "not speak"], a: "doesn't speak", lesson: "Chủ ngữ 'This man' (He) dùng 'doesn't'. Sau 'doesn't', động từ 'speak' không chia 's'." },
+
+            // Câu hỏi lý thuyết
+            { type: "multiple_choice", q: "Sau 'does not' hoặc 'doesn't', động từ phải ở dạng nào?", options: ["thêm -s/es", "thêm -ed", "nguyên thể", "thêm -ing"], a: "nguyên thể", lesson: "Sau 'do not' và 'does not' luôn dùng động từ nguyên thể (không chia s/es)." }
+          ]
+        }
+      },
+      pastsimpleaffirmative: {
+        title: "Thì Quá khứ đơn (Câu khẳng định)",
+        icon: "📜",
+        theory: `
+<div style="font-family: sans-serif; line-height: 1.6; color: #2c3e50; max-width: 800px; margin: auto;">
+    <h3 style="text-align: center; color: #27ae60; text-transform: uppercase;">🌟 THÌ QUÁ KHỨ ĐƠN - CHUYỆN HÔM QUA KỂ LẠI 🌟</h3>
+    <p style="text-align: center; font-style: italic; color: #7f8c8d;">(Dùng để kể về những việc đã làm xong, đã kết thúc rồi)</p>
+
+    <div style="background: #e8f8f5; padding: 15px; border-radius: 10px; border-left: 5px solid #27ae60; margin-bottom: 20px;">
+        <h4 style="margin-top: 0; color: #1e8449;">🎈 Bé nhớ quy tắc này nhé:</h4>
+        <p>Khi muốn kể về <b>"Ngày hôm qua"</b>, <b>"Tuần trước"</b> hay <b>"Lúc nãy"</b>, hành động của chúng ta phải thay đổi hình dáng (chia động từ). Có 2 nhóm hành động:</p>
+        <ol>
+            <li><b>Nhóm Ngoan (Có quy tắc):</b> Chỉ cần thêm đuôi <b>"-ed"</b> vào sau.</li>
+            <li><b>Nhóm Đặc biệt (Bất quy tắc):</b> Bé phải học thuộc vì mỗi từ biến đổi một kiểu khác nhau.</li>
+        </ol>
+    </div>
+
+    <h4 style="background: #f0f9f4; padding: 10px; border-radius: 8px; color: #27ae60;">📝 Nhóm 1: 30 ĐỘNG TỪ "NGOAN" (CÓ QUY TẮC)</h4>
+    <p style="font-size: 0.9rem; color: #666;">(Chỉ cần thêm <b>-ed</b> vào sau cùng)</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9rem; margin-bottom: 20px;">
+        <div>1. <b>Play → Played</b>: Chơi</div><div>2. <b>Watch → Watched</b>: Xem</div>
+        <div>3. <b>Listen → Listened</b>: Nghe</div><div>4. <b>Cook → Cooked</b>: Nấu ăn</div>
+        <div>5. <b>Wash → Washed</b>: Rửa</div><div>6. <b>Clean → Cleaned</b>: Lau dọn</div>
+        <div>7. <b>Visit → Visited</b>: Thăm</div><div>8. <b>Brush → Brushed</b>: Chải (tóc/răng)</div>
+        <div>9. <b>Walk → Walked</b>: Đi bộ</div><div>10. <b>Jump → Jumped</b>: Nhảy</div>
+        <div>11. <b>Help → Helped</b>: Giúp đỡ</div><div>12. <b>Open → Opened</b>: Mở</div>
+        <div>13. <b>Close → Closed</b>: Đóng</div><div>14. <b>Look → Looked</b>: Nhìn</div>
+        <div>15. <b>Talk → Talked</b>: Nói chuyện</div><div>16. <b>Wait → Waited</b>: Chờ đợi</div>
+        <div>17. <b>Dance → Danced</b>: Nhảy múa</div><div>18. <b>Paint → Painted</b>: Tô màu</div>
+        <div>19. <b>Rain → Rained</b>: Mưa</div><div>20. <b>Start → Started</b>: Bắt đầu</div>
+        <div>21. <b>Finish → Finished</b>: Kết thúc</div><div>22. <b>Ask → Asked</b>: Hỏi</div>
+        <div>23. <b>Answer → Answered</b>: Trả lời</div><div>24. <b>Smile → Smiled</b>: Mỉm cười</div>
+        <div>25. <b>Laugh → Laughed</b>: Cười lớn</div><div>26. <b>Call → Called</b>: Gọi điện</div>
+        <div>27. <b>Pick → Picked</b>: Nhặt/Hái</div><div>28. <b>Use → Used</b>: Sử dụng</div>
+        <div>29. <b>Plant → Planted</b>: Trồng cây</div><div>30. <b>Learn → Learned</b>: Học</div>
+    </div>
+
+    <h4 style="background: #fef9e7; padding: 10px; border-radius: 8px; color: #f39c12;">📝 Nhóm 2: 30 ĐỘNG TỪ "ĐẶC BIỆT" (BẤT QUY TẮC)</h4>
+    <p style="font-size: 0.9rem; color: #666;">(Bé phải học thuộc lòng các từ này nha)</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9rem; margin-bottom: 20px;">
+        <div>1. <b>Go → Went</b>: Đi</div><div>2. <b>Eat → Ate</b>: Ăn</div>
+        <div>3. <b>Drink → Drank</b>: Uống</div><div>4. <b>See → Saw</b>: Nhìn thấy</div>
+        <div>5. <b>Have → Had</b>: Có</div><div>6. <b>Do → Did</b>: Làm</div>
+        <div>7. <b>Buy → Bought</b>: Mua</div><div>8. <b>Make → Made</b>: Chế tạo/Làm</div>
+        <div>9. <b>Get → Got</b>: Nhận được</div><div>10. <b>Sleep → Slept</b>: Ngủ</div>
+        <div>11. <b>Read → Read</b>: Đọc (viết giống nhưng đọc khác)</div><div>12. <b>Write → Wrote</b>: Viết</div>
+        <div>13. <b>Run → Ran</b>: Chạy</div><div>14. <b>Sit → Sat</b>: Ngồi</div>
+        <div>15. <b>Stand → Stood</b>: Đứng</div><div>16. <b>Say → Said</b>: Nói</div>
+        <div>17. <b>Give → Gave</b>: Cho/Tặng</div><div>18. <b>Take → Took</b>: Lấy/Cầm</div>
+        <div>19. <b>Sing → Sang</b>: Hát</div><div>20. <b>Swim → Swam</b>: Bơi</div>
+        <div>21. <b>Fly → Flew</b>: Bay</div><div>22. <b>Draw → Drew</b>: Vẽ</div>
+        <div>23. <b>Ride → Rode</b>: Cưỡi (xe/ngựa)</div><div>24. <b>Find → Found</b>: Tìm thấy</div>
+        <div>25. <b>Know → Knew</b>: Biết</div><div>26. <b>Think → Thought</b>: Nghĩ</div>
+        <div>27. <b>Begin → Began</b>: Bắt đầu</div><div>28. <b>Bring → Brought</b>: Mang theo</div>
+        <div>29. <b>Lose → Lost</b>: Đánh mất</div><div>30. <b>Win → Won</b>: Chiến thắng</div>
+    </div>
+
+<h4 style="background: #ebedef; padding: 10px; border-radius: 8px; color: #34495e;">🕰️ 30 DẤU HIỆU NHẬN BIẾT (KHI NÀO DÙNG THÌ NÀY?)</h4>
+<p>Bé hãy chú ý nhé, chỉ cần thấy một trong những từ "thời gian" kể về chuyện đã qua này là mình phải chia động từ ở Quá khứ ngay nha:</p>
+
+<div style="background: #f9f9f9; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
+    <ul style="columns: 2; line-height: 1.8; font-size: 0.9rem; list-style-type: none; padding: 0; margin: 0;">
+        <li>☀️ <b>Yesterday</b>: Hôm qua</li>
+        <li>☀️ <b>Yesterday morning</b>: Sáng hôm qua</li>
+        <li>☀️ <b>Yesterday afternoon</b>: Chiều hôm qua</li>
+        <li>☀️ <b>The day before yesterday</b>: Hôm kia</li>
+
+        <li>🌙 <b>Last night</b>: Tối qua</li>
+        <li>📅 <b>Last week</b>: Tuần trước</li>
+        <li>📅 <b>Last month</b>: Tháng trước</li>
+        <li>📅 <b>Last year</b>: Năm ngoái</li>
+        <li>🏖️ <b>Last summer</b>: Mùa hè năm ngoái</li>
+        <li>❄️ <b>Last winter</b>: Mùa đông năm ngoái</li>
+        <li>⛪ <b>Last Sunday</b>: Chủ nhật trước</li>
+        <li>🎄 <b>Last Christmas</b>: Giáng sinh năm ngoái</li>
+
+        <li>⏱️ <b>Just now</b>: Vừa nãy xong</li>
+        <li>⏱️ <b>An hour ago</b>: 1 tiếng trước</li>
+        <li>⏱️ <b>Two hours ago</b>: 2 tiếng trước</li>
+        <li>⏱️ <b>5 minutes ago</b>: 5 phút trước</li>
+        <li>⏱️ <b>A moment ago</b>: Một lát trước</li>
+        <li>📅 <b>3 days ago</b>: 3 ngày trước</li>
+        <li>📅 <b>4 weeks ago</b>: 4 tuần trước</li>
+        <li>📅 <b>Many years ago</b>: Nhiều năm trước</li>
+
+        <li>📅 <b>In 2020</b>: Vào năm 2020</li>
+        <li>📅 <b>In the past</b>: Trong quá khứ</li>
+        <li>☕ <b>This morning</b>: Sáng nay (đã qua)</li>
+        <li>🍽️ <b>After lunch</b>: Sau giờ ăn trưa</li>
+
+        <li>📖 <b>Once upon a time</b>: Ngày xửa ngày xưa</li>
+        <li>📖 <b>A long time ago</b>: Cách đây rất lâu</li>
+        <li>📖 <b>Once</b>: Đã từng có lần</li>
+        <li>👶 <b>When I was a baby</b>: Khi tớ còn bé xíu</li>
+        <li>🎒 <b>When I was 5</b>: Khi tớ 5 tuổi</li>
+        <li>🎒 <b>In those days</b>: Vào những ngày đó</li>
+    </ul>
+</div>
+
+ <h4 style="background: #2980b9; color: white; padding: 10px; border-radius: 8px;">🎬 30 VÍ DỤ SIÊU DỄ HIỂU (CHUYỆN KỂ LẠI)</h4>
+<div style="background: #fdfefe; padding: 15px; border-radius: 10px; border: 1px solid #ddd; max-height: 500px; overflow-y: auto; line-height: 1.8;">
+    
+    <p style="color: #e67e22; font-weight: bold; border-bottom: 1px dashed #e67e22;">🏫 Nhóm 1: Chuyện ở trường học</p>
+    <p>1. ✍️ <b>I wrote my name on the board.</b> (Tớ đã viết tên mình lên bảng.)</p>
+    <p>2. 🎒 <b>Nam carried his heavy bag yesterday.</b> (Hôm qua Nam đã đeo cái cặp nặng của cậu ấy.)</p>
+    <p>3. 📖 <b>She read a funny story last night.</b> (Tối qua cô ấy đã đọc một câu chuyện vui.)</p>
+    <p>4. 🎨 <b>We painted a big flower in class.</b> (Chúng tớ đã vẽ một bông hoa lớn ở trong lớp.)</p>
+    <p>5. 🏫 <b>They walked to school this morning.</b> (Sáng nay các bạn ấy đã đi bộ đến trường.)</p>
+    <p>6. 🙋‍♂️ <b>He asked the teacher a question.</b> (Cậu ấy đã hỏi cô giáo một câu hỏi.)</p>
+    <p>7. 🔔 <b>The bell rang 5 minutes ago.</b> (Chuông đã reo cách đây 5 phút rồi.)</p>
+    <p>8. 🧮 <b>I finished my math homework.</b> (Tớ đã làm xong bài tập toán rồi.)</p>
+    <p>9. 🤝 <b>Lan helped her friend today.</b> (Hôm nay Lan đã giúp đỡ bạn của mình.)</p>
+    <p>10. 🎤 <b>We sang a happy song together.</b> (Chúng tớ đã cùng nhau hát một bài hát vui vẻ.)</p>
+
+    <p style="color: #27ae60; font-weight: bold; border-bottom: 1px dashed #27ae60; margin-top: 20px;">🏠 Nhóm 2: Chuyện ở nhà hàng ngày</p>
+    <p>11. 🍳 <b>Mom cooked delicious rice.</b> (Mẹ đã nấu cơm rất ngon.)</p>
+    <p>12. 🥛 <b>The baby drank milk an hour ago.</b> (Em bé đã uống sữa một tiếng trước.)</p>
+    <p>13. 🧹 <b>I cleaned my bedroom yesterday.</b> (Hôm qua tớ đã dọn dẹp phòng ngủ.)</p>
+    <p>14. 📺 <b>We watched cartoons last night.</b> (Tối qua chúng tớ đã xem phim hoạt hình.)</p>
+    <p>15. 🧺 <b>Dad washed his car last Sunday.</b> (Chủ nhật trước bố đã rửa xe ô tô.)</p>
+    <p>16. 🌳 <b>Grandpa planted a tree in the garden.</b> (Ông nội đã trồng một cái cây trong vườn.)</p>
+    <p>17. 🥣 <b>I ate soup for breakfast.</b> (Tớ đã ăn súp vào bữa sáng.)</p>
+    <p>18. 🎁 <b>He gave me a nice gift just now.</b> (Cậu ấy vừa mới tặng tớ một món quà xinh.)</p>
+    <p>19. 📞 <b>Grandma called me yesterday afternoon.</b> (Chiều qua bà nội đã gọi điện cho tớ.)</p>
+    <p>20. 🛌 <b>My sister slept very early.</b> (Em gái tớ đã đi ngủ rất sớm.)</p>
+
+    <p style="color: #9b59b6; font-weight: bold; border-bottom: 1px dashed #9b59b6; margin-top: 20px;">🎢 Nhóm 3: Những chuyến đi và kỷ niệm</p>
+    <p>21. 🚲 <b>I rode my bike in the park.</b> (Tớ đã đạp xe ở công viên.)</p>
+    <p>22. 🦁 <b>We saw a big lion at the zoo.</b> (Chúng tớ đã thấy một con sư tử lớn ở sở thú.)</p>
+    <p>23. 🏖️ <b>They went to the beach last summer.</b> (Hè năm ngoái họ đã đi biển.)</p>
+    <p>24. 🍦 <b>I bought an ice cream 10 minutes ago.</b> (Tớ đã mua một cây kem 10 phút trước.)</p>
+    <p>25. 📸 <b>She took many photos on her trip.</b> (Cô ấy đã chụp rất nhiều ảnh trong chuyến đi.)</p>
+    <p>26. 🏃‍♂️ <b>The boy ran very fast in the race.</b> (Cậu bé đã chạy rất nhanh trong cuộc đua.)</p>
+    <p>27. 🎡 <b>We visited a fun farm last month.</b> (Tháng trước chúng tớ đã đi thăm một trang trại vui vẻ.)</p>
+    <p>28. 🎈 <b>The balloon flew up into the sky.</b> (Quả bóng bay đã bay vút lên trời.)</p>
+    <p>29. 🏊‍♂️ <b>He swam in the pool yesterday.</b> (Hôm qua cậu ấy đã bơi ở hồ bơi.)</p>
+    <p>30. 🏰 <b>I built a sandcastle on the beach.</b> (Tớ đã xây lâu đài cát trên bãi biển.)</p>
+
+</div>
+</div>`,
+
+        levels: {
+          easy: [
+            { type: "multiple_choice", q: "Quá khứ của động từ 'play' là gì?", options: ["playes", "played", "playing", "plays"], a: "played", lesson: "'Play' là động từ có quy tắc, ta chỉ cần thêm đuôi '-ed' để chuyển sang quá khứ." },
+            { type: "multiple_choice", q: "Đâu là dạng quá khứ ĐÚNG của động từ bất quy tắc 'go'?", options: ["goed", "goes", "went", "gone"], a: "went", lesson: "'Go' là động từ bất quy tắc, dạng quá khứ (cột 2) của nó là 'went'." },
+            { type: "multiple_choice", q: "Điền từ: 'I ___ my homework two hours ago.'", options: ["do", "did", "does", "done"], a: "did", lesson: "Dấu hiệu 'ago' dùng thì quá khứ đơn. 'Did' là dạng quá khứ của động từ 'do'." },
+            { type: "multiple_choice", q: "Hoàn thành câu: 'She ___ a famous castle last year.'", options: ["visits", "visit", "visited", "visiting"], a: "visited", lesson: "'Last year' là quá khứ, 'visit' là động từ có quy tắc nên ta thêm đuôi '-ed'." },
+            { type: "multiple_choice", q: "Động từ nào sau đây là động từ BẤT QUY TẮC?", options: ["watch", "eat", "walk", "clean"], a: "eat", lesson: "'Eat' chuyển sang quá khứ là 'ate' (bất quy tắc), các từ còn lại đều thêm '-ed' (có quy tắc)." },
+            // Nhóm Quá khứ đơn - Câu khẳng định (Tiếp theo)
+            { type: "multiple_choice", q: "Quá khứ của động từ 'drink' (uống) là gì?", options: ["drinked", "drank", "drinks", "drinking"], a: "drank", lesson: "'Drink' là động từ bất quy tắc, dạng quá khứ của nó là 'drank'." },
+            { type: "multiple_choice", q: "Điền vào chỗ trống: 'Yesterday, I ___ a big ice cream.'", options: ["eat", "eats", "ate", "eating"], a: "ate", lesson: "Vì có 'Yesterday' nên dùng thì quá khứ. 'Ate' là dạng quá khứ của 'eat'." },
+            { type: "multiple_choice", q: "Câu nào đúng ngữ pháp?", options: ["I seed a bird.", "I saw a bird.", "I see a bird yesterday.", "I sawed a bird."], a: "I saw a bird.", lesson: "Động từ 'see' chuyển sang quá khứ là 'saw' (bất quy tắc)." },
+            { type: "multiple_choice", q: "'Last night, we ___ TV.'", options: ["watch", "watched", "watches", "watching"], a: "watched", lesson: "'Watch' là động từ có quy tắc, ta thêm đuôi '-ed' khi nói về chuyện tối qua." },
+            { type: "multiple_choice", q: "Dạng quá khứ của 'buy' (mua) là gì?", options: ["buyed", "buys", "bought", "buying"], a: "bought", lesson: "'Buy' là động từ bất quy tắc, bé cần nhớ dạng quá khứ là 'bought'." },
+            { type: "multiple_choice", q: "'My dad ___ a new car last week.'", options: ["buy", "bought", "buys", "buying"], a: "bought", lesson: "Tuần trước (last week) là quá khứ, ta dùng 'bought'." },
+            { type: "multiple_choice", q: "Điền từ: 'The cat ___ on the sofa just now.'", options: ["sleep", "sleeps", "slept", "sleeped"], a: "slept", lesson: "'Just now' (vừa nãy) dùng quá khứ. 'Slept' là quá khứ của 'sleep'." },
+            { type: "multiple_choice", q: "Chọn từ đúng: 'We ___ to the park 2 days ago.'", options: ["walked", "walk", "walks", "walking"], a: "walked", lesson: "'Walk' là động từ có quy tắc, thêm '-ed' để kể chuyện 2 ngày trước." },
+            { type: "multiple_choice", q: "Quá khứ của 'sing' (hát) là gì?", options: ["singed", "sings", "sang", "singing"], a: "sang", lesson: "'Sing' là động từ bất quy tắc, đổi thành 'sang' ở quá khứ." },
+            { type: "multiple_choice", q: "'I ___ my room yesterday morning.'", options: ["clean", "cleaned", "cleans", "cleaning"], a: "cleaned", lesson: "'Clean' là động từ có quy tắc, thêm '-ed' khi kể chuyện sáng hôm qua." },
+            { type: "multiple_choice", q: "Câu nào là chuyện kể về quá khứ?", options: ["I go to school.", "I went to school.", "I going to school.", "I goes to school."], a: "I went to school.", lesson: "'Went' là quá khứ của 'go', dùng để kể lại việc đã đi học." },
+            { type: "multiple_choice", q: "Điền từ: 'She ___ a beautiful song last night.'", options: ["sang", "sing", "sings", "singed"], a: "sang", lesson: "'Last night' là quá khứ, ta dùng 'sang' (dạng quá khứ của sing)." },
+            { type: "multiple_choice", q: "Quá khứ của 'have' (có) là gì?", options: ["haved", "has", "had", "having"], a: "had", lesson: "'Have' là động từ bất quy tắc, chuyển thành 'had' ở quá khứ." },
+            { type: "multiple_choice", q: "'We ___ pizza for dinner yesterday.'", options: ["eat", "ate", "eats", "eating"], a: "ate", lesson: "Chuyện ăn tối hôm qua dùng thì quá khứ 'ate'." },
+            { type: "multiple_choice", q: "Tìm động từ CÓ QUY TẮC (thêm -ed):", options: ["Go", "Eat", "Play", "See"], a: "Play", lesson: "Trong 4 từ, chỉ có 'play' là thêm '-ed' (played). Các từ còn lại là bất quy tắc." },
+            { type: "multiple_choice", q: "'My mom ___ a delicious cake last Sunday.'", options: ["made", "make", "makes", "making"], a: "made", lesson: "Chủ nhật trước dùng quá khứ. 'Made' là quá khứ của 'make'." },
+            { type: "multiple_choice", q: "Điền từ: 'I ___ my teeth this morning.'", options: ["brush", "brushed", "brushes", "brushing"], a: "brushed", lesson: "'Brush' là động từ có quy tắc, thêm '-ed' khi kể việc làm sáng nay." },
+            { type: "multiple_choice", q: "Quá khứ của 'run' (chạy) là gì?", options: ["runned", "runs", "ran", "running"], a: "ran", lesson: "'Run' là động từ bất quy tắc, quá khứ là 'ran'." },
+            { type: "multiple_choice", q: "'They ___ to the zoo last summer.'", options: ["go", "went", "goes", "going"], a: "went", lesson: "Mùa hè năm ngoái là quá khứ, dùng 'went'." },
+            { type: "multiple_choice", q: "Chọn câu đúng: 'Linh ___ a new book yesterday.'", options: ["read", "reads", "reading", "readed"], a: "read", lesson: "Quá khứ của 'read' viết giống hệt nhưng đọc là /red/. Không có từ 'readed'." },
+            // Nhóm Quá khứ đơn - Khẳng định (Mức độ: Cực dễ cho lớp 1)
+            { type: "multiple_choice", q: "Hôm qua tớ 'đã chơi'. Bé chọn từ nào?", options: ["play", "played", "playing", "plays"], a: "played", lesson: "Chuyện hôm qua bé chỉ cần thêm đuôi '-ed' vào sau từ 'play' nhé." },
+            { type: "multiple_choice", q: "Tối qua tớ 'đã xem' phim. Từ nào đúng?", options: ["watch", "watched", "watches", "watching"], a: "watched", lesson: "Để kể chuyện đã xem, bé thêm '-ed' thành 'watched' nha." },
+            { type: "multiple_choice", q: "Bé chọn từ 'đã đi' (quá khứ của go):", options: ["go", "goes", "went", "going"], a: "went", lesson: "Từ 'go' rất đặc biệt, khi kể chuyện đã đi bé phải dùng 'went'." },
+            { type: "multiple_choice", q: "Sáng nay tớ 'đã ăn' táo. Từ nào đúng?", options: ["eat", "eats", "eating", "ate"], a: "ate", lesson: "Từ 'eat' khi kể chuyện đã ăn sẽ đổi thành 'ate' bé nhé." },
+            { type: "multiple_choice", q: "Tớ 'đã giúp' mẹ. Bé thêm đuôi gì vào sau từ 'help'?", options: ["-ing", "-s", "-ed", "-es"], a: "-ed", lesson: "Bé thêm đuôi '-ed' để kể về những việc tốt mình đã làm xong nha." },
+            { type: "multiple_choice", q: "Quá khứ của 'uống' (drink) là gì?", options: ["drinked", "drinks", "drank", "drinking"], a: "drank", lesson: "Bé nhớ nhé: 'drink' (đang uống) đổi thành 'drank' (đã uống)." },
+            { type: "multiple_choice", q: "Hôm qua trời 'đã mưa'. Bé chọn:", options: ["rain", "rained", "rains", "raining"], a: "rained", lesson: "Thêm đuôi '-ed' vào từ 'rain' để kể về cơn mưa hôm qua." },
+            { type: "multiple_choice", q: "Tớ 'đã thấy' một chú chim (quá khứ của see):", options: ["see", "saw", "sees", "seeing"], a: "saw", lesson: "Bé nhìn thấy rồi thì kể lại bằng từ 'saw' nha." },
+            { type: "multiple_choice", q: "Tối qua bé 'đã ngủ' ngon. Từ nào đúng?", options: ["sleep", "sleeps", "slept", "sleeped"], a: "slept", lesson: "Từ 'sleep' đổi thành 'slept' khi kể về giấc ngủ tối qua." },
+            { type: "multiple_choice", q: "Mẹ 'đã nấu' cơm ngon. Bé chọn:", options: ["cook", "cooked", "cooks", "cooking"], a: "cooked", lesson: "Bé thêm đuôi '-ed' vào sau từ 'cook' thành 'cooked' (đã nấu)." },
+            { type: "multiple_choice", q: "Tớ 'đã rửa' tay sạch sẽ:", options: ["wash", "washed", "washs", "washing"], a: "washed", lesson: "Việc đã làm xong bé dùng 'washed' (thêm -ed) nè." },
+            { type: "multiple_choice", q: "Bố 'đã mua' kem cho bé (quá khứ của buy):", options: ["buyed", "buys", "bought", "buying"], a: "bought", lesson: "Từ 'buy' biến đổi rất lạ thành 'bought', bé hãy học thuộc lòng nha." },
+            { type: "multiple_choice", q: "Tớ 'đã nhảy' (jump) qua vũng nước:", options: ["jump", "jumped", "jumps", "jumping"], a: "jumped", lesson: "Bé thêm '-ed' thành 'jumped' để kể lại cú nhảy của mình." },
+            { type: "multiple_choice", q: "Quá khứ của 'có' (have) là gì?", options: ["haved", "has", "had", "having"], a: "had", lesson: "Khi kể 'Tớ đã có một món quà', bé dùng 'had' nha." },
+            { type: "multiple_choice", q: "Tớ 'đã dọn dẹp' (clean) phòng:", options: ["clean", "cleaned", "cleans", "cleaning"], a: "cleaned", lesson: "Bé ngoan dọn phòng xong thì kể là 'cleaned' (thêm -ed)." },
+            { type: "multiple_choice", q: "Bé 'đã mỉm cười' (smile) thật tươi:", options: ["smile", "smiled", "smiles", "smiling"], a: "smiled", lesson: "Từ 'smile' có sẵn chữ 'e' nên bé chỉ cần thêm chữ 'd' thôi nha." },
+            { type: "multiple_choice", q: "Tớ 'đã chạy' rất nhanh (quá khứ của run):", options: ["run", "runs", "ran", "running"], a: "ran", lesson: "Bé chạy xong rồi thì kể lại bằng từ 'ran' (r-a-n)." },
+            { type: "multiple_choice", q: "Con mèo 'đã trèo' (climb) lên cây:", options: ["climb", "climbed", "climbs", "climbing"], a: "climbed", lesson: "Bé thêm đuôi '-ed' để kể về hành động của chú mèo nhé." },
+            { type: "multiple_choice", q: "Tớ 'đã học' (learn) bài xong rồi:", options: ["learn", "learned", "learns", "learning"], a: "learned", lesson: "Bé học giỏi xong kể là 'learned' (thêm -ed) nè." },
+            { type: "multiple_choice", q: "Quá khứ của 'làm' (do) là gì?", options: ["do", "does", "did", "doing"], a: "did", lesson: "Bé làm xong bài tập rồi thì dùng từ 'did' nhé." },
+            { type: "fill_blank", q: "I ___ (play) football yesterday.", a: "played", lesson: "Có từ 'yesterday' (hôm qua) nên bé thêm đuôi '-ed' vào sau từ 'play' thành 'played' nhé." },
+            { type: "fill_blank", q: "She ___ (go) to the zoo last Sunday.", a: "went", lesson: "Có từ 'last Sunday' (chủ nhật trước), bé dùng 'went' là dạng quá khứ đặc biệt của 'go' nha." },
+            { type: "fill_blank", q: "My mom ___ (cook) dinner last night.", a: "cooked", lesson: "Chuyện tối qua ('last night'), bé chỉ cần thêm đuôi '-ed' vào sau từ 'cook' thôi." },
+            { type: "fill_blank", q: "They ___ (eat) pizza two hours ago.", a: "ate", lesson: "Có từ 'ago' (cách đây), bé đổi từ 'eat' thành 'ate' để kể chuyện đã ăn xong nhé." },
+            { type: "fill_blank", q: "I ___ (watch) cartoons yesterday morning.", a: "watched", lesson: "Sáng hôm qua là chuyện đã qua, bé thêm đuôi '-ed' thành 'watched' nha." },
+            { type: "fill_blank", q: "He ___ (buy) a new ball last week.", a: "bought", lesson: "Tuần trước ('last week'), bé dùng từ 'bought' (đã mua) thay cho từ 'buy' nhé." },
+            { type: "fill_blank", q: "We ___ (clean) the house yesterday.", a: "cleaned", lesson: "Việc dọn dẹp đã làm xong hôm qua, bé thêm đuôi '-ed' thành 'cleaned' nè." },
+            { type: "fill_blank", q: "The baby ___ (drink) milk an hour ago.", a: "drank", lesson: "Có từ 'ago' nên bé phải đổi 'drink' thành 'drank' để kể chuyện em bé đã uống sữa." },
+            { type: "fill_blank", q: "Nam ___ (see) a cat just now.", a: "saw", lesson: "'Just now' (vừa nãy) là quá khứ, bé dùng từ 'saw' thay cho từ 'see' nhé." },
+            { type: "fill_blank", q: "It ___ (rain) yesterday afternoon.", a: "rained", lesson: "Chiều qua trời đã mưa xong rồi, bé thêm đuôi '-ed' vào sau từ 'rain' thành 'rained' nha." },
+            { type: "fill_blank", q: "I ___ (play) with my toys yesterday.", a: "played", lesson: "Có 'yesterday' (hôm qua), bé thêm đuôi '-ed' vào sau từ 'play' thành 'played' nha." },
+            { type: "fill_blank", q: "She ___ (go) to school last Monday.", a: "went", lesson: "Chủ nhật trước là quá khứ, bé dùng từ đặc biệt 'went' thay cho từ 'go' nhé." },
+            { type: "fill_blank", q: "We ___ (eat) apples this morning.", a: "ate", lesson: "Sáng nay bé đã ăn xong rồi, nên từ 'eat' phải đổi thành 'ate' nè." },
+            { type: "fill_blank", q: "My dad ___ (wash) the car yesterday.", a: "washed", lesson: "Việc rửa xe đã làm xong hôm qua, bé thêm đuôi '-ed' thành 'washed' nhé." },
+            { type: "fill_blank", q: "They ___ (see) a bird 5 minutes ago.", a: "saw", lesson: "Có từ 'ago' (cách đây), bé dùng từ 'saw' thay cho từ 'see' nha." },
+            { type: "fill_blank", q: "I ___ (brush) my teeth last night.", a: "brushed", lesson: "Tối qua bé đã đánh răng rồi, bé thêm đuôi '-ed' thành 'brushed' nhé." },
+            { type: "fill_blank", q: "The dog ___ (sleep) on the floor just now.", a: "slept", lesson: "'Just now' (vừa nãy) là quá khứ, bé đổi từ 'sleep' thành 'slept' nha." },
+            { type: "fill_blank", q: "Mom ___ (help) me with my homework yesterday.", a: "helped", lesson: "Hôm qua mẹ đã giúp bé, bé thêm đuôi '-ed' vào sau từ 'help' thành 'helped' nè." },
+            { type: "fill_blank", q: "We ___ (sing) a song last week.", a: "sang", lesson: "Tuần trước ('last week'), bé đổi từ 'sing' thành 'sang' để kể chuyện đã hát nhé." },
+            { type: "fill_blank", q: "He ___ (jump) over the box an hour ago.", a: "jumped", lesson: "Cú nhảy đã xảy ra 1 tiếng trước, bé thêm đuôi '-ed' thành 'jumped' nha." },
+            { type: "fill_blank", q: "I ___ (drink) water after lunch.", a: "drank", lesson: "Sau giờ trưa là chuyện đã qua, bé đổi 'drink' thành 'drank' nhé." },
+            { type: "fill_blank", q: "She ___ (visit) her grandma last summer.", a: "visited", lesson: "Mùa hè năm ngoái bé đi thăm bà, bé thêm đuôi '-ed' thành 'visited' nha." },
+            { type: "fill_blank", q: "The cat ___ (run) very fast yesterday.", a: "ran", lesson: "Hôm qua chú mèo đã chạy, bé đổi từ 'run' thành 'ran' nè." },
+            { type: "fill_blank", q: "It ___ (rain) a lot last night.", a: "rained", lesson: "Tối qua trời đã mưa xong rồi, bé thêm '-ed' thành 'rained' nha." },
+            { type: "fill_blank", q: "I ___ (buy) a new hat two days ago.", a: "bought", lesson: "2 ngày trước bé đã mua mũ, bé dùng từ đặc biệt 'bought' thay cho 'buy' nhé." },
+            { type: "fill_blank", q: "We ___ (listen) to music yesterday afternoon.", a: "listened", lesson: "Chiều qua bé đã nghe nhạc, bé thêm đuôi '-ed' thành 'listened' nha." },
+            { type: "fill_blank", q: "Nam ___ (write) his name on the paper just now.", a: "wrote", lesson: "Vừa nãy Nam đã viết xong, bé đổi từ 'write' thành 'wrote' nhé." },
+            { type: "fill_blank", q: "The baby ___ (smile) at me this morning.", a: "smiled", lesson: "Sáng nay em bé đã cười, bé thêm đuôi '-d' vào sau từ 'smile' thành 'smiled' nha." },
+            { type: "fill_blank", q: "They ___ (walk) to the park last Sunday.", a: "walked", lesson: "Chủ nhật trước các bạn đi bộ, bé thêm đuôi '-ed' thành 'walked' nhé." },
+            { type: "fill_blank", q: "I ___ (finish) my milk a moment ago.", a: "finished", lesson: "Bé đã uống hết sữa rồi, bé thêm đuôi '-ed' thành 'finished' (xong rồi) nha." }
+          ]
+        }
+      },
+      pastsimplenegative: {
+        title: "Thì Quá khứ đơn (Câu phủ định)",
+        icon: "✍️",
+        theory: `
+<div style="font-family: sans-serif; line-height: 1.6; color: #2c3e50;">
+    <h3 style="text-align: center; color: #2980b9;">✅ THÌ QUÁ KHỨ ĐƠN (CÂU PHỦ ĐỊNH)</h3>
+    <p style="text-align: center; font-style: italic; color: #7f8c8d;">(Cực kỳ đơn giản: Tất cả các chủ ngữ đều dùng chung một cách!)</p>
+
+    <h4 style="background: #eaf2f8; padding: 10px; border-radius: 8px; color: #2980b9;">📝 Phần 1: Ý NGHĨA CỦA CÂU PHỦ ĐỊNH TRONG QUÁ KHỨ</h4>
+    <p>Dùng để nói về những việc <b>đã không xảy ra</b> trong quá khứ:</p>
+    <ul>
+        <li>Hành động <b>không</b> xảy ra vào một thời điểm xác định (ngày hôm qua, tuần trước...).</li>
+        <li>Sự việc <b>không</b> đúng trong quá khứ.</li>
+    </ul>
+    <p>Ví dụ: "Hôm qua tôi không đi chơi", "Tuần trước họ không xem phim", "Sáng nay cô ấy không ăn sáng".</p>
+
+    <h4 style="background: #eaf2f8; padding: 10px; border-radius: 8px; color: #2980b9;">📝 Phần 2: CÔNG THỨC DUY NHẤT</h4>
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 15px;">
+        <tr style="background: #2980b9; color: white;">
+            <th style="border: 1px solid #ddd; padding: 10px;">Chủ ngữ</th>
+            <th style="border: 1px solid #ddd; padding: 10px;">Cấu trúc phủ định</th>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #ddd; padding: 10px;"><b>TẤT CẢ CHỦ NGỮ</b><br>(I, You, We, They, He, She, It, Lan...)</td>
+            <td style="border: 1px solid #ddd; padding: 10px;"><b>did not</b> + động từ nguyên thể<br>(viết tắt: <b>didn't</b>)</td>
+        </tr>
+    </table>
+
+    <div style="background: #fdfefe; border-left: 6px solid #2980b9; padding: 15px; font-size: 0.95em; border-radius: 8px;">
+        <b>Quy tắc "Vàng":</b><br><br>
+        • Không phân biệt số ít hay số nhiều, tất cả dùng <b>didn't</b>.<br>
+        • Khi đã có <b>didn't</b>, động từ phải quay về <b>nguyên thể</b> (không thêm -ed, không dùng cột 2).
+    </div>
+
+    <h4 style="background: #eaf2f8; padding: 10px; border-radius: 8px; color: #2980b9;">📝 Phần 3: Giải thích chi tiết</h4>
+    <ul>
+        <li><b>Did not (didn't)</b> = <b>đã không</b> → dùng cho mọi chủ ngữ.<br>
+            Ví dụ: I <b>didn't</b> go out yesterday. = Hôm qua tôi <b>đã không</b> đi chơi.</li>
+        <li><b>Trả động từ về nguyên thể:</b> Đây là lỗi hay sai nhất. <br>
+            Sai: She didn't <s>went</s> → Đúng: She <b>didn't go</b>.</li>
+    </ul>
+
+    <h4 style="background: #27ae60; color: white; padding: 10px; border-radius: 8px;">📝 Phần 4: 5 CÂU VÍ DỤ ĐIỂN HÌNH</h4>
+    <ol style="font-size: 0.92em; background: #f4fdf4; padding: 18px; border-radius: 10px; line-height: 1.7;">
+        <li><b>I didn't like the movie yesterday.</b><br>→ Hôm qua tôi đã không thích bộ phim đó.</li>
+        <li><b>She didn't visit her grandma last week.</b><br>→ Tuần trước cô ấy đã không thăm bà.</li>
+        <li><b>They didn't play football last Sunday.</b><br>→ Chủ nhật trước họ đã không chơi bóng đá.</li>
+        <li><b>He didn't buy a new car.</b><br>→ Anh ấy đã không mua xe hơi mới.</li>
+        <li><b>It didn't rain this morning.</b><br>→ Sáng nay trời đã không mưa.</li>
+    </ol>
+</div>`,
+
+        levels: {
+          easy: [
+            { type: "multiple_choice", q: "Chủ ngữ 'She' dùng trợ động từ nào trong câu phủ định thì Quá khứ đơn?", options: ["don't", "doesn't", "didn't", "wasn't"], a: "didn't", lesson: "Trong thì Quá khứ đơn, tất cả các ngôi (I/You/We/They/He/She/It) đều dùng 'didn't' trong câu phủ định." },
+            { type: "multiple_choice", q: "Chọn câu ĐÚNG ngữ pháp thì Quá khứ đơn:", options: ["They didn't went to the park.", "They didn't go to the park.", "They don't go to the park last night.", "They didn't goes to the park."], a: "They didn't go to the park.", lesson: "Sau trợ động từ 'didn't', động từ 'go' phải ở dạng nguyên thể, không dùng 'went' hay 'goes'." },
+            { type: "multiple_choice", q: "Điền trợ động từ phù hợp: 'I ___ watch TV last night.'", options: ["didn't", "doesn't", "don't", "not"], a: "didn't", lesson: "Dấu hiệu 'last night' cho thấy đây là thì Quá khứ đơn, ta dùng 'didn't' cho câu phủ định." },
+            { type: "multiple_choice", q: "Đâu là dạng phủ định của câu: 'He bought a cake.'?", options: ["He didn't bought a cake.", "He doesn't buy a cake.", "He didn't buy a cake.", "He not buy a cake."], a: "He didn't buy a cake.", lesson: "Khi chuyển sang phủ định, ta dùng 'didn't' và đổi 'bought' (cột 2) về nguyên thể là 'buy'." },
+            { type: "multiple_choice", q: "Sau 'did not' hoặc 'didn't', động từ chính ở dạng nào?", options: ["Thêm -ed", "Cột 2 (V2)", "Nguyên thể (V-inf)", "Thêm -ing"], a: "Nguyên thể (V-inf)", lesson: "Quy tắc bất biến: Sau trợ động từ 'didn't', động từ chính luôn quay về dạng nguyên thể không chia." }
           ]
         }
       },
