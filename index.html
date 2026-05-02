@@ -2556,7 +2556,7 @@
             { type: "fill_blank", q: "Dịch: Cô ấy không đi bộ muộn.", a: "She doesn't walk late usually", lesson: "Dấu hiệu 'usually'. Sau 'doesn't', động từ 'walk' không thêm 's'." },
             { type: "fill_blank", q: "Dịch: Họ không hát mỗi tối.", a: "They don't sing every night", lesson: "Dấu hiệu 'every night'. Chủ ngữ 'They' dùng 'don't' + động từ 'sing'." },
             { type: "fill_blank", q: "Dịch: Bố tôi không làm việc luôn luôn.", a: "My father doesn't work always", lesson: "Dấu hiệu 'always'. 'My father' là số ít nên dùng 'doesn't'." },
-            { type: "fill_blank", q: "Dịch: Bạn không đọc sách mỗi tối.", a: "You don't read books tonight", lesson: "Dấu hiệu 'tonight'. Chủ ngữ 'You' dùng 'don't' + động từ 'read'." },
+            { type: "fill_blank", q: "Dịch: Bạn không đọc sách mỗi tối.", a: "You don't read books every night", lesson: "Dấu hiệu 'tonight'. Chủ ngữ 'You' dùng 'don't' + động từ 'read'." },
             { type: "fill_blank", q: "Dịch: Nó không sủa mỗi tối.", a: "It doesn't bark every night", lesson: "Dấu hiệu 'every night'. Chủ ngữ 'It' dùng 'doesn't' + động từ 'bark' nguyên mẫu." },
             { type: "fill_blank", q: "Dịch: Chúng tôi không bơi vào Chủ nhật.", a: "We don't swim on Sundays", lesson: "Dấu hiệu 'on Sundays'. Chủ ngữ 'We' dùng 'don't' + động từ nguyên mẫu." },
             { type: "fill_blank", q: "Dịch: Cô ấy không xem tivi luôn.", a: "She doesn't watch TV always", lesson: "Dấu hiệu 'always'. Sau 'doesn't', 'watch' bỏ 'es' về nguyên mẫu." },
@@ -2824,7 +2824,74 @@
             { type: "fill_blank", q: "Nam ___ (write) his name on the paper just now.", a: "wrote", lesson: "Vừa nãy Nam đã viết xong, bé đổi từ 'write' thành 'wrote' nhé." },
             { type: "fill_blank", q: "The baby ___ (smile) at me this morning.", a: "smiled", lesson: "Sáng nay em bé đã cười, bé thêm đuôi '-d' vào sau từ 'smile' thành 'smiled' nha." },
             { type: "fill_blank", q: "They ___ (walk) to the park last Sunday.", a: "walked", lesson: "Chủ nhật trước các bạn đi bộ, bé thêm đuôi '-ed' thành 'walked' nhé." },
-            { type: "fill_blank", q: "I ___ (finish) my milk a moment ago.", a: "finished", lesson: "Bé đã uống hết sữa rồi, bé thêm đuôi '-ed' thành 'finished' (xong rồi) nha." }
+            { type: "fill_blank", q: "I ___ (finish) my milk a moment ago.", a: "finished", lesson: "Bé đã uống hết sữa rồi, bé thêm đuôi '-ed' thành 'finished' (xong rồi) nha." },
+            // ========================= PAST SIMPLE (CORE) =========================
+
+            // (A) VN → EN (MCQ)
+            { type: "multiple_choice", script: "Yesterday, I played football with my friends.", q: "Hôm qua tôi đã chơi bóng đá với bạn. Chọn từ đúng:", options: ["play", "played", "plays", "playing"], a: "played", lesson: "'Yesterday' → dùng quá khứ đơn. 'Play' → 'played'." },
+            { type: "multiple_choice", script: "Last night, she watched TV at home.", q: "Tối qua cô ấy đã xem TV ở nhà. Chọn từ đúng:", options: ["watch", "watched", "watches", "watching"], a: "watched", lesson: "'Last night' → quá khứ đơn. Thêm -ed." },
+            // (B) EN → VN (MCQ)
+            { type: "multiple_choice", script: "He went to school yesterday.", q: "He went to school yesterday. Nghĩa là gì?", options: ["Anh ấy đi học mỗi ngày", "Anh ấy đã đi học hôm qua", "Anh ấy đang đi học", "Anh ấy sẽ đi học"], a: "Anh ấy đã đi học hôm qua", lesson: "'Went' là quá khứ của 'go'." },
+            { type: "multiple_choice", script: "They ate dinner two hours ago.", q: "They ate dinner two hours ago. Nghĩa là gì?", options: ["Họ đang ăn tối", "Họ sẽ ăn tối", "Họ đã ăn tối cách đây 2 tiếng", "Họ thường ăn tối"], a: "Họ đã ăn tối cách đây 2 tiếng", lesson: "'Ate' là quá khứ của 'eat'." },
+            // (C) Listening → Fill
+            { type: "fill_blank", script: "I played football yesterday.", q: "Nghe và điền: I ___ football yesterday.", a: "played", lesson: "'Yesterday' → quá khứ → thêm -ed." },
+            { type: "fill_blank", script: "She went to the park yesterday.", q: "Nghe và điền: She ___ to the park yesterday.", a: "went", lesson: "'Go' → 'went' (bất quy tắc)." },
+            // (D) Sentence gap
+            { type: "fill_blank", script: "We cleaned the house yesterday.", q: "We ___ the house yesterday.", a: "cleaned", lesson: "Động từ thường → thêm -ed." },
+            { type: "fill_blank", script: "He bought a new book last week.", q: "He ___ a new book last week.", a: "bought", lesson: "'Buy' → 'bought'." },
+            // (E) Dịch câu hoàn chỉnh
+            { type: "fill_blank", script: "I visited my grandparents last Sunday.", q: "(Dịch sang tiếng Anh) Tôi đã thăm ông bà vào chủ nhật tuần trước. → ___", a: "I visited my grandparents last Sunday.", lesson: "'Visited' = đã thăm. 'Last Sunday' → quá khứ." },
+            { type: "fill_blank", script: "She did her homework yesterday evening.", q: "(Dịch sang tiếng Anh) Cô ấy đã làm bài tập vào tối qua. → ___", a: "She did her homework yesterday evening.", lesson: "'Do' → 'did'." },
+            // (F) Dịch đoạn văn hoàn chỉnh
+            { type: "fill_blank", script: "Yesterday, I woke up early. I brushed my teeth and ate breakfast. Then I went to school and studied English.", q: "(Dịch sang tiếng Anh) Hôm qua tôi thức dậy sớm. Tôi đánh răng và ăn sáng. Sau đó tôi đi học và học tiếng Anh. → ___", a: "Yesterday, I woke up early. I brushed my teeth and ate breakfast. Then I went to school and studied English.", lesson: "Chuỗi hành động trong quá khứ → dùng toàn bộ quá khứ đơn." },
+            { type: "fill_blank", script: "Last weekend, we visited the zoo. We saw many animals and took photos. We had a great time.", q: "(Dịch sang tiếng Anh) Cuối tuần trước chúng tôi đi sở thú. Chúng tôi thấy nhiều động vật và chụp ảnh. Chúng tôi đã có thời gian vui vẻ. → ___", a: "Last weekend, we visited the zoo. We saw many animals and took photos. We had a great time.", lesson: "'Saw' (see), 'took' (take), 'had' (have) đều là quá khứ." },
+            //=========================PAST SIMPLE=========================
+            { type: "multiple_choice", script: "Yesterday, we visited our grandparents in the countryside.", q: "Hôm qua chúng tôi đã thăm ông bà ở quê. Chọn từ đúng:", options: ["visit", "visited", "visits", "visiting"], a: "visited", lesson: "Dấu hiệu 'Yesterday' → thì quá khứ đơn → động từ thêm -ed: visit → visited (hành động đã xảy ra và kết thúc)." },
+            { type: "multiple_choice", script: "Last weekend, they cleaned the house together.", q: "Cuối tuần trước họ đã dọn nhà cùng nhau. Chọn từ đúng:", options: ["clean", "cleaned", "cleans", "cleaning"], a: "cleaned", lesson: "'Last weekend' là mốc thời gian quá khứ → dùng V2: clean → cleaned (thêm -ed)." },
+            { type: "multiple_choice", script: "Two days ago, I finished my homework early.", q: "Hai ngày trước tôi đã hoàn thành bài tập sớm. Chọn từ đúng:", options: ["finish", "finished", "finishes", "finishing"], a: "finished", lesson: "'Ago' luôn đi với quá khứ đơn → finish → finished (đã hoàn thành trong quá khứ)." },
+            { type: "multiple_choice", script: "Last night, he wrote an email to his teacher.", q: "Tối qua anh ấy đã viết email cho giáo viên. Chọn từ đúng:", options: ["write", "wrote", "writes", "writing"], a: "wrote", lesson: "'Last night' → quá khứ đơn; động từ bất quy tắc: write → wrote (phải học thuộc)." },
+            { type: "multiple_choice", script: "Yesterday afternoon, it rained heavily in my city.", q: "Chiều hôm qua trời mưa rất to ở thành phố của tôi. Chọn từ đúng:", options: ["rain", "rained", "rains", "raining"], a: "rained", lesson: "Có 'Yesterday afternoon' → dùng V2; động từ thường thêm -ed: rain → rained." },
+
+            { type: "multiple_choice", script: "She bought a new dress last week.", q: "She bought a new dress last week. Nghĩa là gì?", options: ["Cô ấy mua váy mỗi tuần", "Cô ấy đã mua một chiếc váy mới tuần trước", "Cô ấy đang mua váy", "Cô ấy sẽ mua váy"], a: "Cô ấy đã mua một chiếc váy mới tuần trước", lesson: "'Bought' là quá khứ của 'buy' → hành động đã xảy ra trong 'last week' (tuần trước)." },
+            { type: "multiple_choice", script: "We went to the beach yesterday morning.", q: "We went to the beach yesterday morning. Nghĩa là gì?", options: ["Chúng tôi đi biển mỗi sáng", "Chúng tôi sẽ đi biển", "Chúng tôi đã đi biển sáng hôm qua", "Chúng tôi đang đi biển"], a: "Chúng tôi đã đi biển sáng hôm qua", lesson: "'Went' là V2 của 'go'; 'yesterday morning' xác nhận hành động đã xảy ra trong quá khứ." },
+            { type: "multiple_choice", script: "He took many photos during the trip.", q: "He took many photos during the trip. Nghĩa là gì?", options: ["Anh ấy chụp ảnh mỗi ngày", "Anh ấy đã chụp nhiều ảnh trong chuyến đi", "Anh ấy sẽ chụp ảnh", "Anh ấy đang chụp ảnh"], a: "Anh ấy đã chụp nhiều ảnh trong chuyến đi", lesson: "'Took' là quá khứ của 'take'; 'during the trip' → hành động đã hoàn thành trong chuyến đi." },
+            { type: "multiple_choice", script: "They saw a beautiful sunset on the beach.", q: "They saw a beautiful sunset on the beach. Nghĩa là gì?", options: ["Họ nhìn thấy hoàng hôn mỗi ngày", "Họ sẽ thấy hoàng hôn", "Họ đã nhìn thấy hoàng hôn đẹp trên bãi biển", "Họ đang nhìn hoàng hôn"], a: "Họ đã nhìn thấy hoàng hôn đẹp trên bãi biển", lesson: "'Saw' là V2 của 'see' → mô tả trải nghiệm đã xảy ra trong quá khứ." },
+            { type: "fill_blank", script: "Yesterday, I watched a movie with my family.", q: "Yesterday, I ___ a movie with my family.", a: "watched", lesson: "'Yesterday' → quá khứ đơn → watch + ed = watched (xem xong rồi)." },
+            { type: "fill_blank", script: "Last night, she cooked dinner for everyone.", q: "Last night, she ___ dinner for everyone.", a: "cooked", lesson: "'Last night' → hành động đã kết thúc → cook → cooked (thêm -ed)." },
+            { type: "fill_blank", script: "Two hours ago, they left the house.", q: "Two hours ago, they ___ the house.", a: "left", lesson: "'Ago' → quá khứ; 'leave' là bất quy tắc → left (không thêm -ed)." },
+            { type: "fill_blank", script: "Yesterday, we had a great time together.", q: "Yesterday, we ___ a great time together.", a: "had", lesson: "'Have' là động từ bất quy tắc → had; dùng khi kể lại trải nghiệm đã qua." },
+            { type: "fill_blank", script: "She finished her homework before dinner.", q: "She ___ her homework before dinner.", a: "finished", lesson: "Có 'before dinner' → hành động đã hoàn tất → dùng quá khứ: finished." },
+            { type: "fill_blank", script: "We went shopping last weekend.", q: "We ___ shopping last weekend.", a: "went", lesson: "'Last weekend' → quá khứ; 'go' → 'went' (bất quy tắc)." },
+            { type: "fill_blank", script: "He met his friend yesterday.", q: "He ___ his friend yesterday.", a: "met", lesson: "'Meet' là bất quy tắc → met; 'yesterday' xác nhận thì quá khứ." },
+            { type: "fill_blank", script: "I visited my teacher yesterday.", q: "(Dịch sang tiếng Anh) Hôm qua tôi đã thăm giáo viên của tôi.→___", a: "I visited my teacher yesterday.", lesson: "Cấu trúc: S + V2 + time; 'visit' là động từ thường → visited (thêm -ed)." },
+            { type: "fill_blank", script: "She finished her work last night.", q: "(Dịch sang tiếng Anh) Tối qua cô ấy đã hoàn thành công việc.→___", a: "She finished her work last night.", lesson: "'Finished' là quá khứ của 'finish'; 'last night' → bắt buộc dùng quá khứ đơn." },
+            { type: "fill_blank", script: "Yesterday, we went to the park. We played games and ate snacks. It was a fun day.", q: "(Dịch sang tiếng Anh) Hôm qua chúng tôi đã đi công viên. Chúng tôi chơi trò chơi và ăn đồ ăn nhẹ. Đó là một ngày vui.→___", a: "Yesterday, we went to the park. We played games and ate snacks. It was a fun day.", lesson: "Chuỗi hành động quá khứ → dùng liên tiếp V2: went, played, ate, was để kể lại câu chuyện." },
+            //=========================PAST SIMPLE – SUPER EASY=========================
+            // (A) VN → EN (MCQ – cực dễ, có dấu hiệu thời gian rõ ràng)
+            { type: "multiple_choice", script: "Yesterday, I played with my friends.", q: "Hôm qua tôi đã chơi với bạn. Chọn từ đúng:", options: ["play", "played", "plays", "playing"], a: "played", lesson: "Có 'Yesterday' (hôm qua) → chắc chắn dùng quá khứ đơn. Động từ 'play' là động từ thường → thêm '-ed' thành 'played'. Công thức: S + V2 + time." },
+            { type: "multiple_choice", script: "Last night, she watched TV.", q: "Tối qua cô ấy đã xem TV. Chọn từ đúng:", options: ["watch", "watched", "watches", "watching"], a: "watched", lesson: "'Last night' là dấu hiệu quá khứ → dùng V2. 'Watch' là động từ thường → thêm '-ed' thành 'watched'." },
+            { type: "multiple_choice", script: "Two hours ago, we ate dinner.", q: "Hai tiếng trước chúng tôi đã ăn tối. Chọn từ đúng:", options: ["eat", "ate", "eats", "eating"], a: "ate", lesson: "'Ago' (cách đây) → quá khứ đơn. 'Eat' là động từ bất quy tắc → chuyển thành 'ate' (không thêm -ed)." },
+            { type: "multiple_choice", script: "Last week, he cleaned his room.", q: "Tuần trước anh ấy đã dọn phòng. Chọn từ đúng:", options: ["clean", "cleaned", "cleans", "cleaning"], a: "cleaned", lesson: "'Last week' → hành động đã xảy ra và kết thúc → dùng quá khứ đơn. 'Clean' → 'cleaned'." },
+            { type: "multiple_choice", script: "Yesterday morning, I went to school.", q: "Sáng hôm qua tôi đã đi học. Chọn từ đúng:", options: ["go", "went", "goes", "going"], a: "went", lesson: "'Yesterday morning' → quá khứ. 'Go' là bất quy tắc → 'went'." },
+            // (B) EN → VN (MCQ – dịch nguyên câu)
+            { type: "multiple_choice", script: "An hour ago, I drank milk.", q: "An hour ago, I drank milk. Nghĩa là gì?", options: ["Tôi đang uống sữa", "Tôi sẽ uống sữa", "Tôi đã uống sữa 1 tiếng trước", "Tôi uống sữa mỗi ngày"], a: "Tôi đã uống sữa 1 tiếng trước", lesson: "'An hour ago' → quá khứ. 'Drank' là V2 của 'drink' → đã uống." },
+            { type: "multiple_choice", script: "Last Sunday, we visited our teacher.", q: "Last Sunday, we visited our teacher. Nghĩa là gì?", options: ["Chúng tôi thăm giáo viên mỗi tuần", "Chúng tôi đang thăm giáo viên", "Chúng tôi đã thăm giáo viên chủ nhật trước", "Chúng tôi sẽ thăm giáo viên"], a: "Chúng tôi đã thăm giáo viên chủ nhật trước", lesson: "'Last Sunday' → quá khứ đơn. 'Visited' = đã thăm." },
+            { type: "multiple_choice", script: "Just now, she ran very fast.", q: "Just now, she ran very fast. Nghĩa là gì?", options: ["Cô ấy chạy mỗi ngày", "Cô ấy đang chạy", "Cô ấy đã chạy rất nhanh vừa nãy", "Cô ấy sẽ chạy"], a: "Cô ấy đã chạy rất nhanh vừa nãy", lesson: "'Just now' → vừa nãy → quá khứ. 'Run' → 'ran' (bất quy tắc)." },
+            { type: "multiple_choice", script: "3 days ago, they saw a dog.", q: "3 days ago, they saw a dog. Nghĩa là gì?", options: ["Họ nhìn thấy chó mỗi ngày", "Họ đã nhìn thấy một con chó 3 ngày trước", "Họ đang nhìn thấy chó", "Họ sẽ thấy chó"], a: "Họ đã nhìn thấy một con chó 3 ngày trước", lesson: "'3 days ago' → quá khứ. 'Saw' là V2 của 'see'." },
+            // (C) Listening → Fill (nghe + điền từ rất dễ)
+            { type: "fill_blank", script: "Yesterday, I played football.", q: "Yesterday, I ___ football.", a: "played", lesson: "Nhìn thấy 'Yesterday' → chia quá khứ. 'Play' → 'played' (thêm -ed)." },
+            { type: "fill_blank", script: "Last night, she slept well.", q: "Last night, she ___ well.", a: "slept", lesson: "'Last night' → quá khứ. 'Sleep' → 'slept' (bất quy tắc)." },
+            { type: "fill_blank", script: "Two hours ago, we ate lunch.", q: "Two hours ago, we ___ lunch.", a: "ate", lesson: "'Ago' → quá khứ. 'Eat' → 'ate'." },
+            { type: "fill_blank", script: "Yesterday afternoon, it rained.", q: "Yesterday afternoon, it ___.", a: "rained", lesson: "'Yesterday afternoon' → quá khứ. 'Rain' → 'rained'." },
+            // (D) Sentence gap (điền dạng đúng rất cơ bản)
+            { type: "fill_blank", script: "He cleaned his room yesterday.", q: "He ___ his room yesterday.", a: "cleaned", lesson: "Có 'yesterday' → dùng V2. 'Clean' → 'cleaned'." },
+            { type: "fill_blank", script: "We went to the park last weekend.", q: "We ___ to the park last weekend.", a: "went", lesson: "'Last weekend' → quá khứ. 'Go' → 'went'." },
+            { type: "fill_blank", script: "She watched cartoons yesterday morning.", q: "She ___ cartoons yesterday morning.", a: "watched", lesson: "'Yesterday morning' → quá khứ. 'Watch' → 'watched'." },
+            // (E) Dịch câu hoàn chỉnh (VN → EN cực dễ)
+            { type: "fill_blank", script: "I played with my cat yesterday.", q: "(Dịch sang tiếng Anh) Hôm qua tôi đã chơi với con mèo của tôi. → ___", a: "I played with my cat yesterday.", lesson: "Cấu trúc: S + V2 + time. 'Play' → 'played'. 'Yesterday' đặt cuối câu." },
+            { type: "fill_blank", script: "She watched TV last night.", q: "(Dịch sang tiếng Anh) Tối qua cô ấy đã xem TV. → ___", a: "She watched TV last night.", lesson: "'Last night' → quá khứ đơn. Động từ 'watch' thêm -ed." },
+            // (F) Dịch đoạn văn hoàn chỉnh (rất dễ, nhiều dấu hiệu)
+            { type: "fill_blank", script: "Yesterday, I stayed at home. I watched TV and played games. It was fun.", q: "(Dịch sang tiếng Anh) Hôm qua tôi ở nhà. Tôi xem TV và chơi trò chơi. Đó là một ngày vui. → ___", a: "Yesterday, I stayed at home. I watched TV and played games. It was fun.", lesson: "Đoạn có 'Yesterday' → tất cả động từ dùng quá khứ đơn: stayed, watched, played. Cấu trúc: kể chuỗi hành động đã xảy ra trong quá khứ." }
           ]
         }
       },
@@ -5373,7 +5440,135 @@
             { type: "multiple_choice", q: "Câu này nghĩa là gì: 'I have some experience.'?", options: ["Tôi có một vài kỹ năng.", "Tôi có một vài phẩm chất.", "Tôi có một ít kinh nghiệm."], a: "Tôi có một ít kinh nghiệm.", lesson: "Experience (n): Kinh nghiệm." },
             { type: "multiple_choice", q: "Câu này nghĩa là gì: 'He has great qualities.'?", options: ["Anh ấy có những phẩm chất tuyệt vời.", "Anh ấy có những kỹ năng tuyệt vời.", "Anh ấy có những đồng nghiệp tuyệt vời."], a: "Anh ấy có những phẩm chất tuyệt vời.", lesson: "Qualities (n): Phẩm chất, đặc điểm." },
             { type: "multiple_choice", q: "Câu này nghĩa là gì: 'My colleagues are friendly.'?", options: ["Những người phỏng vấn rất thân thiện.", "Những người đồng nghiệp của tôi rất thân thiện.", "Những người bạn của tôi rất thân thiện."], a: "Những người đồng nghiệp của tôi rất thân thiện.", lesson: "Colleagues (n): Đồng nghiệp." },
-            { type: "multiple_choice", q: "Câu này nghĩa là gì: 'Vocational training is useful.'?", options: ["Đào tạo nghề thì hữu ích.", "Kỹ năng làm việc thì hữu ích.", "Cuộc phỏng vấn thì hữu ích."], a: "Đào tạo nghề thì hữu ích.", lesson: "Vocational training (n): Đào tạo nghề." }
+            { type: "multiple_choice", q: "Câu này nghĩa là gì: 'Vocational training is useful.'?", options: ["Đào tạo nghề thì hữu ích.", "Kỹ năng làm việc thì hữu ích.", "Cuộc phỏng vấn thì hữu ích."], a: "Đào tạo nghề thì hữu ích.", lesson: "Vocational training (n): Đào tạo nghề." },
+            // ========================= POLLUTION =========================
+            { type: "multiple_choice", script: "Air pollution is becoming a serious problem in big cities.", q: "Air pollution is becoming a serious problem in big cities. What does 'pollution' mean?", options: ["Sự ô nhiễm", "Môi trường", "Khí hậu"], a: "Sự ô nhiễm", lesson: "'Pollution' là danh từ, nghĩa là sự làm bẩn môi trường (không khí, nước, đất)." },
+            { type: "fill_blank", script: "Air pollution affects our health.", q: "Air ___ affects our health.", a: "pollution", lesson: "'Pollution' là danh từ không đếm được, không thêm 's'." },
+            { type: "fill_blank", script: "Pollution.", q: "Nghe và điền: ___", a: "Pollution", lesson: "Phát âm /pəˈluːʃən/, chú ý âm 'tion' đọc là /ʃən/." },
+            { type: "fill_blank", script: "Factories cause pollution.", q: "Factories cause ___.", a: "pollution", lesson: "Dùng 'pollution' sau động từ 'cause' để chỉ nguyên nhân gây ô nhiễm." },
+            { type: "multiple_choice", script: "Air pollution is harmful to humans.", q: "Air pollution is harmful to humans. Dịch câu này:", options: ["Ô nhiễm không khí có hại cho con người.", "Không khí giúp con người khỏe mạnh.", "Con người gây ra không khí."], a: "Ô nhiễm không khí có hại cho con người.", lesson: "'Harmful to' = có hại cho." },
+            { type: "multiple_choice", script: "Air pollution is increasing in many countries. It affects people's health and damages the environment.", q: "Air pollution is increasing in many countries. It affects people's health and damages the environment. Dịch đoạn văn:", options: ["Ô nhiễm không khí đang gia tăng ở nhiều quốc gia. Nó ảnh hưởng đến sức khỏe con người và làm hỏng môi trường.", "Không khí đang tốt hơn và con người khỏe mạnh hơn.", "Môi trường không bị ảnh hưởng bởi ô nhiễm."], a: "Ô nhiễm không khí đang gia tăng ở nhiều quốc gia. Nó ảnh hưởng đến sức khỏe con người và làm hỏng môi trường.", lesson: "Đoạn này nhấn mạnh tác động kép: health + environment." },
+
+            // ========================= PLASTIC WASTE =========================
+            { type: "multiple_choice", script: "Plastic waste is a major problem in oceans.", q: "Plastic waste is a major problem in oceans. What does 'plastic waste' mean?", options: ["Rác thải nhựa", "Nước biển", "Chai thủy tinh"], a: "Rác thải nhựa", lesson: "'Plastic waste' là danh từ ghép: plastic + waste (rác nhựa)." },
+            { type: "fill_blank", script: "Plastic waste harms marine life.", q: "Plastic ___ harms marine life.", a: "waste", lesson: "'Plastic waste' thường đi cùng 'harm' hoặc 'pollute'." },
+            { type: "fill_blank", script: "Plastic waste.", q: "Nghe và điền: ___ waste", a: "Plastic", lesson: "Cấu trúc danh từ ghép: plastic (tính chất) + waste (danh từ chính)." },
+            { type: "fill_blank", script: "We should reduce plastic waste.", q: "We should reduce plastic ___.", a: "waste", lesson: "Sau 'reduce' dùng danh từ để chỉ thứ cần giảm." },
+            { type: "multiple_choice", script: "Plastic waste pollutes the ocean.", q: "Plastic waste pollutes the ocean. Dịch câu:", options: ["Rác thải nhựa làm ô nhiễm đại dương.", "Đại dương làm sạch rác.", "Nhựa không gây hại."], a: "Rác thải nhựa làm ô nhiễm đại dương.", lesson: "'Pollute' = làm ô nhiễm." },
+            { type: "multiple_choice", script: "Plastic waste is everywhere. It harms animals and takes hundreds of years to break down.", q: "Plastic waste is everywhere. It harms animals and takes hundreds of years to break down. Dịch đoạn:", options: ["Rác thải nhựa ở khắp nơi. Nó gây hại cho động vật và mất hàng trăm năm để phân hủy.", "Nhựa phân hủy rất nhanh.", "Động vật không bị ảnh hưởng."], a: "Rác thải nhựa ở khắp nơi. Nó gây hại cho động vật và mất hàng trăm năm để phân hủy.", lesson: "'Break down' = phân hủy (ngữ cảnh môi trường)." },
+
+            // ========================= ENVIRONMENT =========================
+            { type: "multiple_choice", script: "We must protect the environment for future generations.", q: "We must protect the environment for future generations. What does 'environment' mean?", options: ["Môi trường", "Thời tiết", "Thành phố"], a: "Môi trường", lesson: "'Environment' là tất cả những gì xung quanh chúng ta: air, water, land." },
+            { type: "fill_blank", script: "The environment is important.", q: "The ___ is important.", a: "environment", lesson: "Danh từ số ít, thường dùng với 'the' vì mang nghĩa chung." },
+            { type: "fill_blank", script: "Environment.", q: "Nghe và điền: ___", a: "Environment", lesson: "Phát âm /ɪnˈvaɪrənmənt/, chú ý trọng âm âm 2." },
+            { type: "fill_blank", script: "We should protect the environment.", q: "We should protect the ___.", a: "environment", lesson: "Sau 'protect' là đối tượng cần bảo vệ." },
+            { type: "multiple_choice", script: "We should protect the environment.", q: "We should protect the environment. Dịch:", options: ["Chúng ta nên bảo vệ môi trường.", "Chúng ta nên phá môi trường.", "Môi trường không quan trọng."], a: "Chúng ta nên bảo vệ môi trường.", lesson: "'Protect' = bảo vệ." },
+            { type: "multiple_choice", script: "The environment is in danger. Pollution and climate change are making it worse.", q: "The environment is in danger. Pollution and climate change are making it worse. Dịch:", options: ["Môi trường đang gặp nguy hiểm. Ô nhiễm và biến đổi khí hậu đang làm nó tệ hơn.", "Môi trường đang tốt hơn.", "Khí hậu không thay đổi."], a: "Môi trường đang gặp nguy hiểm. Ô nhiễm và biến đổi khí hậu đang làm nó tệ hơn.", lesson: "Câu liên kết nguyên nhân → hậu quả." },
+
+            // ========================= ENDANGERED SPECIES =========================
+            { type: "multiple_choice", script: "Many endangered species are losing their habitats.", q: "Many endangered species are losing their habitats. What does 'endangered species' mean?", options: ["Loài có nguy cơ tuyệt chủng", "Động vật nuôi", "Cây cối"], a: "Loài có nguy cơ tuyệt chủng", lesson: "'Endangered species' = loài có nguy cơ biến mất." },
+            { type: "fill_blank", script: "Endangered species need protection.", q: "___ species need protection.", a: "Endangered", lesson: "'Endangered' là tính từ bổ nghĩa cho 'species'." },
+            { type: "fill_blank", script: "Endangered species.", q: "Nghe và điền: ___ species", a: "Endangered", lesson: "Phát âm /ɪnˈdeɪndʒəd/." },
+            { type: "fill_blank", script: "We must protect endangered species.", q: "We must protect ___ species.", a: "endangered", lesson: "Không viết hoa giữa câu." },
+            { type: "multiple_choice", script: "Endangered species need our help.", q: "Endangered species need our help. Dịch:", options: ["Các loài có nguy cơ tuyệt chủng cần sự giúp đỡ của chúng ta.", "Động vật không cần giúp.", "Con người đang tuyệt chủng."], a: "Các loài có nguy cơ tuyệt chủng cần sự giúp đỡ của chúng ta.", lesson: "'Need' = cần." },
+            { type: "multiple_choice", script: "Many endangered species are disappearing because of habitat loss and pollution.", q: "Many endangered species are disappearing because of habitat loss and pollution. Dịch:", options: ["Nhiều loài đang biến mất vì mất môi trường sống và ô nhiễm.", "Các loài đang phát triển mạnh.", "Không có loài nào biến mất."], a: "Nhiều loài đang biến mất vì mất môi trường sống và ô nhiễm.", lesson: "'Disappear' = biến mất." },
+
+            // ========================= CLIMATE CHANGE =========================
+            { type: "multiple_choice", script: "Climate change is affecting the whole world.", q: "Climate change is affecting the whole world. What does 'climate change' mean?", options: ["Biến đổi khí hậu", "Thời tiết đẹp", "Ô nhiễm nước"], a: "Biến đổi khí hậu", lesson: "'Climate change' là sự thay đổi lâu dài của khí hậu Trái Đất." },
+            { type: "fill_blank", script: "Climate change causes extreme weather.", q: "Climate ___ causes extreme weather.", a: "change", lesson: "Cụm danh từ cố định: climate change." },
+            { type: "fill_blank", script: "Climate change.", q: "Nghe và điền: ___ change", a: "Climate", lesson: "'Climate' = khí hậu." },
+            { type: "fill_blank", script: "Climate change is serious.", q: "___ change is serious.", a: "Climate", lesson: "Dùng như danh từ chủ ngữ." },
+            { type: "multiple_choice", script: "Climate change is a global issue.", q: "Climate change is a global issue. Dịch:", options: ["Biến đổi khí hậu là vấn đề toàn cầu.", "Khí hậu không thay đổi.", "Chỉ một nước bị ảnh hưởng."], a: "Biến đổi khí hậu là vấn đề toàn cầu.", lesson: "'Global issue' = vấn đề toàn cầu." },
+            { type: "multiple_choice", script: "Climate change leads to rising temperatures and natural disasters.", q: "Climate change leads to rising temperatures and natural disasters. Dịch:", options: ["Biến đổi khí hậu dẫn đến nhiệt độ tăng và thiên tai.", "Nhiệt độ đang giảm.", "Không có thiên tai."], a: "Biến đổi khí hậu dẫn đến nhiệt độ tăng và thiên tai.", lesson: "'Lead to' = dẫn đến." },
+
+            // ========================= POLLUTION =========================
+            { type: "fill_blank", script: "We should reduce pollution.", q: "(Dịch sang tiếng Anh) Chúng ta nên giảm ô nhiễm. → ___", a: "We should reduce pollution.", lesson: "Cấu trúc: should + V. 'Pollution' là danh từ không đếm được." },
+            { type: "fill_blank", script: "Pollution is bad for our health.", q: "(Dịch sang tiếng Anh) Ô nhiễm có hại cho sức khỏe của chúng ta. → ___", a: "Pollution is bad for our health.", lesson: "'Be bad for' = có hại cho." },
+            { type: "fill_blank", script: "Air pollution is a big problem.", q: "(Dịch sang tiếng Anh) Ô nhiễm không khí là một vấn đề lớn. → ___", a: "Air pollution is a big problem.", lesson: "'Air pollution' = ô nhiễm không khí." },
+
+            // ========================= PLASTIC WASTE =========================
+            { type: "fill_blank", script: "Plastic waste is a big problem.", q: "(Dịch sang tiếng Anh) Rác thải nhựa là một vấn đề lớn. → ___", a: "Plastic waste is a big problem.", lesson: "'Plastic waste' = rác thải nhựa." },
+            { type: "fill_blank", script: "We should reduce plastic waste.", q: "(Dịch sang tiếng Anh) Chúng ta nên giảm rác thải nhựa. → ___", a: "We should reduce plastic waste.", lesson: "Cấu trúc giống: should + V." },
+            { type: "fill_blank", script: "Plastic waste is harmful to animals.", q: "(Dịch sang tiếng Anh) Rác thải nhựa có hại cho động vật. → ___", a: "Plastic waste is harmful to animals.", lesson: "'Harmful to' = có hại cho." },
+
+            // ========================= MICROPLASTICS =========================
+            { type: "fill_blank", script: "Microplastics are in the water.", q: "(Dịch sang tiếng Anh) Hạt vi nhựa có trong nước. → ___", a: "Microplastics are in the water.", lesson: "'Are in' = có trong." },
+            { type: "fill_blank", script: "Microplastics are very small.", q: "(Dịch sang tiếng Anh) Hạt vi nhựa rất nhỏ. → ___", a: "Microplastics are very small.", lesson: "'Very small' = rất nhỏ." },
+            { type: "fill_blank", script: "Fish eat microplastics.", q: "(Dịch sang tiếng Anh) Cá ăn hạt vi nhựa. → ___", a: "Fish eat microplastics.", lesson: "Câu hiện tại đơn: S + V." },
+
+            // ========================= ENVIRONMENT =========================
+            { type: "fill_blank", script: "We should protect the environment.", q: "(Dịch sang tiếng Anh) Chúng ta nên bảo vệ môi trường. → ___", a: "We should protect the environment.", lesson: "'Protect' = bảo vệ." },
+            { type: "fill_blank", script: "The environment is important.", q: "(Dịch sang tiếng Anh) Môi trường rất quan trọng. → ___", a: "The environment is important.", lesson: "Dùng 'the environment' khi nói chung." },
+            { type: "fill_blank", script: "A clean environment is good for us.", q: "(Dịch sang tiếng Anh) Môi trường sạch tốt cho chúng ta. → ___", a: "A clean environment is good for us.", lesson: "'Good for' = tốt cho." },
+
+            // ========================= HABITAT =========================
+            { type: "fill_blank", script: "Animals need habitats.", q: "(Dịch sang tiếng Anh) Động vật cần môi trường sống. → ___", a: "Animals need habitats.", lesson: "'Habitat' thường dùng số nhiều." },
+            { type: "fill_blank", script: "Forests are animal habitats.", q: "(Dịch sang tiếng Anh) Rừng là môi trường sống của động vật. → ___", a: "Forests are animal habitats.", lesson: "Câu đơn giản: S + be + noun." },
+            { type: "fill_blank", script: "We should protect habitats.", q: "(Dịch sang tiếng Anh) Chúng ta nên bảo vệ môi trường sống. → ___", a: "We should protect habitats.", lesson: "Lặp lại cấu trúc should + V." },
+
+            // ========================= ENDANGERED SPECIES =========================
+            { type: "fill_blank", script: "Endangered species need help.", q: "(Dịch sang tiếng Anh) Các loài có nguy cơ tuyệt chủng cần giúp đỡ. → ___", a: "Endangered species need help.", lesson: "'Need' = cần." },
+            { type: "fill_blank", script: "We must protect endangered species.", q: "(Dịch sang tiếng Anh) Chúng ta phải bảo vệ các loài có nguy cơ tuyệt chủng. → ___", a: "We must protect endangered species.", lesson: "'Must' mạnh hơn 'should'." },
+            { type: "fill_blank", script: "Many animals are endangered.", q: "(Dịch sang tiếng Anh) Nhiều động vật đang có nguy cơ tuyệt chủng. → ___", a: "Many animals are endangered.", lesson: "'Endangered' = có nguy cơ tuyệt chủng." },
+
+            // ========================= CONSERVATION =========================
+            { type: "fill_blank", script: "Conservation is important.", q: "(Dịch sang tiếng Anh) Sự bảo tồn rất quan trọng. → ___", a: "Conservation is important.", lesson: "'Conservation' = bảo tồn." },
+            { type: "fill_blank", script: "We support conservation.", q: "(Dịch sang tiếng Anh) Chúng ta ủng hộ sự bảo tồn. → ___", a: "We support conservation.", lesson: "'Support' = ủng hộ." },
+            { type: "fill_blank", script: "Conservation helps animals.", q: "(Dịch sang tiếng Anh) Sự bảo tồn giúp động vật. → ___", a: "Conservation helps animals.", lesson: "'Help' + object." },
+
+            // ========================= CLIMATE CHANGE =========================
+            { type: "fill_blank", script: "Climate change is serious.", q: "(Dịch sang tiếng Anh) Biến đổi khí hậu rất nghiêm trọng. → ___", a: "Climate change is serious.", lesson: "'Serious' = nghiêm trọng." },
+            { type: "fill_blank", script: "Climate change affects people.", q: "(Dịch sang tiếng Anh) Biến đổi khí hậu ảnh hưởng đến con người. → ___", a: "Climate change affects people.", lesson: "'Affect' = ảnh hưởng." },
+            { type: "fill_blank", script: "We should stop climate change.", q: "(Dịch sang tiếng Anh) Chúng ta nên ngăn chặn biến đổi khí hậu. → ___", a: "We should stop climate change.", lesson: "'Stop' = ngăn chặn." },
+
+            // ========================= DESTRUCTION =========================
+            { type: "fill_blank", script: "Destruction is bad for nature.", q: "(Dịch sang tiếng Anh) Sự phá hủy có hại cho thiên nhiên. → ___", a: "Destruction is bad for nature.", lesson: "'Destruction' = sự phá hủy." },
+            { type: "fill_blank", script: "War causes destruction.", q: "(Dịch sang tiếng Anh) Chiến tranh gây ra sự phá hủy. → ___", a: "War causes destruction.", lesson: "'Cause' = gây ra." },
+            { type: "fill_blank", script: "We should stop destruction.", q: "(Dịch sang tiếng Anh) Chúng ta nên ngăn chặn sự phá hủy. → ___", a: "We should stop destruction.", lesson: "Cấu trúc quen thuộc: should + V." },
+            // ========================= APPLY FOR A JOB =========================
+            { type: "fill_blank", script: "I often apply for a job at different companies.", q: "(Dịch sang tiếng Anh) Tôi thường ứng tuyển công việc ở các công ty khác nhau. → ___", a: "I often apply for a job at different companies.", lesson: "Hiện tại đơn: S + V. 'Often' đứng trước động từ." },
+            { type: "fill_blank", script: "She usually applies for a job online.", q: "(Dịch sang tiếng Anh) Cô ấy thường ứng tuyển công việc online. → ___", a: "She usually applies for a job online.", lesson: "He/She + V-s/es → applies." },
+            { type: "fill_blank", script: "They always apply for jobs in big cities.", q: "(Dịch sang tiếng Anh) Họ luôn ứng tuyển công việc ở các thành phố lớn. → ___", a: "They always apply for jobs in big cities.", lesson: "'Always' dùng trong hiện tại đơn." },
+
+            // ========================= INTERVIEW =========================
+            { type: "fill_blank", script: "I usually have a job interview in the morning.", q: "(Dịch sang tiếng Anh) Tôi thường có phỏng vấn vào buổi sáng. → ___", a: "I usually have a job interview in the morning.", lesson: "'Have an interview' = có buổi phỏng vấn." },
+            { type: "fill_blank", script: "The company often interviews new candidates.", q: "(Dịch sang tiếng Anh) Công ty thường phỏng vấn ứng viên mới. → ___", a: "The company often interviews new candidates.", lesson: "He/She/It + V-s → interviews." },
+            { type: "fill_blank", script: "He always prepares for an interview carefully.", q: "(Dịch sang tiếng Anh) Anh ấy luôn chuẩn bị kỹ cho phỏng vấn. → ___", a: "He always prepares for an interview carefully.", lesson: "'Prepare for' + noun." },
+
+            // ========================= INTERVIEWEE =========================
+            { type: "fill_blank", script: "The interviewee usually waits outside the room.", q: "(Dịch sang tiếng Anh) Người đi phỏng vấn thường chờ bên ngoài. → ___", a: "The interviewee usually waits outside the room.", lesson: "He/She/It + waits." },
+            { type: "fill_blank", script: "The interviewee often answers questions clearly.", q: "(Dịch sang tiếng Anh) Người đi phỏng vấn thường trả lời rõ ràng. → ___", a: "The interviewee often answers questions clearly.", lesson: "'Answer' + object." },
+            { type: "fill_blank", script: "Every interviewee needs confidence.", q: "(Dịch sang tiếng Anh) Mỗi người đi phỏng vấn cần sự tự tin. → ___", a: "Every interviewee needs confidence.", lesson: "'Need' + noun." },
+
+            // ========================= INTERVIEWER =========================
+            { type: "fill_blank", script: "The interviewer usually asks many questions.", q: "(Dịch sang tiếng Anh) Người phỏng vấn thường hỏi nhiều câu hỏi. → ___", a: "The interviewer usually asks many questions.", lesson: "'Ask' + question." },
+            { type: "fill_blank", script: "The interviewer often listens carefully.", q: "(Dịch sang tiếng Anh) Người phỏng vấn thường lắng nghe cẩn thận. → ___", a: "The interviewer often listens carefully.", lesson: "He/She/It + listens." },
+            { type: "fill_blank", script: "The interviewer always checks your skills.", q: "(Dịch sang tiếng Anh) Người phỏng vấn luôn kiểm tra kỹ năng của bạn. → ___", a: "The interviewer always checks your skills.", lesson: "'Check' + object." },
+
+            // ========================= SKILLS =========================
+            { type: "fill_blank", script: "She always has good communication skills.", q: "(Dịch sang tiếng Anh) Cô ấy luôn có kỹ năng giao tiếp tốt. → ___", a: "She always has good communication skills.", lesson: "'Skills' thường ở dạng số nhiều." },
+            { type: "fill_blank", script: "You often need computer skills for this job.", q: "(Dịch sang tiếng Anh) Bạn thường cần kỹ năng máy tính cho công việc này. → ___", a: "You often need computer skills for this job.", lesson: "'Need' + noun." },
+            { type: "fill_blank", script: "He usually improves his English skills.", q: "(Dịch sang tiếng Anh) Anh ấy thường cải thiện kỹ năng tiếng Anh. → ___", a: "He usually improves his English skills.", lesson: "He + V-s → improves." },
+
+            // ========================= EXPERIENCE =========================
+            { type: "fill_blank", script: "She always has a lot of work experience.", q: "(Dịch sang tiếng Anh) Cô ấy luôn có nhiều kinh nghiệm làm việc. → ___", a: "She always has a lot of work experience.", lesson: "'Experience' không đếm được." },
+            { type: "fill_blank", script: "He often gains experience from his job.", q: "(Dịch sang tiếng Anh) Anh ấy thường có kinh nghiệm từ công việc. → ___", a: "He often gains experience from his job.", lesson: "'Gain experience' = tích lũy kinh nghiệm." },
+            { type: "fill_blank", script: "Experience is always important for this job.", q: "(Dịch sang tiếng Anh) Kinh nghiệm luôn quan trọng cho công việc này. → ___", a: "Experience is always important for this job.", lesson: "'Be important for'." },
+
+            // ========================= QUALITIES =========================
+            { type: "fill_blank", script: "Good qualities always help you get a job.", q: "(Dịch sang tiếng Anh) Phẩm chất tốt luôn giúp bạn có việc. → ___", a: "Good qualities always help you get a job.", lesson: "'Help + V'." },
+            { type: "fill_blank", script: "Honesty is always an important quality.", q: "(Dịch sang tiếng Anh) Trung thực luôn là phẩm chất quan trọng. → ___", a: "Honesty is always an important quality.", lesson: "Danh từ số ít." },
+            { type: "fill_blank", script: "She usually shows good qualities at work.", q: "(Dịch sang tiếng Anh) Cô ấy thường thể hiện phẩm chất tốt ở nơi làm việc. → ___", a: "She usually shows good qualities at work.", lesson: "He/She + shows." },
+
+            // ========================= COLLEAGUES =========================
+            { type: "fill_blank", script: "My colleagues are always friendly.", q: "(Dịch sang tiếng Anh) Đồng nghiệp của tôi luôn thân thiện. → ___", a: "My colleagues are always friendly.", lesson: "Be + adj." },
+            { type: "fill_blank", script: "He often works with his colleagues.", q: "(Dịch sang tiếng Anh) Anh ấy thường làm việc với đồng nghiệp. → ___", a: "He often works with his colleagues.", lesson: "He + works." },
+            { type: "fill_blank", script: "She always helps her colleagues.", q: "(Dịch sang tiếng Anh) Cô ấy luôn giúp đồng nghiệp. → ___", a: "She always helps her colleagues.", lesson: "He/She + V-s." },
+
+            // ========================= VOCATIONAL TRAINING =========================
+            { type: "fill_blank", script: "He usually takes vocational training.", q: "(Dịch sang tiếng Anh) Anh ấy thường học đào tạo nghề. → ___", a: "He usually takes vocational training.", lesson: "He + takes." },
+            { type: "fill_blank", script: "Vocational training often helps students get jobs.", q: "(Dịch sang tiếng Anh) Đào tạo nghề thường giúp học sinh có việc. → ___", a: "Vocational training often helps students get jobs.", lesson: "'Help + V'." },
+            { type: "fill_blank", script: "Many students usually choose vocational training.", q: "(Dịch sang tiếng Anh) Nhiều học sinh thường chọn đào tạo nghề. → ___", a: "Many students usually choose vocational training.", lesson: "Số nhiều → dùng 'choose' (không thêm s)." },
           ],
           medium: [
             { type: "multiple_choice", q: "'Pick up' có nghĩa là gì?", options: ["Đi chơi", "Nhặt lên / Học lỏm", "Đi học"], a: "Nhặt lên / Học lỏm", lesson: "Pick up: Học lỏm (ngôn ngữ) hoặc nhặt vật gì đó lên." },
@@ -6112,6 +6307,231 @@
             { type: "multiple_choice", script: "Is the post office near the bank? Yes, it is. Go straight. Turn right at the bank. The post office is next to the bank. It is a small building. You can send letters there. It is very convenient.", q: "Where is the post office?", options: ["next to the bank", "opposite the bank", "behind the bank"], a: "next to the bank", lesson: "Xác nhận giới từ vị trí: 'next to'." },
             { type: "multiple_choice", script: "How can I get to the sports center? Walk straight. Turn left at the stadium. Go past the gym. The sports center is opposite the gym. It is very large. You can play many sports there. It is a modern place.", q: "Is the sports center opposite the gym?", options: ["Yes", "No"], a: "Yes", lesson: "Xác nhận vị trí." },
             { type: "fill_blank", script: "Where is the candy shop? Go straight. Turn right at the toy store. Walk past the bakery. The candy shop is on your left. It has many sweet things. I love buying chocolate there. It is my favorite shop.", q: "I love buying ___ at the candy shop.", a: "chocolate", lesson: "Nghe danh từ đồ ăn: 'chocolate'." }
+          ],
+          hard: [
+            { type: "multiple_choice", script: "Attention students: the school trip has been postponed to next Friday due to bad weather.", q: "What happened to the school trip?", options: ["trip cancelled", "trip moved to next Friday", "trip on this Friday"], a: "trip moved to next Friday", lesson: "'Postponed' = hoãn lại. 'Due to bad weather' = do thời tiết xấu." },
+            { type: "multiple_choice", script: "I've worked here for 3 years. Before that, I was in Hanoi.", q: "How long has the speaker worked at the current job?", options: ["1 year", "3 years", "in Hanoi"], a: "3 years", lesson: "'Have worked for 3 years' → Hiện tại hoàn thành chỉ khoảng thời gian: 3 năm." },
+            { type: "fill_blank", script: "She said she would be there at 8.", q: "Complete the reported speech: She said she ___ be there at 8.", a: "would", lesson: "Câu tường thuật (Reported Speech): will → would khi tường thuật lại." },
+          ]
+        }
+      },
+      phrasalverb: {
+        title: "Cụm Động Từ", icon: "🎧",
+        theory: `<strong>1. Đọc câu hỏi trước:</strong> Xác định thông tin cần tìm.<br><strong>2. Nghe lần 1:</strong> Nắm ý chính, bối cảnh.<br><strong>3. Nghe lần 2:</strong> Tìm thông tin chi tiết.<br><strong>4. Chú ý từ khóa:</strong> Tên người, địa điểm, số, thời gian.<br><strong>Dạng bài:</strong> True/False, Multiple choice, Fill in blank, Matching.`,
+        levels: {
+          easy: [
+            { type: "multiple_choice", script: "Pick up.", q: "'Nhặt lên / học lỏm' là gì?", options: ["Pick up", "Look up", "Give up"], a: "Pick up", lesson: "'Pick up' có nghĩa là nhặt lên hoặc học được một kỹ năng/ngôn ngữ một cách tự nhiên qua tiếp xúc." },
+            { type: "multiple_choice", script: "Pick up.", q: "What does 'Pick up' mean?", options: ["Nhặt lên / học lỏm", "Tra cứu", "Từ bỏ"], a: "Nhặt lên / học lỏm", lesson: "Dùng 'pick up' khi nói về việc nhặt đồ hoặc học ngôn ngữ một cách tự nhiên." },
+            { type: "fill_blank", script: "Pick up.", q: "Nghe và điền: ___", a: "Pick up", lesson: "Cụm động từ 'pick up' thường đi với 'language' hoặc 'objects'." },
+            { type: "fill_blank", script: "She picked up French quickly.", q: "She ___ French quickly.", a: "picked up", lesson: "Quá khứ của 'pick up' là 'picked up', dùng khi hành động đã xảy ra." },
+
+            { type: "multiple_choice", script: "Look up.", q: "'Tra cứu' là gì?", options: ["Look up", "Look for", "Give up"], a: "Look up", lesson: "'Look up' dùng khi tra nghĩa từ trong từ điển hoặc tìm thông tin." },
+            { type: "multiple_choice", script: "Look up.", q: "What does 'Look up' mean?", options: ["Tra cứu", "Tìm kiếm", "Mang theo"], a: "Tra cứu", lesson: "Phân biệt: 'look up' = tra cứu, 'look for' = tìm kiếm." },
+            { type: "fill_blank", script: "Look up.", q: "Nghe và điền: ___", a: "Look up", lesson: "'Look up' thường đi với 'words', 'information'." },
+            { type: "fill_blank", script: "You should look up new words.", q: "You should ___ new words.", a: "look up", lesson: "Sau 'should' dùng động từ nguyên mẫu: look up." },
+
+            { type: "multiple_choice", script: "Take up.", q: "'Bắt đầu (sở thích)' là gì?", options: ["Take up", "Give up", "Bring along"], a: "Take up", lesson: "'Take up' dùng khi bắt đầu một sở thích, môn thể thao hoặc hoạt động mới." },
+            { type: "multiple_choice", script: "Take up.", q: "What does 'Take up' mean?", options: ["Bắt đầu (sở thích)", "Từ bỏ", "Mang theo"], a: "Bắt đầu (sở thích)", lesson: "Ví dụ: take up a sport = bắt đầu chơi một môn thể thao." },
+            { type: "fill_blank", script: "Take up.", q: "Nghe và điền: ___", a: "Take up", lesson: "'Take up' thường đi với hobby, sport." },
+            { type: "fill_blank", script: "He took up football.", q: "He ___ football.", a: "took up", lesson: "Quá khứ của 'take up' là 'took up'." },
+
+            { type: "multiple_choice", script: "Carry out.", q: "'Thực hiện (kế hoạch)' là gì?", options: ["Carry out", "Give up", "Put up"], a: "Carry out", lesson: "'Carry out' nghĩa là thực hiện một kế hoạch, nhiệm vụ hoặc dự án." },
+            { type: "multiple_choice", script: "Carry out.", q: "What does 'Carry out' mean?", options: ["Thực hiện", "Từ bỏ", "Dựng lên"], a: "Thực hiện", lesson: "Thường dùng trong văn viết: carry out a plan/project." },
+            { type: "fill_blank", script: "Carry out.", q: "Nghe và điền: ___", a: "Carry out", lesson: "Dạng V-ing: carrying out." },
+            { type: "fill_blank", script: "They are carrying out a project.", q: "They are ___ a project.", a: "carrying out", lesson: "Sau 'are' dùng V-ing: carrying out." },
+
+            { type: "multiple_choice", script: "Give up.", q: "'Từ bỏ' là gì?", options: ["Give up", "Take up", "Look up"], a: "Give up", lesson: "'Give up' nghĩa là dừng làm điều gì đó hoặc bỏ cuộc." },
+            { type: "multiple_choice", script: "Give up.", q: "What does 'Give up' mean?", options: ["Từ bỏ", "Bắt đầu", "Tra cứu"], a: "Từ bỏ", lesson: "Ví dụ: give up smoking = bỏ hút thuốc." },
+            { type: "fill_blank", script: "Give up.", q: "Nghe và điền: ___", a: "Give up", lesson: "'Give up' là cụm động từ phổ biến trong lời khuyên." },
+            { type: "fill_blank", script: "Don't give up.", q: "Don't ___ up.", a: "give", lesson: "Cấu trúc mệnh lệnh phủ định: Don't + V nguyên mẫu." },
+
+            { type: "multiple_choice", script: "Break down.", q: "'Bị hỏng' là gì?", options: ["Break down", "Bring along", "Get around"], a: "Break down", lesson: "'Break down' dùng khi máy móc hoặc xe cộ bị hỏng." },
+            { type: "multiple_choice", script: "Break down.", q: "What does 'Break down' mean?", options: ["Bị hỏng", "Mang theo", "Di chuyển"], a: "Bị hỏng", lesson: "Thường dùng cho car, machine." },
+            { type: "fill_blank", script: "Break down.", q: "Nghe và điền: ___", a: "Break down", lesson: "Quá khứ: broke down." },
+            { type: "fill_blank", script: "The car broke down.", q: "The car ___ down.", a: "broke", lesson: "Break → broke (quá khứ), dùng khi sự việc đã xảy ra." },
+
+            { type: "multiple_choice", script: "Bring along.", q: "'Mang theo' là gì?", options: ["Bring along", "Give up", "Look for"], a: "Bring along", lesson: "'Bring along' nghĩa là mang theo cái gì đó khi đi đâu." },
+            { type: "multiple_choice", script: "Bring along.", q: "What does 'Bring along' mean?", options: ["Mang theo", "Từ bỏ", "Tìm kiếm"], a: "Mang theo", lesson: "Ví dụ: bring along your book." },
+            { type: "fill_blank", script: "Bring along.", q: "Nghe và điền: ___", a: "Bring along", lesson: "'Bring' là động từ bất quy tắc." },
+            { type: "fill_blank", script: "Bring along your bag.", q: "___ along your bag.", a: "Bring", lesson: "Câu mệnh lệnh dùng động từ nguyên mẫu." },
+
+            { type: "multiple_choice", script: "Look forward to.", q: "'Mong đợi' là gì?", options: ["Look forward to", "Look for", "Apply for"], a: "Look forward to", lesson: "'Look forward to' nghĩa là mong chờ điều gì trong tương lai." },
+            { type: "multiple_choice", script: "Look forward to.", q: "What does 'Look forward to' mean?", options: ["Mong đợi", "Tìm kiếm", "Ứng tuyển"], a: "Mong đợi", lesson: "Sau 'to' phải dùng V-ing." },
+            { type: "fill_blank", script: "Look forward to.", q: "Nghe và điền: ___", a: "Look forward to", lesson: "Luôn đi với V-ing." },
+            { type: "fill_blank", script: "I look forward to meeting you.", q: "I look forward to ___ you.", a: "meeting", lesson: "Sau 'to' dùng dạng V-ing: meeting." },
+
+            { type: "multiple_choice", script: "Apply for.", q: "'Nộp đơn' là gì?", options: ["Apply for", "Look for", "Give up"], a: "Apply for", lesson: "'Apply for' nghĩa là nộp đơn xin việc hoặc khóa học." },
+            { type: "multiple_choice", script: "Apply for.", q: "What does 'Apply for' mean?", options: ["Nộp đơn", "Tìm kiếm", "Từ bỏ"], a: "Nộp đơn", lesson: "Ví dụ: apply for a job." },
+            { type: "fill_blank", script: "Apply for.", q: "Nghe và điền: ___", a: "Apply for", lesson: "Thường đi với job, position." },
+            { type: "fill_blank", script: "She applied for a job.", q: "She ___ for a job.", a: "applied", lesson: "Quá khứ của apply là applied." },
+
+            { type: "multiple_choice", script: "Look for.", q: "'Tìm kiếm' là gì?", options: ["Look for", "Look up", "Pick up"], a: "Look for", lesson: "'Look for' nghĩa là cố gắng tìm thứ gì đó." },
+            { type: "multiple_choice", script: "Look for.", q: "What does 'Look for' mean?", options: ["Tìm kiếm", "Tra cứu", "Nhặt"], a: "Tìm kiếm", lesson: "Phân biệt với 'look up' = tra cứu." },
+            { type: "fill_blank", script: "Look for.", q: "Nghe và điền: ___", a: "Look for", lesson: "'Look for' đi với object cần tìm." },
+            { type: "fill_blank", script: "I am looking for my keys.", q: "I am ___ for my keys.", a: "looking", lesson: "Thì hiện tại tiếp diễn: am/is/are + V-ing." },
+            { type: "multiple_choice", script: "While living in France, Marie picked up French quickly.", q: "'Học lỏm ngôn ngữ' là gì?", options: ["Pick up", "Look up", "Take up"], a: "Pick up", lesson: "'Pick up' có thể nghĩa là học ngôn ngữ một cách tự nhiên qua giao tiếp, không phải học chính thức." },
+            { type: "multiple_choice", script: "While living in France, Marie picked up French quickly.", q: "What does 'picked up French' mean?", options: ["Học lỏm tiếng Pháp", "Tra cứu tiếng Pháp", "Bắt đầu học tiếng Pháp"], a: "Học lỏm tiếng Pháp", lesson: "'Picked up' (quá khứ) nhấn mạnh việc học nhanh qua môi trường thực tế." },
+            { type: "fill_blank", script: "Pick up.", q: "Nghe và điền: ___", a: "Pick up", lesson: "Cụm này thường dùng với 'language' hoặc 'skills'." },
+            { type: "fill_blank", script: "You may pick up some small flowers.", q: "You may ___ up some small flowers.", a: "pick", lesson: "Trong câu này 'pick up' mang nghĩa 'nhặt/lấy lên'." },
+
+            { type: "multiple_choice", script: "You should look them up in the dictionary.", q: "'Tra cứu' là gì?", options: ["Look up", "Look for", "Look after"], a: "Look up", lesson: "'Look up' dùng khi tra thông tin, đặc biệt là từ trong từ điển." },
+            { type: "multiple_choice", script: "You should look them up in the dictionary.", q: "What does 'look them up' mean?", options: ["Tra cứu chúng", "Tìm kiếm chúng", "Nhìn vào chúng"], a: "Tra cứu chúng", lesson: "Phân biệt: look up (tra cứu) ≠ look for (tìm kiếm)." },
+            { type: "fill_blank", script: "Look up.", q: "Nghe và điền: ___", a: "Look up", lesson: "Thường đi với 'words', 'meanings', 'information'." },
+            { type: "fill_blank", script: "You should look up new words.", q: "You should ___ up new words.", a: "look", lesson: "Sau 'should' dùng động từ nguyên mẫu." },
+
+            { type: "multiple_choice", script: "Teenagers should take up a sport they enjoy.", q: "'Bắt đầu một sở thích' là gì?", options: ["Take up", "Give up", "Bring along"], a: "Take up", lesson: "'Take up' dùng khi bắt đầu một hoạt động mới như sport/hobby." },
+            { type: "multiple_choice", script: "Teenagers should take up a sport they enjoy.", q: "What does 'take up a sport' mean?", options: ["Bắt đầu chơi thể thao", "Từ bỏ thể thao", "Mang theo thể thao"], a: "Bắt đầu chơi thể thao", lesson: "Không nhầm với 'give up' = từ bỏ." },
+            { type: "fill_blank", script: "Take up.", q: "Nghe và điền: ___", a: "Take up", lesson: "Cụm này thường đi với 'sport', 'hobby'." },
+            { type: "fill_blank", script: "He took up basketball last year.", q: "He ___ up basketball last year.", a: "took", lesson: "'Take' → 'took' (quá khứ bất quy tắc)." },
+
+            { type: "multiple_choice", script: "They are carrying out a project.", q: "'Thực hiện (dự án)' là gì?", options: ["Carry out", "Put up", "Bring along"], a: "Carry out", lesson: "'Carry out' nghĩa là tiến hành hoặc thực hiện kế hoạch/dự án." },
+            { type: "multiple_choice", script: "They are carrying out a project.", q: "What does 'carrying out' mean?", options: ["Đang thực hiện", "Đang dựng lên", "Đang mang theo"], a: "Đang thực hiện", lesson: "Dạng V-ing dùng với thì hiện tại tiếp diễn." },
+            { type: "fill_blank", script: "Carry out.", q: "Nghe và điền: ___", a: "Carry out", lesson: "Cấu trúc: carry out + plan/project." },
+            { type: "fill_blank", script: "They are carrying out a plan.", q: "They are ___ out a plan.", a: "carrying", lesson: "Sau 'are' dùng V-ing." },
+
+            { type: "multiple_choice", script: "Don't give up! You will succeed.", q: "'Từ bỏ' là gì?", options: ["Give up", "Take up", "Look up"], a: "Give up", lesson: "'Give up' nghĩa là dừng cố gắng hoặc bỏ cuộc." },
+            { type: "multiple_choice", script: "Don't give up! You will succeed.", q: "What does 'give up' mean?", options: ["Từ bỏ", "Bắt đầu", "Tra cứu"], a: "Từ bỏ", lesson: "Thường dùng trong lời khuyên hoặc động viên." },
+            { type: "fill_blank", script: "Give up.", q: "Nghe và điền: ___", a: "Give up", lesson: "Cụm này rất phổ biến trong giao tiếp." },
+            { type: "fill_blank", script: "Don't give up easily.", q: "Don't ___ up easily.", a: "give", lesson: "Câu mệnh lệnh: Don't + V nguyên mẫu." },
+
+            { type: "multiple_choice", script: "Our car broke down on the way.", q: "'Bị hỏng' là gì?", options: ["Break down", "Get around", "Bring along"], a: "Break down", lesson: "'Break down' dùng cho máy móc hoặc xe cộ bị hỏng." },
+            { type: "multiple_choice", script: "Our car broke down on the way.", q: "What does 'broke down' mean?", options: ["Bị hỏng", "Di chuyển", "Mang theo"], a: "Bị hỏng", lesson: "Dạng quá khứ của 'break down' là 'broke down'." },
+            { type: "fill_blank", script: "Break down.", q: "Nghe và điền: ___", a: "Break down", lesson: "Thường đi với 'car', 'machine'." },
+            { type: "fill_blank", script: "The machine broke down suddenly.", q: "The machine ___ down suddenly.", a: "broke", lesson: "'Break' → 'broke' (quá khứ)." },
+
+            { type: "multiple_choice", script: "Don't bring flowers along.", q: "'Mang theo' là gì?", options: ["Bring along", "Put up", "Look for"], a: "Bring along", lesson: "'Bring along' nghĩa là mang theo thứ gì khi đi đâu đó." },
+            { type: "multiple_choice", script: "Don't bring flowers along.", q: "What does 'bring along' mean?", options: ["Mang theo", "Dựng lên", "Tìm kiếm"], a: "Mang theo", lesson: "Có thể đứng sau object hoặc tách ra." },
+            { type: "fill_blank", script: "Bring along.", q: "Nghe và điền: ___", a: "Bring along", lesson: "Động từ 'bring' là bất quy tắc." },
+            { type: "fill_blank", script: "Bring along your notebook.", q: "___ along your notebook.", a: "Bring", lesson: "Câu mệnh lệnh dùng động từ nguyên mẫu." },
+
+            { type: "multiple_choice", script: "She was brought up by her grandparents.", q: "'Nuôi nấng' là gì?", options: ["Brought up", "Put up", "Take up"], a: "Brought up", lesson: "'Bring up' (quá khứ: brought up) nghĩa là nuôi dạy một người." },
+            { type: "multiple_choice", script: "She was brought up by her grandparents.", q: "What does 'brought up' mean?", options: ["Được nuôi dạy", "Được dựng lên", "Được bắt đầu"], a: "Được nuôi dạy", lesson: "Thường dùng ở dạng bị động." },
+            { type: "fill_blank", script: "Bring up.", q: "Nghe và điền: ___ up", a: "Bring", lesson: "Cấu trúc: bring up (raise a child)." },
+            { type: "fill_blank", script: "They brought up three children.", q: "They ___ up three children.", a: "brought", lesson: "'Bring' → 'brought' (quá khứ)." },
+
+            { type: "multiple_choice", script: "They put up a new building.", q: "'Dựng lên' là gì?", options: ["Put up", "Bring along", "Look up"], a: "Put up", lesson: "'Put up' nghĩa là xây dựng hoặc dựng lên." },
+            { type: "multiple_choice", script: "They put up a new building.", q: "What does 'put up' mean?", options: ["Dựng lên", "Mang theo", "Tra cứu"], a: "Dựng lên", lesson: "Cũng có thể dùng với 'tent', 'sign'." },
+            { type: "fill_blank", script: "Put up.", q: "Nghe và điền: ___ up", a: "Put", lesson: "'Put' là động từ bất quy tắc (put–put–put)." },
+            { type: "fill_blank", script: "They put up a tent.", q: "They ___ up a tent.", a: "put", lesson: "Dạng quá khứ vẫn là 'put'." },
+
+            { type: "multiple_choice", script: "Getting around the city is easy.", q: "'Đi lại xung quanh' là gì?", options: ["Getting around", "Looking for", "Giving up"], a: "Getting around", lesson: "'Get around' nghĩa là di chuyển, đi lại trong một khu vực." },
+            { type: "multiple_choice", script: "Getting around the city is easy.", q: "What does 'getting around' mean?", options: ["Đi lại", "Từ bỏ", "Tìm kiếm"], a: "Đi lại", lesson: "Thường dùng khi nói về giao thông." },
+            { type: "fill_blank", script: "Get around.", q: "Nghe và điền: ___ around", a: "Get", lesson: "Dạng V-ing: getting around." },
+            { type: "fill_blank", script: "He is getting around the city.", q: "He is ___ around the city.", a: "getting", lesson: "Hiện tại tiếp diễn: is + V-ing." },
+
+            { type: "multiple_choice", script: "I am looking forward to seeing you.", q: "'Mong đợi' là gì?", options: ["Look forward to", "Look for", "Apply for"], a: "Look forward to", lesson: "'Look forward to' nghĩa là mong chờ điều gì đó trong tương lai." },
+            { type: "multiple_choice", script: "I am looking forward to seeing you.", q: "What does 'look forward to' mean?", options: ["Mong đợi", "Tìm kiếm", "Ứng tuyển"], a: "Mong đợi", lesson: "Sau 'to' phải dùng V-ing." },
+            { type: "fill_blank", script: "Look forward to.", q: "Nghe và điền: ___ forward to", a: "Look", lesson: "Cấu trúc cố định." },
+            { type: "fill_blank", script: "I look forward to meeting you.", q: "I look forward to ___ you.", a: "meeting", lesson: "Sau 'to' dùng V-ing." },
+
+            { type: "multiple_choice", script: "They plan to apply for a summer job.", q: "'Nộp đơn' là gì?", options: ["Apply for", "Look for", "Give up"], a: "Apply for", lesson: "'Apply for' dùng khi xin việc hoặc khóa học." },
+            { type: "multiple_choice", script: "They plan to apply for a summer job.", q: "What does 'apply for' mean?", options: ["Nộp đơn", "Tìm kiếm", "Từ bỏ"], a: "Nộp đơn", lesson: "Đi với 'job', 'position'." },
+            { type: "fill_blank", script: "Apply for.", q: "Nghe và điền: ___ for", a: "Apply", lesson: "Cấu trúc: apply for + noun." },
+            { type: "fill_blank", script: "She applied for a job.", q: "She ___ for a job.", a: "applied", lesson: "'Apply' → 'applied' (quá khứ)." },
+
+            { type: "multiple_choice", script: "I am looking for my keys.", q: "'Tìm kiếm' là gì?", options: ["Look for", "Look up", "Pick up"], a: "Look for", lesson: "'Look for' nghĩa là cố gắng tìm thứ gì đó." },
+            { type: "multiple_choice", script: "I am looking for my keys.", q: "What does 'look for' mean?", options: ["Tìm kiếm", "Tra cứu", "Nhặt"], a: "Tìm kiếm", lesson: "Khác với 'look up' = tra cứu." },
+            { type: "fill_blank", script: "Look for.", q: "Nghe và điền: ___ for", a: "Look", lesson: "Cấu trúc cơ bản của cụm động từ." },
+            { type: "fill_blank", script: "She is looking for her phone.", q: "She is ___ for her phone.", a: "looking", lesson: "Hiện tại tiếp diễn: is + V-ing." }
+          ],
+          medium: [
+            // =========================
+            // PICK UP (READING)
+            // =========================
+            { type: "multiple_choice", script: "While living in France, Marie stayed with a local family and picked up French quite quickly.", q: "While living in France, Marie stayed with a local family and picked up French quite quickly. 'Học lỏm ngôn ngữ' là gì?", options: ["Pick up", "Look up", "Give up"], a: "Pick up", lesson: "Trong ngữ cảnh này, 'pick up' nghĩa là học ngôn ngữ một cách tự nhiên thông qua giao tiếp hằng ngày, không học chính thức." },
+            { type: "multiple_choice", script: "While living in France, Marie stayed with a local family and picked up French quite quickly.", q: "While living in France, Marie stayed with a local family and picked up French quite quickly. What does 'picked up French' mean?", options: ["Học lỏm tiếng Pháp", "Tra cứu tiếng Pháp", "Bắt đầu học tiếng Pháp"], a: "Học lỏm tiếng Pháp", lesson: "'Picked up' là dạng quá khứ của 'pick up', nhấn mạnh việc học nhanh nhờ môi trường thực tế." },
+            { type: "fill_blank", script: "While living in France, Marie picked up French quickly.", q: "While living in France, Marie ___ French quickly.", a: "picked up", lesson: "'Pick up' → 'picked up' (quá khứ). Cụm này thường đi với language hoặc skills." },
+            { type: "fill_blank", script: "She picked up French naturally by talking to locals.", q: "She ___ French naturally by talking to locals.", a: "picked up", lesson: "Dùng 'picked up' vì hành động đã xảy ra; nghĩa là học một cách tự nhiên qua giao tiếp." },
+
+            // =========================
+            // LOOK UP (READING)
+            // =========================
+            { type: "multiple_choice", script: "Tom found many new words and decided to look them up in a dictionary to understand the text better.", q: "Tom found many new words and decided to look them up in a dictionary to understand the text better. 'Tra cứu' là gì?", options: ["Look up", "Look for", "Look after"], a: "Look up", lesson: "'Look up' nghĩa là tra thông tin, đặc biệt là từ hoặc nghĩa trong từ điển." },
+            { type: "multiple_choice", script: "Tom found many new words and decided to look them up in a dictionary to understand the text better.", q: "Tom found many new words and decided to look them up in a dictionary to understand the text better. What does 'look them up' mean?", options: ["Tra cứu chúng", "Tìm kiếm chúng", "Nhìn vào chúng"], a: "Tra cứu chúng", lesson: "Phân biệt: 'look up' = tra cứu, còn 'look for' = tìm kiếm thứ bị mất." },
+            { type: "fill_blank", script: "Tom decided to look up the new words.", q: "Tom decided to ___ up the new words.", a: "look", lesson: "Sau 'to' dùng động từ nguyên mẫu. Cấu trúc: look up + object." },
+            { type: "fill_blank", script: "You should look up new words in a dictionary.", q: "You should ___ up new words in a dictionary.", a: "look", lesson: "Sau 'should' dùng động từ nguyên mẫu. 'Look up' thường đi với 'words' hoặc 'information'." },
+
+            // =========================
+            // TAKE UP (READING)
+            // =========================
+            { type: "multiple_choice", script: "Lan wanted to be healthier, so she decided to take up swimming after the summer holiday.", q: "Lan wanted to be healthier, so she decided to take up swimming after the summer holiday. 'Bắt đầu một sở thích' là gì?", options: ["Take up", "Give up", "Bring along"], a: "Take up", lesson: "'Take up' nghĩa là bắt đầu một hoạt động mới như sport hoặc hobby." },
+            { type: "multiple_choice", script: "Lan wanted to be healthier, so she decided to take up swimming after the summer holiday.", q: "Lan wanted to be healthier, so she decided to take up swimming after the summer holiday. What does 'take up swimming' mean?", options: ["Bắt đầu bơi", "Từ bỏ bơi", "Mang theo bơi"], a: "Bắt đầu bơi", lesson: "'Take up' ≠ 'give up'. 'Take up' là bắt đầu, còn 'give up' là từ bỏ." },
+            { type: "fill_blank", script: "She took up swimming last month to stay fit.", q: "She ___ up swimming last month to stay fit.", a: "took", lesson: "'Take' → 'took' là dạng quá khứ. Cụm 'take up' giữ nguyên khi chia thì." },
+            { type: "fill_blank", script: "Teenagers should take up a sport they enjoy.", q: "Teenagers should ___ up a sport they enjoy.", a: "take", lesson: "Sau 'should' dùng động từ nguyên mẫu. 'Take up' thường đi với sport hoặc hobby." },
+
+            // =========================
+            // BREAK DOWN (READING)
+            // =========================
+            { type: "multiple_choice", script: "On the way to the beach, their car suddenly broke down and they had to wait for help.", q: "On the way to the beach, their car suddenly broke down and they had to wait for help. 'Bị hỏng (xe cộ)' là gì?", options: ["Break down", "Get around", "Bring along"], a: "Break down", lesson: "'Break down' dùng khi xe hoặc máy móc ngừng hoạt động bất ngờ." },
+            { type: "multiple_choice", script: "On the way to the beach, their car suddenly broke down and they had to wait for help.", q: "On the way to the beach, their car suddenly broke down and they had to wait for help. What does 'broke down' mean?", options: ["Bị hỏng", "Di chuyển", "Mang theo"], a: "Bị hỏng", lesson: "'Broke down' là dạng quá khứ của 'break down'." },
+            { type: "fill_blank", script: "Their car broke down on the way to the beach.", q: "Their car ___ down on the way to the beach.", a: "broke", lesson: "'Break' → 'broke' (quá khứ). Cụm 'break down' giữ nguyên cấu trúc." },
+            { type: "fill_blank", script: "The bus broke down, so everyone had to wait.", q: "The bus ___ down, so everyone had to wait.", a: "broke", lesson: "Dùng 'broke down' để diễn tả sự cố máy móc trong quá khứ." },
+            // =========================
+            // CARRY OUT (READING)
+            // =========================
+            { type: "multiple_choice", script: "Artisans are carrying out a project to protect local handicrafts from being lost in the future.", q: "Artisans are carrying out a project to protect local handicrafts from being lost in the future. 'Tiến hành, thực hiện' là gì?", options: ["Carry out", "Give up", "Put up"], a: "Carry out", lesson: "'Carry out' nghĩa là thực hiện một kế hoạch, dự án hoặc nhiệm vụ. Thường dùng trong ngữ cảnh trang trọng." },
+            { type: "multiple_choice", script: "Artisans are carrying out a project to protect local handicrafts from being lost in the future.", q: "Artisans are carrying out a project to protect local handicrafts from being lost in the future. What does 'carrying out a project' mean?", options: ["Thực hiện dự án", "Từ bỏ dự án", "Xây dựng dự án"], a: "Thực hiện dự án", lesson: "'Carrying out' là dạng V-ing của 'carry out', dùng để nhấn mạnh hành động đang diễn ra." },
+            { type: "fill_blank", script: "They are carrying out an important plan.", q: "They are ___ out an important plan.", a: "carrying", lesson: "Thì hiện tại tiếp diễn: are + V-ing. 'Carry' → 'carrying'." },
+            { type: "fill_blank", script: "The team carried out the project successfully.", q: "The team ___ out the project successfully.", a: "carried", lesson: "'Carry' → 'carried' (quá khứ). 'Carry out' giữ nguyên cụm khi chia thì." },
+
+            // =========================
+            // GIVE UP (READING)
+            // =========================
+            { type: "multiple_choice", script: "He failed many times, but he didn’t give up and finally achieved his goal.", q: "He failed many times, but he didn’t give up and finally achieved his goal. 'Từ bỏ' là gì?", options: ["Give up", "Take up", "Look up"], a: "Give up", lesson: "'Give up' nghĩa là từ bỏ hoặc dừng cố gắng làm một việc gì đó." },
+            { type: "multiple_choice", script: "He failed many times, but he didn’t give up and finally achieved his goal.", q: "He failed many times, but he didn’t give up and finally achieved his goal. What does 'didn’t give up' mean?", options: ["Không bỏ cuộc", "Bắt đầu lại", "Tra cứu"], a: "Không bỏ cuộc", lesson: "'Didn’t give up' là phủ định quá khứ, nhấn mạnh sự kiên trì." },
+            { type: "fill_blank", script: "Don’t give up when you face difficulties.", q: "Don’t ___ up when you face difficulties.", a: "give", lesson: "Câu mệnh lệnh dùng động từ nguyên mẫu. 'Give up' là cụm cố định." },
+            { type: "fill_blank", script: "She gave up smoking last year.", q: "She ___ up smoking last year.", a: "gave", lesson: "'Give' → 'gave' (quá khứ). 'Give up' thường đi với V-ing (smoking)." },
+
+
+            // =========================
+            // BRING ALONG (READING)
+            // =========================
+            { type: "multiple_choice", script: "You should bring along some water and snacks for the trip because it will be a long journey.", q: "You should bring along some water and snacks for the trip because it will be a long journey. 'Mang theo' là gì?", options: ["Bring along", "Take up", "Look for"], a: "Bring along", lesson: "'Bring along' nghĩa là mang theo thứ gì đó khi đi đâu, thường dùng trong tình huống di chuyển." },
+            { type: "multiple_choice", script: "You should bring along some water and snacks for the trip because it will be a long journey.", q: "You should bring along some water and snacks for the trip because it will be a long journey. What does 'bring along' mean?", options: ["Mang theo", "Từ bỏ", "Tìm kiếm"], a: "Mang theo", lesson: "'Bring along' nhấn mạnh việc mang theo đồ vật cùng mình đến một nơi khác." },
+            { type: "fill_blank", script: "Don’t forget to bring along your ID card.", q: "Don’t forget to ___ along your ID card.", a: "bring", lesson: "Sau 'to' hoặc câu mệnh lệnh dùng động từ nguyên mẫu." },
+            { type: "fill_blank", script: "She brought along her little brother to the party.", q: "She ___ along her little brother to the party.", a: "brought", lesson: "'Bring' → 'brought' (quá khứ)." },
+
+
+            // =========================
+            // BROUGHT UP (READING)
+            // =========================
+            { type: "multiple_choice", script: "She was brought up in a small village where everyone knew each other very well.", q: "She was brought up in a small village where everyone knew each other very well. 'Nuôi nấng' là gì?", options: ["Bring up", "Put up", "Get around"], a: "Bring up", lesson: "'Bring up' nghĩa là nuôi dạy một đứa trẻ. Thường dùng ở dạng bị động: 'was brought up'." },
+            { type: "multiple_choice", script: "She was brought up in a small village where everyone knew each other very well.", q: "She was brought up in a small village where everyone knew each other very well. What does 'was brought up' mean?", options: ["Được nuôi lớn", "Được xây dựng", "Được mang theo"], a: "Được nuôi lớn", lesson: "Cấu trúc bị động: was + V3. 'Brought up' là quá khứ phân từ của 'bring up'." },
+            { type: "fill_blank", script: "He was brought up by his grandparents.", q: "He was ___ up by his grandparents.", a: "brought", lesson: "Câu bị động: was + V3. 'Bring' → 'brought'." },
+            { type: "fill_blank", script: "They bring up their children carefully.", q: "They ___ up their children carefully.", a: "bring", lesson: "Hiện tại đơn dùng 'bring'. 'Bring up' nghĩa là nuôi dạy con cái." },
+
+
+            // =========================
+            // PUT UP (READING)
+            // =========================
+            { type: "multiple_choice", script: "They put up a new building in the city center to attract more tourists.", q: "They put up a new building in the city center to attract more tourists. 'Xây dựng, dựng lên' là gì?", options: ["Put up", "Carry out", "Give up"], a: "Put up", lesson: "'Put up' nghĩa là xây dựng hoặc dựng lên một công trình, biển báo, hoặc vật thể." },
+            { type: "multiple_choice", script: "They put up a new building in the city center to attract more tourists.", q: "They put up a new building in the city center to attract more tourists. What does 'put up a new building' mean?", options: ["Xây dựng tòa nhà", "Phá tòa nhà", "Mang theo tòa nhà"], a: "Xây dựng tòa nhà", lesson: "'Put up' dùng cho hành động tạo ra hoặc dựng lên một thứ gì đó." },
+            { type: "fill_blank", script: "They put up a tent near the river.", q: "They ___ up a tent near the river.", a: "put", lesson: "'Put' là động từ bất quy tắc, hiện tại và quá khứ giống nhau." },
+            { type: "fill_blank", script: "They put up many signs around the park.", q: "They ___ up many signs around the park.", a: "put", lesson: "'Put up' thường đi với tent, building, sign." },
+
+            // GET AROUND (READING)
+            // =========================
+            { type: "multiple_choice", script: "In big cities, people use buses and trains to get around more easily every day.", q: "In big cities, people use buses and trains to get around more easily every day. 'Đi lại, di chuyển' là gì?", options: ["Get around", "Look for", "Bring along"], a: "Get around", lesson: "'Get around' nghĩa là di chuyển từ nơi này đến nơi khác, đặc biệt trong thành phố." },
+            { type: "multiple_choice", script: "In big cities, people use buses and trains to get around more easily every day.", q: "In big cities, people use buses and trains to get around more easily every day. What does 'get around' mean?", options: ["Di chuyển", "Xây dựng", "Tìm kiếm"], a: "Di chuyển", lesson: "'Get around' thường đi với phương tiện giao thông như bus, train." },
+            { type: "fill_blank", script: "He uses a bike to get around the city.", q: "He uses a bike to ___ around the city.", a: "get", lesson: "Sau 'to' dùng động từ nguyên mẫu." },
+            { type: "fill_blank", script: "It is easy to get around by bus here.", q: "It is easy to ___ around by bus here.", a: "get", lesson: "'Get around' mô tả khả năng di chuyển." },
+            // LOOK FOR (READING)
+            // =========================
+            { type: "multiple_choice", script: "She is looking for her keys because she cannot find them anywhere in the house.", q: "She is looking for her keys because she cannot find them anywhere in the house. 'Tìm kiếm' là gì?", options: ["Look for", "Look up", "Look at"], a: "Look for", lesson: "'Look for' nghĩa là cố gắng tìm một thứ gì đó bị mất hoặc chưa thấy." },
+            { type: "multiple_choice", script: "She is looking for her keys because she cannot find them anywhere in the house.", q: "She is looking for her keys because she cannot find them anywhere in the house. What does 'looking for' mean?", options: ["Đang tìm kiếm", "Đang tra cứu", "Đang nhìn"], a: "Đang tìm kiếm", lesson: "Phân biệt: 'look for' (tìm kiếm) ≠ 'look up' (tra cứu)." },
+            { type: "fill_blank", script: "I am looking for my phone.", q: "I am ___ for my phone.", a: "looking", lesson: "Hiện tại tiếp diễn: am/is/are + V-ing." },
+            { type: "fill_blank", script: "They looked for the lost dog all day.", q: "They ___ for the lost dog all day.", a: "looked", lesson: "'Look' → 'looked' (quá khứ)." },
+            // APPLY FOR (READING)
+            // =========================
+            { type: "multiple_choice", script: "Many students plan to apply for a part-time job during the summer holiday.", q: "Many students plan to apply for a part-time job during the summer holiday. 'Nộp đơn' là gì?", options: ["Apply for", "Look for", "Give up"], a: "Apply for", lesson: "'Apply for' dùng khi nộp đơn xin việc, khóa học hoặc vị trí nào đó." },
+            { type: "multiple_choice", script: "Many students plan to apply for a part-time job during the summer holiday.", q: "Many students plan to apply for a part-time job during the summer holiday. What does 'apply for a job' mean?", options: ["Nộp đơn xin việc", "Tìm việc", "Bỏ việc"], a: "Nộp đơn xin việc", lesson: "'Apply for' thường đi với job, position, course." },
+            { type: "fill_blank", script: "She applied for a job last week.", q: "She ___ for a job last week.", a: "applied", lesson: "'Apply' → 'applied' (quá khứ, thêm -ed)." },
+            { type: "fill_blank", script: "They want to apply for a new position.", q: "They want to ___ for a new position.", a: "apply", lesson: "Sau 'to' dùng động từ nguyên mẫu." },
+            // =========================
+            { type: "multiple_choice", script: "I am looking forward to meeting my old friends after many years of studying abroad.", q: "I am looking forward to meeting my old friends after many years of studying abroad. 'Mong đợi' là gì?", options: ["Look forward to", "Look for", "Apply for"], a: "Look forward to", lesson: "'Look forward to' nghĩa là mong chờ một điều gì đó trong tương lai." },
+            { type: "multiple_choice", script: "I am looking forward to meeting my old friends after many years of studying abroad.", q: "I am looking forward to meeting my old friends after many years of studying abroad. What does 'looking forward to' mean?", options: ["Mong đợi", "Tìm kiếm", "Ứng tuyển"], a: "Mong đợi", lesson: "Sau 'to' trong cụm này phải dùng V-ing (meeting, seeing...)." },
+            { type: "fill_blank", script: "I look forward to seeing you soon.", q: "I look forward to ___ you soon.", a: "seeing", lesson: "Sau 'to' của cụm này dùng V-ing, không dùng động từ nguyên mẫu." },
+            { type: "fill_blank", script: "She is looking forward to the trip.", q: "She is ___ forward to the trip.", a: "looking", lesson: "Hiện tại tiếp diễn: is + V-ing." },
           ],
           hard: [
             { type: "multiple_choice", script: "Attention students: the school trip has been postponed to next Friday due to bad weather.", q: "What happened to the school trip?", options: ["trip cancelled", "trip moved to next Friday", "trip on this Friday"], a: "trip moved to next Friday", lesson: "'Postponed' = hoãn lại. 'Due to bad weather' = do thời tiết xấu." },
