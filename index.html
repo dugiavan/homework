@@ -168,10 +168,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      /* Căn giữa các phần tử con theo chiều ngang */
       justify-content: center;
       text-align: center;
+      /* Quan trọng: Căn giữa nội dung văn bản bên trong */
       padding: 2rem 2rem 3.8rem;
       min-height: 100vh;
+      width: 100%;
+      /* Đảm bảo chiếm hết chiều rộng màn hình */
     }
 
     .landing-badge {
@@ -207,9 +211,13 @@
       font-size: clamp(.92rem, 2.5vw, 1.1rem);
       color: var(--c-muted);
       font-weight: 400;
-      max-width: 440px;
+      max-width: 600px;
+      /* Tăng nhẹ độ rộng để dòng chữ dàn đều hơn */
       line-height: 1.65;
       animation: slideUp .5s ease .3s both;
+      margin-left: auto;
+      /* Kết hợp với margin-right để căn giữa khối */
+      margin-right: auto;
     }
 
     .landing-features {
@@ -1523,10 +1531,249 @@
       font-weight: 600;
     }
 
-    /* Responsive */
+    /* ══ LOGIN PAGE ══ */
+    #page-login {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* Căn giữa theo chiều ngang */
+      justify-content: center;
+      /* Căn giữa theo chiều dọc */
+      text-align: center;
+      padding: 1.5rem;
+      min-height: 100vh;
+      width: 100%;
+      /* Đảm bảo trang chiếm hết chiều rộng màn hình */
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+      /* Thêm dòng này để ép card vào giữa */
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem 2rem;
+      animation: scaleIn .4s ease;
+      background: white;
+      /* Đảm bảo có màu nền để nổi bật trên nền app */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      /* Thêm chút đổ bóng cho xịn */
+    }
+
+    .login-logo {
+      font-size: 2.8rem;
+      margin-bottom: .5rem;
+    }
+
+    .login-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--c-text);
+      margin-bottom: .25rem;
+    }
+
+    .login-subtitle {
+      font-size: .85rem;
+      color: var(--c-muted);
+      margin-bottom: 2rem;
+    }
+
+    .login-field {
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .login-field label {
+      display: block;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--c-muted);
+      margin-bottom: .45rem;
+    }
+
+    .login-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .login-input-icon {
+      position: absolute;
+      left: 1.2rem;
+      /* Tăng thêm một chút để không dính lề */
+      font-size: 1.1rem;
+      pointer-events: none;
+      opacity: 0.7;
+      /* Làm mờ nhẹ icon nhìn sẽ tinh tế hơn */
+    }
+
+    .login-input {
+      width: 100%;
+      padding: .88rem 1rem .88rem 2.9rem;
+      border-radius: 50px;
+      border: 1.5px solid rgba(99, 82, 180, .25);
+      background: rgba(255, 255, 255, 0.8);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      font-weight: 500;
+      color: var(--c-text);
+      outline: none;
+      transition: var(--transition);
+      box-shadow: 0 2px 10px rgba(99, 82, 180, .08);
+    }
+
+    .login-input:focus {
+      border-color: var(--c-accent);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 0 3px rgba(99, 82, 180, .15);
+    }
+
+    .login-input::placeholder {
+      color: #bbb;
+      font-weight: 400;
+    }
+
+    .btn-login {
+      width: 100%;
+      margin-top: 1.4rem;
+      padding: 1rem;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #6352b4, #4a2fa3);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 22px rgba(99, 82, 180, .34);
+      transition: var(--transition);
+    }
+
+    .btn-login:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(99, 82, 180, .42);
+    }
+
+    .btn-login:disabled {
+      opacity: .7;
+      cursor: not-allowed;
+    }
+
+    .login-error {
+      margin-top: .85rem;
+      padding: .7rem 1rem;
+      border-radius: var(--radius-sm);
+      background: rgba(220, 38, 38, .08);
+      border: 1px solid rgba(220, 38, 38, .22);
+      color: var(--c-danger);
+      font-size: .84rem;
+      font-weight: 600;
+      display: none;
+    }
+
+    .login-error.show {
+      display: block;
+      animation: slideUp .3s ease;
+    }
+
+    /* User info bar on landing page */
+    .user-info-bar {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(99, 82, 180, 0.15);
+      border-radius: 50px;
+      padding: .3rem .8rem .3rem .3rem;
+
+      /* --- PHẦN QUAN TRỌNG: ĐẨY LÊN GÓC --- */
+      position: absolute;
+      /* Bay lơ lửng */
+      top: 1.5rem;
+      /* Cách mép trên 1.5 đơn vị */
+      right: 1.5rem;
+      /* Cách mép phải 1.5 đơn vị */
+      margin: 0;
+      /* Bỏ margin thừa */
+      z-index: 100;
+      /* Đảm bảo luôn nằm trên các mục khác */
+
+      width: fit-content;
+      min-width: auto;
+      /* Bỏ min-width để nó gọn nhất có thể */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      animation: fadeInRight .5s ease;
+      /* Hiệu ứng bay từ phải vào cho đẹp */
+    }
+
+    /* Thêm hiệu ứng xuất hiện nhẹ nhàng */
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .user-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6352b4, #e07b5a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      box-shadow: 0 2px 5px rgba(99, 82, 180, 0.2);
+    }
+
+    .user-name-text {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--c-text);
+      white-space: nowrap;
+      /* Không cho tên bị xuống dòng */
+    }
+
+    .btn-logout {
+      margin-left: 0.5rem;
+      /* Khoảng cách nhỏ với tên */
+      background: rgba(220, 38, 38, 0.08);
+      border: none;
+      cursor: pointer;
+      color: #dc2626;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.7rem;
+      border-radius: 50px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-logout:hover {
+      background: #dc2626;
+      color: #fff;
+    }
+
+    /* Responsive – FIX content frame size */
     @media (max-width: 580px) {
       .inner-wrap {
-        padding: 1.5rem .9rem 4.5rem;
+        padding: 1.2rem .75rem 5rem;
+      }
+
+      .inner-wrap.narrow {
+        max-width: 100%;
+        padding: 1.2rem .75rem 5rem;
       }
 
       .topic-grid {
@@ -1534,7 +1781,59 @@
       }
 
       .q-card {
-        padding: 1.3rem 1.1rem;
+        padding: 1.2rem 1rem;
+      }
+
+      .q-text {
+        font-size: 1rem;
+      }
+
+      .opt-btn {
+        font-size: .88rem;
+        padding: .78rem 1rem;
+      }
+
+      .detail-card {
+        padding: 1.4rem 1.2rem;
+      }
+
+      .learn-card {
+        padding: 1.3rem 1rem;
+      }
+
+      .result-hero {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .sheets-box {
+        padding: 1.2rem 1rem;
+      }
+    }
+
+    @media (min-width: 581px) and (max-width: 900px) {
+      .inner-wrap.narrow {
+        max-width: 680px;
+        padding: 2rem 1.5rem 5rem;
+      }
+    }
+
+    @media (min-width: 901px) {
+      .inner-wrap {
+        max-width: 960px;
+        padding: 2.5rem 2rem 5rem;
+      }
+
+      .inner-wrap.narrow {
+        max-width: 640px;
+        padding: 2.5rem 1.8rem 5rem;
+      }
+
+      .q-card {
+        padding: 2.2rem 2.5rem;
+      }
+
+      .q-text {
+        font-size: 1.2rem;
       }
     }
   </style>
@@ -1572,11 +1871,45 @@
     </div>
   </div>
 
+  <!-- ══════════ LOGIN ══════════ -->
+  <div id="page-login" class="page active">
+    <div class="login-card glass">
+      <div class="login-logo">📚</div>
+      <div class="login-title">Tiếng Anh</div>
+      <div class="login-subtitle">Thầy Du Gia Văn · Đăng nhập để tiếp tục</div>
+
+      <div class="login-field">
+        <label for="login-username">👤 Tên đăng nhập</label>
+        <div class="login-input-wrap">
+          <span class="login-input-icon">🔑</span>
+          <input type="text" id="login-username" class="login-input" placeholder="Nhập username của bạn..."
+            autocomplete="off" autocapitalize="none" onkeydown="if(event.key==='Enter')doLogin()" />
+        </div>
+      </div>
+
+      <div class="login-field">
+        <label for="login-password">🔒 Mật khẩu</label>
+        <div class="login-input-wrap">
+          <span class="login-input-icon">🛡️</span>
+          <input type="password" id="login-password" class="login-input" placeholder="Nhập mật khẩu..."
+            autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()" />
+        </div>
+      </div>
+
+      <div class="login-error" id="login-error">❌ Tên đăng nhập hoặc mật khẩu không đúng. Vui lòng thử lại.</div>
+
+      <button class="btn-login" id="btn-login" onclick="doLogin()">
+        🚀 Đăng nhập
+      </button>
+    </div>
+  </div>
+
   <!-- ══════════ LANDING ══════════ -->
-  <div id="page-landing" class="page active">
-    <div class="landing-badge">📚 Tiếng Anh</div>
-    <h1 class="landing-title">Đề thi tiếng Anh<br /> thầy<br />Du Gia Văn</h1>
-    <p class="landing-subtitle">Ôn tập toàn bộ ngữ pháp.</p>
+  <div id="page-landing" class="page">
+    <div class="landing-badge">📚 Tiếng Anh · Global Success</div>
+    <h1 class="landing-title">Đề thi tiếng Anh<br />của thầy<br />Du Gia Văn</h1>
+    <p class="landing-subtitle">Ôn tập toàn bộ ngữ pháp — chọn chủ đề, luyện tập và xem giải thích chi tiết cho
+      từng câu.</p>
     <div class="landing-features">
       <span class="feature-chip">✅ 12 Chủ đề</span>
       <span class="feature-chip">🎯 4 Dạng bài</span>
@@ -1584,38 +1917,21 @@
       <span class="feature-chip">📘 Giải thích chi tiết</span>
     </div>
 
-    <!-- ── Ô nhập tên học sinh ── -->
-    <div class="student-name-box">
-      <label class="student-name-label" for="student-name-input">👤 Tên học sinh</label>
-      <div class="student-name-wrap">
-        <span class="name-icon">✏️</span>
-        <input type="text" id="student-name-input" class="student-name-input" placeholder="Nhập tên của bạn vào đây..."
-          maxlength="50" autocomplete="off" />
-      </div>
+    <!-- ── Thông tin học sinh đã đăng nhập ── -->
+    <!-- Input ẩn để tương thích với getStudentName() -->
+    <input type="hidden" id="student-name-input" />
+
+    <div class="user-info-bar" id="user-info-bar">
+      <div class="user-avatar" id="user-avatar-initials">?</div>
+      <span class="user-name-text" id="user-display-name">Đang tải...</span>
+      <button class="btn-logout" onclick="doLogout()">Đăng xuất</button>
     </div>
 
-    <div style="display: flex; justify-content: center; animation: slideUp .5s ease .6s both; margin-top: 1.8rem;">
-      <button class="btn-start" onclick="goToTopics()" style="
-      padding: 14px 40px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: white;
-      background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 10px 20px rgba(110, 142, 251, 0.3);
-      transition: all 0.3s ease;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      outline: none;
-    " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 25px rgba(110, 142, 251, 0.4)';"
-        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 20px rgba(110, 142, 251, 0.3)';">
-        Khám Phá →
-      </button>
-    </div>
+    <div
+      style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation: slideUp .5s ease .6s both;margin-top:1.4rem;">
+      <button class="btn-start" onclick="goToTopics()">Khám Phá →</button>
 
-    <!-- Nút xem lịch sử -->
+    </div>
 
   </div>
 
@@ -5151,6 +5467,659 @@
           ]
         }
       },
+      unit11: {
+        title: "Unit 11 - Our Greener World",
+        icon: "🌱",
+        theory: `
+<div style="font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.8; color: #1a1a1a; max-width: 800px; margin: auto;">
+    <h2 style="text-align: center; color: #000; font-weight: 800; letter-spacing: -0.05em;">UNIT 11: OUR GREENER WORLD</h2>
+    <p style="text-align: center; font-style: italic; color: #666; margin-bottom: 40px;">(Vocabulary & Grammar)</p>
+
+    <!-- 3Rs -->
+    <div style="background:#f0fdf4;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #bbf7d0;">
+        <h3 style="margin-top:0;">♻️ 1. THE 3Rs</h3>
+        <ul style="list-style:none;padding:0;">
+            <li><b>• Reduce (v):</b> Giảm <br><i>Ex: We should reduce waste.</i></li>
+            <li><b>• Reuse (v):</b> Tái sử dụng <br><i>Ex: Reuse old items.</i></li>
+            <li><b>• Recycle (v):</b> Tái chế <br><i>Ex: Recycle plastic bottles.</i></li>
+            <li><b>• Reusable (adj):</b> Có thể dùng lại <br><i>Ex: A reusable bag.</i></li>
+        </ul>
+    </div>
+
+    <!-- ENVIRONMENT -->
+    <div style="background:#fff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #eee;">
+        <h3>🌍 2. ENVIRONMENT & MATERIALS</h3>
+        <p><b>Environment:</b> Môi trường</p>
+        <p><b>Rubbish / Trash:</b> Rác thải</p>
+        <p><b>Plastic bag:</b> Túi nilon</p>
+        <p><b>Plastic bottle:</b> Chai nhựa</p>
+        <p><b>Glass:</b> Thủy tinh</p>
+        <p><b>Paper:</b> Giấy</p>
+        <p><b>Charity:</b> Tổ chức từ thiện</p>
+    </div>
+
+    <!-- ACTIONS -->
+    <div style="background:#ecfeff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #67e8f9;">
+        <h3>🌱 3. GO GREEN ACTIONS</h3>
+        <p><b>Go green:</b> Sống xanh</p>
+        <p><b>Pick up:</b> Nhặt (rác)</p>
+        <p><b>Plant trees:</b> Trồng cây</p>
+        <p><b>Instead of:</b> Thay vì</p>
+    </div>
+
+    <!-- GRAMMAR -->
+    <div style="background:#fefce8;padding:25px;border-radius:20px;border:1px solid #fde68a;">
+        <h3>📘 4. GRAMMAR</h3>
+        <p><b>A / An / The</b></p>
+        <p><b>First Conditional:</b> If + S + V, S + will + V</p>
+        <i>Ex: If you walk to school, you will help the environment.</i>
+    </div>
+</div>
+`,
+
+        levels: {
+          easy: [
+
+            // =========================
+            // REDUCE
+            { type: "multiple_choice", script: "Reduce.", q: "Từ 'giảm' là gì?", options: ["Reuse", "Reduce", "Recycle"], a: "Reduce", lesson: "Reduce là động từ nghĩa là 'giảm bớt số lượng hoặc mức độ của một thứ'. Thường dùng khi nói giảm rác thải, năng lượng hoặc chi phí." },
+            { type: "multiple_choice", script: "What does 'Reduce' mean?", q: "What does 'Reduce' mean?", options: ["Giảm", "Tái sử dụng", "Tái chế"], a: "Giảm", lesson: "'Reduce' có nghĩa là giảm. Đây là bước đầu tiên trong 3Rs, nhằm hạn chế tạo ra rác ngay từ đầu." },
+            { type: "fill_blank", script: "Reduce.", q: "Nghe và điền: ___ (Giảm)", a: "Reduce", lesson: "Reduce là động từ, phát âm /rɪˈdjuːs/. Dùng khi bạn muốn nói giảm số lượng của thứ gì đó." },
+            { type: "fill_blank", script: "We should reduce waste.", q: "We should ___ waste.", a: "reduce", lesson: "Trong câu này, 'reduce waste' nghĩa là giảm rác thải. Sau 'should' luôn dùng động từ nguyên thể." },
+
+            // REUSE
+            { type: "multiple_choice", script: "Reuse.", q: "Từ 'tái sử dụng' là gì?", options: ["Reuse", "Reduce", "Recycle"], a: "Reuse", lesson: "Reuse là động từ nghĩa là dùng lại một vật nhiều lần thay vì vứt đi. Điều này giúp giảm rác thải." },
+            { type: "multiple_choice", script: "What does 'Reuse' mean?", q: "What does 'Reuse' mean?", options: ["Tái chế", "Tái sử dụng", "Giảm"], a: "Tái sử dụng", lesson: "'Reuse' nghĩa là tái sử dụng. Ví dụ: dùng lại túi, chai hoặc sách cũ thay vì mua mới." },
+            { type: "fill_blank", script: "Reuse.", q: "Nghe và điền: ___ (Tái sử dụng)", a: "Reuse", lesson: "Reuse là động từ ghép từ 're' (lại) và 'use' (dùng), nghĩa là dùng lại." },
+            { type: "fill_blank", script: "We reuse old items.", q: "We ___ old items.", a: "reuse", lesson: "'Reuse old items' nghĩa là sử dụng lại đồ cũ. Đây là hành động thân thiện với môi trường." },
+
+            // RECYCLE
+            { type: "multiple_choice", script: "Recycle.", q: "Từ 'tái chế' là gì?", options: ["Recycle", "Reuse", "Reduce"], a: "Recycle", lesson: "Recycle là động từ nghĩa là xử lý vật liệu cũ để tạo thành sản phẩm mới, ví dụ tái chế giấy hoặc nhựa." },
+            { type: "multiple_choice", script: "What does 'Recycle' mean?", q: "What does 'Recycle' mean?", options: ["Giảm", "Tái chế", "Tái sử dụng"], a: "Tái chế", lesson: "'Recycle' nghĩa là tái chế. Đây là bước thứ ba trong 3Rs giúp biến rác thành tài nguyên mới." },
+            { type: "fill_blank", script: "Recycle.", q: "Nghe và điền: ___ (Tái chế)", a: "Recycle", lesson: "Recycle phát âm /ˌriːˈsaɪkl/. Là hành động xử lý lại vật liệu đã dùng." },
+            { type: "fill_blank", script: "We recycle plastic bottles.", q: "We ___ plastic bottles.", a: "recycle", lesson: "'Recycle plastic bottles' nghĩa là tái chế chai nhựa để tạo sản phẩm mới." },
+
+            // REUSABLE
+            { type: "multiple_choice", script: "Reusable.", q: "Tính từ 'có thể dùng lại' là gì?", options: ["Reusable", "Recycle", "Reuse"], a: "Reusable", lesson: "Reusable là tính từ, nghĩa là có thể sử dụng lại nhiều lần. Thường dùng với bag, bottle." },
+            { type: "multiple_choice", script: "What does 'Reusable' mean?", q: "What does 'Reusable' mean?", options: ["Tái chế", "Có thể dùng lại", "Giảm"], a: "Có thể dùng lại", lesson: "'Reusable' mô tả đồ vật không dùng một lần, có thể dùng lại để giảm rác thải." },
+            { type: "fill_blank", script: "Reusable.", q: "Nghe và điền: ___ (Có thể dùng lại)", a: "Reusable", lesson: "Reusable = re (lại) + use (dùng) + able (có thể). Nghĩa là có thể dùng lại." },
+            { type: "fill_blank", script: "This is a reusable bag.", q: "This is a ___ bag.", a: "reusable", lesson: "'Reusable bag' là túi có thể dùng lại, thay thế túi nilon dùng một lần." },
+
+            // ENVIRONMENT
+            { type: "multiple_choice", script: "Environment.", q: "Từ 'môi trường' là gì?", options: ["Environment", "Paper", "Glass"], a: "Environment", lesson: "Environment là danh từ, nghĩa là môi trường xung quanh chúng ta như không khí, nước, cây cối." },
+            { type: "multiple_choice", script: "What does 'Environment' mean?", q: "What does 'Environment' mean?", options: ["Giấy", "Môi trường", "Thủy tinh"], a: "Môi trường", lesson: "'Environment' là tất cả những gì xung quanh chúng ta và ảnh hưởng đến sự sống." },
+            { type: "fill_blank", script: "Environment.", q: "Nghe và điền: ___ (Môi trường)", a: "Environment", lesson: "Environment phát âm /ɪnˈvaɪrənmənt/. Là danh từ không đếm được." },
+            { type: "fill_blank", script: "We should protect the environment.", q: "We should protect the ___.", a: "environment", lesson: "'Protect the environment' nghĩa là bảo vệ môi trường. Sau 'the' dùng danh từ." },
+
+            // RUBBISH
+            { type: "multiple_choice", script: "Rubbish.", q: "Từ 'rác thải' là gì?", options: ["Rubbish", "Paper", "Glass"], a: "Rubbish", lesson: "Rubbish là danh từ (Anh-Anh), nghĩa là rác thải. Thường dùng trong ngữ cảnh môi trường." },
+            { type: "multiple_choice", script: "What does 'Rubbish' mean?", q: "What does 'Rubbish' mean?", options: ["Rác", "Giấy", "Thủy tinh"], a: "Rác", lesson: "'Rubbish' = rác. Từ này phổ biến trong tiếng Anh Anh (British English)." },
+            { type: "fill_blank", script: "Rubbish.", q: "Nghe và điền: ___ (Rác)", a: "Rubbish", lesson: "Rubbish là danh từ không đếm được, không thêm 's' khi nói chung chung." },
+            { type: "fill_blank", script: "Pick up rubbish.", q: "Pick up ___.", a: "rubbish", lesson: "'Pick up rubbish' nghĩa là nhặt rác. Đây là hành động bảo vệ môi trường." },
+
+            // TRASH
+            { type: "multiple_choice", script: "Trash.", q: "Từ 'rác thải (Mỹ)' là gì?", options: ["Trash", "Paper", "Glass"], a: "Trash", lesson: "Trash là danh từ (Anh-Mỹ), nghĩa là rác. Tương đương với 'rubbish' trong Anh-Anh." },
+            { type: "multiple_choice", script: "What does 'Trash' mean?", q: "What does 'Trash' mean?", options: ["Rác", "Giấy", "Thủy tinh"], a: "Rác", lesson: "'Trash' là cách nói của người Mỹ cho 'rác thải'." },
+            { type: "fill_blank", script: "Trash.", q: "Nghe và điền: ___ (Rác)", a: "Trash", lesson: "Trash là danh từ không đếm được, dùng phổ biến trong giao tiếp Mỹ." },
+            { type: "fill_blank", script: "Don't throw trash here.", q: "Don't throw ___ here.", a: "trash", lesson: "'Throw trash' nghĩa là vứt rác. Câu này mang nghĩa cấm: không được vứt rác." },
+
+            // PLASTIC BAG
+            { type: "multiple_choice", script: "Plastic bag.", q: "Túi nilon là gì?", options: ["Plastic bag", "Paper", "Glass"], a: "Plastic bag", lesson: "Plastic bag là túi làm từ nhựa, thường dùng một lần và gây hại cho môi trường." },
+            { type: "multiple_choice", script: "What does 'Plastic bag' mean?", q: "What does 'Plastic bag' mean?", options: ["Túi nilon", "Chai nhựa", "Giấy"], a: "Túi nilon", lesson: "'Plastic bag' là túi nilon, nên hạn chế sử dụng để bảo vệ môi trường." },
+            { type: "fill_blank", script: "Plastic bag.", q: "Nghe và điền: ___", a: "Plastic bag", lesson: "Cụm danh từ gồm 'plastic' (nhựa) + 'bag' (túi)." },
+            { type: "fill_blank", script: "Don't use plastic bags.", q: "Don't use ___ bags.", a: "plastic", lesson: "Không dùng túi nilon là hành động giúp giảm ô nhiễm môi trường." },
+
+            // PLASTIC BOTTLE
+            { type: "multiple_choice", script: "Plastic bottle.", q: "Chai nhựa là gì?", options: ["Plastic bottle", "Glass", "Paper"], a: "Plastic bottle", lesson: "Plastic bottle là chai làm từ nhựa. Đây là loại rác phổ biến và nên được tái chế để giảm ô nhiễm môi trường." },
+            { type: "multiple_choice", script: "What does 'Plastic bottle' mean?", q: "What does 'Plastic bottle' mean?", options: ["Chai nhựa", "Túi nilon", "Giấy"], a: "Chai nhựa", lesson: "'Plastic bottle' nghĩa là chai nhựa. Thường dùng với động từ 'recycle' để nói về việc tái chế." },
+            { type: "fill_blank", script: "Plastic bottle.", q: "Nghe và điền: ___", a: "Plastic bottle", lesson: "Cụm danh từ gồm 'plastic' (nhựa) + 'bottle' (chai). Dùng để chỉ chai làm từ nhựa." },
+            { type: "fill_blank", script: "Recycle plastic bottles.", q: "Recycle plastic ___.", a: "bottles", lesson: "'Plastic bottles' là dạng số nhiều. Sau 'recycle' thường dùng danh từ số nhiều khi nói chung." },
+
+            // GLASS
+            { type: "multiple_choice", script: "Glass.", q: "Thủy tinh là gì?", options: ["Glass", "Paper", "Trash"], a: "Glass", lesson: "Glass là danh từ nghĩa là thủy tinh. Đây là vật liệu có thể tái chế nhiều lần mà không mất chất lượng." },
+            { type: "multiple_choice", script: "What does 'Glass' mean?", q: "What does 'Glass' mean?", options: ["Thủy tinh", "Giấy", "Rác"], a: "Thủy tinh", lesson: "'Glass' nghĩa là thủy tinh, thường dùng để làm chai, cốc và có thể tái chế." },
+            { type: "fill_blank", script: "Glass.", q: "Nghe và điền: ___", a: "Glass", lesson: "Glass là danh từ không đếm được khi nói chung về vật liệu." },
+            { type: "fill_blank", script: "Glass can be recycled.", q: "___ can be recycled.", a: "Glass", lesson: "Câu này dùng 'Glass' như một danh từ chỉ vật liệu nói chung. 'Can be recycled' là bị động." },
+
+            // PAPER
+            { type: "multiple_choice", script: "Paper.", q: "Giấy là gì?", options: ["Paper", "Glass", "Trash"], a: "Paper", lesson: "Paper là danh từ nghĩa là giấy. Đây là vật liệu dễ tái chế nhưng cũng dễ bị lãng phí." },
+            { type: "multiple_choice", script: "What does 'Paper' mean?", q: "What does 'Paper' mean?", options: ["Giấy", "Thủy tinh", "Rác"], a: "Giấy", lesson: "'Paper' nghĩa là giấy. Thường đi với động từ 'use', 'waste', 'recycle'." },
+            { type: "fill_blank", script: "Paper.", q: "Nghe và điền: ___", a: "Paper", lesson: "Paper là danh từ không đếm được, không thêm 's' khi nói chung." },
+            { type: "fill_blank", script: "Don't waste paper.", q: "Don't waste ___.", a: "paper", lesson: "'Waste paper' nghĩa là lãng phí giấy. Câu này mang ý khuyên không nên lãng phí tài nguyên." },
+
+            // CHARITY
+            { type: "multiple_choice", script: "Charity.", q: "Tổ chức từ thiện là gì?", options: ["Charity", "School", "Company"], a: "Charity", lesson: "Charity là tổ chức từ thiện, nơi giúp đỡ người khó khăn bằng tiền, quần áo hoặc đồ dùng." },
+            { type: "multiple_choice", script: "What does 'Charity' mean?", q: "What does 'Charity' mean?", options: ["Từ thiện", "Trường học", "Công ty"], a: "Từ thiện", lesson: "'Charity' nghĩa là từ thiện. Thường dùng trong cụm 'give something to charity'." },
+            { type: "fill_blank", script: "Charity.", q: "Nghe và điền: ___", a: "Charity", lesson: "Charity là danh từ không đếm được trong nghĩa chung, nhưng có thể dùng như tổ chức cụ thể." },
+            { type: "fill_blank", script: "Give old books to charity.", q: "Give old books to ___.", a: "charity", lesson: "'Give to charity' nghĩa là quyên góp cho tổ chức từ thiện. Đây là hành động tích cực cho xã hội." },
+
+            // GO GREEN
+            { type: "multiple_choice", script: "Go green.", q: "Sống xanh là gì?", options: ["Go green", "Plant trees", "Recycle"], a: "Go green", lesson: "Go green là cụm động từ nghĩa là sống thân thiện với môi trường, như giảm rác và tiết kiệm năng lượng." },
+            { type: "multiple_choice", script: "What does 'Go green' mean?", q: "What does 'Go green' mean?", options: ["Sống xanh", "Tái chế", "Giảm"], a: "Sống xanh", lesson: "'Go green' nghĩa là áp dụng lối sống bảo vệ môi trường trong cuộc sống hàng ngày." },
+            { type: "fill_blank", script: "Go green.", q: "Nghe và điền: ___", a: "Go green", lesson: "Đây là cụm động từ, 'go' không mang nghĩa 'đi' mà mang nghĩa 'trở nên'." },
+            { type: "fill_blank", script: "We should go green.", q: "We should ___ green.", a: "go", lesson: "Sau 'should' dùng động từ nguyên thể. 'Go green' là cụm cố định." },
+
+            // PICK UP
+            { type: "multiple_choice", script: "Pick up.", q: "Nhặt là gì?", options: ["Pick up", "Throw", "Drop"], a: "Pick up", lesson: "Pick up là cụm động từ nghĩa là nhặt lên từ mặt đất, thường dùng với 'rubbish'." },
+            { type: "multiple_choice", script: "What does 'Pick up' mean?", q: "What does 'Pick up' mean?", options: ["Nhặt", "Ném", "Bỏ"], a: "Nhặt", lesson: "'Pick up' nghĩa là nhặt. Đây là hành động giúp giữ môi trường sạch." },
+            { type: "fill_blank", script: "Pick up.", q: "Nghe và điền: ___", a: "Pick up", lesson: "Đây là phrasal verb gồm 'pick' + 'up'. Không tách nghĩa từng từ riêng." },
+            { type: "fill_blank", script: "Pick up rubbish.", q: "___ up rubbish.", a: "Pick", lesson: "Cụm đầy đủ là 'pick up'. Khi chia câu, động từ chính là 'pick'." },
+
+            // PLANT TREES
+            { type: "multiple_choice", script: "Plant trees.", q: "Trồng cây là gì?", options: ["Plant trees", "Cut trees", "Water"], a: "Plant trees", lesson: "Plant trees nghĩa là trồng cây. Đây là hoạt động quan trọng để bảo vệ môi trường." },
+            { type: "multiple_choice", script: "What does 'Plant trees' mean?", q: "What does 'Plant trees' mean?", options: ["Trồng cây", "Chặt cây", "Tưới cây"], a: "Trồng cây", lesson: "'Plant trees' là hành động giúp làm sạch không khí và làm môi trường xanh hơn." },
+            { type: "fill_blank", script: "Plant trees.", q: "Nghe và điền: ___", a: "Plant trees", lesson: "Đây là cụm động từ: 'plant' (trồng) + 'trees' (cây)." },
+            { type: "fill_blank", script: "We should plant more trees.", q: "We should ___ more trees.", a: "plant", lesson: "Sau 'should' dùng động từ nguyên thể. 'Plant more trees' nghĩa là trồng nhiều cây hơn." },
+
+            // INSTEAD OF
+            { type: "multiple_choice", script: "Instead of.", q: "Từ 'thay vì' là gì?", options: ["Instead of", "Because", "And"], a: "Instead of", lesson: "Instead of là giới từ, nghĩa là 'thay vì'. Dùng để thay thế hành động này bằng hành động khác." },
+            { type: "multiple_choice", script: "What does 'Instead of' mean?", q: "What does 'Instead of' mean?", options: ["Thay vì", "Và", "Bởi vì"], a: "Thay vì", lesson: "'Instead of' nối hai ý, phía sau thường là V-ing hoặc danh từ." },
+            { type: "fill_blank", script: "Instead of.", q: "Nghe và điền: ___", a: "Instead of", lesson: "Đây là giới từ, không phải liên từ. Luôn theo sau bởi danh từ hoặc V-ing." },
+            { type: "fill_blank", script: "Use bags instead of plastic bags.", q: "Use bags ___ plastic bags.", a: "instead of", lesson: "Sau 'instead of' dùng danh từ hoặc V-ing. Ở đây 'plastic bags' là danh từ." },
+
+          ],
+
+          medium: [
+            // =========================
+            // 3Rs IN CONTEXT
+            // =========================
+            { type: "fill_blank", script: "We should reduce the amount of waste.", q: "We should ___ the amount of waste.", a: "reduce", lesson: "'Reduce' nghĩa là giảm bớt số lượng. Cấu trúc 'should + V' dùng để đưa ra lời khuyên, nên câu này khuyên chúng ta giảm lượng rác." },
+            { type: "fill_blank", script: "People reuse old items.", q: "People ___ old items.", a: "reuse", lesson: "'Reuse' nghĩa là sử dụng lại đồ cũ thay vì vứt đi. Đây là hành động giúp tiết kiệm tài nguyên và bảo vệ môi trường." },
+            { type: "fill_blank", script: "We recycle plastic bottles.", q: "We ___ plastic bottles.", a: "recycle", lesson: "'Recycle' là tái chế – biến vật liệu cũ thành sản phẩm mới. 'Plastic bottles' là đối tượng thường được tái chế." },
+            { type: "fill_blank", script: "This is a reusable bag.", q: "This is a ___ bag.", a: "reusable", lesson: "'Reusable' là tính từ, nghĩa là có thể dùng lại nhiều lần. Lưu ý đây là dạng tính từ, không phải động từ 'reuse'." },
+
+            // =========================
+            // ENVIRONMENT
+            // =========================
+            { type: "fill_blank", script: "We should protect the environment.", q: "We should protect the ___.", a: "environment", lesson: "'Environment' là môi trường. Động từ 'protect' đi với danh từ này để diễn tả hành động bảo vệ môi trường." },
+            { type: "fill_blank", script: "Pick up rubbish in the park.", q: "Pick up ___ in the park.", a: "rubbish", lesson: "'Rubbish' nghĩa là rác. Cụm 'pick up rubbish' là cách nói phổ biến để chỉ hành động nhặt rác." },
+            { type: "fill_blank", script: "Don't throw trash on the street.", q: "Don't throw ___ on the street.", a: "trash", lesson: "'Trash' cũng có nghĩa là rác (giống 'rubbish'). Câu dùng 'Don't + V' để tạo mệnh lệnh phủ định." },
+
+            // =========================
+            // MATERIALS
+            // =========================
+            { type: "fill_blank", script: "Don't use plastic bags.", q: "Don't use ___ bags.", a: "plastic", lesson: "'Plastic bags' là túi nilon. 'Plastic' là danh từ chỉ chất liệu, đứng trước 'bags' để bổ nghĩa." },
+            { type: "fill_blank", script: "Recycle plastic bottles.", q: "Recycle plastic ___.", a: "bottles", lesson: "'Plastic bottles' nghĩa là chai nhựa. Danh từ 'bottles' phải ở dạng số nhiều vì nói chung chung." },
+            { type: "fill_blank", script: "Glass can be recycled.", q: "___ can be recycled.", a: "Glass", lesson: "'Glass' là danh từ không đếm được chỉ chất liệu thủy tinh. Dùng cấu trúc bị động 'can be recycled'." },
+            { type: "fill_blank", script: "Don't waste paper.", q: "Don't waste ___.", a: "paper", lesson: "'Paper' là danh từ không đếm được. 'Waste' nghĩa là lãng phí, nên câu này nhắc không được lãng phí giấy." },
+
+            // =========================
+            // CHARITY
+            // =========================
+            { type: "fill_blank", script: "Give old clothes to charity.", q: "Give old clothes to ___.", a: "charity", lesson: "'Charity' là tổ chức từ thiện. Cấu trúc 'give ... to ...' dùng để nói hành động tặng cho ai đó." },
+
+            // =========================
+            // GO GREEN ACTIONS
+            // =========================
+            { type: "fill_blank", script: "We should go green.", q: "We should ___ green.", a: "go", lesson: "'Go green' là cụm cố định nghĩa là sống thân thiện với môi trường. Không thể thay 'go' bằng động từ khác." },
+            { type: "fill_blank", script: "Students pick up rubbish.", q: "Students ___ up rubbish.", a: "pick", lesson: "'Pick up' là cụm động từ (phrasal verb). Khi chia thì, ta chia động từ chính 'pick'." },
+            { type: "fill_blank", script: "We should plant more trees.", q: "We should ___ more trees.", a: "plant", lesson: "'Plant trees' nghĩa là trồng cây. 'More trees' nhấn mạnh việc tăng số lượng cây để bảo vệ môi trường." },
+            { type: "fill_blank", script: "Use old books instead of buying new ones.", q: "Use old books ___ buying new ones.", a: "instead of", lesson: "'Instead of' nghĩa là thay vì. Sau 'instead of' phải dùng V-ing → 'buying'." },
+
+            // =========================
+            // ARTICLES (A / AN / THE)
+            // =========================
+            { type: "fill_blank", script: "I have a reusable bag.", q: "I have ___ reusable bag.", a: "a", lesson: "Dùng 'a' trước danh từ bắt đầu bằng âm phụ âm. 'Reusable' phát âm /juː/ nên dùng 'a', không phải 'an'." },
+            { type: "fill_blank", script: "She eats an apple.", q: "She eats ___ apple.", a: "an", lesson: "Dùng 'an' trước danh từ bắt đầu bằng nguyên âm (apple bắt đầu bằng âm /æ/)." },
+            { type: "fill_blank", script: "The Earth is our home.", q: "___ Earth is our home.", a: "The", lesson: "Dùng 'The' với danh từ duy nhất trong vũ trụ như 'the Earth', 'the Sun'." },
+            { type: "fill_blank", script: "The Sun keeps the Earth warm.", q: "___ Sun keeps ___ Earth warm.", a: "The Sun keeps the Earth warm", lesson: "Cả 'the Sun' và 'the Earth' đều là danh từ duy nhất nên luôn dùng 'the'." },
+
+            // =========================
+            // FIRST CONDITIONAL
+            // =========================
+            { type: "fill_blank", script: "If we recycle more, we will help the Earth.", q: "If we recycle more, we ___ help the Earth.", a: "will", lesson: "Câu điều kiện loại 1: If + hiện tại đơn, mệnh đề chính dùng 'will + V' để diễn tả kết quả tương lai." },
+            { type: "fill_blank", script: "If you walk to school, you will help the environment.", q: "If you walk to school, you ___ help the environment.", a: "will", lesson: "Mệnh đề 'if' giữ thì hiện tại, còn kết quả dùng 'will' để nói điều có khả năng xảy ra." },
+            { type: "fill_blank", script: "If we waste paper, we won't save trees.", q: "If we waste paper, we ___ save trees.", a: "won't", lesson: "'Won't' = 'will not'. Đây là dạng phủ định của câu điều kiện loại 1." },
+            { type: "fill_blank", script: "If you make noise, your sister won't sleep.", q: "If you make noise, your sister ___ sleep.", a: "won't", lesson: "Dùng 'won't' để diễn tả kết quả tiêu cực trong tương lai khi điều kiện xảy ra." },
+
+            // =========================
+            // MIXED THINKING
+            // =========================
+            { type: "fill_blank", script: "If we reduce waste, we will protect the environment.", q: "If we ___ waste, we will protect the environment.", a: "reduce", lesson: "'Reduce waste' là collocation quen thuộc. Kết hợp với câu điều kiện để nói kết quả tích cực." },
+            { type: "fill_blank", script: "If students plant trees, the school will be greener.", q: "If students ___ trees, the school will be greener.", a: "plant", lesson: "'Plant trees' giúp môi trường xanh hơn. 'Greener' là dạng so sánh của 'green'." },
+            { type: "fill_blank", script: "If we reuse things, we will save money.", q: "If we ___ things, we will save money.", a: "reuse", lesson: "'Reuse things' giúp tiết kiệm tiền. Đây là mối quan hệ nguyên nhân → kết quả trong câu điều kiện." },
+            { type: "multiple_choice", script: "Chúng ta nên giảm rác thải.", q: "Chọn câu đúng:", options: ["We should reduce waste.", "We should reuse waste.", "We should recycle waste."], a: "We should reduce waste.", lesson: "'Reduce' nghĩa là giảm bớt số lượng hoặc mức độ sử dụng. Câu này dùng 'should' để đưa ra lời khuyên: chúng ta nên giảm rác thải." },
+            { type: "multiple_choice", script: "Chúng ta nên tái sử dụng đồ cũ.", q: "Chọn câu đúng:", options: ["We should reuse old items.", "We should reduce old items.", "We should recycle old items."], a: "We should reuse old items.", lesson: "'Reuse' là dùng lại đồ cũ thay vì vứt đi. Cấu trúc 'should + V' dùng để khuyên nên tái sử dụng." },
+            { type: "multiple_choice", script: "Chúng ta nên tái chế chai nhựa.", q: "Chọn câu đúng:", options: ["We should recycle plastic bottles.", "We should reuse plastic bottles.", "We should reduce plastic bottles."], a: "We should recycle plastic bottles.", lesson: "'Recycle' là biến vật liệu cũ thành sản phẩm mới. 'Plastic bottles' là chai nhựa – một loại thường được tái chế." },
+            { type: "multiple_choice", script: "Đây là một túi có thể tái sử dụng.", q: "Chọn câu đúng:", options: ["This is a reusable bag.", "This is a recycle bag.", "This is a reuse bag."], a: "This is a reusable bag.", lesson: "'Reusable' là tính từ, nghĩa là có thể dùng lại nhiều lần. Không dùng 'reuse/recycle' làm tính từ trực tiếp." },
+            { type: "multiple_choice", script: "Đi bộ đến trường sẽ giúp môi trường.", q: "Chọn câu đúng:", options: ["Walking to school will help the environment.", "Walking to school will help the paper.", "Walking to school will help the trash."], a: "Walking to school will help the environment.", lesson: "'Environment' là môi trường. 'Will' dùng để nói về kết quả trong tương lai khi ta thực hiện hành động." },
+            { type: "multiple_choice", script: "Học sinh nên nhặt rác.", q: "Chọn câu đúng:", options: ["Students should pick up rubbish.", "Students should throw rubbish.", "Students should break rubbish."], a: "Students should pick up rubbish.", lesson: "'Pick up' nghĩa là nhặt lên. Đây là cụm động từ thường dùng với 'rubbish' để chỉ hành động dọn rác." },
+            { type: "multiple_choice", script: "Đừng sử dụng túi nilon.", q: "Chọn câu đúng:", options: ["Don't use plastic bags.", "Don't use glass bags.", "Don't use paper bags."], a: "Don't use plastic bags.", lesson: "Câu mệnh lệnh phủ định dùng 'Don't + V'. 'Plastic bags' là túi nilon – loại gây hại môi trường." },
+            { type: "multiple_choice", script: "Chúng ta nên trồng nhiều cây hơn.", q: "Chọn câu đúng:", options: ["We should plant more trees.", "We should cut more trees.", "We should break more trees."], a: "We should plant more trees.", lesson: "'Plant trees' nghĩa là trồng cây. 'More' dùng để chỉ số lượng nhiều hơn để cải thiện môi trường." },
+            { type: "multiple_choice", script: "Hãy dùng sách cũ thay vì mua sách mới.", q: "Chọn câu đúng:", options: ["Use old books instead of buying new ones.", "Use old books because of buying new ones.", "Use old books in spite of buying new ones."], a: "Use old books instead of buying new ones.", lesson: "'Instead of' nghĩa là thay vì. Sau 'instead of' phải dùng V-ing → 'buying'." },
+            { type: "multiple_choice", script: "Hãy tặng quần áo cũ cho từ thiện.", q: "Chọn câu đúng:", options: ["Give old clothes to charity.", "Give old clothes to school.", "Give old clothes to company."], a: "Give old clothes to charity.", lesson: "'Charity' là tổ chức từ thiện. 'Give ... to ...' là cấu trúc cho/tặng ai đó." },
+
+            { type: "multiple_choice", script: "We should reduce waste.", q: "Chọn nghĩa đúng:", options: ["Chúng ta nên giảm rác thải.", "Chúng ta nên tái sử dụng rác.", "Chúng ta nên tái chế rác."], a: "Chúng ta nên giảm rác thải.", lesson: "'Reduce' = giảm. Câu dùng 'should' để khuyên nên giảm lượng rác thải." },
+            { type: "multiple_choice", script: "We should reuse old items.", q: "Chọn nghĩa đúng:", options: ["Chúng ta nên tái sử dụng đồ cũ.", "Chúng ta nên giảm đồ cũ.", "Chúng ta nên vứt đồ cũ."], a: "Chúng ta nên tái sử dụng đồ cũ.", lesson: "'Reuse old items' nghĩa là dùng lại đồ cũ thay vì bỏ đi, giúp bảo vệ môi trường." },
+            { type: "multiple_choice", script: "We should recycle plastic bottles.", q: "Chọn nghĩa đúng:", options: ["Chúng ta nên tái chế chai nhựa.", "Chúng ta nên tái sử dụng chai nhựa.", "Chúng ta nên giảm chai nhựa."], a: "Chúng ta nên tái chế chai nhựa.", lesson: "'Recycle plastic bottles' nghĩa là xử lý chai nhựa để tạo sản phẩm mới." },
+            { type: "multiple_choice", script: "This is a reusable bag.", q: "Chọn nghĩa đúng:", options: ["Đây là túi có thể tái sử dụng.", "Đây là túi nhựa.", "Đây là túi bị hỏng."], a: "Đây là túi có thể tái sử dụng.", lesson: "'Reusable' là tính từ mô tả đồ vật có thể dùng lại nhiều lần." },
+            { type: "multiple_choice", script: "Walking to school will help the environment.", q: "Chọn nghĩa đúng:", options: ["Đi bộ đến trường sẽ giúp môi trường.", "Đi bộ đến trường sẽ giúp giấy.", "Đi bộ đến trường sẽ giúp rác."], a: "Đi bộ đến trường sẽ giúp môi trường.", lesson: "Câu dùng 'will' để diễn tả kết quả trong tương lai: hành động giúp môi trường." },
+            { type: "multiple_choice", script: "Students should pick up rubbish.", q: "Chọn nghĩa đúng:", options: ["Học sinh nên nhặt rác.", "Học sinh nên vứt rác.", "Học sinh nên đốt rác."], a: "Học sinh nên nhặt rác.", lesson: "'Pick up rubbish' là cụm phổ biến nghĩa là nhặt rác để giữ môi trường sạch." },
+            { type: "multiple_choice", script: "Don't use plastic bags.", q: "Chọn nghĩa đúng:", options: ["Đừng dùng túi nilon.", "Hãy dùng túi nilon.", "Đừng dùng giấy."], a: "Đừng dùng túi nilon.", lesson: "Câu mệnh lệnh phủ định: 'Don't + V'. Nhấn mạnh việc không nên sử dụng túi nilon." },
+            { type: "multiple_choice", script: "We should plant more trees.", q: "Chọn nghĩa đúng:", options: ["Chúng ta nên trồng nhiều cây hơn.", "Chúng ta nên chặt cây.", "Chúng ta nên phá cây."], a: "Chúng ta nên trồng nhiều cây hơn.", lesson: "'Plant more trees' giúp cải thiện môi trường và giảm ô nhiễm." },
+            { type: "multiple_choice", script: "Use old books instead of buying new ones.", q: "Chọn nghĩa đúng:", options: ["Dùng sách cũ thay vì mua sách mới.", "Dùng sách cũ vì mua sách mới.", "Dùng sách cũ mặc dù mua sách mới."], a: "Dùng sách cũ thay vì mua sách mới.", lesson: "'Instead of' = thay vì. Luôn theo sau bởi danh từ hoặc V-ing." },
+            { type: "multiple_choice", script: "Give old clothes to charity.", q: "Chọn nghĩa đúng:", options: ["Hãy tặng quần áo cũ cho từ thiện.", "Hãy bán quần áo cũ.", "Hãy vứt quần áo cũ."], a: "Hãy tặng quần áo cũ cho từ thiện.", lesson: "'Give to charity' nghĩa là quyên góp cho tổ chức từ thiện." },
+
+            { type: "multiple_choice", script: "Nếu chúng ta tái chế nhiều hơn, chúng ta sẽ giúp Trái Đất.", q: "Chọn câu đúng:", options: ["If we recycle more, we will help the Earth.", "If we recycle more, we help the Earth.", "If we recycled more, we will help the Earth."], a: "If we recycle more, we will help the Earth.", lesson: "Câu điều kiện loại 1: If + hiện tại đơn, will + V. Dùng để nói kết quả có thể xảy ra trong tương lai." },
+            { type: "multiple_choice", script: "Nếu bạn đi bộ đến trường, bạn sẽ giúp môi trường.", q: "Chọn câu đúng:", options: ["If you walk to school, you will help the environment.", "If you walk to school, you help the environment.", "If you walked to school, you will help the environment."], a: "If you walk to school, you will help the environment.", lesson: "Mệnh đề 'if' dùng hiện tại đơn, mệnh đề chính dùng 'will' để diễn tả kết quả tương lai." },
+            { type: "multiple_choice", script: "Nếu chúng ta lãng phí giấy, chúng ta sẽ không cứu được cây.", q: "Chọn câu đúng:", options: ["If we waste paper, we won't save trees.", "If we waste paper, we don't save trees.", "If we wasted paper, we won't save trees."], a: "If we waste paper, we won't save trees.", lesson: "Dạng phủ định của câu điều kiện loại 1 dùng 'won't + V' để nói kết quả không xảy ra." },
+          ]
+        }
+      },
+      unit12: {
+        title: "Unit 12 - Robot",
+        icon: "✍️",
+        theory: `
+<div style="font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.8; color: #1a1a1a; max-width: 800px; margin: auto;">
+    <h2 style="text-align: center; color: #000; font-weight: 800; letter-spacing: -0.05em; margin-bottom: 5px;">UNIT 12: ROBOTS</h2>
+    <p style="text-align: center; font-style: italic; color: #666; margin-bottom: 40px;">(Full Vocabulary & Examples)</p>
+
+    <!-- PHẦN 1: TYPES OF ROBOTS -->
+    <div style="background: #f8fafc; padding: 25px; border-radius: 20px; margin-bottom: 30px; border: 1px solid #eee;">
+        <h3 style="margin-top: 0; color: #000; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid #000; display: inline-block; padding-bottom: 5px; margin-bottom: 20px;">🤖 1. CÁC LOẠI ROBOT (Types of Robots)</h3>
+        <ul style="list-style-type: none; padding-left: 0;">
+            <li style="margin-bottom: 18px;">
+                <b>• Home robot:</b> Người máy gia đình <br> 
+                <i style="color: #666; font-size: 0.9rem;">Ex: "H8 is a home robot." &rarr; H8 là một người máy gia đình.</i>
+            </li>
+            <li style="margin-bottom: 18px;">
+                <b>• Worker robot:</b> Người máy công nhân <br> 
+                <i style="color: #666; font-size: 0.9rem;">Ex: "Worker robots can build houses and move heavy things." &rarr; Người máy công nhân có thể xây nhà và di chuyển vật nặng.</i>
+            </li>
+            <li style="margin-bottom: 18px;">
+                <b>• Doctor robot:</b> Người máy bác sĩ <br> 
+                <i style="color: #666; font-size: 0.9rem;">Ex: "It’s Shifa, a doctor robot. It can help sick people." &rarr; Đó là Shifa, một người máy bác sĩ. Nó có thể giúp đỡ người bệnh.</i>
+            </li>
+            <li style="margin-bottom: 18px;">
+                <b>• Teacher robot:</b> Người máy giáo viên <br> 
+                <i style="color: #666; font-size: 0.9rem;">Ex: "Teacher robots are the best choice for children." &rarr; Người máy giáo viên là lựa chọn tốt nhất cho trẻ em.</i>
+            </li>
+            <li style="margin-bottom: 18px;">
+                <b>• Space robot:</b> Người máy vũ trụ <br> 
+                <i style="color: #666; font-size: 0.9rem;">Ex: "Space robots can build space stations on the Moon." &rarr; Người máy vũ trụ có thể xây dựng các trạm vũ trụ trên Mặt Trăng.</i>
+            </li>
+        </ul>
+    </div>
+
+    <!-- PHẦN 2: ACTIONS -->
+    <div style="background: #fff; padding: 25px; border-radius: 20px; margin-bottom: 30px; border: 1px solid #eee;">
+        <h3 style="margin-top: 0; color: #000; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid #000; display: inline-block; padding-bottom: 5px; margin-bottom: 20px;">📋 2. CÁC ĐỘNG TỪ CHỈ HOẠT ĐỘNG</h3>
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="padding-bottom: 10px; border-bottom: 1px dashed #eee;">
+                <b>• Do the dishes:</b> Rửa bát đĩa <br>
+                <i style="color: #666; font-size: 0.85rem;">Ex: "It can do the dishes, iron clothes, put toys away..." &rarr; Nó có thể rửa bát, ủi quần áo, cất dọn đồ chơi...</i>
+            </div>
+            <div style="padding-bottom: 10px; border-bottom: 1px dashed #eee;">
+                <b>• Do the washing:</b> Giặt giũ <br>
+                <i style="color: #666; font-size: 0.85rem;">Ex: "My robot can do the washing for me." &rarr; Người máy của tôi có thể giặt giũ cho tôi.</i>
+            </div>
+            <div style="padding-bottom: 10px; border-bottom: 1px dashed #eee;">
+                <b>• Iron (v):</b> Là, ủi <br>
+                <i style="color: #666; font-size: 0.85rem;">Ex: "My home robot can iron clothes for me." &rarr; Người máy gia đình của tôi có thể ủi quần áo giúp tôi.</i>
+            </div>
+            <div style="padding-bottom: 10px; border-bottom: 1px dashed #eee;">
+                <b>• Put away:</b> Cất, dọn dẹp <br>
+                <i style="color: #666; font-size: 0.85rem;">Ex: "Robot can help children put away their toys." &rarr; Người máy có thể giúp trẻ em cất dọn đồ chơi của chúng.</i>
+            </div>
+            <div style="padding-bottom: 10px; border-bottom: 1px dashed #eee;">
+                <b>• Repair (v):</b> Sửa chữa <br>
+                <i style="color: #666; font-size: 0.85rem;">Ex: "It can move heavy things or repair broken machines." &rarr; Nó có thể di chuyển vật nặng hoặc sửa chữa máy móc bị hỏng.</i>
+            </div>
+            <div style="padding-bottom: 10px; border-bottom: 1px dashed #eee;">
+                <b>• Understand (v):</b> Hiểu <br>
+                <i style="color: #666; font-size: 0.85rem;">Ex: "Can robots understand our feelings?" &rarr; Người máy có thể hiểu được cảm xúc của chúng ta không?</i>
+            </div>
+            <div style="padding-bottom: 10px; border-bottom: 1px dashed #eee;">
+                <b>• Guard (v/n):</b> Bảo vệ <br>
+                <i style="color: #666; font-size: 0.85rem;">Ex: "Robots can work as a guard to keep our house safe." &rarr; Người máy có thể làm bảo vệ để giữ nhà an toàn.</i>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHẦN 3: CHARACTERISTICS -->
+    <div style="background: #fdfce8; border: 1px solid #fef08a; padding: 25px; border-radius: 20px; margin-bottom: 30px;">
+        <h3 style="margin-top: 0; color: #854d0e; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid #854d0e; display: inline-block; padding-bottom: 5px; margin-bottom: 20px;">✨ 3. TÍNH TỪ & DANH TỪ MÔ TẢ</h3>
+        <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+            <p style="margin: 0;"><b>• Useful (adj):</b> Hữu ích. <i style="color: #71717a;">Ex: "It looks very useful!"</i></p>
+            <p style="margin: 0;"><b>• Strongest (adj):</b> Khỏe nhất. <i style="color: #71717a;">Ex: "WB2 is the strongest and fastest robot here."</i></p>
+            <p style="margin: 0;"><b>• Smartest (adj):</b> Thông minh nhất. <i style="color: #71717a;">Ex: "This is the smartest robot in the show."</i></p>
+            <p style="margin: 0;"><b>• Broken (adj):</b> Bị hỏng. <i style="color: #71717a;">Ex: "Can you repair my broken clock?"</i></p>
+            <p style="margin: 0;"><b>• Height (n):</b> Chiều cao. <i style="color: #71717a;">Ex: "1.8 m is his height."</i></p>
+            <p style="margin: 0;"><b>• Weight (n):</b> Cân nặng. <i style="color: #71717a;">Ex: "The weight of this robot is 50 kg."</i></p>
+            <p style="margin: 0;"><b>• Planet (n):</b> Hành tinh. <i style="color: #71717a;">Ex: "We might live on a different planet in the future."</i></p>
+        </div>
+    </div>
+
+    <!-- FOOTER TIP -->
+    <div style="background: #000; color: #fff; padding: 20px; border-radius: 20px; text-align: center; font-size: 0.9rem;">
+        💡 <b>Ghi nhớ:</b> Hãy chú ý sự khác biệt giữa danh từ (Height/Weight) và tính từ (Tall/Heavy) khi mô tả Robot nhé!
+    </div>
+</div>`,
+        levels: {
+          easy: [
+            { type: "multiple_choice", script: "Home robot.", q: "Người máy gia đình là gì?", options: ["Home robot", "Worker robot", "Doctor robot"], a: "Home robot", lesson: "Home robot (n): Người máy gia đình." },
+            { type: "multiple_choice", script: "Worker robot.", q: "Người máy công nhân là gì?", options: ["Doctor robot", "Teacher robot", "Worker robot"], a: "Worker robot", lesson: "Worker robot (n): Người máy công nhân." },
+            { type: "multiple_choice", script: "Doctor robot.", q: "Người máy bác sĩ là gì?", options: ["Doctor robot", "Space robot", "Home robot"], a: "Doctor robot", lesson: "Doctor robot (n): Người máy bác sĩ." },
+            { type: "multiple_choice", script: "Teacher robot.", q: "Người máy giáo viên là gì?", options: ["Worker robot", "Teacher robot", "Space robot"], a: "Teacher robot", lesson: "Teacher robot (n): Người máy giáo viên." },
+            { type: "multiple_choice", script: "Space robot.", q: "Người máy vũ trụ là gì?", options: ["Space robot", "Home robot", "Doctor robot"], a: "Space robot", lesson: "Space robot (n): Người máy vũ trụ." },
+            { type: "multiple_choice", script: "Do the dishes.", q: "Cụm từ 'rửa bát đĩa' là gì?", options: ["Do the washing", "Do the dishes", "Make meals"], a: "Do the dishes", lesson: "Do the dishes (v.phr): Rửa bát đĩa." },
+            { type: "multiple_choice", script: "Do the washing.", q: "Cụm từ 'giặt giũ' là gì?", options: ["Do the washing", "Iron clothes", "Put away"], a: "Do the washing", lesson: "Do the washing (v.phr): Giặt giũ." },
+            { type: "multiple_choice", script: "Iron.", q: "Động từ 'là, ủi quần áo' là gì?", options: ["Repair", "Water", "Iron"], a: "Iron", lesson: "Iron (v): Là, ủi (quần áo)." },
+            { type: "multiple_choice", script: "Put away.", q: "Cụm từ 'cất, dọn dẹp' là gì?", options: ["Put away", "Pick", "Guard"], a: "Put away", lesson: "Put away (v.phr): Cất, dọn dẹp." },
+            { type: "multiple_choice", script: "Repair.", q: "Động từ 'sửa chữa' là gì?", options: ["Understand", "Repair", "Make meals"], a: "Repair", lesson: "Repair (v): Sửa chữa." },
+            { type: "multiple_choice", script: "Water.", q: "Động từ 'tưới nước' là gì?", options: ["Pick", "Guard", "Water"], a: "Water", lesson: "Water (v): Tưới nước." },
+            { type: "multiple_choice", script: "Understand.", q: "Động từ 'hiểu' là gì?", options: ["Understand", "Feelings", "Useful"], a: "Understand", lesson: "Understand (v): Hiểu." },
+            { type: "multiple_choice", script: "Pick.", q: "Động từ 'hái, thu hoạch' là gì?", options: ["Water", "Pick", "Repair"], a: "Pick", lesson: "Pick (v): Hái, thu hoạch." },
+            { type: "multiple_choice", script: "Guard.", q: "Từ 'bảo vệ/người bảo vệ' là gì?", options: ["Guard", "Worker", "Space station"], a: "Guard", lesson: "Guard (v/n): Bảo vệ/Người bảo vệ." },
+            { type: "multiple_choice", script: "Make meals.", q: "Cụm từ 'nấu ăn' là gì?", options: ["Do the dishes", "Make meals", "Do the washing"], a: "Make meals", lesson: "Make meals (v.phr): Nấu ăn." },
+            { type: "multiple_choice", script: "Feelings.", q: "Danh từ 'cảm xúc, tình cảm' là gì?", options: ["Useful", "Smartest", "Feelings"], a: "Feelings", lesson: "Feelings (n): Cảm xúc, tình cảm." },
+            { type: "multiple_choice", script: "Useful.", q: "Tính từ 'hữu ích' là gì?", options: ["Broken", "Useful", "Strongest"], a: "Useful", lesson: "Useful (adj): Hữu ích." },
+            { type: "multiple_choice", script: "Strongest.", q: "Tính từ 'khỏe nhất' là gì?", options: ["Strongest", "Smartest", "Height"], a: "Strongest", lesson: "Strongest (adj): Khỏe nhất." },
+            { type: "multiple_choice", script: "Smartest.", q: "Tính từ 'thông minh nhất' là gì?", options: ["Useful", "Smartest", "Weight"], a: "Smartest", lesson: "Smartest (adj): Thông minh nhất." },
+            { type: "multiple_choice", script: "Broken.", q: "Tính từ 'bị hỏng, bị vỡ' là gì?", options: ["Broken", "Price", "Planet"], a: "Broken", lesson: "Broken (adj): Bị hỏng, bị vỡ." },
+            { type: "multiple_choice", script: "Height.", q: "Danh từ 'chiều cao' là gì?", options: ["Weight", "Height", "Price"], a: "Height", lesson: "Height (n): Chiều cao." },
+            { type: "multiple_choice", script: "Weight.", q: "Danh từ 'trọng lượng, cân nặng' là gì?", options: ["Weight", "Height", "Planet"], a: "Weight", lesson: "Weight (n): Trọng lượng, cân nặng." },
+            { type: "multiple_choice", script: "Space station.", q: "Danh từ 'trạm vũ trụ' là gì?", options: ["Planet", "Space station", "Space robot"], a: "Space station", lesson: "Space station (n): Trạm vũ trụ." },
+            { type: "multiple_choice", script: "Planet.", q: "Danh từ 'hành tinh' là gì?", options: ["Planet", "Space station", "Weight"], a: "Planet", lesson: "Planet (n): Hành tinh." },
+            { type: "multiple_choice", script: "What does 'Home robot' mean?", q: "What does 'Home robot' mean?", options: ["Người máy gia đình", "Người máy công nhân", "Người máy bác sĩ"], a: "Người máy gia đình", lesson: "Home robot (n): Người máy gia đình." },
+            { type: "multiple_choice", script: "What does 'Worker robot' mean?", q: "What does 'Worker robot' mean?", options: ["Người máy giáo viên", "Người máy công nhân", "Người máy vũ trụ"], a: "Người máy công nhân", lesson: "Worker robot (n): Người máy công nhân." },
+            { type: "multiple_choice", script: "What does 'Doctor robot' mean?", q: "What does 'Doctor robot' mean?", options: ["Người máy bác sĩ", "Người máy gia đình", "Người máy vũ trụ"], a: "Người máy bác sĩ", lesson: "Doctor robot (n): Người máy bác sĩ." },
+            { type: "multiple_choice", script: "What does 'Teacher robot' mean?", q: "What does 'Teacher robot' mean?", options: ["Người máy công nhân", "Người máy giáo viên", "Người máy gia đình"], a: "Người máy giáo viên", lesson: "Teacher robot (n): Người máy giáo viên." },
+            { type: "multiple_choice", script: "What does 'Space robot' mean?", q: "What does 'Space robot' mean?", options: ["Người máy vũ trụ", "Người máy bác sĩ", "Người máy công nhân"], a: "Người máy vũ trụ", lesson: "Space robot (n): Người máy vũ trụ." },
+            { type: "multiple_choice", script: "What does 'Do the dishes' mean?", q: "What does 'Do the dishes' mean?", options: ["Giặt giũ", "Rửa bát đĩa", "Nấu ăn"], a: "Rửa bát đĩa", lesson: "Do the dishes (v.phr): Rửa bát đĩa." },
+            { type: "multiple_choice", script: "What does 'Do the washing' mean?", q: "What does 'Do the washing' mean?", options: ["Giặt giũ", "Ủi quần áo", "Tưới cây"], a: "Giặt giũ", lesson: "Do the washing (v.phr): Giặt giũ." },
+            { type: "multiple_choice", script: "What does the verb 'Iron' mean?", q: "What does the verb 'Iron' mean?", options: ["Sửa chữa", "Tưới nước", "Là, ủi quần áo"], a: "Là, ủi quần áo", lesson: "Iron (v): Là, ủi (quần áo)." },
+            { type: "multiple_choice", script: "What does 'Put away' mean?", q: "What does 'Put away' mean?", options: ["Cất, dọn dẹp", "Hái quả", "Bảo vệ"], a: "Cất, dọn dẹp", lesson: "Put away (v.phr): Cất, dọn dẹp." },
+            { type: "multiple_choice", script: "What does 'Repair' mean?", q: "What does 'Repair' mean?", options: ["Hiểu", "Sửa chữa", "Nấu ăn"], a: "Sửa chữa", lesson: "Repair (v): Sửa chữa." },
+            { type: "multiple_choice", script: "What does the verb 'Water' mean?", q: "What does the verb 'Water' mean?", options: ["Hái quả", "Bảo vệ", "Tưới nước"], a: "Tưới nước", lesson: "Water (v): Tưới nước." },
+            { type: "multiple_choice", script: "What does 'Understand' mean?", q: "What does 'Understand' mean?", options: ["Hiểu", "Cảm xúc", "Hữu ích"], a: "Hiểu", lesson: "Understand (v): Hiểu." },
+            { type: "multiple_choice", script: "What does 'Pick' mean?", q: "What does 'Pick' mean?", options: ["Tưới nước", "Hái, thu hoạch", "Sửa chữa"], a: "Hái, thu hoạch", lesson: "Pick (v): Hái, thu hoạch." },
+            { type: "multiple_choice", script: "What does 'Guard' mean?", q: "What does 'Guard' mean?", options: ["Bảo vệ/Người bảo vệ", "Công nhân", "Trạm vũ trụ"], a: "Bảo vệ/Người bảo vệ", lesson: "Guard (v/n): Bảo vệ/Người bảo vệ." },
+            { type: "multiple_choice", script: "What does 'Make meals' mean?", q: "What does 'Make meals' mean?", options: ["Rửa bát", "Nấu ăn", "Giặt giũ"], a: "Nấu ăn", lesson: "Make meals (v.phr): Nấu ăn." },
+            { type: "multiple_choice", script: "What does 'Feelings' mean?", q: "What does 'Feelings' mean?", options: ["Hữu ích", "Thông minh nhất", "Cảm xúc, tình cảm"], a: "Cảm xúc, tình cảm", lesson: "Feelings (n): Cảm xúc, tình cảm." },
+            { type: "multiple_choice", script: "What does 'Useful' mean?", q: "What does 'Useful' mean?", options: ["Bị hỏng", "Hữu ích", "Khỏe nhất"], a: "Hữu ích", lesson: "Useful (adj): Hữu ích." },
+            { type: "multiple_choice", script: "What does 'Strongest' mean?", q: "What does 'Strongest' mean?", options: ["Khỏe nhất", "Thông minh nhất", "Chiều cao"], a: "Khỏe nhất", lesson: "Strongest (adj): Khỏe nhất." },
+            { type: "multiple_choice", script: "What does 'Smartest' mean?", q: "What does 'Smartest' mean?", options: ["Hữu ích", "Thông minh nhất", "Cân nặng"], a: "Thông minh nhất", lesson: "Smartest (adj): Thông minh nhất." },
+            { type: "multiple_choice", script: "What does 'Broken' mean?", q: "What does 'Broken' mean?", options: ["Bị hỏng, bị vỡ", "Giá cả", "Hành tinh"], a: "Bị hỏng, bị vỡ", lesson: "Broken (adj): Bị hỏng, bị vỡ." },
+            { type: "multiple_choice", script: "What does 'Height' mean?", q: "What does 'Height' mean?", options: ["Cân nặng", "Chiều cao", "Giá cả"], a: "Chiều cao", lesson: "Height (n): Chiều cao." },
+            { type: "multiple_choice", script: "What does 'Weight' mean?", q: "What does 'Weight' mean?", options: ["Trọng lượng, cân nặng", "Chiều cao", "Hành tinh"], a: "Trọng lượng, cân nặng", lesson: "Weight (n): Trọng lượng, cân nặng." },
+            { type: "multiple_choice", script: "What does 'Space station' mean?", q: "What does 'Space station' mean?", options: ["Hành tinh", "Trạm vũ trụ", "Người máy vũ trụ"], a: "Trạm vũ trụ", lesson: "Space station (n): Trạm vũ trụ." },
+            { type: "multiple_choice", script: "What does 'Planet' mean?", q: "What does 'Planet' mean?", options: ["Hành tinh", "Trạm vũ trụ", "Cân nặng"], a: "Hành tinh", lesson: "Planet (n): Hành tinh." },
+            { type: "multiple_choice", script: "What does 'Price' mean?", q: "What does 'Price' mean?", options: ["Giá cả", "Chiều cao", "Cân nặng"], a: "Giá cả", lesson: "Price (n): Giá cả." },
+            { type: "multiple_choice", script: "Price.", q: "Danh từ 'giá cả' là gì?", options: ["Price", "Height", "Weight"], a: "Price", lesson: "Price (n): Giá cả." }, { type: "fill_blank", script: "Lan likes listening to pop music.", q: "Dịch sang tiếng Anh: Lan thích nghe nhạc pop.", a: "Lan likes listening to pop music", lesson: "Lan số ít nên like thêm -s." },
+            { type: "fill_blank", script: "Home robot.", q: "Nghe và điền từ chính xác: ___ (Người máy gia đình)", a: "Home robot", lesson: "Home robot (n): Người máy gia đình." },
+            { type: "fill_blank", script: "Worker robot.", q: "Nghe và điền từ chính xác: ___ (Người máy công nhân)", a: "Worker robot", lesson: "Worker robot (n): Người máy công nhân." },
+            { type: "fill_blank", script: "Doctor robot.", q: "Nghe và điền từ chính xác: ___ (Người máy bác sĩ)", a: "Doctor robot", lesson: "Doctor robot (n): Người máy bác sĩ." },
+            { type: "fill_blank", script: "Teacher robot.", q: "Nghe và điền từ chính xác: ___ (Người máy giáo viên)", a: "Teacher robot", lesson: "Teacher robot (n): Người máy giáo viên." },
+            { type: "fill_blank", script: "Space robot.", q: "Nghe và điền từ chính xác: ___ (Người máy vũ trụ)", a: "Space robot", lesson: "Space robot (n): Người máy vũ trụ." },
+            { type: "fill_blank", script: "Do the dishes.", q: "Nghe và điền từ chính xác: ___ (Rửa bát đĩa)", a: "Do the dishes", lesson: "Do the dishes (v.phr): Rửa bát đĩa." },
+            { type: "fill_blank", script: "Do the washing.", q: "Nghe và điền từ chính xác: ___ (Giặt giũ)", a: "Do the washing", lesson: "Do the washing (v.phr): Giặt giũ." },
+            { type: "fill_blank", script: "Iron.", q: "Nghe và điền từ chính xác: ___ (Là, ủi quần áo)", a: "Iron", lesson: "Iron (v): Là, ủi (quần áo)." },
+            { type: "fill_blank", script: "Put away.", q: "Nghe và điền từ chính xác: ___ (Cất, dọn dẹp)", a: "Put away", lesson: "Put away (v.phr): Cất, dọn dẹp." },
+            { type: "fill_blank", script: "Repair.", q: "Nghe và điền từ chính xác: ___ (Sửa chữa)", a: "Repair", lesson: "Repair (v): Sửa chữa." },
+            { type: "fill_blank", script: "Water.", q: "Nghe và điền từ chính xác: ___ (Tưới nước)", a: "Water", lesson: "Water (v): Tưới nước." },
+            { type: "fill_blank", script: "Understand.", q: "Nghe và điền từ chính xác: ___ (Hiểu)", a: "Understand", lesson: "Understand (v): Hiểu." },
+            { type: "fill_blank", script: "Pick.", q: "Nghe và điền từ chính xác: ___ (Hái, thu hoạch)", a: "Pick", lesson: "Pick (v): Hái, thu hoạch." },
+            { type: "fill_blank", script: "Guard.", q: "Nghe và điền từ chính xác: ___ (Bảo vệ/Người bảo vệ)", a: "Guard", lesson: "Guard (v/n): Bảo vệ/Người bảo vệ." },
+            { type: "fill_blank", script: "Make meals.", q: "Nghe và điền từ chính xác: ___ (Nấu ăn)", a: "Make meals", lesson: "Make meals (v.phr): Nấu ăn." },
+            { type: "fill_blank", script: "Feelings.", q: "Nghe và điền từ chính xác: ___ (Cảm xúc, tình cảm)", a: "Feelings", lesson: "Feelings (n): Cảm xúc, tình cảm." },
+            { type: "fill_blank", script: "Useful.", q: "Nghe và điền từ chính xác: ___ (Hữu ích)", a: "Useful", lesson: "Useful (adj): Hữu ích." },
+            { type: "fill_blank", script: "Strongest.", q: "Nghe và điền từ chính xác: ___ (Khỏe nhất)", a: "Strongest", lesson: "Strongest (adj): Khỏe nhất." },
+            { type: "fill_blank", script: "Smartest.", q: "Nghe và điền từ chính xác: ___ (Thông minh nhất)", a: "Smartest", lesson: "Smartest (adj): Thông minh nhất." },
+            { type: "fill_blank", script: "Broken.", q: "Nghe và điền từ chính xác: ___ (Bị hỏng, bị vỡ)", a: "Broken", lesson: "Broken (adj): Bị hỏng, bị vỡ." },
+            { type: "fill_blank", script: "Height.", q: "Nghe và điền từ chính xác: ___ (Chiều cao)", a: "Height", lesson: "Height (n): Chiều cao." },
+            { type: "fill_blank", script: "Weight.", q: "Nghe và điền từ chính xác: ___ (Trọng lượng, cân nặng)", a: "Weight", lesson: "Weight (n): Trọng lượng, cân nặng." },
+            { type: "fill_blank", script: "Space station.", q: "Nghe và điền từ chính xác: ___ (Trạm vũ trụ)", a: "Space station", lesson: "Space station (n): Trạm vũ trụ." },
+            { type: "fill_blank", script: "Planet.", q: "Nghe và điền từ chính xác: ___ (Hành tinh)", a: "Planet", lesson: "Planet (n): Hành tinh." },
+            { type: "fill_blank", script: "Price.", q: "Nghe và điền từ chính xác: ___ (Giá cả)", a: "Price", lesson: "Price (n): Giá cả." },
+          ],
+          medium: [
+            { type: "fill_blank", script: "H8 is a home robot.", q: "H8 is a ___ robot.", a: "home", lesson: "Home robot (n): Người máy gia đình." },
+            { type: "fill_blank", script: "Worker robots can build houses.", q: "___ robots can build houses.", a: "Worker", lesson: "Worker robot (n): Người máy công nhân." },
+            { type: "fill_blank", script: "Shifa is a doctor robot.", q: "Shifa is a ___ robot.", a: "doctor", lesson: "Doctor robot (n): Người máy bác sĩ." },
+            { type: "fill_blank", script: "Teacher robots are the best choice for children.", q: "___ robots are the best choice for children.", a: "Teacher", lesson: "Teacher robot (n): Người máy giáo viên." },
+            { type: "fill_blank", script: "Space robots can build space stations.", q: "___ robots can build space stations.", a: "Space", lesson: "Space robot (n): Người máy vũ trụ." },
+            { type: "fill_blank", script: "It can do the dishes.", q: "It can do the ___.", a: "dishes", lesson: "Do the dishes (v.phr): Rửa bát đĩa." },
+            { type: "fill_blank", script: "My robot can do the washing for me.", q: "My robot can do the ___ for me.", a: "washing", lesson: "Do the washing (v.phr): Giặt giũ." },
+            { type: "fill_blank", script: "My home robot can iron clothes for me.", q: "My home robot can ___ clothes for me.", a: "iron", lesson: "Iron (v): Là, ủi (quần áo)." },
+            { type: "fill_blank", script: "Robot can help children put away their toys.", q: "Robot can help children ___ away their toys.", a: "put", lesson: "Put away (v.phr): Cất, dọn dẹp." },
+            { type: "fill_blank", script: "It can repair broken machines.", q: "It can ___ broken machines.", a: "repair", lesson: "Repair (v): Sửa chữa." },
+            { type: "fill_blank", script: "I often water plants after school.", q: "I often ___ plants after school.", a: "water", lesson: "Water (v): Tưới nước." },
+            { type: "fill_blank", script: "Can robots understand our feelings?", q: "Can robots ___ our feelings?", a: "understand", lesson: "Understand (v): Hiểu." },
+            { type: "fill_blank", script: "The boy is picking fruit.", q: "The boy is ___ fruit.", a: "picking", lesson: "Pick (v): Hái, thu hoạch." },
+            { type: "fill_blank", script: "Robots can work as a guard.", q: "Robots can work as a ___.", a: "guard", lesson: "Guard (v/n): Bảo vệ/Người bảo vệ." },
+            { type: "fill_blank", script: "Home robots can make meals for us.", q: "Home robots can make ___ for us.", a: "meals", lesson: "Make meals (v.phr): Nấu ăn." },
+            { type: "fill_blank", script: "He didn't understand her feelings.", q: "He didn't understand her ___.", a: "feelings", lesson: "Feelings (n): Cảm xúc, tình cảm." },
+            { type: "fill_blank", script: "It looks very useful!", q: "It looks very ___!", a: "useful", lesson: "Useful (adj): Hữu ích." },
+            { type: "fill_blank", script: "WB2 is the strongest robot here.", q: "WB2 is the ___ robot here.", a: "strongest", lesson: "Strongest (adj): Khỏe nhất." },
+            { type: "fill_blank", script: "This is the smartest robot in the show.", q: "This is the ___ robot in the show.", a: "smartest", lesson: "Smartest (adj): Thông minh nhất." },
+            { type: "fill_blank", script: "Can you repair my broken clock?", q: "Can you repair my ___ clock?", a: "broken", lesson: "Broken (adj): Bị hỏng, bị vỡ." },
+            { type: "fill_blank", script: "1.8 m is his height.", q: "1.8 m is his ___.", a: "height", lesson: "Height (n): Chiều cao." },
+            { type: "fill_blank", script: "The weight of this robot is 50 kg.", q: "The ___ of this robot is 50 kg.", a: "weight", lesson: "Weight (n): Trọng lượng, cân nặng." },
+            { type: "fill_blank", script: "Space robots can build space stations.", q: "Space robots can build space ___.", a: "stations", lesson: "Space station (n): Trạm vũ trụ." },
+            { type: "fill_blank", script: "We might live on a different planet.", q: "We might live on a different ___.", a: "planet", lesson: "Planet (n): Hành tinh." },
+            { type: "fill_blank", script: "What is the price of this robot?", q: "What is the ___ of this robot?", a: "price", lesson: "Price (n): Giá cả." },
+          ]
+        }
+      },
+      listening: {
+        title: "Kỹ năng Nghe", icon: "🎧",
+        theory: `<strong>1. Đọc câu hỏi trước:</strong> Xác định thông tin cần tìm.<br><strong>2. Nghe lần 1:</strong> Nắm ý chính, bối cảnh.<br><strong>3. Nghe lần 2:</strong> Tìm thông tin chi tiết.<br><strong>4. Chú ý từ khóa:</strong> Tên người, địa điểm, số, thời gian.<br><strong>Dạng bài:</strong> True/False, Multiple choice, Fill in blank, Matching.`,
+        levels: {
+          easy: [
+            // script = đoạn hội thoại sẽ được đọc to (TTS), học sinh KHÔNG thấy trên màn hình
+            // q     = câu hỏi hiển thị cho học sinh
+            { type: "multiple_choice", script: "I really enjoy swimming and reading.", q: "What are her hobbies?", options: ["cooking and reading", "swimming and reading", "swimming and writing"], a: "swimming and reading", lesson: "Chiến lược nghe: nghe các danh từ/động từ chính. 'Swimming and reading' là hai sở thích được đề cập." },
+            { type: "multiple_choice", script: "The museum opens at 9 am and closes at 5 pm.", q: "When does the museum close?", options: ["5 pm", "9 pm", "9 am"], a: "5 pm", lesson: "Nghe chi tiết số: 'closes at 5 pm' → đóng cửa lúc 5 giờ chiều." },
+            { type: "multiple_choice", script: "It will be sunny tomorrow but cloudy on Sunday.", q: "What is the weather on Sunday?", options: ["sunny", "rainy", "cloudy"], a: "cloudy", lesson: "Nghe từ chỉ thời gian để phân biệt thời tiết từng ngày: tomorrow vs Sunday." },
+            { type: "fill_blank", script: "Where are you from? I am from Hue.", q: "Where is she from? → She is from ___ .", a: "Hue", lesson: "Nghe tên riêng tập trung vào chữ hoa. 'Where are you from?' → địa điểm." },
+            { type: "multiple_choice", script: "I have a new clock. It is seven o'clock. I go to school now.", q: "What time is it?", options: ["6:00", "7:00", "8:00"], a: "7:00", lesson: "Nghe từ khóa thời gian: 'seven o'clock' → 7:00." },
+            { type: "multiple_choice", script: "This is my classroom. There are twenty desks. They are all new.", q: "How many desks are there?", options: ["12", "20", "22"], a: "20", lesson: "Phân biệt số đếm: 'twenty' là số 20." },
+            { type: "multiple_choice", script: "Look at my school bag. It is big and blue. I like it very much.", q: "What color is the school bag?", options: ["red", "blue", "black"], a: "blue", lesson: "Nghe tính từ chỉ màu sắc: 'blue' (màu xanh dương)." },
+            { type: "multiple_choice", script: "I have a new pencil. It is yellow and long. It is on the table.", q: "What object is yellow?", options: ["a pen", "a ruler", "a pencil"], a: "a pencil", lesson: "Kết hợp nghe đồ vật và màu sắc: 'pencil' và 'yellow'." },
+            { type: "fill_blank", script: "This is my teacher. Her name is Hoa. She is very kind.", q: "The teacher's name is ___.", a: "Hoa", lesson: "Nghe tên riêng ngay sau cụm từ 'name is'." },
+            { type: "fill_blank", script: "Open your book, please. Turn to page ten. Let's start the lesson.", q: "Open your ___, please.", a: "book", lesson: "Nghe danh từ chỉ vật dụng học tập phổ biến." },
+            { type: "multiple_choice", script: "Good morning, teacher. How are you today? I am very happy.", q: "What is the student's greeting?", options: ["Good morning", "Good afternoon", "Goodbye"], a: "Good morning", lesson: "Nhận diện lời chào đầu ngày: 'Good morning'." },
+            { type: "multiple_choice", script: "Hi, I am Nam. I am a new student. Nice to meet you.", q: "What is the boy's name?", options: ["Duy", "Nam", "Phong"], a: "Nam", lesson: "Nghe cấu trúc giới thiệu tên: 'I am + tên'." },
+            { type: "multiple_choice", script: "My school is big. It has a library. I love my school.", q: "Is the school small?", options: ["Yes", "No"], a: "No", lesson: "Nghe tính từ trái nghĩa: Script nói 'big' nên 'small' là No." },
+            { type: "multiple_choice", script: "I have a rubber. It is in my pencil case. It is small.", q: "Is the rubber in the pencil case?", options: ["Yes", "No"], a: "Yes", lesson: "Xác nhận vị trí vật dụng: 'in my pencil case'." },
+            { type: "multiple_choice", script: "My classroom is very clean. It has a big board. The board is green.", q: "What color is the board?", options: ["white", "green", "black"], a: "green", lesson: "Nghe màu sắc của vật dụng: 'green' (màu xanh lá)." },
+            { type: "multiple_choice", script: "I have a new friend. His name is Peter. He is from London.", q: "What is his name?", options: ["Peter", "Paul", "Phong"], a: "Peter", lesson: "Nghe tên riêng của người: 'Peter'." },
+            { type: "multiple_choice", script: "Look at the wall. There is a big map. It is a map of Vietnam.", q: "What is on the wall?", options: ["a clock", "a picture", "a map"], a: "a map", lesson: "Nhận diện danh từ chỉ vật dụng treo tường: 'map' (bản đồ)." },
+            { type: "multiple_choice", script: "The library is open. It has many books. I read books there.", q: "Where does the student read books?", options: ["at home", "in the library", "in the gym"], a: "in the library", lesson: "Nghe địa điểm trong trường học: 'library' (thư viện)." },
+            { type: "fill_blank", script: "Close your notebook, please. Take out your pen. Write the lesson now.", q: "Close your ___, please.", a: "notebook", lesson: "Phân biệt 'book' và 'notebook' (vở ghi chép)." },
+            { type: "fill_blank", script: "I have a sharpener. It is pink and small. It is in my hand.", q: "What does the student have? → A ___", a: "sharpener", lesson: "Nghe danh từ vật dụng học tập: 'sharpener' (gọt bút chì)." },
+            { type: "multiple_choice", script: "We have English today. It is my favorite subject. I like it a lot.", q: "What is the favorite subject?", options: ["Math", "English", "Music"], a: "English", lesson: "Nghe tên môn học: 'English'." },
+            { type: "multiple_choice", script: "Sit down, please. Open your eyes. Let's play a game.", q: "What does the teacher say?", options: ["Sit down", "Stand up", "Be quiet"], a: "Sit down", lesson: "Nhận diện câu mệnh lệnh cơ bản trong lớp." },
+            { type: "multiple_choice", script: "This is my computer room. It is very large. There are thirty computers.", q: "Are there 30 computers?", options: ["Yes", "No"], a: "Yes", lesson: "Xác nhận số lượng (thirty = 30) trong câu Đúng/Sai." },
+            { type: "multiple_choice", script: "My school has a garden. There are many flowers. It is very beautiful.", q: "Does the school have a garden?", options: ["Yes", "No"], a: "Yes", lesson: "Xác nhận sự tồn tại của cơ sở vật chất: 'has a garden'." },
+            // --- TIẾP TỤC CHỦ ĐỀ VẬT DỤNG & LỚP HỌC ---
+            { type: "multiple_choice", script: "I have a ruler. It is on the desk. It is thirty centimeters long.", q: "Where is the ruler?", options: ["on the chair", "on the desk", "in the bag"], a: "on the desk", lesson: "Nghe giới từ chỉ vị trí: 'on the desk'." },
+            { type: "multiple_choice", script: "Look at the window. It is open. The weather is cool today.", q: "Is the window closed?", options: ["Yes", "No"], a: "No", lesson: "Xác nhận trạng thái: Script nói 'open' nên 'closed' là No." },
+            { type: "fill_blank", script: "This is my classroom. It has a projector. We watch videos here.", q: "The classroom has a ___.", a: "projector", lesson: "Nghe danh từ thiết bị hiện đại: 'projector' (máy chiếu)." },
+            { type: "multiple_choice", script: "I need a compass. It is for my Math class. It is in my drawer.", q: "What is the compass for?", options: ["Music class", "Math class", "History class"], a: "Math class", lesson: "Nghe tên môn học đi kèm vật dụng: 'Math class'." },
+            { type: "multiple_choice", script: "There are two posters. They are on the wall. They show the alphabet.", q: "How many posters are there?", options: ["1", "2", "3"], a: "2", lesson: "Nghe số đếm cơ bản: 'two' là 2." },
+            { type: "fill_blank", script: "Where is your calculator? It is in my school bag. I use it for Math.", q: "The ___ is in the bag.", a: "calculator", lesson: "Nghe vật dụng tính toán: 'calculator' (máy tính bỏ túi)." },
+            { type: "multiple_choice", script: "Stand up, please. Go to the board. Write your name there.", q: "Where does the student go?", options: ["to the board", "to the door", "to the library"], a: "to the board", lesson: "Nghe cụm từ chỉ hướng di chuyển: 'go to the board'." },
+            { type: "multiple_choice", script: "The school gate is red. It is very big. My school starts at 8 am.", q: "What color is the school gate?", options: ["red", "blue", "yellow"], a: "red", lesson: "Nghe tính từ màu sắc: 'red'." },
+            { type: "multiple_choice", script: "I have many colored pencils. There are twelve colors. I love drawing pictures.", q: "How many colors are there?", options: ["10", "12", "20"], a: "12", lesson: "Nghe số đếm: 'twelve' là số 12." },
+            { type: "fill_blank", script: "This is my desk. There is a lamp on it. It helps me read.", q: "There is a ___ on the desk.", a: "lamp", lesson: "Nghe danh từ chỉ vật dụng phát sáng: 'lamp' (đèn)." },
+
+            // --- CHỦ ĐỀ BẠN BÈ & HOẠT ĐỘNG TẠI TRƯỜNG ---
+            { type: "multiple_choice", script: "Meet my friend, Lan. She has glasses. She is very smart.", q: "Does Lan have glasses?", options: ["Yes", "No"], a: "Yes", lesson: "Nghe từ khóa đặc điểm ngoại hình: 'glasses' (kính mắt)." },
+            { type: "multiple_choice", script: "We have a break now. We play football in the yard. It is fun.", q: "What sport do they play?", options: ["basketball", "football", "tennis"], a: "football", lesson: "Nghe tên môn thể thao: 'football'." },
+            { type: "fill_blank", script: "My teacher is Mr. Loc. He teaches History. He is very funny.", q: "Mr. Loc teaches ___.", a: "History", lesson: "Nghe tên môn học: 'History' (Lịch sử)." },
+            { type: "multiple_choice", script: "The canteen is small. I buy milk there. The milk is cold.", q: "What does the student buy?", options: ["water", "milk", "juice"], a: "milk", lesson: "Nghe danh từ đồ uống: 'milk'." },
+            { type: "multiple_choice", script: "I go to school by bike. My bike is green. I go with my brother.", q: "How does the student go to school?", options: ["by bus", "by car", "by bike"], a: "by bike", lesson: "Nghe phương tiện giao thông: 'by bike'." },
+            { type: "multiple_choice", script: "Listen to the music. It is time for Music class. I like singing.", q: "Is it time for Art class?", options: ["Yes", "No"], a: "No", lesson: "Nghe phân biệt môn học: 'Music' chứ không phải 'Art'." },
+            { type: "fill_blank", script: "Please be quiet. The students are doing a test. Do not talk.", q: "Be ___, please.", a: "quiet", lesson: "Nghe tính từ chỉ trạng thái: 'quiet' (yên lặng)." },
+            { type: "multiple_choice", script: "Look at the map. It is on page fifteen. We learn about geography.", q: "Which page is the map on?", options: ["5", "15", "50"], a: "15", lesson: "Phân biệt số đếm: 'fifteen' là 15." },
+            { type: "multiple_choice", script: "I have a big eraser. It is pink and white. It is in my hand.", q: "Is the eraser small?", options: ["Yes", "No"], a: "No", lesson: "Nghe tính từ trái nghĩa: Script nói 'big' nên 'small' là No." },
+            { type: "fill_blank", script: "Today is Monday. We have a flag ceremony. We wear school uniforms.", q: "Today is ___.", a: "Monday", lesson: "Nghe danh từ chỉ thứ trong tuần: 'Monday'." },
+            { type: "multiple_choice", script: "Look at the park. It is very dirty. Let's pick up the trash.", q: "Is the park clean?", options: ["Yes", "No"], a: "No", lesson: "Nghe tính từ trái nghĩa: 'dirty' (bẩn) nên 'clean' là No." },
+            { type: "multiple_choice", script: "This is a green bin. Put the paper here. We can recycle it.", q: "What should we put in the green bin?", options: ["paper", "food", "glass"], a: "paper", lesson: "Nghe danh từ vật liệu: 'paper' (giấy)." },
+            { type: "multiple_choice", script: "I have a reusable bag. It is made of cloth. I don't use plastic bags.", q: "What is the bag made of?", options: ["plastic", "cloth", "paper"], a: "cloth", lesson: "Nghe danh từ vật liệu: 'cloth' (vải)." },
+            { type: "fill_blank", script: "Please turn off the lights. It saves energy. Do it before you leave.", q: "Turn off the ___, please.", a: "lights", lesson: "Nghe danh từ chỉ thiết bị điện: 'lights' (đèn)." },
+            { type: "multiple_choice", script: "We should plant trees. Trees give us fresh air. My school has ten new trees.", q: "How many new trees are there?", options: ["5", "10", "20"], a: "10", lesson: "Nghe số đếm: 'ten' là 10." },
+            { type: "fill_blank", script: "Don't waste water. Close the tap tightly. Water is important.", q: "Close the ___ , please.", a: "tap", lesson: "Nghe danh từ vật dụng nhà tắm/bếp: 'tap' (vòi nước)." },
+            { type: "multiple_choice", script: "I collect old bottles. They are made of plastic. I put them in the bin.", q: "What is made of plastic?", options: ["bottles", "books", "cans"], a: "bottles", lesson: "Nghe danh từ đồ vật: 'bottles' (chai lọ)." },
+            { type: "multiple_choice", script: "The air is not clean. There are too many cars. We should ride bikes.", q: "What should we ride?", options: ["cars", "buses", "bikes"], a: "bikes", lesson: "Nghe danh từ phương tiện thân thiện môi trường: 'bikes'." },
+            { type: "fill_blank", script: "Keep the school clean. Do not litter. Put trash in the bin.", q: "Put ___ in the bin.", a: "trash", lesson: "Nghe danh từ chỉ rác thải: 'trash' hoặc 'litter'." },
+            { type: "multiple_choice", script: "This is a glass jar. You can use it again. It is good for the Earth.", q: "Is the jar made of glass?", options: ["Yes", "No"], a: "Yes", lesson: "Xác nhận vật liệu: 'glass' (thủy tinh)." },
+            { type: "multiple_choice", script: "I love animals. I help protect the forest. Many birds live there.", q: "Where do the birds live?", options: ["in the forest", "in the city", "in the house"], a: "in the forest", lesson: "Nghe danh từ địa điểm tự nhiên: 'forest' (khu rừng)." },
+            { type: "fill_blank", script: "My mom recycles cans. They are made of metal. She is very eco-friendly.", q: "The cans are made of ___.", a: "metal", lesson: "Nghe danh từ vật liệu: 'metal' (kim loại)." },
+            { type: "multiple_choice", script: "It is Earth Day today. We wear green T-shirts. We clean the beach.", q: "Where do they clean?", options: ["the school", "the park", "the beach"], a: "the beach", lesson: "Nghe địa điểm: 'the beach' (bãi biển)." },
+            { type: "multiple_choice", script: "Do not throw away old clothes. Give them to friends. It is a good idea.", q: "Should we throw away old clothes?", options: ["Yes", "No"], a: "No", lesson: "Nghe từ phủ định: 'Do not throw away'." },
+            { type: "fill_blank", script: "I use a refillable bottle. I bring water from home. It is very easy.", q: "I bring ___ from home.", a: "water", lesson: "Nghe danh từ đồ uống: 'water'." },
+            { type: "multiple_choice", script: "Look at the flowers. Do not pick them. Let them grow.", q: "Can we pick the flowers?", options: ["Yes", "No"], a: "No", lesson: "Nghe câu mệnh lệnh phủ định: 'Do not pick'." },
+            { type: "multiple_choice", script: "We have three bins. One for paper, one for plastic. One for food waste.", q: "How many bins are there?", options: ["2", "3", "4"], a: "3", lesson: "Nghe số đếm: 'three' là 3." },
+            { type: "fill_blank", script: "I like the sun. Solar energy is great. It is clean energy.", q: "I like the ___.", a: "sun", lesson: "Nghe danh từ thiên nhiên: 'sun' (mặt trời)." },
+            { type: "multiple_choice", script: "Save the Earth. Recycle your trash. Start today.", q: "When should we start?", options: ["today", "tomorrow", "next week"], a: "today", lesson: "Nghe từ chỉ thời gian: 'today' (hôm nay)." },
+            { type: "multiple_choice", script: "Is that a plastic spoon? No, it is a wooden spoon. It is better.", q: "Is the spoon made of wood?", options: ["Yes", "No"], a: "Yes", lesson: "Nghe tính từ vật liệu: 'wooden' (làm bằng gỗ)." },
+            { type: "multiple_choice", script: "Look at the ocean. It is beautiful. We must keep it clean.", q: "Is the ocean dirty?", options: ["Yes", "No"], a: "No", lesson: "Nghe tính từ miêu tả: 'beautiful' và 'keep it clean' → đại dương không bẩn." },
+            { type: "multiple_choice", script: "I have an old box. I use it for my toys. This is reuse.", q: "What does the student reuse?", options: ["a box", "a bag", "a bottle"], a: "a box", lesson: "Nghe danh từ chỉ đồ vật: 'box' (chiếc hộp)." },
+            { type: "fill_blank", script: "Do not waste paper. Write on both sides. Save the trees.", q: "Do not waste ___.", a: "paper", lesson: "Nghe danh từ chỉ vật liệu: 'paper' (giấy)." },
+            { type: "multiple_choice", script: "There is a blue bin. It is for glass. Put the bottles here.", q: "What color is the bin for glass?", options: ["blue", "red", "yellow"], a: "blue", lesson: "Kết hợp nghe màu sắc và công dụng của thùng rác." },
+            { type: "multiple_choice", script: "I like walking to school. It is good for the air. I don't go by car.", q: "How does the student go to school?", options: ["by car", "by walking", "by bus"], a: "by walking", lesson: "Nghe hoạt động bảo vệ môi trường: 'walking' (đi bộ)." },
+            { type: "fill_blank", script: "Look at the small bird. It is hungry. Let's give it some food.", q: "The student gives ___ to the bird.", a: "food", lesson: "Nghe danh từ cơ bản: 'food' (thức ăn)." },
+            { type: "multiple_choice", script: "The river is very long. Many fish live there. We should not throw trash in it.", q: "Are there fish in the river?", options: ["Yes", "No"], a: "Yes", lesson: "Xác nhận thông tin: 'Many fish live there'." },
+            { type: "multiple_choice", script: "I use a bamboo straw. It is better than plastic. I use it every day.", q: "What is the straw made of?", options: ["plastic", "bamboo", "metal"], a: "bamboo", lesson: "Nghe danh từ vật liệu mới: 'bamboo' (tre)." },
+            { type: "fill_blank", script: "Please plant a flower. It makes the garden pretty. I love nature.", q: "Plant a ___, please.", a: "flower", lesson: "Nghe danh từ chỉ thực vật: 'flower' (bông hoa)." },
+            { type: "multiple_choice", script: "Turn off the TV. Nobody is watching it. Let's save electricity.", q: "What should we turn off?", options: ["the radio", "the lights", "the TV"], a: "the TV", lesson: "Nghe tên thiết bị điện gia dụng: 'TV'." },
+            { type: "multiple_choice", script: "This is a compost bin. We put food waste here. It is good for plants.", q: "Is the bin for food waste?", options: ["Yes", "No"], a: "Yes", lesson: "Xác nhận từ khóa: 'food waste' (rác thải thực phẩm)." },
+            { type: "fill_blank", script: "I have a cloth bag. I use it for shopping. It is very strong.", q: "The bag is made of ___.", a: "cloth", lesson: "Nghe danh từ vật liệu: 'cloth' (vải)." },
+            { type: "multiple_choice", script: "We have a clean-up day. We clean the classroom. It is on Friday.", q: "When is the clean-up day?", options: ["Monday", "Wednesday", "Friday"], a: "Friday", lesson: "Nghe danh từ chỉ thứ trong tuần: 'Friday'." },
+            { type: "multiple_choice", script: "Do not use plastic cups. Use glass cups instead. They are safer.", q: "Are glass cups better?", options: ["Yes", "No"], a: "Yes", lesson: "Nghe câu so sánh ngầm: 'Use glass cups instead' → khuyến khích dùng cốc thủy tinh." },
+            { type: "fill_blank", script: "I collect old newspapers. I give them to the school. We recycle them.", q: "The student collects old ___.", a: "newspapers", lesson: "Nghe danh từ ghép: 'newspapers' (báo)." },
+            { type: "multiple_choice", script: "There is a forest near here. It has many green trees. Do not start a fire.", q: "Is the forest far away?", options: ["Yes", "No"], a: "No", lesson: "Nghe trạng từ chỉ khoảng cách: 'near' (gần) trái nghĩa với 'far' (xa)." },
+            { type: "multiple_choice", script: "I have a metal water bottle. I use it every school day. It is pink.", q: "What color is the bottle?", options: ["red", "pink", "blue"], a: "pink", lesson: "Nghe tính từ chỉ màu sắc: 'pink' (màu hồng)." },
+            { type: "fill_blank", script: "The Earth is our home. We must protect it. Be kind to nature.", q: "The Earth is our ___.", a: "home", lesson: "Nghe danh từ chỉ nơi chốn: 'home' (ngôi nhà)." },
+            { type: "multiple_choice", script: "Look! A plastic bag is in the tree. Let's take it down. Put it in the bin.", q: "Where is the plastic bag?", options: ["in the bin", "in the tree", "on the ground"], a: "in the tree", lesson: "Nghe vị trí đồ vật: 'in the tree'." },
+            { type: "multiple_choice", script: "I like to recycle. It is a good habit. My friends like it too.", q: "Is recycling a good habit?", options: ["Yes", "No"], a: "Yes", lesson: "Xác nhận nhận định tích cực: 'good habit' (thói quen tốt)." },
+            { type: "multiple_choice", script: "My future house is a UFO. It can fly in the sky. It is very cool.", q: "What type of house is it?", options: ["a UFO", "a boat", "a tent"], a: "a UFO", lesson: "Nghe danh từ chỉ loại nhà: 'UFO' (đĩa bay)." },
+            { type: "multiple_choice", script: "I will live on the moon. It is very quiet there. I can see the Earth.", q: "Where will the house be?", options: ["on the moon", "under the sea", "in the mountains"], a: "on the moon", lesson: "Nghe cụm từ chỉ nơi chốn: 'on the moon' (trên mặt trăng)." },
+            { type: "fill_blank", script: "My house will have a robot. It can cook my meals. I love my robot.", q: "The house will have a ___.", a: "robot", lesson: "Nghe danh từ chỉ thiết bị thông minh: 'robot'." },
+            { type: "multiple_choice", script: "There is a smart TV. It helps me surf the internet. It is very big.", q: "Is the TV smart?", options: ["Yes", "No"], a: "Yes", lesson: "Xác nhận tính chất vật dụng: 'smart TV'." },
+            { type: "multiple_choice", script: "My future house has twenty rooms. It is a very large house. Many people can stay.", q: "How many rooms are there?", options: ["12", "20", "22"], a: "20", lesson: "Nghe số đếm: 'twenty' là 20." },
+            { type: "fill_blank", script: "I will live in a smart house. It uses solar energy. It is good for the Earth.", q: "The house uses ___ energy.", a: "solar", lesson: "Nghe từ khóa về năng lượng: 'solar' (mặt trời)." },
+            { type: "multiple_choice", script: "My house is under the sea. I can see many fish. It is very blue.", q: "Is the house in the sky?", options: ["Yes", "No"], a: "No", lesson: "Nghe vị trí: 'under the sea' (dưới biển) nên 'in the sky' là No." },
+            { type: "multiple_choice", script: "A smart robot will clean the floor. I don't need to do housework. It is great.", q: "What will the robot do?", options: ["cook meals", "clean the floor", "wash clothes"], a: "clean the floor", lesson: "Nghe cụm động từ chỉ hoạt động: 'clean the floor'." },
+            { type: "fill_blank", script: "My bedroom will be blue. I will have a smart bed. It is very comfortable.", q: "The bedroom will be ___.", a: "blue", lesson: "Nghe màu sắc của căn phòng: 'blue'." },
+            { type: "multiple_choice", script: "I will have a super car. It can fly and swim. It is silver.", q: "Can the car fly?", options: ["Yes", "No"], a: "Yes", lesson: "Xác nhận khả năng của đồ vật: 'can fly'." },
+            { type: "multiple_choice", script: "My future house is on an island. It is very peaceful. I go there by boat.", q: "Where is the house?", options: ["on an island", "in the city", "in the forest"], a: "on an island", lesson: "Nghe danh từ nơi chốn: 'island' (hòn đảo)." },
+            { type: "fill_blank", script: "The robot will water the flowers. The garden is very big. I like flowers.", q: "The robot will water the ___.", a: "flowers", lesson: "Nghe danh từ chỉ thực vật: 'flowers'." },
+            { type: "multiple_choice", script: "My future house has a swimming pool. It is on the roof. I swim every day.", q: "Where is the swimming pool?", options: ["in the garden", "on the roof", "in the house"], a: "on the roof", lesson: "Nghe vị trí: 'on the roof' (trên mái nhà)." },
+            { type: "multiple_choice", script: "We will have smart clocks. They will wake us up. They can speak.", q: "Can the clocks speak?", options: ["Yes", "No"], a: "Yes", lesson: "Xác nhận khả năng: 'can speak' (biết nói)." },
+            { type: "fill_blank", script: "My house will be made of glass. I can see everything outside. It is bright.", q: "The house is made of ___.", a: "glass", lesson: "Nghe danh từ vật liệu: 'glass' (thủy tinh)." },
+            { type: "multiple_choice", script: "There will be a big garden. I will plant many trees. It will be green.", q: "Will there be a garden?", options: ["Yes", "No"], a: "Yes", lesson: "Xác nhận sự tồn tại: 'will be a big garden'." },
+            { type: "multiple_choice", script: "My smart fridge will buy food. It knows what I need. It is very smart.", q: "What will the fridge do?", options: ["cook food", "buy food", "wash dishes"], a: "buy food", lesson: "Nghe cụm động từ: 'buy food' (mua thức ăn)." },
+            { type: "fill_blank", script: "I will live in a palace. It is for a king. It is very beautiful.", q: "The student will live in a ___.", a: "palace", lesson: "Nghe danh từ chỉ loại nhà: 'palace' (cung điện)." },
+            { type: "multiple_choice", script: "My house will have a door. It opens when it sees me. I don't need a key.", q: "Does the student need a key?", options: ["Yes", "No"], a: "No", lesson: "Nghe từ phủ định: 'don't need a key'." },
+            { type: "multiple_choice", script: "The house will be in the mountains. It is very high. The air is fresh.", q: "Where is the house?", options: ["in the mountains", "at the beach", "underground"], a: "in the mountains", lesson: "Nghe danh từ địa điểm: 'mountains' (núi)." }
+          ],
+          medium: [
+            { type: "multiple_choice", script: "You should exercise at least 3 times a week to stay healthy.", q: "What does the speaker recommend?", options: ["exercise every day", "exercise 3 times a week", "exercise once a week"], a: "exercise 3 times a week", lesson: "Nghe cấu trúc 'should + V' để xác định lời khuyên." },
+            { type: "multiple_choice", script: "Go straight, then turn left at the bank.", q: "What direction does the speaker give?", options: ["turn right at bank", "go straight and turn left", "turn right then straight"], a: "go straight and turn left", lesson: "Nghe chỉ đường: straight = thẳng, turn left = rẽ trái, at = tại." },
+            { type: "fill_blank", script: "I'd like to book a table for four people at 7 pm.", q: "How many people is the table booked for? → ___ people.", a: "four", lesson: "Nghe số lượng: 'For four people' = đặt bàn cho 4 người." },
+            { type: "multiple_choice", script: "Please note: the meeting is at 3 pm, not 2 pm.", q: "When is the meeting?", options: ["2 pm", "3 pm", "4 pm"], a: "3 pm", lesson: "Nghe thông tin đính chính: NOT 2pm → cuộc họp lúc 3 pm." },
+            { type: "multiple_choice", script: "Welcome to my house. It is a smart house. It is on the moon. There are six rooms in my house. My favorite room is the living room. It has a big window. I can see the Earth from here. It looks blue and beautiful. I love my future house.", q: "Why does the student like the living room?", options: ["It has a robot", "He can see the Earth", "It is very big"], a: "He can see the Earth", lesson: "Nghe chi tiết ở giữa đoạn: 'see the Earth from here'." },
+            { type: "multiple_choice", script: "Hi, I am Robot Alpha. I live in a big house. I can do many things. I can clean the floors. I can wash the dishes. I can also water the flowers in the garden. But I cannot cook meals. My owner cooks the meals. I am a happy robot.", q: "What is one thing Robot Alpha cannot do?", options: ["water flowers", "clean floors", "cook meals"], a: "cook meals", lesson: "Nghe từ phủ định: 'cannot cook meals'." },
+            { type: "fill_blank", script: "This is my dream school. It is very large and modern. There is a big swimming pool. There is also a computer room. My school has a library with many books. I go to the library every day. I like reading comic books there. Reading is my favorite hobby. I love my school very much.", q: "The student likes reading ___ books.", a: "comic", lesson: "Nghe tính từ bổ nghĩa cho danh từ: 'comic books'." },
+            { type: "multiple_choice", script: "Today is Sunday. The weather is sunny and hot. I am at the park with my friends. We are picking up trash. There is a lot of plastic on the grass. We put the trash in the bins. We want to protect the environment. We are tired but happy. It is a good day.", q: "What are the students doing at the park?", options: ["planting trees", "picking up trash", "playing football"], a: "picking up trash", lesson: "Nghe cụm động từ chỉ hành động xuyên suốt: 'picking up trash'." },
+            { type: "multiple_choice", script: "My future house will be under the sea. It will be made of strong glass. I can see sharks and fish swimming around. There are four bedrooms in the house. There is also a big kitchen. A robot will help me with the housework. It can laundry the clothes. I will have a great life there.", q: "How many bedrooms will the house have?", options: ["4", "5", "6"], a: "4", lesson: "Nghe số lượng: 'four bedrooms'." },
+            { type: "fill_blank", script: "Hello, I am Nam. Today I want to talk about recycling. I have many old plastic bottles at home. I don't throw them away. I use them to make flower pots. I put small flowers in the pots. They look very pretty. My house is green and clean. You should do it too.", q: "Nam makes ___ pots from old bottles.", a: "flower", lesson: "Nghe danh từ ghép: 'flower pots' (chậu hoa)." },
+            { type: "multiple_choice", script: "Welcome to our green club. We have many activities. On Monday, we grow vegetables. On Wednesday, we clean the school lake. On Friday, we collect old paper. Many students join our club. We want to save the Earth. It is very important. Joining us is fun.", q: "What does the club do on Wednesday?", options: ["grow vegetables", "clean the lake", "collect paper"], a: "clean the lake", lesson: "Nghe từ chỉ thời gian phối hợp hành động: 'Wednesday' + 'clean the school lake'." },
+            { type: "multiple_choice", script: "I have a new robot teacher. His name is Mr. Bot. He is very tall and silver. He can speak three languages. He teaches us Math and English. He never gets angry. He explains the lessons very slowly. We all like him. He is a great teacher.", q: "How many languages can Mr. Bot speak?", options: ["2", "3", "4"], a: "3", lesson: "Nghe số đếm: 'three languages'." },
+            { type: "fill_blank", script: "My future bedroom is very special. The walls can change colors. When I am sad, they turn yellow. When I am happy, they turn pink. There is a smart bed in the room. It can play music for me. I can sleep very well. It is a dream room.", q: "The walls turn ___ when the student is happy.", a: "pink", lesson: "Nghe điều kiện đi kèm màu sắc: 'happy' + 'pink'." },
+            { type: "multiple_choice", script: "Look at this picture. This is my eco-friendly house. It has solar panels on the roof. They use sunlight to make electricity. I don't use coal or gas. My house is very quiet. It is in the countryside. I have a small garden too. I grow my own food.", q: "Where is the eco-friendly house?", options: ["in the city", "in the countryside", "on the moon"], a: "in the countryside", lesson: "Nghe danh từ chỉ nơi chốn: 'countryside' (nông thôn)." },
+            { type: "multiple_choice", script: "My family is quite big. There are six people living in my house. I live with my parents and my two sisters. My grandfather also lives with us. He is seventy years old but very strong. He likes gardening in the morning. We often have dinner together at 7 pm. I love my big family.", q: "How many sisters does the speaker have?", options: ["one", "two", "three"], a: "two", lesson: "Nghe số lượng thành viên: 'two sisters'." },
+            { type: "multiple_choice", script: "Today is my mother's birthday. My father is cooking a special dinner in the kitchen. My sister is making a big chocolate cake. I am cleaning the living room and setting the table. My brother is buying some beautiful flowers. We want to give her a big surprise. Everyone is very busy but happy.", q: "What is the sister doing?", options: ["cleaning the room", "buying flowers", "making a cake"], a: "making a cake", lesson: "Phân biệt hoạt động của các thành viên: 'sister' + 'making a cake'." },
+            { type: "fill_blank", script: "I have a younger brother named Minh. He is ten years old. He has short black hair and big eyes. Minh is very sporty. He plays football every afternoon after school. He also likes swimming on weekends. He wants to be a famous football player in the future. He is my best friend.", q: "Minh wants to be a ___ player.", a: "football", lesson: "Nghe danh từ chỉ nghề nghiệp/sở thích: 'football player'." },
+            { type: "multiple_choice", script: "My aunt and uncle live in a small farmhouse. They have many animals like chickens and ducks. My cousin, Hoa, lives there too. She is the same age as me. We often visit them on summer holidays. We like picking fruit in their garden. The air there is very fresh and quiet. It is a lovely place.", q: "Who is the speaker's cousin?", options: ["Minh", "Hoa", "Lan"], a: "Hoa", lesson: "Nghe danh từ chỉ mối quan hệ: 'My cousin, Hoa'." },
+            { type: "multiple_choice", script: "Look at this photo. This is my grandfather. He was a teacher ten years ago. Now he is retired. He likes reading newspapers and playing chess. He often tells me funny stories before I go to bed. He is very kind and patient. I learn many things from him.", q: "What was the grandfather's job?", options: ["doctor", "teacher", "farmer"], a: "teacher", lesson: "Nghe danh từ chỉ nghề nghiệp trong quá khứ: 'was a teacher'." },
+            { type: "fill_blank", script: "My father is a doctor. He works at a big hospital in the city. He goes to work very early in the morning. He comes home late in the evening. He is often tired but he loves helping people. On Sundays, he stays at home and plays with me. He is a great father.", q: "The father works at a ___.", a: "hospital", lesson: "Nghe danh từ chỉ nơi chốn: 'hospital' (bệnh viện)." },
+            { type: "multiple_choice", script: "My family loves weekends. On Saturday morning, we usually go to the park. My dad and I play badminton. My mom and my sister ride their bikes. In the afternoon, we go to the cinema or the supermarket. We always have a lot of fun together. Weekends are the best time for us.", q: "What do the dad and the speaker do on Saturday morning?", options: ["ride bikes", "go shopping", "play badminton"], a: "play badminton", lesson: "Kết hợp nghe tên người và hành động tương ứng." },
+            { type: "multiple_choice", script: "I have a sister named Lan. She is an English student at a university. She is very tall and has long brown hair. Lan is very hard-working. She speaks English very well. She often helps me with my homework in the evening. I want to speak English as well as her.", q: "Does Lan help the speaker with homework?", options: ["Yes", "No"], a: "Yes", lesson: "Xác nhận hành động: 'helps me with my homework'." },
+            { type: "fill_blank", script: "My grandmother lives in the countryside. She has a beautiful garden with many roses. She loves flowers very much. Every morning, she waters them and talks to them. She also grows some vegetables like tomatoes and carrots. Her house is small but very pretty. I love visiting her.", q: "The grandmother grows ___ and carrots.", a: "tomatoes", lesson: "Nghe danh từ chỉ rau củ: 'tomatoes'." },
+            { type: "multiple_choice", script: "There are four people in my family. My parents, my brother and me. My brother is older than me. He is a high school student. He likes playing computer games in his free time. I like drawing pictures. We have different hobbies but we are very close. We often share our toys.", q: "Who is older, the speaker or the brother?", options: ["the speaker", "the brother"], a: "the brother", lesson: "Nghe cấu trúc so sánh: 'brother is older than me'." },
+            { type: "multiple_choice", script: "My uncle is a photographer. He travels to many places to take photos. He has a very big camera. Last week, he visited my family. He took many beautiful pictures of us. He also gave me a small photo album. I want to be a photographer like him one day.", q: "What is the uncle's job?", options: ["photographer", "driver", "chef"], a: "photographer", lesson: "Nghe danh từ nghề nghiệp: 'photographer' (thợ chụp ảnh)." },
+            { type: "fill_blank", script: "Every evening, my family gathers in the living room. My father watches the news on TV. My mother reads a book or a magazine. I do my homework and my little sister plays with her dolls. We talk about our day and laugh together. It is a very warm and happy time.", q: "The little sister plays with her ___.", a: "dolls", lesson: "Nghe danh từ chỉ đồ chơi: 'dolls' (búp bê)." },
+            { type: "multiple_choice", script: "My cousin lives in a big city. His house is a modern apartment on the tenth floor. It has a great view of the city. He lives with his parents and a small dog. The dog's name is Lucky. Lucky is very friendly and smart. I want to visit him next month.", q: "What floor is the apartment on?", options: ["5th floor", "10th floor", "12th floor"], a: "10th floor", lesson: "Nghe số thứ tự: 'tenth floor' = tầng 10." },
+            { type: "multiple_choice", script: "My mother is a teacher. bà teaches at a primary school near my house. She loves her students very much. She often stays late to prepare lessons. At home, she is a great cook. She makes the best spring rolls in the world. I love her food.", q: "What is the mother's favorite dish to cook?", options: ["pizza", "spring rolls", "noodles"], a: "spring rolls", lesson: "Nghe tên món ăn: 'spring rolls' (nem/chả giò)." },
+            { type: "fill_blank", script: "I have a lot of cousins. We often meet at my grandparents' house on holidays. We play hide and seek in the garden. We also go fishing in the small pond. My grandfather teaches us how to catch fish. It is very exciting. We have a great time together.", q: "They go ___ in the small pond.", a: "fishing", lesson: "Nghe hoạt động: 'go fishing' (đi câu cá)." },
+            { type: "multiple_choice", script: "My father has a new hobby. He likes wood carving. He makes small animals from wood. He made a wooden cat for me last week. It looks very real. He spends two hours every day on his hobby. He is very creative and patient. Everyone likes his work.", q: "How much time does the father spend on his hobby every day?", options: ["one hour", "two hours", "three hours"], a: "two hours", lesson: "Nghe thời lượng: 'two hours'." },
+            { type: "multiple_choice", script: "My family is going on a vacation next week. We are going to the beach. My father is checking the car. My mother is packing the suitcases. I am looking for my swimsuit and sunglasses. My brother is bringing his camera. We are all very excited about the trip.", q: "Where is the family going?", options: ["to the mountains", "to the beach", "to the city"], a: "to the beach", lesson: "Nghe danh từ địa điểm: 'the beach' (bãi biển)." },
+            { type: "fill_blank", script: "My brother is very good at music. He can play the guitar and the piano. He practices every day for one hour. He wants to join a music band at his school. He also likes singing English songs. His voice is very nice. I like listening to him play.", q: "The brother can play the guitar and the ___.", a: "piano", lesson: "Nghe danh từ nhạc cụ: 'piano'." },
+            { type: "multiple_choice", script: "My aunt is a nurse. She works in a small clinic. She wears a white uniform every day. She is very kind to her patients. She often gives them advice on how to stay healthy. In her free time, she likes yoga. She says yoga is good for her health.", q: "What does the aunt do in her free time?", options: ["plays tennis", "does yoga", "goes swimming"], a: "does yoga", lesson: "Nghe tên hoạt động: 'yoga'." },
+            { type: "multiple_choice", script: "Our family has a small kitten. Its name is Mimi. Mimi has white fur and green eyes. It is very playful. It likes chasing balls and sleeping in my bed. My mom gives it milk every morning. We all love Mimi very much. It is a part of our family.", q: "What color are Mimi's eyes?", options: ["blue", "green", "brown"], a: "green", lesson: "Nghe mô tả màu sắc bộ phận: 'green eyes'." },
+            { type: "multiple_choice", script: "Hi, I am Phong. This is my new school. It has three floors and a big yard. There are thirty classrooms in total. My classroom is on the second floor. It is very bright and clean. I have many new friends here. We often play football in the yard during break time. I really like my school.", q: "Where is Phong's classroom?", options: ["on the first floor", "on the second floor", "on the third floor"], a: "on the second floor", lesson: "Nghe số thứ tự vị trí: 'second floor' = tầng 2." },
+            { type: "multiple_choice", script: "My best friend is Nam. He is very tall and sporty. He has short black hair. We are in the same class. Nam is very good at Math. He often helps me with difficult exercises. In our free time, we like playing chess. He is a very kind friend.", q: "What subject is Nam good at?", options: ["English", "Math", "Science"], a: "Math", lesson: "Nghe danh từ chỉ môn học: 'good at Math'." },
+            { type: "fill_blank", script: "Today we have a science project. I am working with Lan and Duy. We are making a model of a volcano. Lan is painting the volcano. Duy is preparing the glue. I am writing the report. We need some paper and colors. We hope our project will be the best in class.", q: "The students are making a model of a ___.", a: "volcano", lesson: "Nghe danh từ chủ đề: 'volcano' (núi lửa)." },
+            { type: "multiple_choice", script: "Excuse me, can I borrow your rubber? I forgot mine at home. I also need a ruler to draw a line. My pencil case is almost empty today. Oh, thank you very much! You are so helpful. I will give them back to you after the lesson. See you later.", q: "What does the speaker want to borrow first?", options: ["a ruler", "a pen", "a rubber"], a: "a rubber", lesson: "Nghe thứ tự các đồ vật được nhắc đến: 'borrow your rubber' (tẩy)." },
+            { type: "multiple_choice", script: "Our school has a big library. It is my favorite place. There are thousands of books there. I often go there with my friends on Tuesday. We read storybooks and do our homework together. The library is very quiet. The librarian is very friendly. She helps us find the books we need.", q: "When does the speaker go to the library?", options: ["on Monday", "on Tuesday", "on Friday"], a: "on Tuesday", lesson: "Nghe danh từ chỉ thứ trong tuần: 'Tuesday'." },
+            { type: "fill_blank", script: "Look at the school notice board. There is a music club meeting. It is at 4 pm today in the music room. We can learn how to play the guitar. We can also practice singing English songs. I want to join the club with my friend, Mai. It will be fun.", q: "The music club meeting is at ___ pm.", a: "4", lesson: "Nghe thông tin thời gian: '4 pm'." },
+            { type: "multiple_choice", script: "Today is a special day at school. We have an Art exhibition. Many students draw beautiful pictures. I draw a picture of my family. My friend, Hoa, draws a picture of a green forest. Our teacher hangs them on the wall. Many parents come to see our work. We are very proud.", q: "What does Hoa draw?", options: ["her family", "a green forest", "a big school"], a: "a green forest", lesson: "Phân biệt thông tin giữa các nhân vật: 'Hoa' + 'green forest'." },
+            { type: "multiple_choice", script: "We have a new English teacher. Her name is Ms. Linh. She is young and very beautiful. She has long black hair. She speaks English very fast but she is very kind. She often plays games with us in class. We learn many new words and songs. I love her lessons.", q: "Does the new teacher have short hair?", options: ["Yes", "No"], a: "No", lesson: "Nghe mô tả ngoại hình: 'long black hair' nên 'short' là No." },
+            { type: "fill_blank", script: "Break time is my favorite time. It starts at 9:30 and ends at 9:50. I usually go to the canteen with my friends. I buy a bottle of water and some snacks. My friends like playing hide and seek. Sometimes we just sit and talk about our homework. It is very relaxing.", q: "Break time ends at ___.", a: "9:50", lesson: "Phân biệt thời gian bắt đầu và kết thúc: 'ends at 9:50'." },
+            { type: "multiple_choice", script: "This is our school gym. It is very large and modern. We have PE class here twice a week. We can play basketball or volleyball. Today, we are practicing how to throw the ball. My teacher is very patient. He shows us every step. I want to be a basketball player.", q: "How often do they have PE class?", options: ["once a week", "twice a week", "three times a week"], a: "twice a week", lesson: "Nghe trạng từ chỉ tần suất: 'twice a week' (2 lần/tuần)." },
+            { type: "multiple_choice", script: "I have a new classmate. His name is Peter. He is from Australia. He speaks English very well. He is very friendly and likes helping others. He is also very good at swimming. We often go to the swimming pool together on Saturdays. Everyone in class likes him.", q: "Where is Peter from?", options: ["USA", "Australia", "England"], a: "Australia", lesson: "Nghe danh từ chỉ quốc gia: 'Australia'." },
+            { type: "fill_blank", script: "My school uniform is very nice. I wear a white shirt and blue trousers. My school logo is on the left side of the shirt. On Mondays, I also have to wear a red tie. I always keep my uniform clean. It makes me feel proud of my school.", q: "On Mondays, the student wears a red ___.", a: "tie", lesson: "Nghe danh từ trang phục: 'red tie' (cà vạt đỏ)." },
+            { type: "multiple_choice", script: "We are having a class party today. It is the end of the semester. Everyone brings some food or drinks. I bring some orange juice. My friend, Lan, brings some cupcakes. We listen to music and dance together. Our teacher is also very happy. We take many photos to keep memories.", q: "What does the speaker bring to the party?", options: ["cupcakes", "orange juice", "pizza"], a: "orange juice", lesson: "Nghe danh từ đồ uống: 'orange juice'." },
+            { type: "multiple_choice", script: "Look at the garden behind our school. There are many colorful flowers. Our class has a small area to plant vegetables. We grow carrots and cabbages. Every Friday, we water the plants and pull out weeds. It is hard work but we enjoy it. We like seeing the plants grow.", q: "What vegetables do they grow?", options: ["potatoes and onions", "carrots and cabbages", "tomatoes and beans"], a: "carrots and cabbages", lesson: "Nghe danh từ rau củ: 'carrots and cabbages'." },
+            { type: "fill_blank", script: "I usually go to school by bus. The bus arrives at my house at 6:45 am. I meet my friend, An, on the bus. We talk about the lessons or the games we play. The bus is very crowded in the morning. It takes twenty minutes to get to school. I never go to school late.", q: "It takes ___ minutes to get to school.", a: "twenty", lesson: "Nghe số lượng thời gian: 'twenty minutes' = 20 phút." },
+            { type: "multiple_choice", script: "Our school has an IT room. It has forty computers. We learn how to use the internet and type documents. My teacher, Mr. Quang, is very good at technology. He teaches us how to make simple presentations. I like this class because it is very useful. I want to have a computer at home.", q: "How many computers are there in the IT room?", options: ["30", "40", "50"], a: "40", lesson: "Nghe số đếm: 'forty' = 40." },
+            { type: "multiple_choice", script: "Tomorrow is Saturday. I don't go to school. I am going to the zoo with my classmates. We want to see the lions and monkeys. We will go there by school bus. My mother prepares some sandwiches for my lunch. I am very excited. I hope the weather will be fine.", q: "Who is the speaker going to the zoo with?", options: ["family", "classmates", "teachers"], a: "classmates", lesson: "Nghe đối tượng đồng hành: 'with my classmates' (bạn cùng lớp)." },
+            { type: "fill_blank", script: "I have a big backpack for school. It is blue and has many pockets. I put my books in the big pocket. I put my pencil case and my lunch box in the small pockets. There is a place for my water bottle on the side. My parents bought it for me on my birthday.", q: "The backpack is ___ and has many pockets.", a: "blue", lesson: "Nghe tính từ chỉ màu sắc: 'blue'." },
+            { type: "multiple_choice", script: "My school starts at 7:30 am. We have four lessons in the morning. After that, we have lunch in the school canteen. I usually have rice with fish and vegetables. After lunch, I take a short nap for thirty minutes. In the afternoon, we have two more lessons. I go home at 4:30 pm.", q: "How many lessons do they have in the morning?", options: ["2", "4", "6"], a: "4", lesson: "Nghe số lượng: 'four lessons'." },
+            { type: "multiple_choice", script: "Today, we have a football match against Class 6B. I am the goalkeeper for our team. My friends are very fast and strong. Many students come to watch and cheer for us. The match is very exciting. In the end, our team wins. We are very happy and celebrate together.", q: "What position does the speaker play?", options: ["striker", "goalkeeper", "defender"], a: "goalkeeper", lesson: "Nghe từ khóa vị trí: 'goalkeeper' (thủ môn)." },
+            { type: "fill_blank", script: "My favorite subject is Geography. I like learning about different countries and mountains. We use a big map in our class. Our teacher tells us many interesting stories about the world. I want to travel to many places in the future. Geography is very fun for me.", q: "The student's favorite subject is ___.", a: "Geography", lesson: "Nghe danh từ môn học: 'Geography' (Địa lý)." },
+            { type: "multiple_choice", script: "I have a friend named Minh. He is very good at playing the violin. He practices every evening for one hour. He wants to be a famous musician. Sometimes, he plays for us in the classroom. We all enjoy his music. He is a very talented boy.", q: "What instrument does Minh play?", options: ["piano", "guitar", "violin"], a: "violin", lesson: "Nghe danh từ nhạc cụ: 'violin'." },
+            { type: "multiple_choice", script: "Look at the school gate. There are many parents waiting for their children. It is 4:30 pm now. Some students go home by bike. Some students walk with their friends. I wait for my father. He always picks me up after work. We go home together.", q: "What time is it in the script?", options: ["4:00 pm", "4:30 pm", "5:00 pm"], a: "4:30 pm", lesson: "Nghe thông tin thời gian: '4:30 pm'." },
+            { type: "fill_blank", script: "We have a science lab in our school. We wear white coats when we go there. We do many experiments with water and air. My teacher, Mrs. Yen, explains everything very clearly. We must follow the safety rules. It is my favorite lesson of the week.", q: "The students wear white ___ in the science lab.", a: "coats", lesson: "Nghe danh từ trang phục bảo hộ: 'white coats' (áo choàng trắng)." },
+            { type: "multiple_choice", script: "Our class has a new bookshelf. We bring our old books to share with others. I bring two comic books. My friend, Lan, brings a storybook about animals. We can read them during break time. It is a good way to share knowledge. We love our small library.", q: "How many comic books does the speaker bring?", options: ["one", "two", "three"], a: "two", lesson: "Nghe số lượng đồ vật: 'two comic books'." },
+            { type: "multiple_choice", script: "Today is a rainy day. We cannot play in the yard. We stay in the classroom during break time. Some students play board games. I read my favorite book. My teacher plays some soft music for us. It is quiet and peaceful. I like rainy days too.", q: "Why can't the students play in the yard?", options: ["It is too hot", "It is raining", "It is too cold"], a: "It is raining", lesson: "Nghe lý do (nguyên nhân): 'rainy day' = trời mưa." },
+            { type: "fill_blank", script: "I have a small notebook. I use it to write new English words. I also write down the homework for every day. My notebook is yellow and has a cat on the cover. It helps me remember everything. I always bring it to school.", q: "The notebook has a ___ on the cover.", a: "cat", lesson: "Nghe danh từ chỉ hình ảnh: 'cat' (con mèo)." },
+            { type: "multiple_choice", script: "We are learning about history today. We learn about the kings of Vietnam. Our teacher shows us many pictures of old citadels. It is very interesting to know about the past. I want to visit the Citadel in Hue one day. History is a great subject.", q: "What are they learning about in History class?", options: ["animals", "old citadels", "space"], a: "old citadels", lesson: "Nghe danh từ chủ đề: 'old citadels' (thành cổ)." },
+            { type: "multiple_choice", script: "My school has a fountain in the middle of the yard. It looks very beautiful. There are some small fish in the water. We like sitting near the fountain and talking. The water is very cool. It makes the school yard more peaceful.", q: "Are there fish in the fountain?", options: ["Yes", "No"], a: "Yes", lesson: "Xác nhận thông tin: 'small fish in the water'." },
+            { type: "fill_blank", script: "Every Monday, we have a flag ceremony. All students and teachers gather in the yard. We sing the national anthem. After that, the principal talks about the plan for the week. We all wear our school uniforms. It is a very serious and proud moment.", q: "The principal talks about the ___ for the week.", a: "plan", lesson: "Nghe danh từ trừu tượng đơn giản: 'plan' (kế hoạch)." },
+            { type: "multiple_choice", script: "Excuse me, where is the cinema? Go straight on this street. Pass the toy store. Turn left at the bookstore. The cinema is next to the bookstore. It is a big red building. You cannot miss it. Thank you very much.", q: "Where is the cinema?", options: ["opposite the bookstore", "next to the bookstore", "behind the bookstore"], a: "next to the bookstore", lesson: "Nghe giới từ chỉ vị trí: 'next to' (bên cạnh)." },
+            { type: "multiple_choice", script: "How can I get to the supermarket? Go straight and cross the road. Turn right at the traffic lights. Walk for two minutes. The supermarket is on your left. It is between the bakery and the bank. It is very big. Have a nice day!", q: "What is the supermarket between?", options: ["the bakery and the bank", "the bank and the park", "the school and the bank"], a: "the bakery and the bank", lesson: "Nghe cấu trúc 'between A and B' (ở giữa A và B)." },
+            { type: "fill_blank", script: "I am looking for the post office. Go straight until you see the lake. Turn left at the lake. Go past the coffee shop. The post office is opposite the coffee shop. It is a small yellow house. It is very near here. You are welcome.", q: "The post office is a small ___ house.", a: "yellow", lesson: "Nghe tính từ chỉ màu sắc của địa điểm." },
+            { type: "multiple_choice", script: "Is there a park near here? Yes, there is. Go straight and turn right at the first corner. Walk past the bus station. The park is at the end of the street. It has many green trees. You can play football there. It is a beautiful park.", q: "Where should the listener turn right?", options: ["at the lake", "at the bus station", "at the first corner"], a: "at the first corner", lesson: "Nghe cụm từ chỉ vị trí rẽ: 'first corner' (góc đường đầu tiên)." },
+            { type: "multiple_choice", script: "Excuse me, where is the hospital? Go straight. Turn left at the supermarket. Go along the street for five minutes. The hospital is opposite the park. It is a very tall building. You can see it from here. It is very easy to find.", q: "How long does it take to walk along the street?", options: ["2 minutes", "5 minutes", "10 minutes"], a: "5 minutes", lesson: "Nghe thông tin thời gian/khoảng cách: 'five minutes'." },
+            { type: "fill_blank", script: "I want to go to the zoo. Can you help me? Go straight and turn left at the park. Walk past the flower shop. The zoo is at the end of the road. It is very large. There are many animals there. Have a good trip!", q: "The zoo is at the ___ of the road.", a: "end", lesson: "Nghe cụm từ chỉ vị trí: 'at the end of' (ở cuối của)." },
+            { type: "multiple_choice", script: "Where is the bus station? Go straight. Turn right at the library. The bus station is opposite the library. There are many blue buses there. You can take bus number ten. It goes to the city center. Good luck!", q: "What color are the buses?", options: ["red", "blue", "yellow"], a: "blue", lesson: "Nghe tính từ chỉ màu sắc của phương tiện." },
+            { type: "multiple_choice", script: "How do I get to the museum? Walk straight for three minutes. Turn left at the police station. Go past the stadium. The museum is next to the stadium. It is a very old building. It is open every day. You will like it.", q: "The museum is next to the ___.", options: ["police station", "stadium", "library"], a: "stadium", lesson: "Nghe danh từ chỉ địa điểm công cộng: 'stadium' (sân vận động)." },
+            { type: "fill_blank", script: "Excuse me, I am looking for the bakery. Turn right at the pharmacy. Walk straight. The bakery is on your right. It is between the cafe and the bookstore. It smells very good. They have great bread. Thank you!", q: "Turn ___ at the pharmacy.", a: "right", lesson: "Nghe động từ chỉ hướng rẽ: 'turn right'." },
+            { type: "multiple_choice", script: "Is the library far from here? No, it isn't. Turn left at the school gate. Walk straight. Cross the bridge. The library is on your left. It is a modern building. It has a lot of books. It is very quiet.", q: "Does the listener need to cross a bridge?", options: ["Yes", "No"], a: "Yes", lesson: "Nghe động từ hành động: 'cross the bridge' (băng qua cầu)." },
+            { type: "multiple_choice", script: "I am looking for the stadium. Go straight and turn right at the gym. Pass the swimming pool. The stadium is opposite the swimming pool. It is very big. You can see many people there. It is a great place for sports.", q: "Where is the stadium?", options: ["next to the gym", "opposite the swimming pool", "behind the gym"], a: "opposite the swimming pool", lesson: "Nghe giới từ đối diện: 'opposite'." },
+            { type: "fill_blank", script: "Where is the computer store? Go straight. Turn left at the electronics shop. Walk past the toy store. The computer store is on your right. It is next to the toy store. They sell many laptops. It is a cool store.", q: "The computer store is next to the ___ store.", a: "toy", lesson: "Nghe tên loại cửa hàng: 'toy store' (cửa hàng đồ chơi)." },
+            { type: "multiple_choice", script: "Excuse me, where is the bank? Go straight. Turn left at the traffic lights. Go past the museum. The bank is on the corner of the street. It is a white building. It is near the post office. You can find it easily.", q: "What color is the bank building?", options: ["white", "blue", "grey"], a: "white", lesson: "Nghe màu sắc tòa nhà." },
+            { type: "multiple_choice", script: "How can I get to the lake? Turn right at the park. Walk for ten minutes. You will see a big bridge. Cross the bridge. The lake is in front of you. It is very beautiful. You can sit there and relax.", q: "How long does it take to walk to the bridge?", options: ["5 minutes", "10 minutes", "15 minutes"], a: "10 minutes", lesson: "Nghe số đếm thời gian: 'ten minutes'." },
+            { type: "fill_blank", script: "I am looking for the coffee shop. Go straight. Turn left at the cinema. Walk past the bookstore. The coffee shop is between the bookstore and the pharmacy. It is a small and cozy shop. I like drinking tea there.", q: "The coffee shop is between the bookstore and the ___.", a: "pharmacy", lesson: "Nghe danh từ địa điểm: 'pharmacy' (hiệu thuốc)." },
+            { type: "multiple_choice", script: "Is there a gym near here? Yes, there is one on Green Street. Go straight and turn right. Walk past the stadium. The gym is next to the stadium. It is a new building. Many people go there to exercise. It is very modern.", q: "What street is the gym on?", options: ["Blue Street", "Green Street", "Red Street"], a: "Green Street", lesson: "Nghe tên đường: 'Green Street'." },
+            { type: "multiple_choice", script: "Excuse me, where is the art gallery? Walk straight. Turn left at the museum. Go along the road. The art gallery is opposite the museum. It has many beautiful paintings. It is very famous. You should visit it.", q: "Is the art gallery opposite the museum?", options: ["Yes", "No"], a: "Yes", lesson: "Xác nhận vị trí: 'opposite the museum'." },
+            { type: "fill_blank", script: "How do I get to the train station? Go straight. Turn right at the bus station. Walk for two minutes. The train station is on your left. It is very large. There are many trains there. It is near the city center.", q: "Turn ___ at the bus station.", a: "right", lesson: "Nghe hướng rẽ rẽ." },
+            { type: "multiple_choice", script: "Where is the fruit market? Go straight. Turn left at the supermarket. Walk past the bakery. The fruit market is on your right. It has many fresh fruits. I like buying apples there. The prices are very good.", q: "What does the speaker like buying at the market?", options: ["oranges", "apples", "bananas"], a: "apples", lesson: "Nghe danh từ trái cây: 'apples'." },
+            { type: "multiple_choice", script: "Excuse me, where is the pet shop? Go straight. Turn right at the zoo. Walk for five minutes. The pet shop is next to the vet clinic. It is a small shop. You can see many cats and dogs there. It is very cute.", q: "Where is the pet shop?", options: ["next to the zoo", "next to the vet clinic", "opposite the zoo"], a: "next to the vet clinic", lesson: "Nghe cụm danh từ: 'vet clinic' (phòng khám thú y)." },
+            { type: "fill_blank", script: "I am looking for the music store. Walk straight. Turn left at the cinema. Go past the guitar shop. The music store is on your left. It is a big store. They sell many CDs and instruments. It is a great place for music lovers.", q: "Turn ___ at the cinema.", a: "left", lesson: "Nghe hướng rẽ." },
+            { type: "multiple_choice", script: "How can I get to the library? Turn right at the school. Walk for three minutes. Cross the street. The library is opposite the park. It is a quiet place. You can read many books there. It is open until 8 pm.", q: "When does the library close?", options: ["6 pm", "7 pm", "8 pm"], a: "8 pm", lesson: "Nghe thời gian đóng cửa: 'until 8 pm'." },
+            { type: "multiple_choice", script: "Is there a toy store near here? Yes, go straight. Turn left at the bookstore. Walk past the candy shop. The toy store is on your right. It has many dolls and cars. My brother loves this store. It is very colorful.", q: "What does the toy store have?", options: ["books and pens", "dolls and cars", "candy and fruit"], a: "dolls and cars", lesson: "Nghe danh từ đồ vật." },
+            { type: "fill_blank", script: "Excuse me, where is the pharmacy? Go straight. Turn right at the hospital. Walk past the doctor's office. The pharmacy is on your left. It is next to the doctor's office. It is a very clean shop. Thank you!", q: "The pharmacy is next to the ___'s office.", a: "doctor", lesson: "Nghe danh từ sở hữu: 'doctor's office'." },
+            { type: "multiple_choice", script: "Where is the clothing store? Walk straight. Turn left at the shoe store. Go along the street. The clothing store is between the shoe store and the hat shop. They have many beautiful dresses. I want to buy one.", q: "What does the speaker want to buy?", options: ["a hat", "a dress", "shoes"], a: "a dress", lesson: "Nghe danh từ trang phục: 'dress'." },
+            { type: "multiple_choice", script: "How do I get to the playground? Go straight. Turn right at the primary school. Walk past the garden. The playground is at the end of the road. It has many slides and swings. Children love playing there. It is very fun.", q: "What does the playground have?", options: ["books", "slides and swings", "computers"], a: "slides and swings", lesson: "Nghe danh từ khu vui chơi: 'slides and swings' (cầu trượt và xích đu)." },
+            { type: "fill_blank", script: "Excuse me, I am looking for the history museum. Turn left at the city hall. Walk straight for five minutes. Cross the road. The museum is on your right. It is a very old building. It has many interesting things. Good luck!", q: "The museum is an old ___.", a: "building", lesson: "Nghe danh từ chỉ công trình: 'building'." },
+            { type: "multiple_choice", script: "Is the post office near the bank? Yes, it is. Go straight. Turn right at the bank. The post office is next to the bank. It is a small building. You can send letters there. It is very convenient.", q: "Where is the post office?", options: ["next to the bank", "opposite the bank", "behind the bank"], a: "next to the bank", lesson: "Xác nhận giới từ vị trí: 'next to'." },
+            { type: "multiple_choice", script: "How can I get to the sports center? Walk straight. Turn left at the stadium. Go past the gym. The sports center is opposite the gym. It is very large. You can play many sports there. It is a modern place.", q: "Is the sports center opposite the gym?", options: ["Yes", "No"], a: "Yes", lesson: "Xác nhận vị trí." },
+            { type: "fill_blank", script: "Where is the candy shop? Go straight. Turn right at the toy store. Walk past the bakery. The candy shop is on your left. It has many sweet things. I love buying chocolate there. It is my favorite shop.", q: "I love buying ___ at the candy shop.", a: "chocolate", lesson: "Nghe danh từ đồ ăn: 'chocolate'." }
+          ],
+          hard: [
+            { type: "multiple_choice", script: "Attention students: the school trip has been postponed to next Friday due to bad weather.", q: "What happened to the school trip?", options: ["trip cancelled", "trip moved to next Friday", "trip on this Friday"], a: "trip moved to next Friday", lesson: "'Postponed' = hoãn lại. 'Due to bad weather' = do thời tiết xấu." },
+            { type: "multiple_choice", script: "I've worked here for 3 years. Before that, I was in Hanoi.", q: "How long has the speaker worked at the current job?", options: ["1 year", "3 years", "in Hanoi"], a: "3 years", lesson: "'Have worked for 3 years' → Hiện tại hoàn thành chỉ khoảng thời gian: 3 năm." },
+            { type: "fill_blank", script: "She said she would be there at 8.", q: "Complete the reported speech: She said she ___ be there at 8.", a: "would", lesson: "Câu tường thuật (Reported Speech): will → would khi tường thuật lại." },
+          ]
+        }
+      }
     };
 
     /* ═══════════════════════════════════════════════
@@ -5167,6 +6136,9 @@
        NAVIGATION
     ═══════════════════════════════════════════════ */
     function showPage(id) {
+      // Dừng TTS khi chuyển trang
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+
       // 1. Tìm tất cả các trang có class 'page'
       const allPages = document.querySelectorAll('.page');
 
@@ -5285,6 +6257,36 @@
 
     function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; } return a; }
 
+    /* ═══════════════════════════════════════════════
+       WEB SPEECH API – TỰ ĐỘNG ĐỌC CÂU HỎI LISTENING
+    ═══════════════════════════════════════════════ */
+    let ttsUtterance = null;
+
+    function speakScript(text) {
+      if (!text || !window.speechSynthesis) return;
+      // Dừng bất kỳ giọng đọc đang chạy
+      window.speechSynthesis.cancel();
+      ttsUtterance = new SpeechSynthesisUtterance(text);
+      ttsUtterance.lang = 'en-US';
+      ttsUtterance.rate = 0.88;   // Tốc độ vừa phải để học sinh nghe rõ
+      ttsUtterance.pitch = 1.0;
+      ttsUtterance.volume = 1.0;
+      // Ưu tiên giọng nữ nếu có
+      const voices = window.speechSynthesis.getVoices();
+      const preferred = voices.find(v => v.lang.startsWith('en') && v.name.toLowerCase().includes('female'))
+        || voices.find(v => v.lang.startsWith('en-US'))
+        || voices.find(v => v.lang.startsWith('en'));
+      if (preferred) ttsUtterance.voice = preferred;
+      window.speechSynthesis.speak(ttsUtterance);
+    }
+
+    // Hàm kiểm tra xem câu hỏi hiện tại có thuộc topic listening không
+    function isListeningQuestion(q) {
+      if (!q) return false;
+      // Câu hỏi có field script → là câu listening
+      return !!q.script;
+    }
+
     function renderQuestion() {
       const q = questions[currentQ], total = questions.length;
 
@@ -5340,6 +6342,31 @@
       }
 
       document.getElementById('q-container').innerHTML = html;
+
+      // ── TỰ ĐỘNG ĐỌC SCRIPT NẾU LÀ CÂU LISTENING ──
+      if (isListeningQuestion(q)) {
+        // Thêm nút Replay và trạng thái đang đọc vào trên cùng q-container
+        const ttsBar = document.createElement('div');
+        ttsBar.id = 'tts-bar';
+        ttsBar.style.cssText = 'display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;padding:.65rem 1rem;background:linear-gradient(135deg,rgba(99,82,180,.10),rgba(224,123,90,.07));border:1px solid rgba(99,82,180,.20);border-radius:var(--radius-sm);';
+        ttsBar.innerHTML = `
+          <span id="tts-icon" style="font-size:1.3rem;">🔊</span>
+          <span id="tts-label" style="flex:1;font-size:.83rem;font-weight:600;color:var(--c-accent);">Đang đọc đoạn hội thoại...</span>
+          <button onclick="speakScript(questions[currentQ].script)" style="padding:.35rem .9rem;border:1.5px solid rgba(99,82,180,.30);border-radius:50px;background:rgba(255,255,255,.75);font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;color:var(--c-accent);cursor:pointer;">🔁 Nghe lại</button>`;
+        document.getElementById('q-container').prepend(ttsBar);
+
+        // Đọc sau 600ms để trang render xong
+        setTimeout(() => {
+          speakScript(q.script);
+          // Cập nhật label sau khi đọc xong
+          if (ttsUtterance) {
+            ttsUtterance.onend = () => {
+              const lbl = document.getElementById('tts-label');
+              if (lbl) lbl.textContent = 'Đã đọc xong. Nhấn 🔁 để nghe lại.';
+            };
+          }
+        }, 600);
+      }
     }
 
     function selOpt(btn, val) {
@@ -5716,7 +6743,7 @@
         return _sheetsCache;
       }
 
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
+      const response = await fetch(GOOGLE_SCRIPT_URL + '?action=history', {
         method: 'GET',
         // redirect: 'follow' cần thiết cho Google Apps Script
         redirect: 'follow'
@@ -5926,7 +6953,7 @@
     ═══════════════════════════════════════════════ */
 
     // ⚠️ QUAN TRỌNG: Dán URL Web App của bạn vào đây sau khi triển khai Google Script
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyCGjFI1zW2EvuUreooCjpauBmcsWcX9q5vCLXqiJmO4Zfr76-uzmUTmUuYkGGW1p-W/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz17ukW_pyonBFlgQ5ltP0trgid_bDeukkttBtlW0Z7J4SH3iHDukru0025iUGi-wFWqA/exec';
 
     async function sendDataToSheets() {
       const studentName = getStudentName();
@@ -6010,11 +7037,12 @@
         const result = await response.json();
 
         if (result.status === 'success') {
-          // ── Thành công ──
-          btn.innerHTML = '✅ Đã nộp bài thành công!';
-          btn.style.background = 'linear-gradient(135deg, #16a34a, #15803d)';
+          // ── Thành công — ẩn nút, chỉ hiện thông báo gọn ──
+          btn.style.display = 'none';
+          const labelEl = document.getElementById('sheets-student-label');
+          if (labelEl) labelEl.textContent = `Học sinh: ${studentName}`;
           statusEl.className = 'sheets-status success';
-          statusEl.textContent = `✅ Nộp bài thành công! Đã ghi ${userAnswers.length} dòng vào Google Sheets.`;
+          statusEl.textContent = `✅ Nộp bài tự động thành công! (${userAnswers.length} câu đã ghi vào Google Sheets)`;
 
           // Lưu vào LocalStorage sau khi nộp thành công
           saveToLocalHistory(studentName, lessonName, score, questions.length);
@@ -6026,123 +7054,236 @@
         // ── Xử lý lỗi ──
         console.error('Lỗi khi gửi dữ liệu:', err);
         btn.disabled = false;
+        btn.style.display = '';
         btn.innerHTML = '🔄 Thử lại';
         statusEl.className = 'sheets-status error';
-        statusEl.textContent = `❌ Lỗi: ${err.message}. Kiểm tra lại URL Web App và thử lại.`;
+        statusEl.textContent = `❌ Tự nộp thất bại: ${err.message}. Bạn có thể nhấn nút "Thử lại".`;
       }
     }
 
-    // ====================== TỰ ĐỘNG NỘP BÀI KHI THI TỔNG HỢP ======================
-    function submitExam() {
-      if (!isExamMode) return;           // Chỉ tự động nộp khi đang thi Exam
-
-      const studentName = getStudentName();
-      if (!studentName) {
-        console.warn("Không tìm thấy tên học sinh → Không tự động nộp bài.");
-        return;
-      }
-
-      console.log("🔄 Đang tự động nộp bài thi tổng hợp...");
-      sendDataToSheets();
-    }
-
-    // Cập nhật giao diện hộp nộp bài trên trang kết quả
+    // Tự động nộp bài khi vào trang result (không cần bấm nút)
     function updateSheetsBox() {
       const name = getStudentName();
       const label = document.getElementById('sheets-student-label');
       const btn = document.getElementById('btn-send-sheets');
       const statusEl = document.getElementById('sheets-status');
 
+      // Ẩn nút nộp thủ công — tự nộp hoàn toàn
+      if (btn) { btn.style.display = 'none'; }
+
       if (label) {
         label.textContent = name
-          ? `Học sinh: ${name} — Kết quả đã được **tự động nộp** lên Google Sheets.`
-          : 'Vui lòng quay về trang chủ để nhập tên trước khi thi.';
+          ? `Học sinh: ${name} — Đang tự động nộp bài lên Google Sheets...`
+          : 'Vui lòng quay về trang chủ để đăng nhập trước khi nộp bài.';
       }
-
-      if (btn) {
-        btn.disabled = false;
-        btn.innerHTML = '📤 Học sinh bấm vào nút này để nộp bài cho thầy';
-        btn.onclick = () => sendDataToSheets();   // Cho phép nộp thủ công nếu cần
-      }
-
       if (statusEl) {
-        statusEl.className = 'sheets-status';
-        statusEl.textContent = '';
+        statusEl.className = 'sheets-status loading';
+        statusEl.textContent = '🔄 Đang tự động gửi kết quả lên Google Sheets...';
+      }
+
+      // Tự động gọi nộp bài sau khi DOM render xong
+      if (name) {
+        setTimeout(() => { autoSendDataToSheets(); }, 400);
       }
     }
 
-    // ====================== GHI ĐÈ CÁC HÀM QUAN TRỌNG ======================
-
-    // Ghi đè showResult để tự động nộp bài khi hoàn thành thi
-    const originalShowResult = typeof showResult === 'function' ? showResult : function () { };
-
-    showResult = function () {
-      originalShowResult();           // Gọi hàm gốc trước (hiển thị điểm số, đáp án...)
-
-      // Tự động nộp bài sau khi trang kết quả đã render (delay nhẹ để tránh lỗi DOM)
-      setTimeout(() => {
-        submitExam();
-      }, 1000);   // Tăng lên 1000ms cho an toàn
-    };
-
-    // Ghi đè showPage để cập nhật giao diện hộp Sheets khi vào trang result
-    const originalShowPage = typeof showPage === 'function' ? showPage : function () { };
-
-    showPage = function (id) {
-      originalShowPage(id);
-
-      if (id === 'result') {
-        updateSheetsBox();
-      }
-    };
-
-    // Sửa hàm saveToLocalHistory() bị thừa tham số
-    const originalSaveToLocalHistory = typeof saveToLocalHistory === 'function' ? saveToLocalHistory : function () { };
-
-    saveToLocalHistory = function () {
+    // Nộp bài tự động — không cần nút bấm
+    async function autoSendDataToSheets() {
       const studentName = getStudentName();
+      const statusEl = document.getElementById('sheets-status');
+
       if (!studentName) return;
 
-      let history = [];
-      try {
-        history = JSON.parse(localStorage.getItem(LS_KEY)) || [];
-      } catch (e) {
-        history = [];
-      }
-
       const lessonName = isExamMode
-        ? `Kiểm tra tổng hợp (${[...examSelectedTopics].map(k => DATABASE[k]?.title || k).join(', ')})`
+        ? `Kiểm Tra Tổng Hợp (${[...examSelectedTopics].map(k => DATABASE[k].title).join(', ')})`
         : `${DATABASE[currentTopic]?.title || 'Luyện tập'} - ${DIFF_LBL[selectedDiff] || ''}`;
 
-      const record = {
-        id: 'hist_' + Date.now(),
-        date: new Date().toLocaleString('vi-VN'),
-        timestamp: Date.now(),
+      const testID = `TEST_${Date.now()}`;
+
+      const userAnswers = answers.map((ans, i) => ({
+        questionNo: i + 1,
+        questionText: Array.isArray(ans.q.q) ? ans.q.q.join(' ') : ans.q.q,
+        userAnswer: ans.userAns || '(Bỏ trống)',
+        correctAnswer: ans.q.a,
+        isCorrect: ans.correct
+      }));
+
+      const payload = {
         studentName: studentName,
         lessonName: lessonName,
+        testID: testID,
         score: score,
         total: questions.length,
         pct: Math.round((score / questions.length) * 100),
-        isExamMode: isExamMode,
-        answers: answers.map(ans => ({
-          q: {
-            type: ans.q.type,
-            q: ans.q.q,
-            a: ans.q.a,
-            lesson: ans.q.lesson || '',
-            options: ans.q.options || null,
-            error_word: ans.q.error_word || null
-          },
-          userAns: ans.userAns || '',
-          correct: ans.correct
-        }))
+        date: new Date().toLocaleString('vi-VN'),
+        userAnswers: userAnswers,
+        recordJSON: JSON.stringify({
+          id: testID,
+          date: new Date().toLocaleString('vi-VN'),
+          timestamp: Date.now(),
+          studentName: studentName,
+          lessonName: lessonName,
+          score: score,
+          total: questions.length,
+          pct: Math.round((score / questions.length) * 100),
+          isExamMode: isExamMode,
+          answers: answers.map(ans => ({
+            q: {
+              type: ans.q.type,
+              q: ans.q.q,
+              a: ans.q.a,
+              lesson: ans.q.lesson || '',
+              options: ans.q.options || null,
+              error_word: ans.q.error_word || null
+            },
+            userAns: ans.userAns || '',
+            correct: ans.correct
+          }))
+        })
       };
 
-      history.unshift(record);
-      if (history.length > 50) history = history.slice(0, 50);
-      localStorage.setItem(LS_KEY, JSON.stringify(history));
-      _sheetsCache = null;
+      try {
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+
+        if (result.status === 'success') {
+          if (statusEl) {
+            statusEl.className = 'sheets-status success';
+            statusEl.textContent = `✅ Đã tự động nộp bài thành công! (${userAnswers.length} câu)`;
+          }
+          saveToLocalHistory(studentName, lessonName, score, questions.length);
+          _sheetsCache = null; // xóa cache để fetch lịch sử mới
+        } else {
+          throw new Error(result.message || 'Lỗi không xác định');
+        }
+
+      } catch (err) {
+        console.error('Lỗi tự nộp bài:', err);
+        if (statusEl) {
+          statusEl.className = 'sheets-status error';
+          statusEl.textContent = `❌ Tự nộp thất bại: ${err.message}. Nhấn nút bên dưới để thử lại.`;
+        }
+        // Khi lỗi: hiện lại nút để học sinh nộp thủ công
+        const btn = document.getElementById('btn-send-sheets');
+        if (btn) {
+          btn.style.display = '';
+          btn.disabled = false;
+          btn.innerHTML = '🔄 Thử nộp lại';
+        }
+      }
+    }
+
+    // Ghi đè showResult để gọi updateSheetsBox sau khi render
+    const _originalShowResult = showResult;
+    // Patch showPage để gọi updateSheetsBox khi vào trang result
+    const _originalShowPage = showPage;
+    showPage = function (id) {
+      _originalShowPage(id);
+      if (id === 'result') updateSheetsBox();
     };
+
+    /* ═══════════════════════════════════════════════
+       ĐĂNG NHẬP – XÁC THỰC QUA GOOGLE SHEETS
+    ═══════════════════════════════════════════════ */
+
+    // Lưu session đăng nhập trong sessionStorage
+    const SESSION_KEY = 'login_session_v1';
+
+    // Lấy session hiện tại
+    function getSession() {
+      try { return JSON.parse(sessionStorage.getItem(SESSION_KEY)) || null; } catch (e) { return null; }
+    }
+
+    // Kiểm tra đã đăng nhập chưa và chuyển hướng phù hợp
+    function checkLoginOnLoad() {
+      const session = getSession();
+      if (session && session.fullname) {
+        // Đã đăng nhập → vào landing
+        applySession(session);
+        showPage('landing');
+      } else {
+        // Chưa đăng nhập → vào trang login
+        showPage('login');
+      }
+    }
+
+    // Áp dụng thông tin session vào UI landing
+    function applySession(session) {
+      // Gán fullname vào hidden input (để getStudentName() hoạt động)
+      const hiddenInput = document.getElementById('student-name-input');
+      if (hiddenInput) hiddenInput.value = session.fullname;
+
+      // Cập nhật user info bar
+      const nameEl = document.getElementById('user-display-name');
+      const avatarEl = document.getElementById('user-avatar-initials');
+      if (nameEl) nameEl.textContent = session.fullname;
+      if (avatarEl) {
+        // Lấy chữ cái đầu của họ tên
+        const parts = session.fullname.trim().split(' ');
+        avatarEl.textContent = parts[parts.length - 1][0].toUpperCase();
+      }
+    }
+
+    // Thực hiện đăng nhập
+    async function doLogin() {
+      const username = document.getElementById('login-username').value.trim();
+      const password = document.getElementById('login-password').value.trim();
+      const errorEl = document.getElementById('login-error');
+      const btn = document.getElementById('btn-login');
+
+      if (!username || !password) {
+        errorEl.textContent = '⚠️ Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.';
+        errorEl.classList.add('show');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = '⏳ Đang kiểm tra...';
+      errorEl.classList.remove('show');
+
+      try {
+        const url = GOOGLE_SCRIPT_URL + '?action=login&username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password);
+        const res = await fetch(url, { method: 'GET', redirect: 'follow' });
+        const data = await res.json();
+
+        if (data.status === 'success' && data.fullname) {
+          // Lưu session
+          const session = { username: username, fullname: data.fullname };
+          sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
+          applySession(session);
+          showPage('landing');
+        } else {
+          errorEl.textContent = '❌ ' + (data.message || 'Tên đăng nhập hoặc mật khẩu không đúng.');
+          errorEl.classList.add('show');
+        }
+      } catch (err) {
+        errorEl.textContent = '⚠️ Không kết nối được máy chủ. Kiểm tra mạng và thử lại.';
+        errorEl.classList.add('show');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = '🚀 Đăng nhập';
+      }
+    }
+
+    // Đăng xuất
+    function doLogout() {
+      if (confirm('Bạn có chắc muốn đăng xuất không?')) {
+        sessionStorage.removeItem(SESSION_KEY);
+        // Reset form login
+        document.getElementById('login-username').value = '';
+        document.getElementById('login-password').value = '';
+        document.getElementById('login-error').classList.remove('show');
+        showPage('login');
+      }
+    }
+
+    // Khởi động: kiểm tra session khi load trang
+    checkLoginOnLoad();
+
   </script>
 </body>
 
