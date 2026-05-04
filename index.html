@@ -3073,6 +3073,425 @@
           ]
         }
       },
+      unitPastContinuous: {
+        title: "Past Continuous - Quá khứ tiếp diễn",
+        icon: "⏳",
+        theory: `
+<div style="font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.8; color: #1a1a1a; max-width: 800px; margin: auto;">
+    <h2 style="text-align: center; color: #000; font-weight: 800; letter-spacing: -0.05em;">PAST CONTINUOUS</h2>
+    <p style="text-align: center; font-style: italic; color: #666; margin-bottom: 40px;">(Thì quá khứ tiếp diễn)</p>
+
+    <!-- KHÁI NIỆM -->
+    <div style="background:#f0f9ff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #bae6fd;">
+        <h3>🧠 1. KHÁI NIỆM</h3>
+        <p>Thì <b>Quá khứ tiếp diễn</b> dùng để diễn tả một hành động <b>đang xảy ra tại một thời điểm trong quá khứ</b>.</p>
+        <p>Thường dùng khi:</p>
+        <ul>
+            <li>Hành động đang diễn ra thì bị xen vào</li>
+            <li>Mô tả bối cảnh trong quá khứ</li>
+            <li>Nhấn mạnh hành động chưa hoàn thành</li>
+        </ul>
+    </div>
+
+    <!-- CẤU TRÚC -->
+    <div style="background:#ecfeff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #67e8f9;">
+        <h3>⚙️ 2. CẤU TRÚC</h3>
+        <p><b>Khẳng định:</b> S + was/were + V-ing</p>
+        <p><b>Phủ định:</b> S + wasn't/weren't + V-ing</p>
+        <p><b>Nghi vấn:</b> Was/Were + S + V-ing?</p>
+        <p><b>Chia to be:</b></p>
+        <p>• was: I / he / she / it</p>
+        <p>• were: you / we / they</p>
+    </div>
+
+    <!-- CÁCH DÙNG -->
+    <div style="background:#fefce8;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #fde68a;">
+        <h3>🎯 3. CÁCH DÙNG</h3>
+        <p><b>1. Hành động đang xảy ra tại thời điểm quá khứ</b></p>
+        <p><b>2. Hành động bị xen vào</b> (when)</p>
+        <p><b>3. Mô tả bối cảnh</b></p>
+        <p><b>4. Phàn nàn (always)</b></p>
+    </div>
+
+    <!-- WHEN WHILE -->
+    <div style="background:#f0fdf4;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #bbf7d0;">
+        <h3>🔗 4. WHEN / WHILE</h3>
+        <p><b>While / As:</b> đi với hành động dài</p>
+        <p><b>When:</b> hành động xen vào (ngắn)</p>
+        <p>→ I was studying <b>when</b> he called.</p>
+    </div>
+
+    <!-- LƯU Ý -->
+    <div style="background:#fff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #eee;">
+        <h3>⚠️ 5. LƯU Ý</h3>
+        <p><b>State verbs không dùng tiếp diễn:</b> know, like, believe...</p>
+        <p>→ I didn't know (không dùng was knowing)</p>
+    </div>
+
+    <!-- 10 VÍ DỤ -->
+    <div style="background:#fdf4ff;padding:25px;border-radius:20px;border:1px solid #f5d0fe;">
+        <h3>📚 6. 10 VÍ DỤ QUAN TRỌNG</h3>
+
+        <p>1. I was studying at 8 p.m. → Tôi đang học lúc 8 giờ tối.</p>
+        <p>2. She was cooking when I arrived. → Cô ấy đang nấu ăn khi tôi đến.</p>
+        <p>3. They were playing football. → Họ đang chơi bóng đá.</p>
+        <p>4. We were walking when it started to rain. → Chúng tôi đang đi thì trời mưa.</p>
+        <p>5. He was sleeping at that time. → Anh ấy đang ngủ lúc đó.</p>
+        <p>6. The sun was shining. → Trời đang nắng.</p>
+        <p>7. Birds were singing. → Chim đang hót.</p>
+        <p>8. I wasn't listening when he spoke. → Tôi không nghe khi anh ấy nói.</p>
+        <p>9. What were you doing last night? → Tối qua bạn đang làm gì?</p>
+        <p>10. She was always complaining. → Cô ấy lúc nào cũng than phiền.</p>
+
+    </div>
+</div>
+`,
+
+        levels: {
+          easy: [
+            { type: "multiple_choice", script: "I was studying when he called.", q: "Câu nào đúng thì quá khứ tiếp diễn?", options: ["I studied when he called.", "I was studying when he called.", "I study when he called."], a: "I was studying when he called.", lesson: "Quá khứ tiếp diễn: was/were + V-ing. Dùng cho hành động đang diễn ra." },
+            { type: "fill_blank", script: "She was cooking when I arrived.", q: "She ___ cooking when I arrived.", a: "was", lesson: "She + was + V-ing → was cooking." },
+            // --- TRẮC NGHIỆM THÌ QUÁ KHỨ TIẾP DIỄN (PAST CONTINUOUS) ---
+            { type: "multiple_choice", script: "At 8 o'clock last night, I was doing my homework.", q: "At 8 o'clock last night, I ___ my homework.", options: ["was doing", "were doing", "did"], a: "was doing", lesson: "Diễn tả hành động đang xảy ra tại thời điểm cụ thể trong quá khứ (8 giờ tối qua). Chủ ngữ 'I' đi với 'was'." },
+            { type: "multiple_choice", script: "They were walking in the park when it started to rain.", q: "They ___ in the park when it started to rain.", options: ["was walking", "were walking", "walked"], a: "were walking", lesson: "Hành động đang xảy ra (đi bộ - hành động dài) thì hành động khác xen vào (mưa - hành động ngắn)." },
+            { type: "multiple_choice", script: "What were you doing when I called you yesterday?", q: "What ___ you doing when I called you yesterday?", options: ["was", "were", "did"], a: "were", lesson: "Cấu trúc câu hỏi: (Wh-) + was/were + S + V-ing? Chủ ngữ 'you' đi với 'were'." },
+            { type: "multiple_choice", script: "The sun was shining and the birds were singing.", q: "The sun ___ and the birds were singing.", options: ["shined", "was shining", "is shining"], a: "was shining", lesson: "Dùng để miêu tả bối cảnh của một câu chuyện trong quá khứ." },
+            { type: "multiple_choice", script: "I wasn't listening when the teacher explained the lesson.", q: "I ___ listening when the teacher explained the lesson.", options: ["wasn't", "weren't", "not"], a: "wasn't", lesson: "Câu phủ định: S + was/were + not + V-ing. 'I' đi với 'wasn't'." },
+            { type: "multiple_choice", script: "While my mother was cooking, the phone rang.", q: "While my mother ___ , the phone rang.", options: ["cooks", "was cooking", "cooked"], a: "was cooking", lesson: "Liên từ 'While' thường đi với thì Quá khứ tiếp diễn để chỉ một khoảng thời gian/hành động đang diễn ra." },
+            { type: "multiple_choice", script: "Were you watching TV at 10 p.m. last Sunday?", q: "___ you watching TV at 10 p.m. last Sunday?", options: ["Was", "Did", "Were"], a: "Were", lesson: "Câu hỏi Nghi vấn: Đảo 'Were' lên trước chủ ngữ 'you' cho hành động đang xảy ra trong quá khứ." },
+            { type: "multiple_choice", script: "She was playing the piano when her guests arrived.", q: "She ___ the piano when her guests arrived.", options: ["played", "was playing", "were playing"], a: "was playing", lesson: "Hành động 'chơi đàn' là hành động dài đang diễn ra thì bị hành động 'khách đến' xen vào." },
+            { type: "multiple_choice", script: "I didn't understand the movie because I wasn't paying attention.", q: "I didn't understand the movie because I ___ attention.", options: ["wasn't paying", "wasn't know", "didn't paying"], a: "wasn't paying", lesson: "Lưu ý: 'know' là động từ trạng thái nên không dùng tiếp diễn, nhưng 'pay attention' thì dùng bình thường." },
+            { type: "multiple_choice", script: "We were having dinner when the lights went out.", q: "We ___ dinner when the lights went out.", options: ["was having", "had", "were having"], a: "were having", lesson: "Hành động 'ăn tối' đang diễn ra (hành động dài) bị việc 'mất điện' (hành động ngắn) cắt ngang." },
+            { type: "multiple_choice", script: "I was walking down the hill when I saw the castle.", q: "I ___ down the hill when I saw the castle.", options: ["was walking", "were walking", "walked"], a: "was walking", lesson: "Hành động 'đi bộ' đang diễn ra (dài) thì hành động 'nhìn thấy lâu đài' xen vào (ngắn)." },
+            { type: "multiple_choice", script: "While they were waiting for the bus, it started to snow.", q: "While they ___ for the bus, it started to snow.", options: ["waited", "was waiting", "were waiting"], a: "were waiting", lesson: "Sau 'While' thường là quá khứ tiếp diễn. 'They' đi với 'were'." },
+            { type: "multiple_choice", script: "At this time yesterday, we were flying to Paris.", q: "At this time yesterday, we ___ to Paris.", options: ["were flying", "was flying", "flew"], a: "were flying", lesson: "Diễn tả hành động đang xảy ra tại một thời điểm xác định trong quá khứ." },
+            { type: "multiple_choice", script: "Was she wearing a coat when she went out?", q: "___ she wearing a coat when she went out?", options: ["Was", "Were", "Did"], a: "Was", lesson: "Câu hỏi nghi vấn cho chủ ngữ 'she'. Cấu trúc: Was + S + V-ing?" },
+            { type: "multiple_choice", script: "I wasn't listening, so I missed the instructions.", q: "I ___ listening, so I missed the instructions.", options: ["wasn't", "weren't", "didn't"], a: "wasn't", lesson: "Phủ định của quá khứ tiếp diễn: was not (wasn't) đi với chủ ngữ 'I'." },
+            { type: "multiple_choice", script: "The birds were singing when I woke up.", q: "The birds ___ when I woke up.", options: ["singing", "were singing", "was singing"], a: "were singing", lesson: "Dùng để miêu tả bối cảnh (background) của sự việc chính." },
+            { type: "multiple_choice", script: "What were you doing at 11:30 yesterday?", q: "What ___ you doing at 11:30 yesterday?", options: ["were", "was", "are"], a: "were", lesson: "Câu hỏi về hành động đang diễn ra tại thời điểm cụ thể trong quá khứ." },
+            { type: "multiple_choice", script: "It wasn't raining when we left the house.", q: "It ___ raining when we left the house.", options: ["wasn't", "weren't", "didn't"], a: "wasn't", lesson: "Diễn tả trạng thái thời tiết đang không diễn ra tại thời điểm đó." },
+            { type: "multiple_choice", script: "While I was studying, my brother was playing games.", q: "While I ___ , my brother was playing games.", options: ["was studying", "studied", "were studying"], a: "was studying", lesson: "Hai hành động xảy ra song song đồng thời trong quá khứ đều dùng tiếp diễn." },
+            { type: "multiple_choice", script: "He was always losing his keys in the past.", q: "He was ___ losing his keys (complaining).", options: ["always", "never", "did"], a: "always", lesson: "Cấu trúc nâng cao: Was/were + always + V-ing để phàn nàn về một thói quen xấu." },
+            { type: "multiple_choice", script: "Were they having a party when you arrived?", q: "___ they having a party when you arrived?", options: ["Was", "Were", "Did"], a: "Were", lesson: "Câu hỏi nghi vấn cho chủ ngữ số nhiều 'they' ở thì tiếp diễn." },
+            { type: "multiple_choice", script: "She wasn't driving fast when the accident happened.", q: "She ___ fast when the accident happened.", options: ["wasn't driving", "weren't driving", "didn't drive"], a: "wasn't driving", lesson: "Hành động 'lái xe' đang diễn ra thì 'tai nạn' bất ngờ xen vào." },
+            { type: "multiple_choice", script: "As I was walking home, I met an old friend.", q: "As I ___ home, I met an old friend.", options: ["walked", "was walking", "were walking"], a: "was walking", lesson: "Liên từ 'As' có cách dùng tương tự 'While', thường đi với quá khứ tiếp diễn." },
+            { type: "multiple_choice", script: "What was he wearing at the party last night?", q: "What ___ he wearing at the party last night?", options: ["was", "were", "did"], a: "was", lesson: "Câu hỏi Wh- với chủ ngữ 'he'. Lưu ý 'wear' dùng tiếp diễn để tả trang phục lúc đó." },
+            { type: "multiple_choice", script: "The wind was blowing hard during the storm.", q: "The wind ___ hard during the storm.", options: ["were blowing", "was blowing", "blew"], a: "was blowing", lesson: "Miêu tả bối cảnh thời tiết đang diễn ra liên tục trong quá khứ." },
+            { type: "multiple_choice", script: "We weren't watching the game when they scored.", q: "We ___ the game when they scored.", options: ["wasn't watching", "weren't watching", "didn't watch"], a: "weren't watching", lesson: "Chủ ngữ 'we' đi với 'were not' (weren't) + V-ing." },
+            { type: "multiple_choice", script: "Was it snowing when you got up this morning?", q: "___ it snowing when you got up this morning?", options: ["Was", "Were", "Did"], a: "Was", lesson: "Câu hỏi nghi vấn cho chủ ngữ chỉ thời tiết 'it'." },
+            { type: "multiple_choice", script: "I was dreaming about a cat when the alarm went off.", q: "I ___ about a cat when the alarm went off.", options: ["was dreaming", "dreamed", "am dreaming"], a: "was dreaming", lesson: "Hành động 'đang mơ' bị tiếng chuông báo thức cắt ngang." },
+            { type: "multiple_choice", script: "They were constantly arguing last year.", q: "They ___ constantly arguing last year.", options: ["was", "were", "are"], a: "were", lesson: "Dùng để nói về hành động lặp đi lặp lại gây khó chịu (phàn nàn)." },
+            { type: "multiple_choice", script: "While we were eating, the cat stole the fish.", q: "While we ___ , the cat stole the fish.", options: ["was eating", "ate", "were eating"], a: "were eating", lesson: "Hành động dài 'đang ăn' bị hành động ngắn 'con mèo chộp cá' xen vào." },
+            // --- TRẮC NGHIỆM THÌ QUÁ KHỨ TIẾP DIỄN (PAST CONTINUOUS) - PHẦN 3 ---
+            { type: "multiple_choice", script: "I was looking for my keys when I found this old photo.", q: "I ___ for my keys when I found this old photo.", options: ["was looking", "were looking", "looked"], a: "was looking", lesson: "Hành động đang tìm kiếm (dài) bị hành động thấy bức ảnh (ngắn) xen vào." },
+            { type: "multiple_choice", script: "What was she doing when the lights went out?", q: "What ___ she doing when the lights went out?", options: ["was", "were", "did"], a: "was", lesson: "Câu hỏi Wh- với chủ ngữ 'she'. Cấu trúc: Wh- + was + she + V-ing?" },
+            { type: "multiple_choice", script: "The children were playing while their father was reading.", q: "The children ___ while their father was reading.", options: ["was playing", "were playing", "played"], a: "were playing", lesson: "Hai hành động xảy ra song song đồng thời trong quá khứ dùng While." },
+            { type: "multiple_choice", script: "I wasn't wearing my glasses, so I didn't see the sign.", q: "I ___ wearing my glasses, so I didn't see the sign.", options: ["wasn't", "weren't", "not"], a: "wasn't", lesson: "Phủ định quá khứ tiếp diễn cho chủ ngữ 'I' là 'wasn't'." },
+            { type: "multiple_choice", script: "The sun was going down when we reached the beach.", q: "The sun ___ down when we reached the beach.", options: ["went", "was going", "were going"], a: "was going", lesson: "Dùng để miêu tả bối cảnh tự nhiên lúc sự kiện chính xảy ra." },
+            { type: "multiple_choice", script: "Were you sleeping when I knocked on the door?", q: "___ you sleeping when I knocked on the door?", options: ["Was", "Were", "Did"], a: "Were", lesson: "Câu hỏi Yes/No với chủ ngữ 'you'. Cấu trúc: Were + you + V-ing?" },
+            { type: "multiple_choice", script: "They weren't working at 3 p.m. yesterday.", q: "They ___ working at 3 p.m. yesterday.", options: ["wasn't", "weren't", "didn't"], a: "weren't", lesson: "Hành động đang không diễn ra tại một thời điểm xác định trong quá khứ." },
+            { type: "multiple_choice", script: "While I was having a shower, the water stopped.", q: "While I ___ a shower, the water stopped.", options: ["was having", "were having", "had"], a: "was having", lesson: "Hành động 'đang tắm' (dài) bị việc 'hết nước' (ngắn) xen vào." },
+            { type: "multiple_choice", script: "She was always complaining about the weather.", q: "She ___ always complaining about the weather.", options: ["was", "were", "is"], a: "was", lesson: "Dùng 'was always + V-ing' để diễn tả sự phàn nàn trong quá khứ." },
+            { type: "multiple_choice", script: "Who was dancing with you at the party?", q: "Who ___ dancing with you at the party?", options: ["was", "were", "did"], a: "was", lesson: "Câu hỏi về chủ ngữ (Who) thường dùng 'was' nếu không xác định số lượng." },
+            { type: "multiple_choice", script: "As he was getting off the bus, he fell.", q: "As he ___ off the bus, he fell.", options: ["got", "was getting", "were getting"], a: "was getting", lesson: "Dùng 'As' + quá khứ tiếp diễn cho hành động đang thực hiện." },
+            { type: "multiple_choice", script: "The stars were shining brightly that night.", q: "The stars ___ brightly that night.", options: ["was shining", "were shining", "shined"], a: "were shining", lesson: "Miêu tả bối cảnh (stars là số nhiều đi với were)." },
+            { type: "multiple_choice", script: "Was it raining when you left the office?", q: "___ it raining when you left the office?", options: ["Was", "Were", "Did"], a: "Was", lesson: "Câu hỏi về thời tiết đang diễn ra lúc đó: Was it + V-ing?" },
+            { type: "multiple_choice", script: "I was just beginning to eat when he arrived.", q: "I ___ just beginning to eat when he arrived.", options: ["was", "were", "am"], a: "was", lesson: "Hành động 'đang bắt đầu ăn' bị hành động 'anh ta đến' cắt ngang." },
+            { type: "multiple_choice", script: "They were constantly making noise last night.", q: "They ___ constantly making noise last night.", options: ["was", "were", "are"], a: "were", lesson: "Phàn nàn về hành động gây khó chịu lặp đi lặp lại trong quá khứ." },
+            { type: "multiple_choice", script: "While we were talking, he suddenly walked away.", q: "While we ___ , he suddenly walked away.", options: ["was talking", "were talking", "talked"], a: "were talking", lesson: "Hành động 'đang nói chuyện' bị hành động 'đi mất' xen vào." },
+            { type: "multiple_choice", script: "What were the birds doing in the garden?", q: "What ___ the birds doing in the garden?", options: ["was", "were", "did"], a: "were", lesson: "Câu hỏi cho chủ ngữ số nhiều 'the birds'." },
+            { type: "multiple_choice", script: "She wasn't feeling well, so she stayed home.", q: "She ___ feeling well yesterday.", options: ["wasn't", "weren't", "isn't"], a: "wasn't", lesson: "Diễn tả tình trạng sức khỏe đang diễn biến trong quá khứ." },
+            { type: "multiple_choice", script: "I was listening to music when I heard a cry.", q: "I ___ to music when I heard a cry.", options: ["was listening", "listened", "were listening"], a: "was listening", lesson: "Hành động dài 'nghe nhạc' bị hành động ngắn 'nghe tiếng khóc' xen vào." },
+            { type: "multiple_choice", script: "Were they still working at midnight?", q: "___ they still working at midnight?", options: ["Was", "Were", "Did"], a: "Were", lesson: "Câu hỏi về sự tiếp diễn của hành động tại thời điểm mốc (midnight)." },
+            { type: "multiple_choice", script: "The wind was blowing when the tree fell.", q: "The wind ___ when the tree fell.", options: ["blew", "was blowing", "were blowing"], a: "was blowing", lesson: "Hành động bối cảnh 'gió thổi' đang diễn ra thì cây đổ." },
+            { type: "multiple_choice", script: "I was having a dream about flying.", q: "At 3 a.m, I ___ a dream about flying.", options: ["was having", "had", "were having"], a: "was having", lesson: "Hành động 'đang mơ' tại một thời điểm cụ thể trong quá khứ." },
+            { type: "multiple_choice", script: "He wasn't paying attention during the meeting.", q: "He ___ attention during the meeting.", options: ["wasn't paying", "weren't paying", "didn't pay"], a: "wasn't paying", lesson: "Phủ định quá khứ tiếp diễn cho chủ ngữ 'he'." },
+            { type: "multiple_choice", script: "While she was cleaning, she found her ring.", q: "While she ___ , she found her ring.", options: ["was cleaning", "cleaned", "were cleaning"], a: "was cleaning", lesson: "Hành động 'lau dọn' đang diễn ra thì 'tìm thấy nhẫn' xen vào." },
+            { type: "multiple_choice", script: "Was he driving when you saw him?", q: "___ he driving when you saw him?", options: ["Was", "Were", "Did"], a: "Was", lesson: "Câu hỏi nghi vấn Was + S + V-ing." },
+            { type: "multiple_choice", script: "We were sitting in the garden when it got dark.", q: "We ___ in the garden when it got dark.", options: ["was sitting", "were sitting", "sat"], a: "were sitting", lesson: "Hành động 'đang ngồi' (dài) bị việc 'trời tối' (ngắn) xen vào." },
+            { type: "multiple_choice", script: "The phone rang while I was cooking dinner.", q: "The phone rang while I ___ dinner.", options: ["was cooking", "cooked", "were cooking"], a: "was cooking", lesson: "Sau 'While' dùng quá khứ tiếp diễn cho hành động đang diễn ra." },
+            { type: "multiple_choice", script: "They were always shouting at each other.", q: "They ___ always shouting (complaining).", options: ["was", "were", "did"], a: "were", lesson: "Dùng were + always + V-ing để phàn nàn về hành động trong quá khứ." },
+            { type: "multiple_choice", script: "I wasn't looking where I was going.", q: "I ___ looking where I was going.", options: ["wasn't", "weren't", "didn't"], a: "wasn't", lesson: "Hành động 'đang không nhìn' lúc đang di chuyển." },
+            { type: "multiple_choice", script: "What were you thinking about just then?", q: "What ___ you thinking about just then?", options: ["was", "were", "did"], a: "were", lesson: "Câu hỏi về suy nghĩ đang diễn ra tại một thời điểm cụ thể." },
+            // --- TRẮC NGHIỆM DỊCH CÂU (PAST CONTINUOUS) - VN ↔ EN ---
+            { type: "multiple_choice", script: "I was walking home when it started to rain.", q: "Dịch: 'Tôi đang đi bộ về nhà thì trời bắt đầu mưa.'", options: ["I was walking home when it started to rain.", "I walked home when it was raining.", "I was walking home while it started raining."], a: "I was walking home when it started to rain.", lesson: "Hành động đang diễn ra (walking) dùng tiếp diễn, hành động xen vào (started) dùng quá khứ đơn." },
+            { type: "multiple_choice", script: "What were you doing at 10 p.m. last night?", q: "Dịch: 'Bạn đang làm gì vào lúc 10 giờ tối qua?'", options: ["What did you do at 10 p.m. last night?", "What were you doing at 10 p.m. last night?", "What was you doing at 10 p.m. last night?"], a: "What were you doing at 10 p.m. last night?", lesson: "Câu hỏi về thời điểm cụ thể trong quá khứ. Lưu ý: 'you' đi với 'were'." },
+            { type: "multiple_choice", script: "While she was cooking, the phone rang.", q: "Dịch: 'Trong khi cô ấy đang nấu ăn, điện thoại reo.'", options: ["While she cooked, the phone was ringing.", "While she was cooking, the phone rang.", "While she was cooking, the phone was ringing."], a: "While she was cooking, the phone rang.", lesson: "Dùng 'While' cho hành động kéo dài (nấu ăn) và quá khứ đơn cho hành động bất chợt (điện thoại reo)." },
+            { type: "multiple_choice", script: "They weren't watching TV when I arrived.", q: "Dịch: 'Họ đã không đang xem TV khi tôi đến.'", options: ["They weren't watching TV when I arrived.", "They didn't watch TV when I was arriving.", "They weren't watch TV when I arrived."], a: "They weren't watching TV when I arrived.", lesson: "Phủ định quá khứ tiếp diễn: weren't + V-ing." },
+            { type: "multiple_choice", script: "Was it snowing when you went out?", q: "Dịch: 'Trời có đang mưa tuyết lúc bạn ra ngoài không?'", options: ["Did it snow when you were going out?", "Was it snowing when you went out?", "Were it snowing when you went out?"], a: "Was it snowing when you went out?", lesson: "Câu hỏi nghi vấn cho 'it' dùng 'Was'." },
+            { type: "multiple_choice", script: "I was studying while my brother was playing.", q: "Dịch: 'Tôi đang học bài trong khi em trai tôi đang chơi game.'", options: ["I was studying while my brother was playing.", "I studied while my brother played.", "I was studying when my brother played."], a: "I was studying while my brother was playing.", lesson: "Hai hành động song song trong quá khứ đều dùng thì tiếp diễn." },
+            { type: "multiple_choice", script: "The sun was shining brightly this morning.", q: "Dịch: 'Sáng nay trời đang nắng rất rực rỡ.'", options: ["The sun shined brightly this morning.", "The sun was shining brightly this morning.", "The sun was shine brightly this morning."], a: "The sun was shining brightly this morning.", lesson: "Miêu tả bối cảnh thời gian trong quá khứ." },
+            { type: "multiple_choice", script: "He was always losing his keys.", q: "Dịch: 'Anh ta suốt ngày làm mất chìa khóa (phàn nàn).'", options: ["He always lost his keys.", "He was always losing his keys.", "He were always losing his keys."], a: "He was always losing his keys.", lesson: "Cấu trúc phàn nàn: was + always + V-ing." },
+            { type: "multiple_choice", script: "What was he wearing at the party?", q: "Dịch: 'Lúc ở bữa tiệc anh ấy đang mặc gì thế?'", options: ["What did he wear at the party?", "What was he wearing at the party?", "What were he wearing at the party?"], a: "What was he wearing at the party?", lesson: "Dùng tiếp diễn để hỏi về trang phục tại một thời điểm trong quá khứ." },
+            { type: "multiple_choice", script: "We were having dinner when the lights went out.", q: "Dịch: 'Chúng tôi đang ăn tối thì mất điện.'", options: ["We were having dinner when the lights went out.", "We had dinner when the lights were going out.", "We were have dinner when the lights went out."], a: "We were having dinner when the lights went out.", lesson: "Hành động ăn tối bị cắt ngang bởi việc mất điện." },
+            { type: "multiple_choice", script: "I wasn't paying attention to the road.", q: "Dịch: 'Tôi đã không đang chú ý vào con đường.'", options: ["I didn't pay attention to the road.", "I wasn't paying attention to the road.", "I weren't paying attention to the road."], a: "I wasn't paying attention to the road.", lesson: "Dùng 'wasn't' cho chủ ngữ 'I' trong câu phủ định tiếp diễn." },
+            { type: "multiple_choice", script: "Were the birds singing when you woke up?", q: "Dịch: 'Lúc bạn thức dậy chim có đang hót không?'", options: ["Was the birds singing when you woke up?", "Were the birds singing when you woke up?", "Did the birds sing when you woke up?"], a: "Were the birds singing when you woke up?", lesson: "Birds là số nhiều nên dùng 'Were'." },
+            { type: "multiple_choice", script: "As I was walking, I found a coin.", q: "Dịch: 'Khi tôi đang đi bộ, tôi đã tìm thấy một đồng xu.'", options: ["As I was walking, I found a coin.", "As I walked, I was finding a coin.", "As I am walking, I found a coin."], a: "As I was walking, I found a coin.", lesson: "'As' tương tự 'While', dùng cho hành động đang diễn ra." },
+            { type: "multiple_choice", script: "She was playing piano all evening.", q: "Dịch: 'Cô ấy đã ngồi chơi đàn piano suốt cả buổi tối.'", options: ["She played piano all evening.", "She was playing piano all evening.", "She were playing piano all evening."], a: "She was playing piano all evening.", lesson: "Nhấn mạnh quá trình diễn ra liên tục của hành động." },
+            { type: "multiple_choice", script: "The wind was blowing hard during the storm.", q: "Dịch: 'Gió đã thổi rất mạnh trong suốt cơn bão.'", options: ["The wind was blowing hard during the storm.", "The wind blew hard during the storm.", "The wind were blowing hard during the storm."], a: "The wind was blowing hard during the storm.", lesson: "Miêu tả bối cảnh đang diễn ra (wind không đếm được dùng was)." },
+            { type: "multiple_choice", script: "I was dreaming about you when the alarm rang.", q: "Dịch câu EN → VN: 'I was dreaming about you when the alarm rang.'", options: ["Tôi đã mơ về bạn và rồi chuông reo.", "Tôi đang mơ về bạn thì chuông báo thức reo.", "Tôi mơ về bạn sau khi chuông reo."], a: "Tôi đang mơ về bạn thì chuông báo thức reo.", lesson: "Hành động 'đang mơ' bị cắt ngang." },
+            { type: "multiple_choice", script: "What were they talking about when you entered?", q: "Dịch câu EN → VN: 'What were they talking about when you entered?'", options: ["Họ đã nói gì khi bạn bước vào?", "Họ đang nói chuyện gì lúc bạn bước vào?", "Họ sẽ nói gì khi bạn vào?"], a: "Họ đang nói chuyện gì lúc bạn bước vào?", lesson: "Hỏi về hành động đang diễn ra tại thời điểm ai đó bước vào." },
+            { type: "multiple_choice", script: "It wasn't raining when we started our journey.", q: "Dịch câu EN → VN: 'It wasn't raining when we started our journey.'", options: ["Trời không mưa nên chúng tôi bắt đầu hành trình.", "Trời đã không đang mưa lúc chúng tôi bắt đầu hành trình.", "Trời sẽ không mưa khi chúng tôi đi."], a: "Trời đã không đang mưa lúc chúng tôi bắt đầu hành trình.", lesson: "Câu phủ định miêu tả bối cảnh lúc bắt đầu sự việc." },
+            { type: "multiple_choice", script: "Were you waiting for me long?", q: "Dịch câu EN → VN: 'Were you waiting for me long?'", options: ["Bạn đã chờ tôi lâu chưa?", "Bạn có đang đợi tôi lâu không (vào lúc đó)?", "Bạn sẽ đợi tôi lâu chứ?"], a: "Bạn có đang đợi tôi lâu không (vào lúc đó)?", lesson: "Hỏi về một hành động tiếp diễn kéo dài trong quá khứ." },
+            { type: "multiple_choice", script: "While I was studying, I fell asleep.", q: "Dịch câu EN → VN: 'While I was studying, I fell asleep.'", options: ["Trong khi đang học, tôi đã ngủ thiếp đi.", "Tôi học xong rồi tôi đi ngủ.", "Tôi đang ngủ thì tôi học."], a: "Trong khi đang học, tôi đã ngủ thiếp đi.", lesson: "Hành động 'đang học' bị cắt ngang bởi việc 'ngủ quên'." },
+            { type: "multiple_choice", script: "The children were constantly shouting.", q: "Dịch câu EN → VN: 'The children were constantly shouting.'", options: ["Lũ trẻ đã hét lên một lần.", "Lũ trẻ cứ la hét suốt (gây khó chịu).", "Lũ trẻ đang la hét lúc tôi đến."], a: "Lũ trẻ cứ la hét suốt (gây khó chịu).", lesson: "Constantly + V-ing diễn tả sự phàn nàn." },
+            { type: "multiple_choice", script: "Was she working at 7 a.m. yesterday?", q: "Dịch câu EN → VN: 'Was she working at 7 a.m. yesterday?'", options: ["Cô ấy có làm việc lúc 7 giờ sáng qua không?", "Cô ấy đã đang làm việc lúc 7 giờ sáng qua phải không?", "Cô ấy làm việc từ 7 giờ sáng qua?"], a: "Cô ấy đã đang làm việc lúc 7 giờ sáng qua phải không?", lesson: "Hỏi về hành động tại thời điểm chính xác trong quá khứ." },
+            { type: "multiple_choice", script: "They were having a meeting when I called.", q: "Dịch câu EN → VN: 'They were having a meeting when I called.'", options: ["Họ đang họp thì tôi gọi điện.", "Họ đã họp xong khi tôi gọi.", "Họ sẽ họp khi tôi gọi."], a: "Họ đang họp thì tôi gọi điện.", lesson: "Hành động đang họp bị xen vào bởi cuộc gọi." },
+            { type: "multiple_choice", script: "I was just leaving when you arrived.", q: "Dịch câu EN → VN: 'I was just leaving when you arrived.'", options: ["Tôi vừa mới đi thì bạn đến.", "Tôi đang định rời đi thì bạn đến.", "Tôi đã đi sau khi bạn đến."], a: "Tôi đang định rời đi thì bạn đến.", lesson: "Diễn tả hành động sắp xảy ra/đang chuẩn bị diễn ra trong quá khứ." },
+            { type: "multiple_choice", script: "The star was shining in the dark sky.", q: "Dịch câu EN → VN: 'The star was shining in the dark sky.'", options: ["Ngôi sao tỏa sáng bầu trời tối.", "Ngôi sao đang tỏa sáng trên bầu trời tối.", "Ngôi sao đã sáng trên bầu trời tối."], a: "Ngôi sao đang tỏa sáng trên bầu trời tối.", lesson: "Miêu tả trạng thái đang diễn ra (bối cảnh)." },
+            { type: "multiple_choice", script: "We weren't looking for you.", q: "Dịch câu EN → VN: 'We weren't looking for you.'", options: ["Chúng tôi không tìm bạn.", "Chúng tôi đã không đang tìm bạn (lúc đó).", "Chúng tôi sẽ không tìm bạn."], a: "Chúng tôi đã không đang tìm bạn (lúc đó).", lesson: "Phủ định của hành động đang diễn ra." },
+            { type: "multiple_choice", script: "Who were you talking to just now?", q: "Dịch câu EN → VN: 'Who were you talking to just now?'", options: ["Bạn vừa mới nói chuyện với ai thế?", "Bạn đang nói chuyện với ai vào lúc nãy vậy?", "Ai đã nói chuyện với bạn?"], a: "Bạn đang nói chuyện với ai vào lúc nãy vậy?", lesson: "Hỏi về hành động đang diễn ra tại một thời điểm vừa mới qua trong quá khứ." },
+            { type: "multiple_choice", script: "He was driving home when the accident happened.", q: "Dịch câu EN → VN: 'He was driving home when the accident happened.'", options: ["Anh ấy đang lái xe về nhà thì tai nạn xảy ra.", "Anh ấy lái xe về nhà sau tai nạn.", "Anh ấy đang lái xe thì thấy tai nạn."], a: "Anh ấy đang lái xe về nhà thì tai nạn xảy ra.", lesson: "Cấu trúc kinh điển của hành động đang diễn ra bị xen vào." },
+            { type: "multiple_choice", script: "The waves were crashing against the rocks.", q: "Dịch câu EN → VN: 'The waves were crashing against the rocks.'", options: ["Những con sóng đâm vào đá.", "Những con sóng đang vỗ mạnh vào những tảng đá.", "Những con sóng đã vỗ vào đá."], a: "Những con sóng đang vỗ mạnh vào những tảng đá.", lesson: "Miêu tả bối cảnh (background) sinh động." },
+            { type: "multiple_choice", script: "I was thinking about the same thing!", q: "Dịch câu EN → VN: 'I was thinking about the same thing!'", options: ["Tôi cũng đã nghĩ về điều tương tự!", "Tôi cũng đang nghĩ về điều tương tự (lúc đó)!", "Tôi sẽ nghĩ về điều đó!"], a: "Tôi cũng đang nghĩ về điều tương tự (lúc đó)!", lesson: "Diễn tả sự đồng điệu về hành động đang diễn ra trong suy nghĩ tại quá khứ." },
+            // --- TRẮC NGHIỆM DỊCH CÂU (PAST CONTINUOUS) - PHẦN 4 ---
+            { type: "multiple_choice", script: "I was fixing the car when you called.", q: "Dịch: 'Tôi đang sửa xe thì bạn gọi điện.'", options: ["I was fixing the car when you called.", "I fixed the car when you were calling.", "I was fix the car when you called."], a: "I was fixing the car when you called.", lesson: "Hành động 'sửa xe' đang diễn ra (was fixing) thì hành động 'gọi' xen vào (called)." },
+            { type: "multiple_choice", script: "What was he doing at this time last year?", q: "Dịch: 'Anh ấy đang làm gì vào thời điểm này năm ngoái?'", options: ["What did he do at this time last year?", "What was he doing at this time last year?", "What were he doing at this time last year?"], a: "What was he doing at this time last year?", lesson: "Thời điểm xác định trong quá khứ (at this time last year) dùng Quá khứ tiếp diễn." },
+            { type: "multiple_choice", script: "While we were waiting, it started to thunder.", q: "Dịch: 'Trong lúc chúng tôi đang đợi, trời bắt đầu có sấm sét.'", options: ["While we were waiting, it started to thunder.", "While we waited, it was starting to thunder.", "While we were wait, it started to thunder."], a: "While we were waiting, it started to thunder.", lesson: "Dùng 'While' cho hành động đang diễn ra kéo dài." },
+            { type: "multiple_choice", script: "She wasn't wearing her uniform yesterday.", q: "Dịch: 'Hôm qua cô ấy đã không đang mặc đồng phục.'", options: ["She didn't wear her uniform yesterday.", "She wasn't wearing her uniform yesterday.", "She weren't wearing her uniform yesterday."], a: "She wasn't wearing her uniform yesterday.", lesson: "Miêu tả trạng thái đang diễn ra (hoặc không diễn ra) tại một thời điểm quá khứ." },
+            { type: "multiple_choice", script: "Were you dreaming when the noise woke you up?", q: "Dịch: 'Bạn có đang mơ khi tiếng động làm bạn thức giấc không?'", options: ["Did you dream when the noise woke you up?", "Were you dreaming when the noise woke you up?", "Was you dreaming when the noise woke you up?"], a: "Were you dreaming when the noise woke you up?", lesson: "Hành động 'đang mơ' bị cắt ngang bởi 'tiếng động'." },
+            { type: "multiple_choice", script: "The birds were chirping and the sun was rising.", q: "Dịch: 'Chim đang hót líu lo và mặt trời đang mọc.'", options: ["The birds chirped and the sun rose.", "The birds were chirping and the sun was rising.", "The birds was chirping and the sun was rising."], a: "The birds were chirping and the sun was rising.", lesson: "Dùng Quá khứ tiếp diễn để miêu tả bối cảnh (Background) của câu chuyện." },
+            { type: "multiple_choice", script: "I was always forgetting my lunch at home.", q: "Dịch: 'Tôi suốt ngày quên bữa trưa ở nhà (phàn nàn).'", options: ["I was always forgetting my lunch.", "I always forgot my lunch.", "I were always forgetting my lunch."], a: "I was always forgetting my lunch.", lesson: "Cấu trúc 'was/were + always + V-ing' dùng để phàn nàn về thói quen trong quá khứ." },
+            { type: "multiple_choice", script: "What were they talking about when I walked in?", q: "Dịch: 'Họ đang nói chuyện về cái gì khi tôi bước vào?'", options: ["What did they talk about when I walked in?", "What were they talking about when I walked in?", "What was they talking about when I walked in?"], a: "What were they talking about when I walked in?", lesson: "Hỏi về hành động đang diễn ra tại thời điểm bị xen vào." },
+            { type: "multiple_choice", script: "As I was opening the door, the cat ran out.", q: "Dịch: 'Ngay khi tôi đang mở cửa thì con mèo chạy vụt ra.'", options: ["As I was opening the door, the cat ran out.", "As I opened the door, the cat was running out.", "As I was open the door, the cat ran out."], a: "As I was opening the door, the cat ran out.", lesson: "Hành động 'mở cửa' đang diễn ra thì 'mèo chạy ra' xen vào." },
+            { type: "multiple_choice", script: "We were having a great time at the beach.", q: "Dịch: 'Chúng tôi đã đang có một khoảng thời gian tuyệt vời ở bãi biển.'", options: ["We were having a great time.", "We had a great time.", "We was having a great time."], a: "We were having a great time.", lesson: "Nhấn mạnh quá trình trải nghiệm đang diễn ra tại thời điểm nhắc tới." },
+            { type: "multiple_choice", script: "It wasn't snowing when the plane landed.", q: "Dịch: 'Trời đang không mưa tuyết khi máy bay hạ cánh.'", options: ["It didn't snow when the plane landed.", "It wasn't snowing when the plane landed.", "It weren't snowing when the plane landed."], a: "It wasn't snowing when the plane landed.", lesson: "Phủ định quá khứ tiếp diễn cho chủ ngữ 'It'." },
+            { type: "multiple_choice", script: "Were they still working at midnight last night?", q: "Dịch: 'Họ vẫn đang làm việc lúc nửa đêm qua phải không?'", options: ["Did they still work at midnight?", "Were they still working at midnight?", "Was they still working at midnight?"], a: "Were they still working at midnight?", lesson: "Câu hỏi về hành động kéo dài tại một mốc thời gian cụ thể." },
+            { type: "multiple_choice", script: "The wind was blowing through the trees.", q: "Dịch: 'Gió đang thổi qua những hàng cây.'", options: ["The wind was blowing through the trees.", "The wind blew through the trees.", "The wind were blowing hard."], a: "The wind was blowing through the trees.", lesson: "Miêu tả bối cảnh (Wind là danh từ không đếm được đi với was)." },
+            { type: "multiple_choice", script: "I was just thinking about that!", q: "Dịch: 'Tôi cũng vừa đang nghĩ về điều đó xong!'", options: ["I just thought about that!", "I was just thinking about that!", "I were just thinking about that!"], a: "I was just thinking about that!", lesson: "Diễn tả ý nghĩ đang xuất hiện trong đầu tại thời điểm đó." },
+            { type: "multiple_choice", script: "While she was cleaning, she broke a vase.", q: "Dịch: 'Trong lúc cô ấy đang lau dọn, cô ấy đã làm vỡ một chiếc bình.'", options: ["While she was cleaning, she broke a vase.", "While she cleaned, she was breaking a vase.", "While she was cleaning, she was breaking a vase."], a: "While she was cleaning, she broke a vase.", lesson: "Hành động 'lau dọn' kéo dài, hành động 'vỡ bình' xen vào đột ngột." },
+            { type: "multiple_choice", script: "The children were playing in the garden.", q: "Dịch EN → VN: 'The children were playing in the garden.'", options: ["Lũ trẻ chơi trong vườn.", "Lũ trẻ đang chơi đùa trong vườn.", "Lũ trẻ đã chơi xong trong vườn."], a: "Lũ trẻ đang chơi đùa trong vườn.", lesson: "Dịch sát nghĩa tiếp diễn 'đang làm gì đó'." },
+            { type: "multiple_choice", script: "What were you looking for under the bed?", q: "Dịch EN → VN: 'What were you looking for under the bed?'", options: ["Bạn đã tìm gì dưới gầm giường?", "Bạn đang tìm kiếm thứ gì dưới gầm giường thế?", "Bạn sẽ tìm gì dưới gầm giường?"], a: "Bạn đang tìm kiếm thứ gì dưới gầm giường thế?", lesson: "Câu hỏi về hành động đang thực hiện trong quá khứ." },
+            { type: "multiple_choice", script: "I wasn't paying attention to the teacher.", q: "Dịch EN → VN: 'I wasn't paying attention to the teacher.'", options: ["Tôi không nghe lời giáo viên.", "Tôi đã không đang chú ý lắng nghe giáo viên.", "Tôi sẽ không nghe giáo viên nói."], a: "Tôi đã không đang chú ý lắng nghe giáo viên.", lesson: "Phủ định quá trình đang diễn ra." },
+            { type: "multiple_choice", script: "Was she crying when you saw her?", q: "Dịch EN → VN: 'Was she crying when you saw her?'", options: ["Cô ấy có đang khóc lúc bạn gặp cô ấy không?", "Cô ấy đã khóc sau khi gặp bạn à?", "Cô ấy có khóc không?"], a: "Cô ấy có đang khóc lúc bạn gặp cô ấy không?", lesson: "Hỏi về trạng thái đang diễn ra tại thời điểm xen vào." },
+            { type: "multiple_choice", script: "They were constantly arguing about money.", q: "Dịch EN → VN: 'They were constantly arguing about money.'", options: ["Họ đã tranh cãi về tiền bạc.", "Họ suốt ngày cãi nhau về chuyện tiền bạc (phàn nàn).", "Họ đang cãi nhau về tiền lúc tôi đến."], a: "Họ suốt ngày cãi nhau về chuyện tiền bạc (phàn nàn).", lesson: "'Constantly' nhấn mạnh sự lặp lại gây khó chịu." },
+            { type: "multiple_choice", script: "While I was driving, a dog ran across the road.", q: "Dịch EN → VN: 'While I was driving, a dog ran across the road.'", options: ["Trong khi tôi đang lái xe, một con chó chạy băng qua đường.", "Tôi đang lái xe và con chó cũng đang chạy.", "Tôi lái xe sau khi con chó chạy qua."], a: "Trong khi tôi đang lái xe, một con chó chạy băng qua đường.", lesson: "Hành động lái xe bị xen ngang bởi con chó." },
+            { type: "multiple_choice", script: "He was always losing his phone.", q: "Dịch EN → VN: 'He was always losing his phone.'", options: ["Anh ấy luôn làm mất điện thoại.", "Anh ấy suốt ngày làm mất điện thoại (phàn nàn).", "Anh ấy đang làm mất điện thoại."], a: "Anh ấy suốt ngày làm mất điện thoại (phàn nàn).", lesson: "Dùng thì tiếp diễn để phàn nàn thói quen xấu." },
+            { type: "multiple_choice", script: "What was the chef cooking at 8 p.m.?", q: "Dịch EN → VN: 'What was the chef cooking at 8 p.m.?'", options: ["Đầu bếp nấu món gì lúc 8 giờ tối?", "Đầu bếp đang nấu món gì vào lúc 8 giờ tối qua?", "Đầu bếp đã nấu món gì lúc 8 giờ?"], a: "Đầu bếp đang nấu món gì vào lúc 8 giờ tối qua?", lesson: "Hành động tại thời điểm cụ thể." },
+            { type: "multiple_choice", script: "We were sitting by the fire all night.", q: "Dịch EN → VN: 'We were sitting by the fire all night.'", options: ["Chúng tôi ngồi bên đống lửa cả đêm.", "Chúng tôi đã ngồi bên đống lửa suốt cả đêm.", "Chúng tôi đang ngồi bên đống lửa thì trời sáng."], a: "Chúng tôi đã ngồi bên đống lửa suốt cả đêm.", lesson: "Nhấn mạnh sự liên tục của hành động trong một khoảng thời gian." },
+            { type: "multiple_choice", script: "The rain was pouring down.", q: "Dịch EN → VN: 'The rain was pouring down.'", options: ["Trời mưa to.", "Trời đang mưa như trút nước.", "Trời đã mưa xong."], a: "Trời đang mưa như trút nước.", lesson: "Miêu tả bối cảnh thời tiết đang diễn ra." },
+            { type: "multiple_choice", script: "I wasn't feeling very well yesterday.", q: "Dịch EN → VN: 'I wasn't feeling very well yesterday.'", options: ["Hôm qua tôi không khỏe.", "Hôm qua tôi đã cảm thấy không được khỏe lắm (trong suốt ngày).", "Hôm qua tôi sẽ không khỏe."], a: "Hôm qua tôi đã cảm thấy không được khỏe lắm (trong suốt ngày).", lesson: "Miêu tả tình trạng sức khỏe đang diễn ra trong quá khứ." },
+            { type: "multiple_choice", script: "Were they talking about me?", q: "Dịch EN → VN: 'Were they talking about me?'", options: ["Họ có nói về tôi không?", "Có phải lúc đó họ đang nói về tôi không?", "Họ đã nói gì về tôi?"], a: "Có phải lúc đó họ đang nói về tôi không?", lesson: "Câu hỏi về hành động tiếp diễn." },
+            { type: "multiple_choice", script: "She was reading while he was watching TV.", q: "Dịch EN → VN: 'She was reading while he was watching TV.'", options: ["Cô ấy đang đọc sách trong khi anh ấy đang xem TV.", "Cô ấy đọc sách xong rồi anh ấy xem TV.", "Cô ấy đang đọc sách thì anh ấy xem TV."], a: "Cô ấy đang đọc sách trong khi anh ấy đang xem TV.", lesson: "Hai hành động song song (Parallel actions)." },
+            { type: "multiple_choice", script: "I was just starting my car when it exploded.", q: "Dịch EN → VN: 'I was just starting my car when it exploded.'", options: ["Tôi vừa nổ máy xe thì nó nổ tung.", "Tôi đang chuẩn bị nổ máy xe thì nó nổ tung.", "Tôi nổ máy xe sau khi nó nổ tung."], a: "Tôi đang chuẩn bị nổ máy xe thì nó nổ tung.", lesson: "Hành động 'đang bắt đầu' bị xen vào bởi vụ nổ." },
+            { type: "multiple_choice", script: "Who was screaming in the street?", q: "Dịch EN → VN: 'Who was screaming in the street?'", options: ["Ai đã hét lên trên phố?", "Ai đang la hét ngoài đường thế (vào lúc đó)?", "Ai sẽ hét ngoài đường?"], a: "Ai đang la hét ngoài đường thế (vào lúc đó)?", lesson: "Hỏi về chủ ngữ thực hiện hành động đang diễn ra." },
+            // --- TRẮC NGHIỆM ĐIỀN KHUYẾT (FILL IN THE BLANK) - PAST CONTINUOUS & SIMPLE ---
+            { type: "fill_blank", script: "I was studying when she called.", q: "Chia động từ: I was ___ (study) when she called.", a: "studying", lesson: "Cấu trúc: was + V-ing. 'Studying' là hành động đang diễn ra." },
+            { type: "fill_blank", script: "They were playing when it rained.", q: "Chia động từ: They were playing when it ___ (rain).", a: "rained", lesson: "Hành động xen vào đột ngột trong quá khứ dùng Quá khứ đơn (V2/ed)." },
+            { type: "fill_blank", script: "What were you doing?", q: "Điền 1 từ: What ___ you doing at 8 p.m. yesterday?", a: "were", lesson: "Chủ ngữ 'you' đi với to be 'were' trong thì quá khứ tiếp diễn." },
+            { type: "fill_blank", script: "She was not listening.", q: "Điền 1 từ: She ___ not listening when I told the story.", a: "was", lesson: "Chủ ngữ 'she' số ít đi với 'was'." },
+            { type: "fill_blank", script: "While I was cooking, he arrived.", q: "Điền 1 từ: While I ___ cooking, he arrived.", a: "was", lesson: "Sau 'While' thường là quá khứ tiếp diễn (was/were + V-ing)." },
+            { type: "fill_blank", script: "The sun was shining.", q: "Chia động từ: The sun was ___ (shine) and the birds were singing.", a: "shining", lesson: "Miêu tả bối cảnh: was + V-ing (bỏ 'e' trước khi thêm 'ing')." },
+            { type: "fill_blank", script: "Were they working?", q: "Điền 1 từ: ___ they working when you saw them?", a: "Were", lesson: "Câu hỏi nghi vấn: Đưa 'Were' lên trước chủ ngữ số nhiều 'they'." },
+            { type: "fill_blank", script: "He fell while he was running.", q: "Chia động từ: He fell while he was ___ (run).", a: "running", lesson: "Gấp đôi phụ âm cuối 'n' trước khi thêm 'ing' cho động từ 'run'." },
+            { type: "fill_blank", script: "I wasn't paying attention.", q: "Chia động từ: I wasn't ___ (pay) attention to the teacher.", a: "paying", lesson: "Cấu trúc phủ định: was/were + not + V-ing." },
+            { type: "fill_blank", script: "When I saw her, she was crying.", q: "Chia động từ: When I ___ (see) her, she was crying.", a: "saw", lesson: "Hành động xen vào (nhìn thấy) chia ở quá khứ đơn (see -> saw)." },
+            { type: "fill_blank", script: "We were having dinner.", q: "Chia động từ: We were ___ (have) dinner when the cat jumped in.", a: "having", lesson: "Hành động đang diễn ra: were + V-ing (have -> having)." },
+            { type: "fill_blank", script: "Was it snowing?", q: "Chia động từ: Was it ___ (snow) when you left home?", a: "snowing", lesson: "Câu hỏi về thời tiết đang diễn ra: Was + it + V-ing?" },
+            { type: "fill_blank", script: "They were always shouting.", q: "Chia động từ: They were always ___ (shout) at each other.", a: "shouting", lesson: "Phàn nàn về hành động lặp đi lặp lại: was/were + always + V-ing." },
+            { type: "fill_blank", script: "I was dreaming.", q: "Điền 1 từ: I ___ dreaming when the alarm went off.", a: "was", lesson: "Chủ ngữ 'I' luôn đi với 'was' trong quá khứ tiếp diễn." },
+            { type: "fill_blank", script: "The phone rang while I was sleeping.", q: "Chia động từ: The phone rang while I was ___ (sleep).", a: "sleeping", lesson: "Hành động dài đang diễn ra sau 'while' dùng V-ing." },
+            { type: "fill_blank", script: "What was she wearing?", q: "Chia động từ: What was she ___ (wear) at the party?", a: "wearing", lesson: "Hỏi về trang phục đang mặc tại thời điểm đó: was + V-ing." },
+            { type: "fill_blank", script: "We weren't watching TV.", q: "Điền 1 từ: We ___ not watching TV at that time.", a: "were", lesson: "Chủ ngữ 'We' đi với 'were'. 'Were not' = 'Weren't'." },
+            { type: "fill_blank", script: "As I was walking home.", q: "Chia động từ: As I was ___ (walk) home, I met him.", a: "walking", lesson: "Sau 'As' diễn tả hành động đang diễn ra dùng V-ing." },
+            { type: "fill_blank", script: "The light went out.", q: "Chia động từ: We were dancing when the light ___ (go) out.", a: "went", lesson: "Hành động xen vào (mất điện) dùng quá khứ đơn (go -> went)." },
+            { type: "fill_blank", script: "Was he driving fast?", q: "Điền 1 từ: ___ he driving fast when the accident happened?", a: "Was", lesson: "Câu hỏi nghi vấn cho chủ ngữ số ít 'he' dùng 'Was'." },
+            { type: "fill_blank", script: "I was just leaving.", q: "Chia động từ: I was just ___ (leave) when you arrived.", a: "leaving", lesson: "Hành động sắp sửa diễn ra hoặc đang bắt đầu: was + V-ing." },
+            { type: "fill_blank", script: "Who was screaming?", q: "Chia động từ: Who was ___ (scream) in the street last night?", a: "screaming", lesson: "Hành động đang diễn ra dùng V-ing." },
+            { type: "fill_blank", script: "They were not working.", q: "Điền 1 từ: They ___ not working when the boss came.", a: "were", lesson: "Chủ ngữ 'They' đi với 'were' trong câu phủ định." },
+            { type: "fill_blank", script: "It started to rain while we were playing.", q: "Điền 1 từ: It started to rain while we ___ playing tennis.", a: "were", lesson: "Chủ ngữ 'We' đi với 'were' để tạo thành thì tiếp diễn." },
+            { type: "fill_blank", script: "She was making a cake.", q: "Chia động từ: She was ___ (make) a cake for my birthday.", a: "making", lesson: "Động từ tận cùng là 'e', bỏ 'e' rồi thêm 'ing'." },
+            { type: "fill_blank", script: "I broke the vase while I was cleaning.", q: "Điền 1 từ: I broke the vase while I ___ cleaning the room.", a: "was", lesson: "Cấu trúc: while + S + was/were + V-ing." },
+            { type: "fill_blank", script: "Were you listening?", q: "Điền 1 từ: ___ you listening to music at 10 p.m?", a: "Were", lesson: "Chủ ngữ 'you' luôn đi với 'were' trong câu hỏi." },
+            { type: "fill_blank", script: "The birds were singing.", q: "Điền 1 từ: The birds ___ singing when I woke up.", a: "were", lesson: "Birds (số nhiều) đi với 'were'." },
+            { type: "fill_blank", script: "What was he talking about?", q: "Chia động từ: What was he ___ (talk) about when you entered?", a: "talking", lesson: "Hành động đang diễn ra: was + V-ing." },
+            { type: "fill_blank", script: "I wasn't feeling well.", q: "Điền 1 từ: I ___ not feeling well yesterday morning.", a: "was", lesson: "Chủ ngữ 'I' đi với 'was' trong câu phủ định tiếp diễn." },
+            // --- TRẮC NGHIỆM ĐIỀN KHUYẾT (FILL IN THE BLANK) - PHẦN 2 ---
+            { type: "fill_blank", script: "I was lying on the beach.", q: "Chia động từ: I was ___ (lie) on the beach when it started to rain.", a: "lying", lesson: "Động từ kết thúc bằng 'ie' (lie) đổi thành 'y' rồi mới thêm 'ing'." },
+            { type: "fill_blank", script: "Were you having a bad dream?", q: "Điền 1 từ: ___ you having a bad dream when you shouted?", a: "Were", lesson: "Chủ ngữ 'you' đi với 'were' trong câu hỏi quá khứ tiếp diễn." },
+            { type: "fill_blank", script: "They were sitting in the sun.", q: "Chia động từ: They were ___ (sit) in the sun when the bus arrived.", a: "sitting", lesson: "Gấp đôi phụ âm cuối 't' (sitting) vì động từ có cấu trúc: Phụ âm - Nguyên âm - Phụ âm." },
+            { type: "fill_blank", script: "She was always losing things.", q: "Điền 1 từ: She ___ always losing her umbrella in the past.", a: "was", lesson: "Cấu trúc phàn nàn: She + was + always + V-ing." },
+            { type: "fill_blank", script: "What was he doing?", q: "Điền 1 từ: What ___ he doing when the accident happened?", a: "was", lesson: "Chủ ngữ 'he' (số ít) đi với trợ động từ 'was'." },
+            { type: "fill_blank", script: "I was cutting the grass.", q: "Chia động từ: I was ___ (cut) the grass when the machine broke.", a: "cutting", lesson: "Động từ 'cut' cần gấp đôi phụ âm cuối thành 'cutting'." },
+            { type: "fill_blank", script: "Was it raining?", q: "Điền 1 từ: ___ it raining when you went to bed?", a: "Was", lesson: "Câu hỏi cho chủ ngữ 'it' (thời tiết) dùng 'Was'." },
+            { type: "fill_blank", script: "They were not watching.", q: "Điền 1 từ: They ___ not watching the game when I arrived.", a: "were", lesson: "Chủ ngữ 'they' (số nhiều) đi với 'were'." },
+            { type: "fill_blank", script: "While I was waiting.", q: "Điền 1 từ: While I ___ waiting for the train, I saw a celebrity.", a: "was", lesson: "Cấu trúc: While + I + was + V-ing." },
+            { type: "fill_blank", script: "She was typing a letter.", q: "Chia động từ: She was ___ (type) a letter when the power went out.", a: "typing", lesson: "Động từ kết thúc bằng 'e' (type), bỏ 'e' thêm 'ing'." },
+            { type: "fill_blank", script: "What were the kids doing?", q: "Điền 1 từ: What ___ the kids doing in the garden just now?", a: "were", lesson: "'The kids' là số nhiều nên dùng 'were'." },
+            { type: "fill_blank", script: "I wasn't wearing my coat.", q: "Điền 1 từ: I ___ not wearing my coat when I left home.", a: "was", lesson: "Câu phủ định cho chủ ngữ 'I' dùng 'was not'." },
+            { type: "fill_blank", script: "The phone rang while I was bathing.", q: "Điền 1 từ: The phone rang while I ___ bathing.", a: "was", lesson: "Hành động đang diễn ra (bathing) đi với 'was' cho chủ ngữ 'I'." },
+            { type: "fill_blank", script: "Were they still working?", q: "Điền 1 từ: ___ they still working at 11 p.m. last night?", a: "Were", lesson: "Câu hỏi đảo 'Were' lên trước chủ ngữ số nhiều 'they'." },
+            { type: "fill_blank", script: "He was driving home.", q: "Chia động từ: He was ___ (drive) home when he ran out of petrol.", a: "driving", lesson: "Động từ 'drive' bỏ 'e' thêm 'ing'." },
+            { type: "fill_blank", script: "As she was crossing the street.", q: "Điền 1 từ: As she ___ crossing the street, she fell over.", a: "was", lesson: "Liên từ 'As' dùng để diễn tả hành động đang xảy ra (was crossing)." },
+            { type: "fill_blank", script: "We were having lunch.", q: "Điền 1 từ: We ___ having lunch when the news started.", a: "were", lesson: "Chủ ngữ 'We' đi với 'were'." },
+            { type: "fill_blank", script: "Who was playing the piano?", q: "Điền 1 từ: Who ___ playing the piano at the party last night?", a: "was", lesson: "Câu hỏi với 'Who' làm chủ ngữ thường mặc định dùng 'was'." },
+            { type: "fill_blank", script: "It was getting dark.", q: "Chia động từ: It ___ (get) dark when we reached home.", a: "was", lesson: "Miêu tả bối cảnh đang diễn tiến: It + was + getting." },
+            { type: "fill_blank", script: "Was she wearing a dress?", q: "Điền 1 từ: ___ she wearing a red dress when you saw her?", a: "Was", lesson: "Câu hỏi đảo 'Was' lên trước chủ ngữ số ít 'she'." },
+            { type: "fill_blank", script: "They were planning a trip.", q: "Chia động từ: They were ___ (plan) a trip when the pandemic started.", a: "planning", lesson: "Động từ 'plan' gấp đôi phụ âm cuối 'n' thành 'planning'." },
+            { type: "fill_blank", script: "I wasn't paying attention.", q: "Điền 1 từ: I ___ not paying attention when the teacher spoke.", a: "was", lesson: "Phủ định quá khứ tiếp diễn cho 'I' dùng 'was not'." },
+            { type: "fill_blank", script: "The birds were singing.", q: "Điền 1 từ: The birds ___ singing beautifully this morning.", a: "were", lesson: "'The birds' số nhiều đi với 'were'." },
+            { type: "fill_blank", script: "He was putting on his shoes.", q: "Chia động từ: He was ___ (put) on his shoes when the doorbell rang.", a: "putting", lesson: "Động từ 'put' gấp đôi phụ âm cuối 't' thành 'putting'." },
+            { type: "fill_blank", script: "While we were eating.", q: "Điền 1 từ: While we ___ eating, a bird flew into the room.", a: "were", lesson: "Cấu trúc: While + we + were + V-ing." },
+            { type: "fill_blank", script: "Was it blowing hard?", q: "Chia động từ: Was the wind ___ (blow) hard during the storm?", a: "blowing", lesson: "Was + V-ing cho hành động đang diễn ra (blowing)." },
+            { type: "fill_blank", script: "They weren't listening.", q: "Điền 1 từ: They ___ not listening to the radio at that time.", a: "were", lesson: "Chủ ngữ 'they' đi với 'were'." },
+            { type: "fill_blank", script: "What was the chef making?", q: "Chia động từ: What was the chef ___ (make) when you entered?", a: "making", lesson: "Động từ 'make' bỏ 'e' thêm 'ing'." },
+            { type: "fill_blank", script: "I was starting the engine.", q: "Điền 1 từ: I ___ starting the engine when it made a noise.", a: "was", lesson: "Chủ ngữ 'I' đi với 'was'." },
+            { type: "fill_blank", script: "Were you waiting long?", q: "Điền 1 từ: ___ you waiting long for the bus yesterday?", a: "Were", lesson: "Câu hỏi đảo 'Were' lên trước chủ ngữ 'you'." },
+            // --- BÀI TẬP VIẾT CÂU HOÀN CHỈNH (FILL BLANK) - QUÁ KHỨ TIẾP DIỄN ---
+            { type: "fill_blank", script: "I was cooking dinner.", q: "Dịch 'Tôi đang nấu bữa tối' (cook dinner): ___ when the phone rang.", a: "I was cooking dinner", lesson: "S + was/were + V-ing + Object." },
+            { type: "fill_blank", script: "They were playing soccer.", q: "Dịch 'Họ đang đá bóng' (play soccer): ___ at 5 p.m yesterday.", a: "They were playing soccer", lesson: "Số nhiều 'They' đi với 'were'." },
+            { type: "fill_blank", script: "She was reading books.", q: "Dịch 'Cô ấy đang đọc sách' (read books): ___ while I was out.", a: "She was reading books", lesson: "Hành động kéo dài trong quá khứ." },
+            { type: "fill_blank", script: "The rain started.", q: "Dịch 'trời bắt đầu mưa' (rain start): We were walking when ___.", a: "the rain started", lesson: "Hành động xen vào dùng Quá khứ đơn (V-ed)." },
+            { type: "fill_blank", script: "We were having breakfast.", q: "Dịch 'Chúng tôi đang ăn sáng' (have breakfast): ___ when he arrived.", a: "We were having breakfast", lesson: "Hành động đang diễn ra bị cắt ngang." },
+            { type: "fill_blank", script: "He was driving fast.", q: "Dịch 'Anh ấy đang lái xe nhanh' (drive fast): ___ before the accident.", a: "He was driving fast", lesson: "Miêu tả trạng thái tại một thời điểm." },
+            { type: "fill_blank", script: "I was doing homework.", q: "Dịch 'Tôi đang làm bài tập về nhà' (do homework): ___ all evening.", a: "I was doing homework", lesson: "Nhấn mạnh quá trình làm việc liên tục." },
+            { type: "fill_blank", script: "The sun was shining.", q: "Dịch 'Mặt trời đang tỏa nắng' (sun shine): ___ when I woke up.", a: "The sun was shining", lesson: "Miêu tả bối cảnh câu chuyện." },
+            { type: "fill_blank", script: "They were watching TV.", q: "Dịch 'Họ đang xem TV' (watch TV): ___ when the lights went out.", a: "They were watching TV", lesson: "S + were + V-ing." },
+            { type: "fill_blank", script: "She was crying alone.", q: "Dịch 'Cô ấy đang khóc một mình' (cry alone): ___ in the room.", a: "She was crying alone", lesson: "V-ing mô tả hành động đang xảy ra." },
+            { type: "fill_blank", script: "My mom was cleaning.", q: "Dịch 'Mẹ tôi đang lau dọn' (mom clean): ___ while I was playing.", a: "My mom was cleaning", lesson: "Hai hành động song song trong quá khứ." },
+            { type: "fill_blank", script: "The baby was sleeping.", q: "Dịch 'Đứa bé đang ngủ' (baby sleep): ___ soundly at that time.", a: "The baby was sleeping", lesson: "Miêu tả trạng thái đang diễn ra." },
+            { type: "fill_blank", script: "I was waiting for you.", q: "Dịch 'Tôi đang đợi bạn' (wait for you): ___ for two hours.", a: "I was waiting for you", lesson: "Cấu trúc: was + waiting + for." },
+            { type: "fill_blank", script: "Were you listening?", q: "Dịch 'Bạn có đang nghe không?' (you listen): ___ to me just now?", a: "Were you listening", lesson: "Câu hỏi: Were + S + V-ing?" },
+            { type: "fill_blank", script: "He was not working.", q: "Dịch 'Anh ấy đang không làm việc' (he not work): ___ at the office.", a: "He was not working", lesson: "Câu phủ định: was + not + V-ing." },
+            { type: "fill_blank", script: "We were sitting there.", q: "Dịch 'Chúng tôi đang ngồi đó' (sit there): ___ when we saw them.", a: "We were sitting there", lesson: "Sit -> sitting (gấp đôi t)." },
+            { type: "fill_blank", script: "The birds were singing.", q: "Dịch 'Những con chim đang hót' (birds sing): ___ in the trees.", a: "The birds were singing", lesson: "Số nhiều dùng 'were'." },
+            { type: "fill_blank", script: "Was she wearing a hat?", q: "Dịch 'Có phải cô ấy đang đội mũ không?' (she wear hat): ___ at the party?", a: "Was she wearing a hat", lesson: "Câu hỏi nghi vấn số ít." },
+            { type: "fill_blank", script: "I was thinking of you.", q: "Dịch 'Tôi đang nghĩ về bạn' (think of you): ___ when you called.", a: "I was thinking of you", lesson: "Hành động diễn ra trong tâm trí." },
+            { type: "fill_blank", script: "They were talking loudly.", q: "Dịch 'Họ đang nói chuyện to' (talk loudly): ___ in the library.", a: "They were talking loudly", lesson: "V-ing kết hợp với trạng từ." },
+            { type: "fill_blank", script: "It was snowing hard.", q: "Dịch 'Trời đang mưa tuyết dày' (snow hard): ___ all night long.", a: "It was snowing hard", lesson: "Miêu tả thời tiết tiếp diễn." },
+            { type: "fill_blank", script: "She was making a cake.", q: "Dịch 'Cô ấy đang làm bánh' (make cake): ___ for the party.", a: "She was making a cake", lesson: "Make -> making." },
+            { type: "fill_blank", script: "The dog was barking.", q: "Dịch 'Con chó đang sủa' (dog bark): ___ at the stranger.", a: "The dog was barking", lesson: "Hành động đang xảy ra tại thời điểm đó." },
+            { type: "fill_blank", script: "We were laughing a lot.", q: "Dịch 'Chúng tôi đang cười rất nhiều' (laugh a lot): ___ at the joke.", a: "We were laughing a lot", lesson: "Nhấn mạnh mức độ của hành động." },
+            { type: "fill_blank", script: "I was taking photos.", q: "Dịch 'Tôi đang chụp ảnh' (take photos): ___ during the trip.", a: "I was taking photos", lesson: "Take -> taking." },
+            { type: "fill_blank", script: "He was painting a wall.", q: "Dịch 'Anh ấy đang sơn một bức tường' (paint a wall): ___ when it rained.", a: "He was painting a wall", lesson: "Hành động kéo dài bị cắt ngang." },
+            { type: "fill_blank", script: "What were you doing?", q: "Dịch 'Bạn đang làm gì vậy?' (what you do): ___ at 8 p.m?", a: "What were you doing", lesson: "Câu hỏi có từ để hỏi (Wh-question)." },
+            { type: "fill_blank", script: "They were not eating.", q: "Dịch 'Họ đang không ăn' (they not eat): ___ when I came.", a: "They were not eating", lesson: "Câu phủ định quá khứ tiếp diễn." },
+            { type: "fill_blank", script: "She was always complaining.", q: "Dịch 'Cô ấy suốt ngày phàn nàn' (always complain): ___ about the weather.", a: "She was always complaining", lesson: "Dùng 'always' để phàn nàn thói quen cũ." },
+            { type: "fill_blank", script: "I was feeling tired.", q: "Dịch 'Tôi đang cảm thấy mệt' (feel tired): ___ yesterday morning.", a: "I was feeling tired", lesson: "Miêu tả cảm xúc kéo dài trong quá khứ." }
+          ]
+        }
+      },
+      unitPresentPerfect: {
+        title: "Present Perfect - Hiện tại hoàn thành",
+        icon: "⏳",
+        theory: `
+<div style="font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.8; color: #1a1a1a; max-width: 800px; margin: auto;">
+    <h2 style="text-align: center; color: #000; font-weight: 800; letter-spacing: -0.05em;">PRESENT PERFECT</h2>
+    <p style="text-align: center; font-style: italic; color: #666; margin-bottom: 40px;">(Thì hiện tại hoàn thành)</p>
+
+    <!-- KHÁI NIỆM -->
+    <div style="background:#f0f9ff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #bae6fd;">
+        <h3>🧠 1. KHÁI NIỆM</h3>
+        <p>Thì <b>Hiện tại hoàn thành</b> dùng để diễn tả hành động xảy ra trong quá khứ nhưng <b>liên quan đến hiện tại</b>.</p>
+        <p><b>3 ý chính:</b></p>
+        <ul>
+            <li>Kết quả ở hiện tại → I've lost my passport.</li>
+            <li>Trải nghiệm → Have you ever been to Japan?</li>
+            <li>Sự tiếp diễn → I have lived here for 5 years.</li>
+        </ul>
+    </div>
+
+    <!-- CẤU TRÚC -->
+    <div style="background:#ecfeff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #67e8f9;">
+        <h3>⚙️ 2. CẤU TRÚC</h3>
+        <p><b>Khẳng định:</b> S + have/has + V3</p>
+        <p>→ They have gone out.</p>
+
+        <p><b>Phủ định:</b> S + haven't/hasn't + V3</p>
+        <p>→ I haven't finished my work.</p>
+
+        <p><b>Nghi vấn:</b> Have/Has + S + V3?</p>
+        <p>→ Has your course started yet?</p>
+
+        <p><b>Lưu ý:</b></p>
+        <p>• Động từ thường: V-ed</p>
+        <p>• Bất quy tắc: go → gone, see → seen</p>
+    </div>
+
+    <!-- CÁCH DÙNG -->
+    <div style="background:#fefce8;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #fde68a;">
+        <h3>🎯 3. CÁCH DÙNG</h3>
+        <p><b>1. Trải nghiệm:</b> Have you ever been to Hanoi?</p>
+        <p><b>2. Phát triển:</b> Technology has evolved.</p>
+        <p><b>3. Viết lại câu:</b></p>
+        <p>The last time she wrote... → She hasn't written since...</p>
+    </div>
+
+    <!-- 10 VÍ DỤ -->
+    <div style="background:#fdf4ff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #f5d0fe;">
+        <h3>📚 4. 10 VÍ DỤ QUAN TRỌNG</h3>
+
+        <p>1. I have finished my homework. → Tôi đã làm xong bài tập.</p>
+        <p>2. She has just left. → Cô ấy vừa rời đi.</p>
+        <p>3. They have already eaten. → Họ đã ăn rồi.</p>
+        <p>4. Have you ever been to Hanoi? → Bạn đã từng đến Hà Nội chưa?</p>
+        <p>5. I have never seen that movie. → Tôi chưa bao giờ xem phim đó.</p>
+        <p>6. We have lived here for 10 years. → Chúng tôi đã sống ở đây 10 năm.</p>
+        <p>7. He has worked here since 2020. → Anh ấy làm việc ở đây từ năm 2020.</p>
+        <p>8. I haven't finished my work yet. → Tôi vẫn chưa xong việc.</p>
+        <p>9. It has rained a lot recently. → Gần đây trời mưa nhiều.</p>
+        <p>10. This is the first time I have tried sushi. → Đây là lần đầu tôi ăn sushi.</p>
+
+    </div>
+
+    <!-- TỪ NHẬN BIẾT -->
+    <div style="background:#f0fdf4;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #bbf7d0;">
+        <h3>🔑 5. TỪ NHẬN BIẾT</h3>
+        <p><b>Just:</b> vừa mới</p>
+        <p><b>Already:</b> đã rồi</p>
+        <p><b>Yet:</b> chưa (cuối câu)</p>
+        <p><b>Ever/Never:</b> đã từng/chưa bao giờ</p>
+        <p><b>Recently/Lately:</b> gần đây</p>
+    </div>
+
+    <!-- FOR SINCE -->
+    <div style="background:#eef2ff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #c7d2fe;">
+        <h3>⏱️ 6. FOR & SINCE</h3>
+        <p><b>For + khoảng thời gian:</b> for 2 years, for a long time</p>
+        <p><b>Since + mốc thời gian:</b> since 2010, since Monday</p>
+    </div>
+
+    <!-- GONE vs BEEN -->
+    <div style="background:#fdf4ff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #f5d0fe;">
+        <h3>✈️ 7. GONE vs BEEN</h3>
+        <p><b>Gone to:</b> đã đi và vẫn ở đó</p>
+        <p>→ He has gone to Japan.</p>
+
+        <p><b>Been to:</b> đã đi và quay về</p>
+        <p>→ He has been to Japan.</p>
+    </div>
+
+    <!-- SO SÁNH -->
+    <div style="background:#fff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #eee;">
+        <h3>⚖️ 8. SO SÁNH VỚI QUÁ KHỨ ĐƠN</h3>
+        <p><b>Present Perfect:</b> chưa kết thúc (today, this week)</p>
+        <p><b>Past Simple:</b> đã kết thúc (yesterday, last week)</p>
+        <p>→ I haven't shaved this morning</p>
+        <p>→ I didn't shave this morning</p>
+    </div>
+
+    <!-- NÂNG CAO -->
+    <div style="background:#ecfeff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #67e8f9;">
+        <h3>🚀 9. NÂNG CAO</h3>
+        <p><b>First time:</b> This is the first time I have seen this.</p>
+
+        <p><b>Trong tin tức:</b> dùng Present Perfect → sau đó Past Simple</p>
+
+        <p><b>Mệnh đề thời gian:</b> after, when, until → dùng Present Perfect</p>
+
+        <p><b>Passive:</b> have/has been + V3</p>
+        <p>→ My key has been stolen.</p>
+    </div>
+</div>
+`,
+
+        levels: {
+          easy: [
+            { type: "multiple_choice", script: "Have you ever been to Hanoi?", q: "Câu nào đúng thì hiện tại hoàn thành?", options: ["Did you ever go to Hanoi?", "Have you ever been to Hanoi?", "Do you ever go to Hanoi?"], a: "Have you ever been to Hanoi?", lesson: "Present Perfect dùng 'have/has + V3' để nói về trải nghiệm." },
+            { type: "fill_blank", script: "I have finished my homework.", q: "I ___ finished my homework.", a: "have", lesson: "Cấu trúc: I/You/We/They + have + V3." }
+          ]
+        }
+      },
       tenses: {
         title: "Các thì của động từ",
         icon: "⏰",
@@ -3205,149 +3624,149 @@
             { type: "multiple_choice", q: "Dự đoán 'Ngày mai trời nắng' dùng thì nào?", options: ["Hiện tại", "Quá khứ", "Tương lai"], a: "Tương lai", lesson: "Dự báo việc chưa tới dùng Tương lai đơn." },
             { type: "multiple_choice", q: "Câu 'She was a baby' nghĩa là bây giờ cô ấy còn là em bé không?", options: ["Còn", "Không, đó là chuyện quá khứ", "Sắp thành em bé"], a: "Không, đó là chuyện quá khứ", lesson: "Dùng 'was' tức là việc đó đã qua rồi." },
             { type: "multiple_choice", q: "Timeline: Quá khứ -> Hiện tại -> Tương lai. 'Will' nằm ở đâu?", options: ["Đầu sơ đồ", "Giữa sơ đồ", "Cuối sơ đồ"], a: "Cuối sơ đồ", lesson: "Tương lai (will) là điểm nằm sau cùng trên trục thời gian." },
-            { type: "fill_blank", script: "She plays the piano.", q: "Thì Hiện tại đơn: She / play / the piano", a: "She plays the piano", lesson: "Hiện tại đơn: She là số ít nên play thêm s." },
-            { type: "fill_blank", script: "I ate breakfast.", q: "Thì Quá khứ đơn: I / eat / breakfast", a: "I ate breakfast", lesson: "Quá khứ đơn: Cột 2 của eat là ate." },
-            { type: "fill_blank", script: "They did not go.", q: "Thì Quá khứ (Phủ định): They / did not / go", a: "They did not go", lesson: "Phủ định quá khứ: Mượn did not và giữ nguyên động từ go." },
-            { type: "fill_blank", script: "It will rain.", q: "Thì Tương lai đơn: It / will / rain", a: "It will rain", lesson: "Tương lai đơn: Dùng cấu trúc will + động từ nguyên thể." },
-            { type: "fill_blank", script: "He will be a doctor.", q: "Thì Tương lai đơn: He / will be / a doctor", a: "He will be a doctor", lesson: "Tương lai đơn của to-be là will be." },
-            { type: "fill_blank", script: "I do not like apples.", q: "Thì Hiện tại (Phủ định): I / do not / like / apples", a: "I do not like apples", lesson: "Phủ định hiện tại: Chủ ngữ I mượn trợ động từ do not." },
-            { type: "fill_blank", script: "We visited London.", q: "Thì Quá khứ đơn: We / visit / London", a: "We visited London", lesson: "Quá khứ đơn: Động từ có quy tắc visit thêm đuôi ed." },
-            { type: "fill_blank", script: "My mother cooks every day.", q: "Thì Hiện tại đơn: My mother / cook / every day", a: "My mother cooks every day", lesson: "Hiện tại đơn: My mother là số ít nên cook thêm s." },
-            { type: "fill_blank", script: "Did you see him?", q: "Thì Quá khứ (Câu hỏi): Did / you / see / him?", a: "Did you see him?", lesson: "Câu hỏi quá khứ: Đưa Did lên đầu câu và giữ nguyên see." },
-            { type: "fill_blank", script: "I will call you.", q: "Thì Tương lai đơn: I / will / call / you", a: "I call you", a: "I will call you", lesson: "Tương lai đơn: Dùng will + call để nói về ý định." },
+            { type: "fill_blank", script: "She plays the piano.", q: "Thì Hiện tại đơn (She / play / the piano): ___.", a: "She plays the piano", lesson: "Hiện tại đơn: She là số ít nên play thêm s." },
+            { type: "fill_blank", script: "I ate breakfast.", q: "Thì Quá khứ đơn (I / eat / breakfast): ___.", a: "I ate breakfast", lesson: "Quá khứ đơn: Cột 2 của eat là ate." },
+            { type: "fill_blank", script: "They didn't go.", q: "Thì Quá khứ - Phủ định (They / not / go): ___.", a: "They didn't go", lesson: "Phủ định quá khứ: Mượn didn't và giữ nguyên động từ go." },
+            { type: "fill_blank", script: "It will rain.", q: "Thì Tương lai đơn (It / rain): ___.", a: "It will rain", lesson: "Tương lai đơn: Dùng cấu trúc will + động từ nguyên thể." },
+            { type: "fill_blank", script: "He will be a doctor.", q: "Thì Tương lai đơn (He / be / a doctor): ___.", a: "He will be a doctor", lesson: "Tương lai đơn của to-be là will be." },
+            { type: "fill_blank", script: "I don't like apples.", q: "Thì Hiện tại - Phủ định (I / not / like / apples): ___.", a: "I don't like apples", lesson: "Phủ định hiện tại: Chủ ngữ I mượn trợ động từ don't." },
+            { type: "fill_blank", script: "We visited London.", q: "Thì Quá khứ đơn (We / visit / London): ___.", a: "We visited London", lesson: "Quá khứ đơn: Động từ có quy tắc visit thêm đuôi ed." },
+            { type: "fill_blank", script: "My mother cooks every day.", q: "Thì Hiện tại đơn (My mother / cook / every day): ___.", a: "My mother cooks every day", lesson: "Hiện tại đơn: My mother là số ít nên cook thêm s." },
+            { type: "fill_blank", script: "Did you see him?", q: "Thì Quá khứ - Câu hỏi (you / see / him): ___?", a: "Did you see him", lesson: "Câu hỏi quá khứ: Đưa Did lên đầu câu và giữ nguyên see." },
+            { type: "fill_blank", script: "I will call you.", q: "Thì Tương lai đơn (I / call / you): ___.", a: "I will call you", lesson: "Tương lai đơn: Dùng will + call để nói về ý định." },
             // --- NHÓM: VIẾT CÂU SIÊU NGẮN (MAX 4-5 TỪ) ---
-            { type: "fill_blank", script: "I love my family.", q: "Thì Hiện tại đơn: I / love / my family", a: "I love my family", lesson: "Hiện tại đơn: Với chủ ngữ I, động từ love giữ nguyên." },
-            { type: "fill_blank", script: "She drinks water every morning.", q: "Thì Hiện tại đơn: She / drink / water / every morning", a: "She drinks water every morning", lesson: "Hiện tại đơn: She là số ít nên drink thêm s thành drinks." },
-            { type: "fill_blank", script: "They usually play football.", q: "Thì Hiện tại đơn: They / usually / play / football", a: "They usually play football", lesson: "Hiện tại đơn: They là số nhiều nên play giữ nguyên." },
-            { type: "fill_blank", script: "I do not smoke.", q: "Thì Hiện tại (Phủ định): I / do not / smoke", a: "I do not smoke", lesson: "Phủ định hiện tại: Chủ ngữ I mượn trợ động từ do not." },
-            { type: "fill_blank", script: "The cat always likes fish.", q: "Thì Hiện tại đơn: The cat / always / like / fish", a: "The cat always likes fish", lesson: "Hiện tại đơn: The cat (một con mèo) là số ít nên like thêm s." },
-            { type: "fill_blank", script: "He has a pen now.", q: "Thì Hiện tại đơn: He / have / a pen / now", a: "He has a pen now", lesson: "Hiện tại đơn: He đi với dạng số ít đặc biệt của have là has." },
-            { type: "fill_blank", script: "I usually wake up at 6 AM.", q: "Thì Hiện tại đơn: I / usually / wake up / at 6 AM", a: "I usually wake up at 6 AM", lesson: "Hiện tại đơn: Với chủ ngữ I, động từ wake up giữ nguyên." },
-            { type: "fill_blank", script: "She always studies hard.", q: "Thì Hiện tại đơn: She / always / study / hard", a: "She always studies hard", lesson: "Quy tắc: study tận cùng là phụ âm + y, đổi y thành i rồi thêm es vì chủ ngữ là She." },
-            { type: "fill_blank", script: "We go to the cinema.", q: "Thì Hiện tại đơn: We / go / to the cinema", a: "We go to the cinema", lesson: "Hiện tại đơn: Chủ ngữ We số nhiều nên go giữ nguyên." },
-            { type: "fill_blank", script: "He often watches TV.", q: "Thì Hiện tại đơn: He / often / watch / TV", a: "He often watches TV", lesson: "Quy tắc: watch tận cùng là ch nên thêm es vì chủ ngữ là He." },
-            { type: "fill_blank", script: "They never eat meat.", q: "Thì Hiện tại đơn: They / never / eat / meat", a: "They never eat meat", lesson: "Hiện tại đơn: They số nhiều nên động từ eat giữ nguyên." },
-            { type: "fill_blank", script: "My father reads newspapers.", q: "Thì Hiện tại đơn: My father / read / newspapers", a: "My father reads newspapers", lesson: "Hiện tại đơn: My father là số ít nên read thêm s thành reads." },
-            { type: "fill_blank", script: "Do you drink coffee?", q: "Hiện tại đơn (Câu hỏi): Do / you / drink / coffee?", a: "Do you drink coffee?", lesson: "Câu hỏi: Chủ ngữ you mượn trợ động từ Do đặt đầu câu." },
-            { type: "fill_blank", script: "It rains a lot.", q: "Thì Hiện tại đơn: It / rain / a lot", a: "It rains a lot", lesson: "Hiện tại đơn: It là số ít nên rain thêm s thành rains." },
-            { type: "fill_blank", script: "The shop closes at 9 PM.", q: "Thì Hiện tại đơn: The shop / close / at 9 PM", a: "The shop closes at 9 PM", lesson: "Hiện tại đơn: The shop là số ít nên close thêm s thành closes." },
-            { type: "fill_blank", script: "She does not like carrots.", q: "Hiện tại đơn (Phủ định): She / does not / like / carrots", a: "She does not like carrots", lesson: "Phủ định: Chủ ngữ She mượn trợ động từ does not và giữ nguyên like." },
-            { type: "fill_blank", script: "I walk to school.", q: "Thì Hiện tại đơn: I / walk / to school", a: "I walk to school", lesson: "Chủ ngữ I nên động từ walk giữ nguyên." },
-            { type: "fill_blank", script: "She usually goes shopping.", q: "Thì Hiện tại đơn: She / usually / go / shopping", a: "She usually goes shopping", lesson: "Chủ ngữ She nên go thêm es thành goes." },
-            { type: "fill_blank", script: "The sun rises in the East.", q: "Thì Hiện tại đơn: The sun / rise / in the East", a: "The sun rises in the East", lesson: "The sun (Mặt trời) là số ít nên rise thêm s." },
-            { type: "fill_blank", script: "They do not work.", q: "Hiện tại đơn (Phủ định): They / do not / work", a: "They do not work", lesson: "Chủ ngữ số nhiều They mượn trợ động từ do not." },
-            { type: "fill_blank", script: "He plays tennis.", q: "Thì Hiện tại đơn: He / play / tennis", a: "He plays tennis", lesson: "Chủ ngữ He nên play thêm s thành plays." },
-            { type: "fill_blank", script: "We have dinner at 7 PM.", q: "Thì Hiện tại đơn: We / have / dinner / at 7 PM", a: "We have dinner at 7 PM", lesson: "Chủ ngữ We nên have giữ nguyên." },
-            { type: "fill_blank", script: "She watches movies.", q: "Thì Hiện tại đơn: She / watch / movies", a: "She watches movies", lesson: "Watch tận cùng là ch nên thêm es khi đi với She." },
-            { type: "fill_blank", script: "Water boils at 100 degrees.", q: "Thì Hiện tại đơn: Water / boil / at 100 degrees", a: "Water boils at 100 degrees", lesson: "Water (Nước) là số ít nên boil thêm s." },
-            { type: "fill_blank", script: "The bus leaves at 8 AM.", q: "Thì Hiện tại đơn: The bus / leave / at 8 AM", a: "The bus leaves at 8 AM", lesson: "The bus là số ít nên leave thêm s." },
-            { type: "fill_blank", script: "Do you exercise?", q: "Hiện tại đơn (Câu hỏi): Do / you / exercise / ?", a: "Do you exercise?", lesson: "Câu hỏi: Chủ ngữ you mượn Do để hỏi." },
-            { type: "fill_blank", script: "My mother cooks dinner.", q: "Thì Hiện tại đơn: My mother / cook / dinner", a: "My mother cooks dinner", lesson: "My mother là số ít nên cook thêm s." },
-            { type: "fill_blank", script: "He always finishes work.", q: "Thì Hiện tại đơn: He / always / finish / work", a: "He always finishes work", lesson: "Finish tận cùng là sh nên thêm es khi đi với He." },
-            { type: "fill_blank", script: "Birds fly south.", q: "Thì Hiện tại đơn: Birds / fly / south", a: "Birds fly south", lesson: "Birds là số nhiều nên fly giữ nguyên." },
-            { type: "fill_blank", script: "My cat does not like water.", q: "Hiện tại đơn (Phủ định): My cat / does not / like / water", a: "My cat does not like water", lesson: "My cat là số ít nên mượn trợ động từ does not." },
-            { type: "fill_blank", script: "I often listen to music.", q: "Thì Hiện tại đơn: I / often / listen / to music", a: "I often listen to music", lesson: "Chủ ngữ I nên listen giữ nguyên." },
-            { type: "fill_blank", script: "The earth goes around the sun.", q: "Thì Hiện tại đơn: The earth / go / around / the sun", a: "The earth goes around the sun", lesson: "The earth là số ít nên go thêm es thành goes." },
-            { type: "fill_blank", script: "Do you go swimming?", q: "Hiện tại đơn (Câu hỏi): Do / you / go / swimming / ?", a: "Do you go swimming?", lesson: "Câu hỏi: Chủ ngữ you mượn Do để hỏi." },
-            { type: "fill_blank", script: "It often snows.", q: "Thì Hiện tại đơn: It / often / snow", a: "It often snows", lesson: "Chủ ngữ It nên snow thêm s thành snows." },
-            { type: "fill_blank", script: "We eat out.", q: "Thì Hiện tại đơn: We / eat / out", a: "We eat out", lesson: "Chủ ngữ We nên eat giữ nguyên." },
-            { type: "fill_blank", script: "He tries hard.", q: "Thì Hiện tại đơn: He / try / hard", a: "He tries hard", lesson: "Đổi y thành i rồi thêm es vì chủ ngữ là He." },
+            { type: "fill_blank", script: "I love my family.", q: "Thì Hiện tại đơn (I / love / my family): ___.", a: "I love my family", lesson: "Hiện tại đơn: Với chủ ngữ I, động từ love giữ nguyên." },
+            { type: "fill_blank", script: "She drinks water every morning.", q: "Thì Hiện tại đơn (She / drink / water / every morning): ___.", a: "She drinks water every morning", lesson: "Hiện tại đơn: She là số ít nên drink thêm s thành drinks." },
+            { type: "fill_blank", script: "They usually play football.", q: "Thì Hiện tại đơn (They / usually / play / football): ___.", a: "They usually play football", lesson: "Hiện tại đơn: They là số nhiều nên play giữ nguyên." },
+            { type: "fill_blank", script: "I don't smoke.", q: "Thì Hiện tại - Phủ định (I / not / smoke): ___.", a: "I don't smoke", lesson: "Phủ định hiện tại: Chủ ngữ I mượn trợ động từ don't." },
+            { type: "fill_blank", script: "The cat always likes fish.", q: "Thì Hiện tại đơn (The cat / always / like / fish): ___.", a: "The cat always likes fish", lesson: "Hiện tại đơn: The cat (một con mèo) là số ít nên like thêm s." },
+            { type: "fill_blank", script: "He has a pen now.", q: "Thì Hiện tại đơn (He / have / a pen / now): ___.", a: "He has a pen now", lesson: "Hiện tại đơn: He đi với dạng số ít đặc biệt của have là has." },
+            { type: "fill_blank", script: "I usually wake up at 6 AM.", q: "Thì Hiện tại đơn (I / usually / wake up / at 6 AM): ___.", a: "I usually wake up at 6 AM", lesson: "Hiện tại đơn: Với chủ ngữ I, động từ wake up giữ nguyên." },
+            { type: "fill_blank", script: "She always studies hard.", q: "Thì Hiện tại đơn (She / always / study / hard): ___.", a: "She always studies hard", lesson: "Quy tắc: study tận cùng là phụ âm + y, đổi y thành i rồi thêm es vì chủ ngữ là She." },
+            { type: "fill_blank", script: "We go to the cinema.", q: "Thì Hiện tại đơn (We / go / to the cinema): ___.", a: "We go to the cinema", lesson: "Hiện tại đơn: Chủ ngữ We số nhiều nên go giữ nguyên." },
+            { type: "fill_blank", script: "He often watches TV.", q: "Thì Hiện tại đơn (He / often / watch / TV): ___.", a: "He often watches TV", lesson: "Quy tắc: watch tận cùng là ch nên thêm es vì chủ ngữ là He." },
+            { type: "fill_blank", script: "They never eat meat.", q: "Thì Hiện tại đơn (They / never / eat / meat): ___.", a: "They never eat meat", lesson: "Hiện tại đơn: They số nhiều nên động từ eat giữ nguyên." },
+            { type: "fill_blank", script: "My father reads newspapers.", q: "Thì Hiện tại đơn (My father / read / newspapers): ___.", a: "My father reads newspapers", lesson: "Hiện tại đơn: My father là số ít nên read thêm s thành reads." },
+            { type: "fill_blank", script: "Do you drink coffee?", q: "Hiện tại đơn - Câu hỏi (you / drink / coffee): ___?", a: "Do you drink coffee", lesson: "Câu hỏi: Chủ ngữ you mượn trợ động từ Do đặt đầu câu." },
+            { type: "fill_blank", script: "It rains a lot.", q: "Thì Hiện tại đơn (It / rain / a lot): ___.", a: "It rains a lot", lesson: "Hiện tại đơn: It là số ít nên rain thêm s thành rains." },
+            { type: "fill_blank", script: "The shop closes at 9 PM.", q: "Thì Hiện tại đơn (The shop / close / at 9 PM): ___.", a: "The shop closes at 9 PM", lesson: "Hiện tại đơn: The shop là số ít nên close thêm s thành closes." },
+            { type: "fill_blank", script: "She doesn't like carrots.", q: "Hiện tại đơn - Phủ định (She / not / like / carrots): ___.", a: "She doesn't like carrots", lesson: "Phủ định: Chủ ngữ She mượn trợ động từ doesn't và giữ nguyên like." },
+            { type: "fill_blank", script: "I walk to school.", q: "Thì Hiện tại đơn (I / walk / to school): ___.", a: "I walk to school", lesson: "Chủ ngữ I nên động từ walk giữ nguyên." },
+            { type: "fill_blank", script: "She usually goes shopping.", q: "Thì Hiện tại đơn (She / usually / go / shopping): ___.", a: "She usually goes shopping", lesson: "Chủ ngữ She nên go thêm es thành goes." },
+            { type: "fill_blank", script: "The sun rises in the East.", q: "Thì Hiện tại đơn (The sun / rise / in the East): ___.", a: "The sun rises in the East", lesson: "The sun (Mặt trời) là số ít nên rise thêm s." },
+            { type: "fill_blank", script: "They don't work.", q: "Hiện tại đơn - Phủ định (They / not / work): ___.", a: "They don't work", lesson: "Chủ ngữ số nhiều They mượn trợ động từ don't." },
+            { type: "fill_blank", script: "He plays tennis.", q: "Thì Hiện tại đơn (He / play / tennis): ___.", a: "He plays tennis", lesson: "Chủ ngữ He nên play thêm s thành plays." },
+            { type: "fill_blank", script: "We have dinner at 7 PM.", q: "Thì Hiện tại đơn (We / have / dinner / at 7 PM): ___.", a: "We have dinner at 7 PM", lesson: "Chủ ngữ We nên have giữ nguyên." },
+            { type: "fill_blank", script: "She watches movies.", q: "Thì Hiện tại đơn (She / watch / movies): ___.", a: "She watches movies", lesson: "Watch tận cùng là ch nên thêm es khi đi với She." },
+            { type: "fill_blank", script: "Water boils at 100 degrees.", q: "Thì Hiện tại đơn (Water / boil / at 100 degrees): ___.", a: "Water boils at 100 degrees", lesson: "Water (Nước) là số ít nên boil thêm s." },
+            { type: "fill_blank", script: "The bus leaves at 8 AM.", q: "Thì Hiện tại đơn (The bus / leave / at 8 AM): ___.", a: "The bus leaves at 8 AM", lesson: "The bus là số ít nên leave thêm s." },
+            { type: "fill_blank", script: "Do you exercise?", q: "Hiện tại đơn - Câu hỏi (you / exercise): ___?", a: "Do you exercise", lesson: "Câu hỏi: Chủ ngữ you mượn Do để hỏi." },
+            { type: "fill_blank", script: "My mother cooks dinner.", q: "Thì Hiện tại đơn (My mother / cook / dinner): ___.", a: "My mother cooks dinner", lesson: "My mother là số ít nên cook thêm s." },
+            { type: "fill_blank", script: "He always finishes work.", q: "Thì Hiện tại đơn (He / always / finish / work): ___.", a: "He always finishes work", lesson: "Finish tận cùng là sh nên thêm es khi đi với He." },
+            { type: "fill_blank", script: "Birds fly south.", q: "Thì Hiện tại đơn (Birds / fly / south): ___.", a: "Birds fly south", lesson: "Birds là số nhiều nên fly giữ nguyên." },
+            { type: "fill_blank", script: "My cat doesn't like water.", q: "Hiện tại đơn - Phủ định (My cat / not / like / water): ___.", a: "My cat doesn't like water", lesson: "My cat là số ít nên mượn trợ động từ doesn't." },
+            { type: "fill_blank", script: "I often listen to music.", q: "Thì Hiện tại đơn (I / often / listen / to music): ___.", a: "I often listen to music", lesson: "Chủ ngữ I nên listen giữ nguyên." },
+            { type: "fill_blank", script: "The earth goes around the sun.", q: "Thì Hiện tại đơn (The earth / go / around / the sun): ___.", a: "The earth goes around the sun", lesson: "The earth là số ít nên go thêm es thành goes." },
+            { type: "fill_blank", script: "Do you go swimming?", q: "Hiện tại đơn - Câu hỏi (you / go / swimming): ___?", a: "Do you go swimming", lesson: "Câu hỏi: Chủ ngữ you mượn Do để hỏi." },
+            { type: "fill_blank", script: "It often snows.", q: "Thì Hiện tại đơn (It / often / snow): ___.", a: "It often snows", lesson: "Chủ ngữ It nên snow thêm s thành snows." },
+            { type: "fill_blank", script: "We eat out.", q: "Thì Hiện tại đơn (We / eat / out): ___.", a: "We eat out", lesson: "Chủ ngữ We nên eat giữ nguyên." },
+            { type: "fill_blank", script: "He tries hard.", q: "Thì Hiện tại đơn (He / try / hard): ___.", a: "He tries hard", lesson: "Đổi y thành i rồi thêm es vì chủ ngữ là He." },
 
-            { type: "fill_blank", script: "I went home yesterday.", q: "Thì Quá khứ đơn: I / go / home / yesterday", a: "I went home yesterday", lesson: "Quá khứ đơn: Động từ bất quy tắc Go chuyển thành Went." },
-            { type: "fill_blank", script: "She saw a bird.", q: "Thì Quá khứ đơn: She / see / a bird", a: "She saw a bird", lesson: "Quá khứ đơn: Động từ bất quy tắc See chuyển thành Saw." },
-            { type: "fill_blank", script: "They ran fast.", q: "Thì Quá khứ đơn: They / run / fast", a: "They ran fast", lesson: "Quá khứ đơn: Động từ bất quy tắc Run chuyển thành Ran." },
-            { type: "fill_blank", script: "We ate pizza yesterday.", q: "Thì Quá khứ đơn: We / eat / pizza / yesterday", a: "We ate pizza yesterday", lesson: "Quá khứ đơn: Động từ bất quy tắc Eat chuyển thành Ate." },
-            { type: "fill_blank", script: "He was tired last night.", q: "Thì Quá khứ đơn: He / be / tired / last night", a: "He was tired last night", lesson: "To-be quá khứ: Chủ ngữ He đi với Was." },
-            { type: "fill_blank", script: "I did not go out.", q: "Quá khứ đơn (Phủ định): I / did not / go out", a: "I did not go out", lesson: "Phủ định quá khứ: Mượn did not và giữ nguyên động từ go." },
-            { type: "fill_blank", script: "Did you sleep well?", q: "Quá khứ đơn (Câu hỏi): Did / you / sleep / well / ?", a: "Did you sleep well?", lesson: "Câu hỏi quá khứ: Mượn trợ động từ Did đứng đầu câu." },
-            { type: "fill_blank", script: "I ate an apple.", q: "Thì Quá khứ đơn: I / eat / an apple", a: "I ate an apple", lesson: "Quá khứ đơn: Động từ bất quy tắc Eat chuyển thành Ate." },
-            { type: "fill_blank", script: "She played tennis.", q: "Thì Quá khứ đơn: She / play / tennis", a: "She played tennis", lesson: "Động từ có quy tắc: Play thêm đuôi ed thành Played." },
-            { type: "fill_blank", script: "They bought a new car.", q: "Thì Quá khứ đơn: They / buy / a new car", a: "They bought a new car", lesson: "Quá khứ đơn: Động từ bất quy tắc Buy chuyển thành Bought." },
-            { type: "fill_blank", script: "He drank milk.", q: "Thì Quá khứ đơn: He / drink / milk", a: "He drank milk", lesson: "Quá khứ đơn: Động từ bất quy tắc Drink chuyển thành Drank." },
-            { type: "fill_blank", script: "We studied English.", q: "Thì Quá khứ đơn: We / study / English", a: "We studied English", lesson: "Quy tắc: Đổi y thành i rồi thêm ed thành Studied." },
-            { type: "fill_blank", script: "I did not see him.", q: "Quá khứ đơn (Phủ định): I / did not / see / him", a: "I did not see him", lesson: "Khi có did not, động từ chính see giữ nguyên." },
-            { type: "fill_blank", script: "The cat slept on the chair.", q: "Thì Quá khứ đơn: The cat / sleep / on the chair", a: "The cat slept on the chair", lesson: "Quá khứ đơn: Động từ bất quy tắc Sleep chuyển thành Slept." },
-            { type: "fill_blank", script: "They were happy.", q: "Thì Quá khứ đơn: They / be / happy", a: "They were happy", lesson: "To-be quá khứ: Chủ ngữ số nhiều They đi với Were." },
-            { type: "fill_blank", script: "She came to the party.", q: "Thì Quá khứ đơn: She / come / to the party", a: "She came to the party", lesson: "Quá khứ đơn: Động từ bất quy tắc Come chuyển thành Came." },
-            { type: "fill_blank", script: "Did you wash your car?", q: "Quá khứ đơn (Câu hỏi): Did / you / wash / your car / ?", a: "Did you wash your car?", lesson: "Câu hỏi quá khứ: Mượn Did và giữ nguyên động từ wash." },
-            { type: "fill_blank", script: "I watched a movie.", q: "Thì Quá khứ đơn: I / watch / a movie", a: "I watched a movie", lesson: "Động từ có quy tắc: Watch thêm đuôi ed thành Watched." },
-            { type: "fill_blank", script: "My mom made a cake.", q: "Thì Quá khứ đơn: My mom / make / a cake", a: "My mom made a cake", lesson: "Quá khứ đơn: Động từ bất quy tắc Make chuyển thành Made." },
-            { type: "fill_blank", script: "He did not go to school.", q: "Quá khứ đơn (Phủ định): He / did not / go / to school", a: "He did not go to school", lesson: "Phủ định quá khứ: Mượn did not và giữ nguyên go." },
-            { type: "fill_blank", script: "We read a book.", q: "Thì Quá khứ đơn: We / read / a book", a: "We read a book", lesson: "Động từ Read ở quá khứ viết giống hệt nhưng phát âm là /red/." },
-            { type: "fill_blank", script: "Where were you?", q: "Quá khứ đơn (Câu hỏi): Where / be / you / ?", a: "Where were you?", lesson: "Câu hỏi với To-be: Đưa Were lên trước chủ ngữ You." },
-            { type: "fill_blank", script: "It rained yesterday.", q: "Thì Quá khứ đơn: It / rain / yesterday", a: "It rained yesterday", lesson: "Động từ có quy tắc: Rain thêm đuôi ed thành Rained." },
-            { type: "fill_blank", script: "They finished homework.", q: "Thì Quá khứ đơn: They / finish / homework", a: "They finished homework", lesson: "Động từ có quy tắc: Finish thêm đuôi ed thành Finished." },
-            { type: "fill_blank", script: "I lost my keys.", q: "Thì Quá khứ đơn: I / lose / my keys", a: "I lost my keys", lesson: "Quá khứ đơn: Động từ bất quy tắc Lose chuyển thành Lost." },
-            { type: "fill_blank", script: "She was very hungry.", q: "Thì Quá khứ đơn: She / be / hungry", a: "She was very hungry", lesson: "To-be quá khứ: Chủ ngữ She đi với Was." },
-            { type: "fill_blank", script: "Did she call you?", q: "Quá khứ đơn (Câu hỏi): Did / she / call / you / ?", a: "Did she call you?", lesson: "Câu hỏi quá khứ: Mượn Did đứng đầu câu và giữ nguyên call." },
-            { type: "fill_blank", script: "I met my friend last night.", q: "Thì Quá khứ đơn: I / meet / my friend / last night", a: "I met my friend last night", lesson: "Quá khứ đơn: Động từ bất quy tắc Meet chuyển thành Met." },
-            { type: "fill_blank", script: "He bought a new shirt.", q: "Thì Quá khứ đơn: He / buy / a new shirt", a: "He bought a new shirt", lesson: "Quá khứ đơn: Động từ bất quy tắc Buy chuyển thành Bought." },
-            { type: "fill_blank", script: "They went to the park.", q: "Thì Quá khứ đơn: They / go / to the park", a: "They went to the park", lesson: "Quá khứ đơn: Động từ bất quy tắc Go chuyển thành Went." },
-            { type: "fill_blank", script: "She did not cook dinner.", q: "Quá khứ đơn (Phủ định): She / did not / cook / dinner", a: "She did not cook dinner", lesson: "Khi mượn did not, động từ chính cook giữ nguyên mẫu." },
-            { type: "fill_blank", script: "The dog ran in the garden.", q: "Thì Quá khứ đơn: The dog / run / in the garden", a: "The dog ran in the garden", lesson: "Quá khứ đơn: Động từ bất quy tắc Run chuyển thành Ran." },
-            { type: "fill_blank", script: "We visited our grandparents.", q: "Thì Quá khứ đơn: We / visit / our grandparents", a: "We visited our grandparents", lesson: "Động từ có quy tắc: Visit thêm đuôi ed thành Visited." },
-            { type: "fill_blank", script: "He was tired yesterday.", q: "Thì Quá khứ đơn: He / be / tired / yesterday", a: "He was tired yesterday", lesson: "To-be quá khứ: Chủ ngữ He số ít đi với Was." },
-            { type: "fill_blank", script: "Did you see the movie?", q: "Quá khứ đơn (Câu hỏi): Did / you / see / the movie / ?", a: "Did you see the movie?", lesson: "Câu hỏi quá khứ: Mượn trợ động từ Did và giữ nguyên see." },
-            { type: "fill_blank", script: "I did my homework.", q: "Thì Quá khứ đơn: I / do / my homework", a: "I did my homework", lesson: "Quá khứ đơn: Động từ Do chuyển thành dạng quá khứ là Did." },
-            { type: "fill_blank", script: "It was very cold.", q: "Thì Quá khứ đơn: It / be / very cold", a: "It was very cold", lesson: "To-be quá khứ: Chủ ngữ It đi với Was." },
-            { type: "fill_blank", script: "She sent an email.", q: "Thì Quá khứ đơn: She / send / an email", a: "She sent an email", lesson: "Quá khứ đơn: Động từ bất quy tắc Send chuyển thành Sent." },
-            { type: "fill_blank", script: "They did not play football.", q: "Quá khứ đơn (Phủ định): They / did not / play / football", a: "They did not play football", lesson: "Phủ định quá khứ: Mượn did not và giữ nguyên play." },
-            { type: "fill_blank", script: "We drank orange juice.", q: "Thì Quá khứ đơn: We / drink / orange juice", a: "We drank orange juice", lesson: "Quá khứ đơn: Động từ bất quy tắc Drink chuyển thành Drank." },
-            { type: "fill_blank", script: "My father washed the car.", q: "Thì Quá khứ đơn: My father / wash / the car", a: "My father washed the car", lesson: "Động từ có quy tắc: Wash thêm đuôi ed thành Washed." },
-            { type: "fill_blank", script: "Did you like that gift?", q: "Quá khứ đơn (Câu hỏi): Did / you / like / that gift / ?", a: "Did you like that gift?", lesson: "Câu hỏi quá khứ: Mượn Did đứng đầu câu và giữ nguyên like." },
-            { type: "fill_blank", script: "She left school at 5 PM.", q: "Thì Quá khứ đơn: She / leave / school / at 5 PM", a: "She left school at 5 PM", lesson: "Quá khứ đơn: Động từ bất quy tắc Leave chuyển thành Left." },
-            { type: "fill_blank", script: "I found my ring.", q: "Thì Quá khứ đơn: I / find / my ring", a: "I found my ring", lesson: "Quá khứ đơn: Động từ bất quy tắc Find chuyển thành Found." },
-            { type: "fill_blank", script: "He did not tell the truth.", q: "Quá khứ đơn (Phủ định): He / did not / tell / the truth", a: "He did not tell the truth", lesson: "Khi có did not, động từ chính tell không đổi thành told." },
-            { type: "fill_blank", script: "They were very busy.", q: "Thì Quá khứ đơn: They / be / very busy", a: "They were very busy", lesson: "To-be quá khứ: Chủ ngữ They số nhiều đi với Were." },
-            { type: "fill_blank", script: "We won the game.", q: "Thì Quá khứ đơn: We / win / the game", a: "We won the game", lesson: "Quá khứ đơn: Động từ bất quy tắc Win chuyển thành Won." },
+            { type: "fill_blank", script: "I went home yesterday.", q: "Thì Quá khứ đơn (I / go / home / yesterday): ___.", a: "I went home yesterday", lesson: "Quá khứ đơn: Động từ bất quy tắc Go chuyển thành Went." },
+            { type: "fill_blank", script: "She saw a bird.", q: "Thì Quá khứ đơn (She / see / a bird): ___.", a: "She saw a bird", lesson: "Quá khứ đơn: Động từ bất quy tắc See chuyển thành Saw." },
+            { type: "fill_blank", script: "They ran fast.", q: "Thì Quá khứ đơn (They / run / fast): ___.", a: "They ran fast", lesson: "Quá khứ đơn: Động từ bất quy tắc Run chuyển thành Ran." },
+            { type: "fill_blank", script: "We ate pizza yesterday.", q: "Thì Quá khứ đơn (We / eat / pizza / yesterday): ___.", a: "We ate pizza yesterday", lesson: "Quá khứ đơn: Động từ bất quy tắc Eat chuyển thành Ate." },
+            { type: "fill_blank", script: "He was tired last night.", q: "Thì Quá khứ đơn (He / be / tired / last night): ___.", a: "He was tired last night", lesson: "To-be quá khứ: Chủ ngữ He đi với Was." },
+            { type: "fill_blank", script: "I didn't go out.", q: "Quá khứ đơn - Phủ định (I / not / go out): ___.", a: "I didn't go out", lesson: "Phủ định quá khứ: Mượn didn't và giữ nguyên động từ go." },
+            { type: "fill_blank", script: "Did you sleep well?", q: "Quá khứ đơn - Câu hỏi (you / sleep / well): ___?", a: "Did you sleep well", lesson: "Câu hỏi quá khứ: Mượn trợ động từ Did đứng đầu câu." },
+            { type: "fill_blank", script: "I ate an apple.", q: "Thì Quá khứ đơn (I / eat / an apple): ___.", a: "I ate an apple", lesson: "Quá khứ đơn: Động từ bất quy tắc Eat chuyển thành Ate." },
+            { type: "fill_blank", script: "She played tennis.", q: "Thì Quá khứ đơn (She / play / tennis): ___.", a: "She played tennis", lesson: "Động từ có quy tắc: Play thêm đuôi ed thành Played." },
+            { type: "fill_blank", script: "They bought a new car.", q: "Thì Quá khứ đơn (They / buy / a new car): ___.", a: "They bought a new car", lesson: "Quá khứ đơn: Động từ bất quy tắc Buy chuyển thành Bought." },
+            { type: "fill_blank", script: "He drank milk.", q: "Thì Quá khứ đơn (He / drink / milk): ___.", a: "He drank milk", lesson: "Quá khứ đơn: Động từ bất quy tắc Drink chuyển thành Drank." },
+            { type: "fill_blank", script: "We studied English.", q: "Thì Quá khứ đơn (We / study / English): ___.", a: "We studied English", lesson: "Quy tắc: Đổi y thành i rồi thêm ed thành Studied." },
+            { type: "fill_blank", script: "I didn't see him.", q: "Quá khứ đơn - Phủ định (I / not / see / him): ___.", a: "I didn't see him", lesson: "Khi có didn't, động từ chính see giữ nguyên." },
+            { type: "fill_blank", script: "The cat slept on the chair.", q: "Thì Quá khứ đơn (The cat / sleep / on the chair): ___.", a: "The cat slept on the chair", lesson: "Quá khứ đơn: Động từ bất quy tắc Sleep chuyển thành Slept." },
+            { type: "fill_blank", script: "They were happy.", q: "Thì Quá khứ đơn (They / be / happy): ___.", a: "They were happy", lesson: "To-be quá khứ: Chủ ngữ số nhiều They đi với Were." },
+            { type: "fill_blank", script: "She came to the party.", q: "Thì Quá khứ đơn (She / come / to the party): ___.", a: "She came to the party", lesson: "Quá khứ đơn: Động từ bất quy tắc Come chuyển thành Came." },
+            { type: "fill_blank", script: "Did you wash your car?", q: "Quá khứ đơn - Câu hỏi (you / wash / your car): ___?", a: "Did you wash your car", lesson: "Câu hỏi quá khứ: Mượn Did và giữ nguyên động từ wash." },
+            { type: "fill_blank", script: "I watched a movie.", q: "Thì Quá khứ đơn (I / watch / a movie): ___.", a: "I watched a movie", lesson: "Động từ có quy tắc: Watch thêm đuôi ed thành Watched." },
+            { type: "fill_blank", script: "My mom made a cake.", q: "Thì Quá khứ đơn (My mom / make / a cake): ___.", a: "My mom made a cake", lesson: "Quá khứ đơn: Động từ bất quy tắc Make chuyển thành Made." },
+            { type: "fill_blank", script: "He didn't go to school.", q: "Quá khứ đơn - Phủ định (He / not / go / to school): ___.", a: "He didn't go to school", lesson: "Phủ định quá khứ: Mượn didn't và giữ nguyên go." },
+            { type: "fill_blank", script: "We read a book.", q: "Thì Quá khứ đơn (We / read / a book): ___.", a: "We read a book", lesson: "Động từ Read ở quá khứ viết giống hệt nhưng phát âm là /red/." },
+            { type: "fill_blank", script: "Where were you?", q: "Quá khứ đơn - Câu hỏi (Where / be / you): ___?", a: "Where were you", lesson: "Câu hỏi với To-be: Đưa Were lên trước chủ ngữ You." },
+            { type: "fill_blank", script: "It rained yesterday.", q: "Thì Quá khứ đơn (It / rain / yesterday): ___.", a: "It rained yesterday", lesson: "Động từ có quy tắc: Rain thêm đuôi ed thành Rained." },
+            { type: "fill_blank", script: "They finished homework.", q: "Thì Quá khứ đơn (They / finish / homework): ___.", a: "They finished homework", lesson: "Động từ có quy tắc: Finish thêm đuôi ed thành Finished." },
+            { type: "fill_blank", script: "I lost my keys.", q: "Thì Quá khứ đơn (I / lose / my keys): ___.", a: "I lost my keys", lesson: "Quá khứ đơn: Động từ bất quy tắc Lose chuyển thành Lost." },
+            { type: "fill_blank", script: "She was very hungry.", q: "Thì Quá khứ đơn (She / be / hungry): ___.", a: "She was very hungry", lesson: "To-be quá khứ: Chủ ngữ She đi với Was." },
+            { type: "fill_blank", script: "Did she call you?", q: "Quá khứ đơn - Câu hỏi (she / call / you): ___?", a: "Did she call you", lesson: "Câu hỏi quá khứ: Mượn Did đứng đầu câu và giữ nguyên call." },
+            { type: "fill_blank", script: "I met my friend last night.", q: "Thì Quá khứ đơn (I / meet / my friend / last night): ___.", a: "I met my friend last night", lesson: "Quá khứ đơn: Động từ bất quy tắc Meet chuyển thành Met." },
+            { type: "fill_blank", script: "He bought a new shirt.", q: "Thì Quá khứ đơn (He / buy / a new shirt): ___.", a: "He bought a new shirt", lesson: "Quá khứ đơn: Động từ bất quy tắc Buy chuyển thành Bought." },
+            { type: "fill_blank", script: "They went to the park.", q: "Thì Quá khứ đơn (They / go / to the park): ___.", a: "They went to the park", lesson: "Quá khứ đơn: Động từ bất quy tắc Go chuyển thành Went." },
+            { type: "fill_blank", script: "She didn't cook dinner.", q: "Quá khứ đơn - Phủ định (She / not / cook / dinner): ___.", a: "She didn't cook dinner", lesson: "Khi mượn didn't, động từ chính cook giữ nguyên mẫu." },
+            { type: "fill_blank", script: "The dog ran in the garden.", q: "Thì Quá khứ đơn (The dog / run / in the garden): ___.", a: "The dog ran in the garden", lesson: "Quá khứ đơn: Động từ bất quy tắc Run chuyển thành Ran." },
+            { type: "fill_blank", script: "We visited our grandparents.", q: "Thì Quá khứ đơn (We / visit / our grandparents): ___.", a: "We visited our grandparents", lesson: "Động từ có quy tắc: Visit thêm đuôi ed thành Visited." },
+            { type: "fill_blank", script: "He was tired yesterday.", q: "Thì Quá khứ đơn (He / be / tired / yesterday): ___.", a: "He was tired yesterday", lesson: "To-be quá khứ: Chủ ngữ He số ít đi với Was." },
+            { type: "fill_blank", script: "Did you see the movie?", q: "Quá khứ đơn - Câu hỏi (you / see / the movie): ___?", a: "Did you see the movie", lesson: "Câu hỏi quá khứ: Mượn trợ động từ Did và giữ nguyên see." },
+            { type: "fill_blank", script: "I did my homework.", q: "Thì Quá khứ đơn (I / do / my homework): ___.", a: "I did my homework", lesson: "Quá khứ đơn: Động từ Do chuyển thành dạng quá khứ là Did." },
+            { type: "fill_blank", script: "It was very cold.", q: "Thì Quá khứ đơn (It / be / very cold): ___.", a: "It was very cold", lesson: "To-be quá khứ: Chủ ngữ It đi với Was." },
+            { type: "fill_blank", script: "She sent an email.", q: "Thì Quá khứ đơn (She / send / an email): ___.", a: "She sent an email", lesson: "Quá khứ đơn: Động từ bất quy tắc Send chuyển thành Sent." },
+            { type: "fill_blank", script: "They didn't play football.", q: "Quá khứ đơn - Phủ định (They / not / play / football): ___.", a: "They didn't play football", lesson: "Phủ định quá khứ: Mượn didn't và giữ nguyên play." },
+            { type: "fill_blank", script: "We drank orange juice.", q: "Thì Quá khứ đơn (We / drink / orange juice): ___.", a: "We drank orange juice", lesson: "Quá khứ đơn: Động từ bất quy tắc Drink chuyển thành Drank." },
+            { type: "fill_blank", script: "My father washed the car.", q: "Thì Quá khứ đơn (My father / wash / the car): ___.", a: "My father washed the car", lesson: "Động từ có quy tắc: Wash thêm đuôi ed thành Washed." },
+            { type: "fill_blank", script: "Did you like that gift?", q: "Quá khứ đơn - Câu hỏi (you / like / that gift): ___?", a: "Did you like that gift", lesson: "Câu hỏi quá khứ: Mượn Did đứng đầu câu và giữ nguyên like." },
+            { type: "fill_blank", script: "She left school at 5 PM.", q: "Thì Quá khứ đơn (She / leave / school / at 5 PM): ___.", a: "She left school at 5 PM", lesson: "Quá khứ đơn: Động từ bất quy tắc Leave chuyển thành Left." },
+            { type: "fill_blank", script: "I found my ring.", q: "Thì Quá khứ đơn (I / find / my ring): ___.", a: "I found my ring", lesson: "Quá khứ đơn: Động từ bất quy tắc Find chuyển thành Found." },
+            { type: "fill_blank", script: "He didn't tell the truth.", q: "Quá khứ đơn - Phủ định (He / not / tell / the truth): ___.", a: "He didn't tell the truth", lesson: "Khi có didn't, động từ chính tell không đổi thành told." },
+            { type: "fill_blank", script: "They were very busy.", q: "Thì Quá khứ đơn (They / be / very busy): ___.", a: "They were very busy", lesson: "To-be quá khứ: Chủ ngữ They số nhiều đi với Were." },
+            { type: "fill_blank", script: "We won the game.", q: "Thì Quá khứ đơn (We / win / the game): ___.", a: "We won the game", lesson: "Quá khứ đơn: Động từ bất quy tắc Win chuyển thành Won." },
 
-            { type: "fill_blank", script: "I will help you tomorrow.", q: "Thì Tương lai đơn: I / will / help / you / tomorrow", a: "I will help you tomorrow", lesson: "Tương lai đơn: Dùng will + động từ nguyên mẫu (help)." },
-            { type: "fill_blank", script: "She will come back soon.", q: "Thì Tương lai đơn: She / will / come back / soon", a: "She will come back soon", lesson: "Tương lai đơn: Dùng will trước động từ để nói về việc sắp xảy ra." },
-            { type: "fill_blank", script: "They will win next week.", q: "Thì Tương lai đơn: They / will / win / next week", a: "They will win next week", lesson: "Dấu hiệu next week: Dùng will + win để dự đoán kết quả." },
-            { type: "fill_blank", script: "It will be hot tomorrow.", q: "Thì Tương lai đơn: It / will / be / hot / tomorrow", a: "It will be hot tomorrow", lesson: "Với to-be, ta dùng dạng nguyên mẫu là be sau will." },
-            { type: "fill_blank", script: "I will not go tonight.", q: "Tương lai đơn (Phủ định): I / will not / go / tonight", a: "I will not go tonight", lesson: "Phủ định tương lai: Thêm not vào sau will thành will not." },
-            { type: "fill_blank", script: "You will like it later.", q: "Thì Tương lai đơn: You / will / like / it / later", a: "You will like it later", lesson: "Tương lai đơn: Tất cả các ngôi (I, You, We, They, He, She, It) đều dùng will." },
-            { type: "fill_blank", script: "We will dance at the party.", q: "Thì Tương lai đơn: We / will / dance / at the party", a: "We will dance at the party", lesson: "Tương lai đơn: Dùng will + dance để nói về hành động tại bữa tiệc." },
-            { type: "fill_blank", script: "I will call you tomorrow.", q: "Thì Tương lai đơn: I / will / call / you / tomorrow", a: "I will call you tomorrow", lesson: "Will dùng để đưa ra một lời hứa hoặc ý định." },
-            { type: "fill_blank", script: "She will buy a new car.", q: "Thì Tương lai đơn: She / will / buy / a new car", a: "She will buy a new car", lesson: "Dấu hiệu next year: Dùng will + buy (nguyên mẫu)." },
-            { type: "fill_blank", script: "They will visit us soon.", q: "Thì Tương lai đơn: They / will / visit / us / soon", a: "They will visit us soon", lesson: "Visit không cần chia s/es hay ed khi đứng sau will." },
-            { type: "fill_blank", script: "I will not eat chocolate.", q: "Tương lai đơn (Phủ định): I / will not / eat / chocolate", a: "I will not eat chocolate", lesson: "Phủ định: Dùng will not + động từ nguyên mẫu (eat)." },
-            { type: "fill_blank", script: "It will rain this afternoon.", q: "Thì Tương lai đơn: It / will / rain / this afternoon", a: "It will rain this afternoon", lesson: "Dự báo thời tiết: Dùng will + rain." },
-            { type: "fill_blank", script: "We will go to the beach.", q: "Thì Tương lai đơn: We / will / go / to the beach", a: "We will go to the beach", lesson: "Dấu hiệu next Sunday: Dùng will + go." },
-            { type: "fill_blank", script: "He will be a doctor.", q: "Thì Tương lai đơn: He / will / be / a doctor", a: "He will be a doctor", lesson: "In the future: Dùng will be để nói về nghề nghiệp tương lai." },
-            { type: "fill_blank", script: "Will you open the door?", q: "Tương lai đơn (Câu hỏi): Will / you / open / the door / ?", a: "Will you open the door?", lesson: "Câu hỏi: Đưa Will lên đầu câu, động từ open giữ nguyên." },
-            { type: "fill_blank", script: "She will not forget.", q: "Tương lai đơn (Phủ định): She / will not / forget / the meeting", a: "She will not forget the meeting", lesson: "Phủ định: Dùng will not trước động từ forget." },
-            { type: "fill_blank", script: "Dinner will be ready.", q: "Thì Tương lai đơn: Dinner / will / be / ready", a: "Dinner will be ready", lesson: "Dùng will be để chỉ trạng thái sắp tới của bữa tối." },
-            { type: "fill_blank", script: "I think you will like it.", q: "Thì Tương lai đơn: I think / you / will / like / it", a: "I think you will like it", lesson: "Sau 'I think', ta thường dùng will để đưa ra dự đoán." },
-            { type: "fill_blank", script: "They will finish the house.", q: "Thì Tương lai đơn: They / will / finish / the house", a: "They will finish the house", lesson: "Dấu hiệu next month: Dùng will + finish." },
-            { type: "fill_blank", script: "Will we meet at 8 PM?", q: "Tương lai đơn (Câu hỏi): Will / we / meet / at 8 PM / ?", a: "Will we meet at 8 PM?", lesson: "Câu hỏi: Đưa Will lên trước chủ ngữ We." },
-            { type: "fill_blank", script: "He will not come to the party.", q: "Tương lai đơn (Phủ định): He / will not / come / to the party", a: "He will not come to the party", lesson: "Phủ định: Thêm not sau will thành will not." },
-            { type: "fill_blank", script: "Humans will live on Mars.", q: "Thì Tương lai đơn: Humans / will / live / on Mars", a: "Humans will live on Mars", lesson: "Dự đoán xa xôi: Dùng will + live." },
-            { type: "fill_blank", script: "I will clean my room later.", q: "Thì Tương lai đơn: I / will / clean / my room / later", a: "I will clean my room later", lesson: "Quyết định ngay lúc nói: Dùng will + clean." },
-            { type: "fill_blank", script: "You will feel better soon.", q: "Thì Tương lai đơn: You / will / feel / better / soon", a: "You will feel better soon", lesson: "Dùng will + feel để chỉ trạng thái sắp thay đổi." },
-            { type: "fill_blank", script: "Will it snow next winter?", q: "Tương lai đơn (Câu hỏi): Will / it / snow / next winter / ?", a: "Will it snow next winter?", lesson: "Câu hỏi: Đưa Will lên đầu câu để hỏi về thời tiết." },
-            { type: "fill_blank", script: "My mother will cook soup.", q: "Thì Tương lai đơn: My mother / will / cook / soup", a: "My mother will cook soup", lesson: "Dùng will + cook để nói về bữa tối sắp tới." },
-            { type: "fill_blank", script: "The movie will start in 5 minutes.", q: "Thì Tương lai đơn: The movie / will / start / in 5 minutes", a: "The movie will start in 5 minutes", lesson: "Việc sắp bắt đầu: Dùng will + start." },
-            { type: "fill_blank", script: "I will buy a bread tomorrow.", q: "Thì Tương lai đơn: I / will / buy / a bread / tomorrow", a: "I will buy a bread tomorrow", lesson: "Tương lai đơn: Dùng will + động từ nguyên mẫu (buy) cho việc sắp tới." },
-            { type: "fill_blank", script: "She will send the letter.", q: "Thì Tương lai đơn: She / will / send / the letter", a: "She will send the letter", lesson: "Dấu hiệu next Monday: Dùng will + send để nói về kế hoạch tương lai." },
-            { type: "fill_blank", script: "They will meet us soon.", q: "Thì Tương lai đơn: They / will / meet / us / soon", a: "They will meet us soon", lesson: "Dấu hiệu soon: Động từ meet giữ nguyên khi đứng sau will." },
-            { type: "fill_blank", script: "We will not watch TV.", q: "Tương lai đơn (Phủ định): We / will not / watch / TV", a: "We will not watch TV", lesson: "Phủ định tương lai: Thêm not sau will thành will not." },
-            { type: "fill_blank", script: "He will help his mom.", q: "Thì Tương lai đơn: He / will / help / his mom", a: "He will help his mom", lesson: "Tương lai đơn: Dùng will + help để diễn đạt ý định giúp đỡ." },
-            { type: "fill_blank", script: "It will be sunny next week.", q: "Thì Tương lai đơn: It / will / be / sunny / next week", a: "It will be sunny next week", lesson: "Dự báo thời tiết: To-be dùng dạng nguyên mẫu là be sau will." },
-            { type: "fill_blank", script: "You will love this gift.", q: "Thì Tương lai đơn: You / will / love / this gift", a: "You will love this gift", lesson: "Dùng will để đưa ra lời dự đoán chắc chắn về tương lai." },
-            { type: "fill_blank", script: "Will she call me later?", q: "Tương lai đơn (Câu hỏi): Will / she / call / me / later / ?", a: "Will she call me later?", lesson: "Câu hỏi: Đưa Will lên đầu câu, động từ call để nguyên." },
-            { type: "fill_blank", script: "I will not go to school tomorrow.", q: "Tương lai đơn (Phủ định): I / will not / go / to school / tomorrow", a: "I will not go to school tomorrow", lesson: "Phủ định tương lai: Dùng will not + động từ nguyên mẫu (go)." },
-            { type: "fill_blank", script: "They will play football.", q: "Thì Tương lai đơn: They / will / play / football", a: "They will play football", lesson: "Dấu hiệu this weekend: Dùng will + play để nói về kế hoạch cuối tuần." },
-            { type: "fill_blank", script: "We will go to bed early.", q: "Thì Tương lai đơn: We / will / go / to bed / early", a: "We will go to bed early", lesson: "Tương lai đơn: Dùng will + go để nói về dự định tối nay." },
-            { type: "fill_blank", script: "My dad will fix the bike.", q: "Thì Tương lai đơn: My dad / will / fix / the bike", a: "My dad will fix the bike", lesson: "Chủ ngữ số ít (My dad) vẫn dùng will + động từ nguyên mẫu (fix)." },
-            { type: "fill_blank", script: "She will tell you the truth.", q: "Thì Tương lai đơn: She / will / tell / you / the truth", a: "She will tell you the truth", lesson: "Dấu hiệu later (lát nữa): Dùng will + tell để nói việc sắp diễn ra." },
-            { type: "fill_blank", script: "It will not rain.", q: "Tương lai đơn (Phủ định): It / will not / rain / this afternoon", a: "It will not rain this afternoon", lesson: "Dự báo thời tiết phủ định: Thêm not sau will." },
-            { type: "fill_blank", script: "You will feel better tomorrow.", q: "Thì Tương lai đơn: You / will / feel / better / tomorrow", a: "You will feel better tomorrow", lesson: "Will dùng để an ủi hoặc dự đoán tình trạng sức khỏe." },
-            { type: "fill_blank", script: "Will you visit me next month?", q: "Tương lai đơn (Câu hỏi): Will / you / visit / me / next month / ?", a: "Will you visit me next month?", lesson: "Câu hỏi tương lai: Mượn Will đứng trước chủ ngữ You." },
-            { type: "fill_blank", script: "I will close the window.", q: "Thì Tương lai đơn: I / will / close / the window", a: "I will close the window", lesson: "Quyết định ngay lúc nói: Dùng will + close (đóng cửa)." },
-            { type: "fill_blank", script: "The bus will arrive in 10 minutes.", q: "Thì Tương lai đơn: The bus / will / arrive / in 10 minutes", a: "The bus will arrive in 10 minutes", lesson: "Sự kiện sắp xảy ra: Dùng will + arrive (đến nơi)." },
-            { type: "fill_blank", script: "We will win the match.", q: "Thì Tương lai đơn: We / will / win / the match", a: "We will win the match", lesson: "Thể hiện sự quyết tâm hoặc dự đoán: Dùng will + win." },
-            { type: "fill_blank", script: "He will not forget your birthday.", q: "Tương lai đơn (Phủ định): He / will not / forget / your birthday", a: "He will not forget your birthday", lesson: "Phủ định tương lai: Giữ nguyên động từ forget sau will not." },
+            { type: "fill_blank", script: "I will help you tomorrow.", q: "Thì Tương lai đơn (I / help / you / tomorrow): ___.", a: "I will help you tomorrow", lesson: "Tương lai đơn: Dùng will + động từ nguyên mẫu (help)." },
+            { type: "fill_blank", script: "She will come back soon.", q: "Thì Tương lai đơn (She / come back / soon): ___.", a: "She will come back soon", lesson: "Tương lai đơn: Dùng will trước động từ để nói về việc sắp xảy ra." },
+            { type: "fill_blank", script: "They will win next week.", q: "Thì Tương lai đơn (They / win / next week): ___.", a: "They will win next week", lesson: "Dấu hiệu next week: Dùng will + win để dự đoán kết quả." },
+            { type: "fill_blank", script: "It will be hot tomorrow.", q: "Thì Tương lai đơn (It / be / hot / tomorrow): ___.", a: "It will be hot tomorrow", lesson: "Với to-be, ta dùng dạng nguyên mẫu là be sau will." },
+            { type: "fill_blank", script: "I won't go tonight.", q: "Tương lai đơn - Phủ định (I / not / go / tonight): ___.", a: "I won't go tonight", lesson: "Phủ định tương lai: Thêm not vào sau will viết tắt thành won't." },
+            { type: "fill_blank", script: "You will like it later.", q: "Thì Tương lai đơn (You / like / it / later): ___.", a: "You will like it later", lesson: "Tương lai đơn: Tất cả các ngôi đều dùng will." },
+            { type: "fill_blank", script: "We will dance at the party.", q: "Thì Tương lai đơn (We / dance / at the party): ___.", a: "We will dance at the party", lesson: "Tương lai đơn: Dùng will + dance để nói về hành động tại bữa tiệc." },
+            { type: "fill_blank", script: "I will call you tomorrow.", q: "Thì Tương lai đơn (I / call / you / tomorrow): ___.", a: "I will call you tomorrow", lesson: "Will dùng để đưa ra một lời hứa hoặc ý định." },
+            { type: "fill_blank", script: "She will buy a new car.", q: "Thì Tương lai đơn (She / buy / a new car): ___.", a: "She will buy a new car", lesson: "Dấu hiệu next year: Dùng will + buy (nguyên mẫu)." },
+            { type: "fill_blank", script: "They will visit us soon.", q: "Thì Tương lai đơn (They / visit / us / soon): ___.", a: "They will visit us soon", lesson: "Visit không cần chia s/es hay ed khi đứng sau will." },
+            { type: "fill_blank", script: "I won't eat chocolate.", q: "Tương lai đơn - Phủ định (I / not / eat / chocolate): ___.", a: "I won't eat chocolate", lesson: "Phủ định: Dùng won't + động từ nguyên mẫu (eat)." },
+            { type: "fill_blank", script: "It will rain this afternoon.", q: "Thì Tương lai đơn (It / rain / this afternoon): ___.", a: "It will rain this afternoon", lesson: "Dự báo thời tiết: Dùng will + rain." },
+            { type: "fill_blank", script: "We will go to the beach.", q: "Thì Tương lai đơn (We / go / to the beach): ___.", a: "We will go to the beach", lesson: "Dấu hiệu next Sunday: Dùng will + go." },
+            { type: "fill_blank", script: "He will be a doctor.", q: "Thì Tương lai đơn (He / be / a doctor): ___.", a: "He will be a doctor", lesson: "In the future: Dùng will be để nói về nghề nghiệp tương lai." },
+            { type: "fill_blank", script: "Will you open the door?", q: "Tương lai đơn - Câu hỏi (you / open / the door): ___?", a: "Will you open the door", lesson: "Câu hỏi: Đưa Will lên đầu câu, động từ open giữ nguyên." },
+            { type: "fill_blank", script: "She won't forget the meeting.", q: "Tương lai đơn - Phủ định (She / not / forget / the meeting): ___.", a: "She won't forget the meeting", lesson: "Phủ định: Dùng won't trước động từ forget." },
+            { type: "fill_blank", script: "Dinner will be ready.", q: "Thì Tương lai đơn (Dinner / be / ready): ___.", a: "Dinner will be ready", lesson: "Dùng will be để chỉ trạng thái sắp tới của bữa tối." },
+            { type: "fill_blank", script: "I think you will like it.", q: "Thì Tương lai đơn (I think / you / like / it): ___.", a: "I think you will like it", lesson: "Sau 'I think', ta thường dùng will để đưa ra dự đoán." },
+            { type: "fill_blank", script: "They will finish the house.", q: "Thì Tương lai đơn (They / finish / the house): ___.", a: "They will finish the house", lesson: "Dấu hiệu next month: Dùng will + finish." },
+            { type: "fill_blank", script: "Will we meet at 8 PM?", q: "Tương lai đơn - Câu hỏi (we / meet / at 8 PM): ___?", a: "Will we meet at 8 PM", lesson: "Câu hỏi: Đưa Will lên trước chủ ngữ We." },
+            { type: "fill_blank", script: "He won't come to the party.", q: "Tương lai đơn - Phủ định (He / not / come / to the party): ___.", a: "He won't come to the party", lesson: "Phủ định: Thêm not sau will viết tắt là won't." },
+            { type: "fill_blank", script: "Humans will live on Mars.", q: "Thì Tương lai đơn (Humans / live / on Mars): ___.", a: "Humans will live on Mars", lesson: "Dự đoán xa xôi: Dùng will + live." },
+            { type: "fill_blank", script: "I will clean my room later.", q: "Thì Tương lai đơn (I / clean / my room / later): ___.", a: "I will clean my room later", lesson: "Quyết định ngay lúc nói: Dùng will + clean." },
+            { type: "fill_blank", script: "You will feel better soon.", q: "Thì Tương lai đơn (You / feel / better / soon): ___.", a: "You will feel better soon", lesson: "Dùng will + feel để chỉ trạng thái sắp thay đổi." },
+            { type: "fill_blank", script: "Will it snow next winter?", q: "Tương lai đơn - Câu hỏi (it / snow / next winter): ___?", a: "Will it snow next winter", lesson: "Câu hỏi: Đưa Will lên đầu câu để hỏi về thời tiết." },
+            { type: "fill_blank", script: "My mother will cook soup.", q: "Thì Tương lai đơn (My mother / cook / soup): ___.", a: "My mother will cook soup", lesson: "Dùng will + cook để nói về bữa tối sắp tới." },
+            { type: "fill_blank", script: "The movie will start in 5 minutes.", q: "Thì Tương lai đơn (The movie / start / in 5 minutes): ___.", a: "The movie will start in 5 minutes", lesson: "Việc sắp bắt đầu: Dùng will + start." },
+            { type: "fill_blank", script: "I will buy a bread tomorrow.", q: "Thì Tương lai đơn (I / buy / a bread / tomorrow): ___.", a: "I will buy a bread tomorrow", lesson: "Tương lai đơn: Dùng will + buy cho việc sắp tới." },
+            { type: "fill_blank", script: "She will send the letter.", q: "Thì Tương lai đơn (She / send / the letter): ___.", a: "She will send the letter", lesson: "Dấu hiệu next Monday: Dùng will + send." },
+            { type: "fill_blank", script: "They will meet us soon.", q: "Thì Tương lai đơn (They / meet / us / soon): ___.", a: "They will meet us soon", lesson: "Dấu hiệu soon: Động từ meet giữ nguyên khi đứng sau will." },
+            { type: "fill_blank", script: "We won't watch TV.", q: "Tương lai đơn - Phủ định (We / not / watch / TV): ___.", a: "We won't watch TV", lesson: "Phủ định tương lai: Viết tắt của will not là won't." },
+            { type: "fill_blank", script: "He will help his mom.", q: "Thì Tương lai đơn (He / help / his mom): ___.", a: "He will help his mom", lesson: "Tương lai đơn: Dùng will + help để diễn đạt ý định giúp đỡ." },
+            { type: "fill_blank", script: "It will be sunny next week.", q: "Thì Tương lai đơn (It / be / sunny / next week): ___.", a: "It will be sunny next week", lesson: "Dự báo thời tiết: To-be dùng dạng nguyên mẫu là be sau will." },
+            { type: "fill_blank", script: "You will love this gift.", q: "Thì Tương lai đơn (You / love / this gift): ___.", a: "You will love this gift", lesson: "Dùng will để đưa ra lời dự đoán." },
+            { type: "fill_blank", script: "Will she call me later?", q: "Tương lai đơn - Câu hỏi (she / call / me / later): ___?", a: "Will she call me later", lesson: "Câu hỏi: Đưa Will lên đầu câu, động từ call để nguyên." },
+            { type: "fill_blank", script: "I won't go to school tomorrow.", q: "Tương lai đơn - Phủ định (I / not / go / to school / tomorrow): ___.", a: "I won't go to school tomorrow", lesson: "Phủ định tương lai: Dùng won't + động từ nguyên mẫu (go)." },
+            { type: "fill_blank", script: "They will play football.", q: "Thì Tương lai đơn (They / play / football): ___.", a: "They will play football", lesson: "Dấu hiệu this weekend: Dùng will + play." },
+            { type: "fill_blank", script: "We will go to bed early.", q: "Thì Tương lai đơn (We / go / to bed / early): ___.", a: "We will go to bed early", lesson: "Tương lai đơn: Dùng will + go để nói về dự định." },
+            { type: "fill_blank", script: "My dad will fix the bike.", q: "Thì Tương lai đơn (My dad / fix / the bike): ___.", a: "My dad will fix the bike", lesson: "Chủ ngữ số ít (My dad) vẫn dùng will + động từ nguyên mẫu (fix)." },
+            { type: "fill_blank", script: "She will tell you the truth.", q: "Thì Tương lai đơn (She / tell / you / the truth): ___.", a: "She will tell you the truth", lesson: "Dấu hiệu later (lát nữa): Dùng will + tell." },
+            { type: "fill_blank", script: "It won't rain this afternoon.", q: "Tương lai đơn - Phủ định (It / not / rain / this afternoon): ___.", a: "It won't rain this afternoon", lesson: "Dự báo thời tiết phủ định: Thêm not sau will thành won't." },
+            { type: "fill_blank", script: "You will feel better tomorrow.", q: "Thì Tương lai đơn (You / feel / better / tomorrow): ___.", a: "You will feel better tomorrow", lesson: "Will dùng để an ủi hoặc dự đoán tình trạng sức khỏe." },
+            { type: "fill_blank", script: "Will you visit me next month?", q: "Tương lai đơn - Câu hỏi (you / visit / me / next month): ___?", a: "Will you visit me next month", lesson: "Câu hỏi tương lai: Mượn Will đứng trước chủ ngữ You." },
+            { type: "fill_blank", script: "I will close the window.", q: "Thì Tương lai đơn (I / close / the window): ___.", a: "I will close the window", lesson: "Quyết định ngay lúc nói: Dùng will + close." },
+            { type: "fill_blank", script: "The bus will arrive in 10 minutes.", q: "Thì Tương lai đơn (The bus / arrive / in 10 minutes): ___.", a: "The bus will arrive in 10 minutes", lesson: "Sự kiện sắp xảy ra: Dùng will + arrive (đến nơi)." },
+            { type: "fill_blank", script: "We will win the match.", q: "Thì Tương lai đơn (We / win / the match): ___.", a: "We will win the match", lesson: "Thể hiện sự quyết tâm hoặc dự đoán: Dùng will + win." },
+            { type: "fill_blank", script: "He won't forget your birthday.", q: "Tương lai đơn - Phủ định (He / not / forget / your birthday): ___.", a: "He won't forget your birthday", lesson: "Phủ định tương lai: Giữ nguyên động từ forget sau won't." },
             // --- TRẮC NGHIỆM TỔNG HỢP 3 THÌ (DỊCH NGHĨA) ---
             { type: "multiple_choice", q: "Câu 'I eat bread every day' nghĩa là:", options: ["Tôi đã ăn bánh mì mỗi ngày", "Tôi sẽ ăn bánh mì mỗi ngày", "Tôi ăn bánh mì mỗi ngày"], a: "Tôi ăn bánh mì mỗi ngày", lesson: "Hiện tại đơn: Động từ 'eat' nguyên mẫu đi với 'every day' chỉ thói quen lặp lại ở hiện tại." },
             { type: "multiple_choice", q: "Câu 'I ate bread yesterday' nghĩa là:", options: ["Tôi ăn bánh mì hôm qua", "Tôi đã ăn bánh mì hôm qua", "Tôi sẽ ăn bánh mì hôm qua"], a: "Tôi đã ăn bánh mì hôm qua", lesson: "Quá khứ đơn: 'ate' là dạng cột 2 của 'eat', kết hợp với 'yesterday' chỉ hành động đã chấm dứt." },
@@ -3368,7 +3787,7 @@
             { type: "multiple_choice", q: "Dịch: 'I drink milk every night.'", options: ["Tôi đã uống sữa mỗi đêm", "Tôi uống sữa mỗi đêm", "Tôi sẽ uống sữa mỗi đêm"], a: "Tôi uống sữa mỗi đêm", lesson: "Hiện tại đơn: 'drink' nguyên mẫu đi với 'every night' chỉ thói quen lặp lại hằng ngày." },
             { type: "multiple_choice", q: "Dịch: 'I drank milk last night.'", options: ["Tôi đã uống sữa tối qua", "Tôi uống sữa tối qua", "Tôi sẽ uống sữa tối qua"], a: "Tôi đã uống sữa tối qua", lesson: "Quá khứ đơn: 'drank' là cột 2 của 'drink', dùng để kể lại việc đã xong trong quá khứ." },
             { type: "multiple_choice", q: "Dịch: 'I will drink milk later.'", options: ["Tôi đã uống sữa lát nữa", "Tôi uống sữa lát nữa", "Tôi sẽ uống sữa lát nữa"], a: "Tôi sẽ uống sữa lát nữa", lesson: "Tương lai đơn: 'will drink' kết hợp với 'later' (lát nữa) chỉ một hành động sắp thực hiện." },
-            { type: "multiple_choice", q: "Dịch: 'They work in a bank.'", options: ["Họ đang/làm việc ở ngân hàng", "Họ đã làm việc ở ngân hàng", "Họ sẽ làm việc ở ngân hàng"], a: "Họ đang/làm việc ở ngân hàng", lesson: "Hiện tại đơn: Diễn tả một sự thật ổn định lâu dài ở hiện tại." },
+            { type: "multiple_choice", q: "Dịch: 'They work in a bank.'", options: ["Họ làm việc ở ngân hàng", "Họ đã làm việc ở ngân hàng", "Họ sẽ làm việc ở ngân hàng"], a: "Họ làm việc ở ngân hàng", lesson: "Thì hiện tại đơn (Present Simple) dùng để chỉ nghề nghiệp hoặc tình trạng ổn định lâu dài." },
             { type: "multiple_choice", q: "Dịch: 'They worked in a bank.'", options: ["Họ làm việc ở ngân hàng", "Họ sẽ làm việc ở ngân hàng", "Họ đã làm việc ở ngân hàng"], a: "Họ đã làm việc ở ngân hàng", lesson: "Quá khứ đơn: Đuôi '-ed' trong 'worked' xác định việc này đã kết thúc trong quá khứ." },
             { type: "multiple_choice", q: "Dịch: 'They will work in a bank.'", options: ["Họ sẽ làm việc ở ngân hàng", "Họ đã làm việc ở ngân hàng", "Họ làm việc ở ngân hàng"], a: "Họ sẽ làm việc ở ngân hàng", lesson: "Tương lai đơn: 'will' là dấu hiệu rõ nhất cho hành động chưa xảy ra." },
             { type: "multiple_choice", q: "Dịch: 'The cat sleeps on the sofa.'", options: ["Con mèo đã ngủ trên ghế", "Con mèo ngủ trên ghế", "Con mèo sẽ ngủ trên ghế"], a: "Con mèo ngủ trên ghế", lesson: "Hiện tại đơn: Động từ 'sleeps' thêm 's' vì chủ ngữ 'The cat' là số ít." },
@@ -4278,6 +4697,133 @@
             { type: "multiple_choice", q: "We have plenty of time. We ___ hurry.", options: ["mustn't", "needn't", "shouldn't"], a: "needn't", lesson: "'Needn't' dùng khi muốn nói việc gì đó là không cần thiết vì đã có đủ thời gian." },
             { type: "fill_blank", q: "You ___ (tốt nhất là đừng) smoke here. It's a non-smoking area.", a: "had better", lesson: "Dùng 'Had better not' cho lời khuyên mạnh mẽ hoặc cảnh báo tại một địa điểm cụ thể." },
             { type: "reorder", q: ["able", "be", "to", "I", "hope", "to", "tomorrow", "come", "."], a: "I hope to be able to come tomorrow .", lesson: "Kết hợp 'hope to' với 'be able to' để nói về khả năng trong tương lai." }
+          ]
+        }
+      },
+      unitPassive: {
+        title: "Passive Voice - Câu bị động",
+        icon: "📘",
+        theory: `
+<div style="font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.8; color: #1a1a1a; max-width: 800px; margin: auto;">
+    <h2 style="text-align: center; color: #000; font-weight: 800; letter-spacing: -0.05em;">PASSIVE VOICE</h2>
+    <p style="text-align: center; font-style: italic; color: #666; margin-bottom: 40px;">(Câu bị động)</p>
+
+    <!-- KHÁI NIỆM -->
+    <div style="background:#fef2f2;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #fecaca;">
+        <h3>🧠 1. KHÁI NIỆM</h3>
+        <p><b>Câu bị động (Passive Voice)</b> là cấu trúc trong đó <b>chủ ngữ là người/vật nhận tác động</b> của hành động, thay vì là người thực hiện hành động.</p>
+        <p><b>So sánh:</b></p>
+        <p><b>Active:</b> Bell invented the telephone.</p>
+        <p><b>Passive:</b> The telephone was invented by Bell.</p>
+    </div>
+
+    <!-- CẤU TRÚC -->
+    <div style="background:#ecfeff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #67e8f9;">
+        <h3>⚙️ 2. CẤU TRÚC CƠ BẢN</h3>
+        <p><b>Formula:</b> Subject + <b>be</b> + <b>V3/ed</b> (+ by Agent)</p>
+        <p>• "be" được chia theo thì</p>
+        <p>• V3/ed = Past Participle</p>
+        <p><b>Ví dụ:</b> The office is cleaned every day.</p>
+    </div>
+
+    <!-- AGENT -->
+    <div style="background:#f0fdf4;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #bbf7d0;">
+        <h3>👤 3. AGENT (TÁC NHÂN)</h3>
+        <p>Dùng <b>by + người/vật thực hiện hành động</b>.</p>
+        <p><b>Ví dụ:</b> The telephone was invented <b>by Bell</b>.</p>
+        <p><b>Bỏ agent khi:</b></p>
+        <ul style="margin-top:10px;">
+            <li>Không biết ai làm</li>
+            <li>Không quan trọng</li>
+            <li>Hiển nhiên</li>
+        </ul>
+        <p><b>Ví dụ:</b> My car was stolen.</p>
+    </div>
+
+    <!-- KHI NÀO DÙNG -->
+    <div style="background:#fefce8;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #fde68a;">
+        <h3>🎯 4. KHI NÀO DÙNG BỊ ĐỘNG</h3>
+        <ul>
+            <li>Không biết ai làm</li>
+            <li>Muốn nhấn mạnh kết quả</li>
+            <li>Văn phong trang trọng (báo cáo, khoa học)</li>
+            <li>Muốn câu mạch lạc hơn</li>
+        </ul>
+    </div>
+
+    <!-- ĐIỀU KIỆN -->
+    <div style="background:#fff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #eee;">
+        <h3>⚠️ 5. ĐIỀU KIỆN SỬ DỤNG</h3>
+        <p><b>✔ Chỉ dùng với ngoại động từ</b> (có tân ngữ)</p>
+        <p><b>✖ Không dùng với nội động từ:</b> happen, arrive, die...</p>
+        <p><b>✖ Trạng thái:</b> have, belong to, seem...</p>
+    </div>
+
+    <!-- CÁC THÌ -->
+    <div style="background:#eef2ff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #c7d2fe;">
+        <h3>⏳ 6. BỊ ĐỘNG THEO THÌ</h3>
+        <p><b>Hiện tại đơn:</b> am/is/are + V3</p>
+        <p>→ Butter is made from milk.</p>
+
+        <p><b>Quá khứ đơn:</b> was/were + V3</p>
+        <p>→ The house was built 100 years ago.</p>
+
+        <p><b>Hiện tại tiếp diễn:</b> am/is/are + being + V3</p>
+
+        <p><b>Hiện tại hoàn thành:</b> have/has been + V3</p>
+
+        <p><b>Tương lai:</b> will be + V3</p>
+
+        <p><b>Modal verbs:</b> can/must + be + V3</p>
+    </div>
+
+    <!-- DẠNG ĐẶC BIỆT -->
+    <div style="background:#fdf4ff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #f5d0fe;">
+        <h3>✨ 7. DẠNG ĐẶC BIỆT</h3>
+
+        <p><b>1. Hai tân ngữ:</b></p>
+        <p>I was given the figures.</p>
+
+        <p><b>2. Gerund / Infinitive:</b></p>
+        <p>to be + V3 → I hope to be invited.</p>
+        <p>being + V3 → I hate being laughed at.</p>
+
+        <p><b>3. Phrasal verbs:</b></p>
+        <p>The papers were thrown away.</p>
+    </div>
+
+    <!-- NÂNG CAO -->
+    <div style="background:#ecfeff;padding:25px;border-radius:20px;margin-bottom:30px;border:1px solid #67e8f9;">
+        <h3>🚀 8. NÂNG CAO</h3>
+
+        <p><b>Reporting Passive:</b></p>
+        <p>It is said that...</p>
+        <p>He is said to...</p>
+
+        <p><b>Causative:</b></p>
+        <p>have/get + object + V3</p>
+        <p>→ I had my car repaired.</p>
+
+        <p><b>Get Passive:</b></p>
+        <p>→ He got fired.</p>
+
+        <p><b>Ergative verbs:</b></p>
+        <p>The door opened. (tự xảy ra)</p>
+    </div>
+
+    <!-- KHÔNG DÙNG -->
+    <div style="background:#fff7ed;padding:25px;border-radius:20px;border:1px solid #fed7aa;">
+        <h3>⛔ 9. KHÔNG DÙNG BỊ ĐỘNG</h3>
+        <p>• Nội động từ: happen, die, appear...</p>
+        <p>• State verbs: have, belong, fit...</p>
+    </div>
+</div>
+`,
+
+        levels: {
+          easy: [
+            { type: "multiple_choice", script: "The cake was eaten by Tom.", q: "Câu nào là câu bị động?", options: ["Tom eats the cake.", "The cake was eaten by Tom.", "Tom is eating the cake."], a: "The cake was eaten by Tom.", lesson: "Câu bị động có cấu trúc: be + V3. Ở đây 'was eaten' là dấu hiệu rõ nhất." },
+            { type: "fill_blank", script: "The room is cleaned every day.", q: "The room ___ cleaned every day.", a: "is", lesson: "Hiện tại đơn bị động: am/is/are + V3 → is cleaned." }
           ]
         }
       },
