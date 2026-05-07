@@ -442,6 +442,7 @@
       background-clip: text;
     }
 
+
     /* ── XP Toast ── */
     .xp-toast {
       position: fixed;
@@ -2281,6 +2282,422 @@
         font-size: 1.18rem;
       }
     }
+
+    /* ══ PERSONAL HISTORY MODAL ══ */
+    .ph-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, .32);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .ph-modal-overlay.open {
+      display: flex;
+    }
+
+    .ph-modal-sheet {
+      background: var(--c-surface);
+      border-radius: 24px 24px 0 0;
+      width: 100%;
+      max-width: 680px;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 -8px 40px rgba(0, 0, 0, .12);
+      border: 1px solid var(--c-separator);
+      border-bottom: none;
+      animation: sheetUp .35s cubic-bezier(.32, 1.2, .64, 1);
+      overflow: hidden;
+    }
+
+    @keyframes sheetUp {
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .ph-header {
+      padding: 1.4rem 1.6rem 1rem;
+      border-bottom: 1px solid var(--c-separator);
+      flex-shrink: 0;
+    }
+
+    .ph-handle {
+      width: 36px;
+      height: 4px;
+      background: rgba(0, 0, 0, .12);
+      border-radius: 2px;
+      margin: 0 auto 1rem;
+    }
+
+    .ph-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: .9rem;
+    }
+
+    .ph-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--c-text);
+      letter-spacing: -.03em;
+    }
+
+    .ph-close {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--c-surface2);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .9rem;
+      color: var(--c-muted2);
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .ph-close:hover {
+      background: var(--c-accent-light);
+      color: var(--c-accent);
+    }
+
+    /* Stats bar */
+    .ph-stats {
+      display: flex;
+      gap: .55rem;
+      margin-bottom: .9rem;
+    }
+
+    .ph-stat {
+      flex: 1;
+      background: var(--c-surface2);
+      border: 1px solid var(--c-separator);
+      border-radius: var(--radius-sm);
+      padding: .6rem .5rem;
+      text-align: center;
+    }
+
+    .ph-stat-val {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      color: var(--c-text);
+    }
+
+    .ph-stat-lbl {
+      font-size: .62rem;
+      color: var(--c-muted);
+      font-weight: 500;
+      margin-top: .1rem;
+    }
+
+    /* Lesson tabs */
+    .ph-tabs {
+      display: flex;
+      gap: .45rem;
+      overflow-x: auto;
+      padding-bottom: .2rem;
+      scrollbar-width: none;
+    }
+
+    .ph-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .ph-tab {
+      flex-shrink: 0;
+      padding: .38rem .9rem;
+      border-radius: 50px;
+      border: 1px solid var(--c-separator);
+      background: var(--c-surface2);
+      font-family: var(--font);
+      font-size: .76rem;
+      font-weight: 600;
+      color: var(--c-muted2);
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .ph-tab.active {
+      background: var(--c-accent);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 2px 8px rgba(0, 113, 227, .25);
+    }
+
+    .ph-tab:hover:not(.active) {
+      background: var(--c-accent-light);
+      color: var(--c-accent);
+      border-color: rgba(0, 113, 227, .2);
+    }
+
+    /* Filter chips */
+    .ph-filters {
+      display: flex;
+      gap: .4rem;
+      padding: .75rem 1.6rem;
+      border-bottom: 1px solid var(--c-separator);
+      flex-shrink: 0;
+    }
+
+    .ph-filter-chip {
+      padding: .32rem .8rem;
+      border-radius: 50px;
+      border: 1px solid var(--c-separator);
+      background: var(--c-surface2);
+      font-family: var(--font);
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--c-muted2);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .ph-filter-chip.active {
+      background: var(--c-text);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .ph-filter-chip.f-correct.active {
+      background: var(--c-success);
+    }
+
+    .ph-filter-chip.f-wrong.active {
+      background: var(--c-danger);
+    }
+
+    /* Body scroll area */
+    .ph-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: .9rem 1.4rem 2rem;
+    }
+
+    /* Test session card */
+    .ph-session {
+      background: var(--c-surface2);
+      border: 1px solid var(--c-separator);
+      border-radius: var(--radius-sm);
+      margin-bottom: .85rem;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .ph-session-header {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .85rem 1rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .ph-session-header:hover {
+      background: rgba(0, 0, 0, .02);
+    }
+
+    .ph-session-emoji {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .ph-session-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .ph-session-lesson {
+      font-size: .86rem;
+      font-weight: 700;
+      color: var(--c-text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: .18rem;
+    }
+
+    .ph-session-meta {
+      font-size: .7rem;
+      color: var(--c-muted);
+      font-weight: 500;
+    }
+
+    .ph-session-score {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .ph-session-pct {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .ph-session-frac {
+      font-size: .68rem;
+      color: var(--c-muted);
+      font-weight: 500;
+    }
+
+    .ph-session-chevron {
+      font-size: .8rem;
+      color: var(--c-muted);
+      margin-left: .2rem;
+      transition: var(--transition);
+    }
+
+    .ph-session.expanded .ph-session-chevron {
+      transform: rotate(180deg);
+    }
+
+    .ph-session-questions {
+      display: none;
+      border-top: 1px solid var(--c-separator);
+      padding: .75rem .9rem;
+      display: none;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    .ph-session.expanded .ph-session-questions {
+      display: flex;
+    }
+
+    /* Question row */
+    .ph-q-row {
+      border-radius: var(--radius-xs);
+      padding: .72rem .85rem;
+      border: 1px solid transparent;
+    }
+
+    .ph-q-row.correct {
+      background: rgba(52, 199, 89, .05);
+      border-color: rgba(52, 199, 89, .18);
+    }
+
+    .ph-q-row.wrong {
+      background: rgba(255, 59, 48, .04);
+      border-color: rgba(255, 59, 48, .14);
+    }
+
+    .ph-q-head {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+      margin-bottom: .35rem;
+    }
+
+    .ph-q-badge {
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .15rem .5rem;
+      border-radius: 50px;
+    }
+
+    .ph-q-badge.c {
+      background: rgba(52, 199, 89, .12);
+      color: var(--c-success);
+    }
+
+    .ph-q-badge.w {
+      background: rgba(255, 59, 48, .10);
+      color: var(--c-danger);
+    }
+
+    .ph-q-num {
+      font-size: .65rem;
+      color: var(--c-muted);
+      font-weight: 600;
+      margin-left: auto;
+    }
+
+    .ph-q-text {
+      font-size: .84rem;
+      font-weight: 500;
+      color: var(--c-text);
+      line-height: 1.55;
+      margin-bottom: .28rem;
+    }
+
+    .ph-q-ans {
+      font-size: .76rem;
+      color: var(--c-muted);
+      line-height: 1.5;
+    }
+
+    .ph-q-ans strong {
+      color: var(--c-text);
+    }
+
+    .ph-q-lesson {
+      margin-top: .4rem;
+      padding: .5rem .65rem;
+      background: rgba(255, 149, 0, .06);
+      border: 1px solid rgba(255, 149, 0, .16);
+      border-radius: 6px;
+      font-size: .73rem;
+      color: var(--c-text);
+      line-height: 1.5;
+    }
+
+    .ph-empty {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--c-muted);
+    }
+
+    .ph-empty-icon {
+      font-size: 3rem;
+      margin-bottom: .8rem;
+    }
+
+    .ph-empty-text {
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--c-text2);
+    }
+
+    .ph-empty-sub {
+      font-size: .8rem;
+      margin-top: .4rem;
+    }
+
+    .ph-loading {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--c-muted);
+    }
+
+    .ph-spinner {
+      width: 28px;
+      height: 28px;
+      border: 3px solid var(--c-separator);
+      border-top-color: var(--c-accent);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      margin: 0 auto .9rem;
+    }
   </style>
 </head>
 
@@ -2336,6 +2753,56 @@
         <!-- Được render bằng JS -->
       </div>
       <button class="btn-clear-history" onclick="clearHistory()">🗑️ Xóa lịch sử cục bộ</button>
+    </div>
+  </div>
+
+  <!-- ══════════ MODAL LỊCH SỬ CÁ NHÂN ══════════ -->
+  <div class="ph-modal-overlay" id="ph-modal" onclick="closePHModal(event)">
+    <div class="ph-modal-sheet" onclick="event.stopPropagation()">
+      <!-- Header -->
+      <div class="ph-header">
+        <div class="ph-handle"></div>
+        <div class="ph-title-row">
+          <div class="ph-title" id="ph-title">📋 Lịch sử của tôi</div>
+          <button class="ph-close" onclick="closePHModal()">✕</button>
+        </div>
+        <!-- Stats tổng -->
+        <div class="ph-stats" id="ph-stats" style="display:none;">
+          <div class="ph-stat">
+            <div class="ph-stat-val" id="ph-total-tests">0</div>
+            <div class="ph-stat-lbl">Bài đã làm</div>
+          </div>
+          <div class="ph-stat">
+            <div class="ph-stat-val" id="ph-avg-pct" style="color:var(--c-accent);">0%</div>
+            <div class="ph-stat-lbl">Trung bình</div>
+          </div>
+          <div class="ph-stat">
+            <div class="ph-stat-val" id="ph-total-correct" style="color:var(--c-success);">0</div>
+            <div class="ph-stat-lbl">Câu đúng</div>
+          </div>
+          <div class="ph-stat">
+            <div class="ph-stat-val" id="ph-total-wrong" style="color:var(--c-danger);">0</div>
+            <div class="ph-stat-lbl">Câu sai</div>
+          </div>
+        </div>
+        <!-- Lesson tabs -->
+        <div class="ph-tabs" id="ph-tabs"></div>
+      </div>
+      <!-- Filter chips -->
+      <div class="ph-filters">
+        <button class="ph-filter-chip active" data-filter="all" onclick="setPHFilter('all', this)">Tất cả</button>
+        <button class="ph-filter-chip f-correct" data-filter="correct" onclick="setPHFilter('correct', this)">✅ Câu
+          đúng</button>
+        <button class="ph-filter-chip f-wrong" data-filter="wrong" onclick="setPHFilter('wrong', this)">❌ Câu
+          sai</button>
+      </div>
+      <!-- Body -->
+      <div class="ph-body" id="ph-body">
+        <div class="ph-loading">
+          <div class="ph-spinner"></div>
+          Đang tải lịch sử...
+        </div>
+      </div>
     </div>
   </div>
 
@@ -2431,9 +2898,10 @@
     </div>
 
     <div
-      style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation: slideUp .5s ease .6s both;margin-top:1.4rem;">
+      style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;animation: slideUp .5s ease .6s both;margin-top:1.4rem;">
       <button class="btn-start" onclick="goToTopics()">Khám Phá →</button>
       <button class="btn-history" onclick="openLeaderboard()" style="margin-top:0;">🏆 Bảng XH</button>
+      <button class="btn-history" onclick="openPersonalHistory()" style="margin-top:0;">📋 Lịch sử của tôi</button>
     </div>
 
   </div>
@@ -8760,8 +9228,8 @@
     }
 
     /* ═══════════════════════════════════════════════
-          LỊCH SỬ LÀM BÀI - ĐÃ LOẠI BỎ LOCAL STORAGE
-       ═══════════════════════════════════════════════ */
+       LỊCH SỬ LÀM BÀI - V3 (Google Sheets + LocalStorage)
+    ═══════════════════════════════════════════════ */
     const LS_KEY = 'english_test_history_v2';
 
     // Bộ nhớ tạm cho dữ liệu đã fetch (tránh gọi lại mỗi lần mở modal)
@@ -8769,21 +9237,10 @@
     let _sheetsCacheTime = 0;
     const CACHE_TTL_MS = 60 * 1000; // cache 60 giây
 
-    // ─── HÀM ĐÃ SỬA: KHÔNG LƯU VÀO TRÌNH DUYỆT NỮA ───
+    // ─── Lưu bài làm đầy đủ (LocalStorage + chuẩn bị cho Sheets) ───
     function saveToLocalHistory() {
-      // 1. Xóa bỏ hoàn toàn các dòng lệnh tạo record và setItem cũ.
-
-      // 2. Xóa sạch dữ liệu cũ còn sót lại trên máy học sinh để giải phóng bộ nhớ ngay lập tức
-      try {
-        localStorage.removeItem(LS_KEY);
-      } catch (e) {
-        console.log("Không thể xóa LocalStorage");
-      }
-
-      // 3. Quan trọng: Xóa cache để hệ thống tải dữ liệu mới nhất từ Google Sheets
-      _sheetsCache = null;
-
-      console.log("Đã bỏ qua lưu LocalStorage, dữ liệu sẽ được quản lý bởi Google Sheets.");
+      // Đã bỏ lưu vào máy cá nhân
+      _sheetsCache = null; // Chỉ giữ lại dòng này để ép App tải lại dữ liệu mới từ Sheets
     }
 
     // ─── Fetch dữ liệu từ Google Sheets (GET) ───
@@ -9835,6 +10292,226 @@
     /* ═══════════════════════════════════════════════
        ĐĂNG NHẬP – XÁC THỰC QUA GOOGLE SHEETS
     ═══════════════════════════════════════════════ */
+
+    /* ═══════════════════════════════════════════════
+       PERSONAL HISTORY – Lịch sử cá nhân từng tài khoản
+    ═══════════════════════════════════════════════ */
+
+    // State
+    let _phData = [];
+    let _phActiveLessonIdx = 0;
+    let _phFilter = 'all';
+    let _phCacheKey = '';
+    let _phCacheData = null;
+    let _phCacheTime = 0;
+    const PH_CACHE_TTL = 90 * 1000;
+
+    async function openPersonalHistory() {
+      const session = getLoginSession();
+      if (!session) { alert('Vui lòng đăng nhập trước.'); return; }
+
+      const overlay = document.getElementById('ph-modal');
+      overlay.classList.add('open');
+
+      _phActiveLessonIdx = 0;
+      _phFilter = 'all';
+      document.querySelectorAll('.ph-filter-chip').forEach(c => c.classList.remove('active'));
+      document.querySelector('.ph-filter-chip[data-filter="all"]').classList.add('active');
+      document.getElementById('ph-title').textContent = '📋 Lịch sử của ' + (session.fullname || session.username);
+      document.getElementById('ph-stats').style.display = 'none';
+      document.getElementById('ph-tabs').innerHTML = '';
+      document.getElementById('ph-body').innerHTML = '<div class="ph-loading"><div class="ph-spinner"></div>Đang tải lịch sử...</div>';
+
+      try {
+        const myData = await fetchMyHistory(session.username, session.fullname);
+        _phData = myData;
+        renderPHStats(myData);
+        renderPHTabs(myData);
+        renderPHBody();
+      } catch (err) {
+        document.getElementById('ph-body').innerHTML = `
+          <div class="ph-empty">
+            <div class="ph-empty-icon">⚠️</div>
+            <div class="ph-empty-text">Không tải được lịch sử</div>
+            <div class="ph-empty-sub" style="color:var(--c-danger);">${err.message}</div>
+            <div class="ph-empty-sub">Kiểm tra kết nối mạng và thử lại.</div>
+          </div>`;
+      }
+    }
+
+    async function fetchMyHistory(username, fullname) {
+      const cacheKey = username + '|' + fullname;
+      if (_phCacheKey === cacheKey && _phCacheData && (Date.now() - _phCacheTime) < PH_CACHE_TTL) {
+        return _phCacheData;
+      }
+
+      const res = await fetch(GOOGLE_SCRIPT_URL + '?action=history', { redirect: 'follow' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      if (data.status !== 'success') throw new Error(data.message || 'Server lỗi');
+
+      const allRecords = (data.data || []).map(row => {
+        return {
+          testID: row.testID || '',
+          date: row.record?.date || row.timestamp || '',
+          timestamp: row.record?.timestamp || 0,
+          studentName: row.studentName || row.record?.studentName || '',
+          lessonName: row.lessonName || row.record?.lessonName || '',
+          score: Number(row.score) || 0,
+          total: Number(row.total) || 0,
+          pct: Number(row.pct) || 0,
+          xpEarned: Number(row.xpEarned) || 0,
+          answers: row.record?.answers || []
+        };
+      });
+
+      const nameLower = (fullname || username).trim().toLowerCase();
+      const userLower = (username || '').trim().toLowerCase();
+      const myRecords = allRecords.filter(r => {
+        const n = (r.studentName || '').trim().toLowerCase();
+        return n === nameLower || n === userLower;
+      });
+
+      myRecords.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+
+      _phCacheKey = cacheKey;
+      _phCacheData = myRecords;
+      _phCacheTime = Date.now();
+      return myRecords;
+    }
+
+    function renderPHStats(records) {
+      if (!records.length) return;
+      const totalTests = records.length;
+      const totalCorrect = records.reduce((s, r) => s + r.answers.filter(a => a.correct).length, 0);
+      const totalWrong = records.reduce((s, r) => s + r.answers.filter(a => !a.correct).length, 0);
+      const avgPct = Math.round(records.reduce((s, r) => s + r.pct, 0) / totalTests);
+
+      document.getElementById('ph-total-tests').textContent = totalTests;
+      document.getElementById('ph-avg-pct').textContent = avgPct + '%';
+      document.getElementById('ph-total-correct').textContent = totalCorrect;
+      document.getElementById('ph-total-wrong').textContent = totalWrong;
+      document.getElementById('ph-stats').style.display = 'flex';
+    }
+
+    function renderPHTabs(records) {
+      const seen = new Set();
+      const lessons = [];
+      records.forEach(r => {
+        if (!seen.has(r.lessonName)) { seen.add(r.lessonName); lessons.push(r.lessonName); }
+      });
+
+      const tabsEl = document.getElementById('ph-tabs');
+      const allTab = `<button class="ph-tab active" data-lesson-idx="0" onclick="selectPHTab(0, this)">Tất cả (${records.length})</button>`;
+      const lessonTabs = lessons.map((ln, i) => {
+        const count = records.filter(r => r.lessonName === ln).length;
+        const short = ln.length > 28 ? ln.slice(0, 26) + '…' : ln;
+        return `<button class="ph-tab" data-lesson-idx="${i + 1}" onclick="selectPHTab(${i + 1}, this)">${short} (${count})</button>`;
+      }).join('');
+      tabsEl.innerHTML = allTab + lessonTabs;
+      tabsEl._lessons = lessons;
+    }
+
+    function selectPHTab(idx, btn) {
+      _phActiveLessonIdx = idx;
+      document.querySelectorAll('.ph-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      renderPHBody();
+    }
+
+    function setPHFilter(filter, btn) {
+      _phFilter = filter;
+      document.querySelectorAll('.ph-filter-chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      renderPHBody();
+    }
+
+    function getFilteredRecords() {
+      const tabsEl = document.getElementById('ph-tabs');
+      const lessons = tabsEl._lessons || [];
+      if (_phActiveLessonIdx === 0) return _phData;
+      const lesson = lessons[_phActiveLessonIdx - 1];
+      return _phData.filter(r => r.lessonName === lesson);
+    }
+
+    function renderPHBody() {
+      const body = document.getElementById('ph-body');
+      const records = getFilteredRecords();
+
+      if (!records.length) {
+        body.innerHTML = `<div class="ph-empty">
+          <div class="ph-empty-icon">📭</div>
+          <div class="ph-empty-text">Chưa có bài làm nào</div>
+          <div class="ph-empty-sub">Hoàn thành một bài thi để xem lịch sử ở đây.</div>
+        </div>`;
+        return;
+      }
+
+      const html = records.map((r, ri) => {
+        let answers = r.answers || [];
+        if (_phFilter === 'correct') answers = answers.filter(a => a.correct);
+        if (_phFilter === 'wrong') answers = answers.filter(a => !a.correct);
+
+        const emoji = r.pct >= 80 ? '🏆' : r.pct >= 50 ? '👍' : '💪';
+        const scoreColor = r.pct >= 80 ? 'var(--c-success)' : r.pct >= 50 ? 'var(--c-warning)' : 'var(--c-danger)';
+
+        const qHtml = answers.length ? answers.map((ans, qi) => {
+          const qText = Array.isArray(ans.q?.q) ? ans.q.q.join(' ') : (ans.q?.q || '');
+          const isC = ans.correct;
+          return `<div class="ph-q-row ${isC ? 'correct' : 'wrong'}">
+            <div class="ph-q-head">
+              <span class="ph-q-badge ${isC ? 'c' : 'w'}">${isC ? 'Đúng' : 'Sai'}</span>
+              <span class="ph-q-num">Câu ${qi + 1}</span>
+            </div>
+            <div class="ph-q-text">${qText}</div>
+            <div class="ph-q-ans">Bạn trả lời: <strong style="color:${isC ? 'var(--c-success)' : 'var(--c-danger)'};">${ans.userAns || '(Bỏ trống)'}</strong></div>
+            ${!isC ? `<div class="ph-q-ans">Đáp án đúng: <strong style="color:var(--c-success);">${ans.q?.a || ''}</strong></div>` : ''}
+            ${(!isC && ans.q?.lesson) ? `<div class="ph-q-lesson">📚 ${ans.q.lesson}</div>` : ''}
+          </div>`;
+        }).join('') : `<div style="text-align:center;padding:1rem;color:var(--c-muted);font-size:.82rem;">
+            ${_phFilter !== 'all' ? 'Không có câu ' + (_phFilter === 'correct' ? 'đúng' : 'sai') + ' nào trong bài này.' : 'Không có dữ liệu chi tiết.'}
+          </div>`;
+
+        const lesson = r.lessonName.length > 45 ? r.lessonName.slice(0, 43) + '…' : r.lessonName;
+        const correct = (r.answers || []).filter(a => a.correct).length;
+        const wrong = (r.answers || []).length - correct;
+
+        return `<div class="ph-session" id="ph-sess-${ri}">
+          <div class="ph-session-header" onclick="togglePHSession(${ri})">
+            <div class="ph-session-emoji">${emoji}</div>
+            <div class="ph-session-info">
+              <div class="ph-session-lesson">${lesson}</div>
+              <div class="ph-session-meta">🕐 ${r.date}&nbsp;·&nbsp;✅ ${correct} đúng&nbsp;·&nbsp;❌ ${wrong} sai${r.xpEarned ? '&nbsp;·&nbsp;⭐ +' + r.xpEarned + ' XP' : ''}</div>
+            </div>
+            <div class="ph-session-score">
+              <div class="ph-session-pct" style="color:${scoreColor};">${r.pct}%</div>
+              <div class="ph-session-frac">${r.score}/${r.total}</div>
+            </div>
+            <span class="ph-session-chevron">▾</span>
+          </div>
+          <div class="ph-session-questions">${qHtml}</div>
+        </div>`;
+      }).join('');
+
+      body.innerHTML = html;
+      if (records.length) togglePHSession(0);
+    }
+
+    function togglePHSession(idx) {
+      const sess = document.getElementById('ph-sess-' + idx);
+      if (!sess) return;
+      sess.classList.toggle('expanded');
+    }
+
+    function closePHModal(event) {
+      if (!event || event.target.id === 'ph-modal') {
+        document.getElementById('ph-modal').classList.remove('open');
+      }
+    }
+
+    function getLoginSession() {
+      try { return JSON.parse(sessionStorage.getItem(SESSION_KEY)) || null; } catch (e) { return null; }
+    }
 
     // Khởi động: gọi SAU KHI showPage đã được patch ở trên
     checkLoginOnLoad();
