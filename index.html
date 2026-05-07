@@ -2385,14 +2385,46 @@
       margin-bottom: .9rem;
     }
 
+    /* Tùy chỉnh chung cho các ô stats */
     .ph-stat {
       flex: 1;
-      background: var(--c-surface2);
+      background: #ffffff;
+      /* Nền trắng cho sạch */
       border: 1px solid var(--c-separator);
       border-radius: var(--radius-sm);
-      padding: .6rem .5rem;
+      padding: .8rem .5rem;
+      /* Tăng padding một chút cho thoáng */
       text-align: center;
+      transition: transform 0.2s;
+      /* Thêm hiệu ứng khi di chuột vào */
     }
+
+    .ph-stat:hover {
+      transform: translateY(-3px);
+      /* Rê chuột vào ô sẽ nổi lên chút */
+    }
+
+    /* Đổ màu viền trên cho từng loại chỉ số */
+    .ph-stat:nth-child(1) {
+      border-top: 4px solid #0071e3;
+    }
+
+    /* Xanh dương - Tổng quát */
+    .ph-stat:nth-child(2) {
+      border-top: 4px solid #af52de;
+    }
+
+    /* Tím - Trung bình */
+    .ph-stat:nth-child(3) {
+      border-top: 4px solid #34c759;
+    }
+
+    /* Xanh lá - Câu đúng */
+    .ph-stat:nth-child(4) {
+      border-top: 4px solid #ff3b30;
+    }
+
+    /* Đỏ - Câu sai */
 
     .ph-stat-val {
       font-size: 1.25rem;
@@ -2494,29 +2526,51 @@
 
     /* Test session card */
     .ph-session {
-      background: var(--c-surface2);
-      border: 1px solid var(--c-separator);
-      border-radius: var(--radius-sm);
-      margin-bottom: .85rem;
+      background: #ffffff;
+      /* Nền trắng thuần cho sang */
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 16px;
+      /* Bo góc rộng hơn theo style hiện đại */
+      margin-bottom: 1rem;
       overflow: hidden;
-      transition: var(--transition);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      /* Hiệu ứng mượt hơn */
+      will-change: transform, box-shadow;
+      /* Giúp bớt lag khi hover */
+    }
+
+    .ph-session:hover {
+      transform: translateY(-2px);
+      /* Nhấc nhẹ card lên */
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      /* Đổ bóng mịn */
+      border-color: var(--c-accent);
     }
 
     .ph-session-header {
       display: flex;
       align-items: center;
-      gap: .75rem;
-      padding: .85rem 1rem;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
       cursor: pointer;
       user-select: none;
+      background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(248, 249, 250, 0.5));
     }
 
     .ph-session-header:hover {
-      background: rgba(0, 0, 0, .02);
+      background: rgba(var(--c-accent-rgb), 0.03);
+      /* Highlight nhẹ màu chủ đạo */
     }
 
     .ph-session-emoji {
-      font-size: 1.4rem;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--c-surface2);
+      border-radius: 12px;
+      font-size: 1.5rem;
       flex-shrink: 0;
     }
 
@@ -2526,13 +2580,23 @@
     }
 
     .ph-session-lesson {
-      font-size: .86rem;
-      font-weight: 700;
+      font-size: 1.05rem;
+      /* Tăng từ .86 lên 1.05 để nhìn rõ hơn hẳn */
+      font-weight: 800;
+      /* Làm chữ dày hơn một chút */
       color: var(--c-text);
-      white-space: nowrap;
+      line-height: 1.3;
+      /* Giúp chữ không bị dính vào các dòng khác */
+      margin-bottom: 0.25rem;
+
+      /* Xử lý khi tên bài quá dài */
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      /* Chỉ hiện 1 dòng, nếu dài quá sẽ hiện ... */
+      -webkit-box-orient: vertical;
       overflow: hidden;
-      text-overflow: ellipsis;
-      margin-bottom: .18rem;
+      white-space: normal;
+      /* Đổi từ nowrap sang normal để hỗ trợ line-clamp */
     }
 
     .ph-session-meta {
@@ -2651,14 +2715,26 @@
     }
 
     .ph-q-lesson {
-      margin-top: .4rem;
-      padding: .5rem .65rem;
-      background: rgba(255, 149, 0, .06);
-      border: 1px solid rgba(255, 149, 0, .16);
-      border-radius: 6px;
-      font-size: .73rem;
-      color: var(--c-text);
-      line-height: 1.5;
+      margin-top: .6rem;
+      /* Tăng khoảng cách với câu hỏi một chút */
+      padding: .7rem .9rem;
+      /* Cho khung rộng rãi hơn */
+      background: #fff9f0;
+      /* Màu nền cam sữa nhẹ nhàng */
+      border: 1px solid rgba(255, 149, 0, .25);
+      /* Viền rõ hơn chút */
+      border-left: 4px solid #ff9500;
+      /* Nhấn mạnh vạch bên trái cho chuyên nghiệp */
+      border-radius: 8px;
+
+      font-size: .88rem;
+      /* Chữ to rõ, dễ đọc hơn hẳn */
+      font-weight: 500;
+      /* Cho chữ hơi đậm một chút */
+      color: #444;
+      /* Màu chữ xám đậm cho dịu mắt hơn màu đen thuần */
+      line-height: 1.6;
+      /* Khoảng cách dòng rộng rãi để dễ theo dõi kiến thức */
     }
 
     .ph-empty {
