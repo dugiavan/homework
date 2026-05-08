@@ -2443,18 +2443,16 @@
     /* Lesson tabs */
     .ph-tabs {
       display: flex;
+      flex-wrap: wrap;
+      /* <--- Đổi ở đây để xuống dòng */
       gap: .45rem;
-      overflow-x: auto;
-      padding-bottom: .2rem;
-      scrollbar-width: none;
-    }
-
-    .ph-tabs::-webkit-scrollbar {
-      display: none;
+      padding: 0.5rem 1rem;
+      /* Chỉnh lại padding cho cân */
+      padding-bottom: .4rem;
     }
 
     .ph-tab {
-      flex-shrink: 0;
+      /* flex-shrink: 0; <-- Có thể bỏ hoặc giữ cũng được */
       padding: .38rem .9rem;
       border-radius: 50px;
       border: 1px solid var(--c-separator);
@@ -2465,7 +2463,9 @@
       color: var(--c-muted2);
       cursor: pointer;
       transition: var(--transition);
-      white-space: nowrap;
+      white-space: normal;
+      /* <--- Đổi để chữ bên trong nút tự xuống hàng nếu cần */
+      text-align: center;
     }
 
     .ph-tab.active {
@@ -11047,17 +11047,24 @@ color:#5d4037;
       if (data.status !== 'success') throw new Error(data.message || 'Server lỗi');
 
       const allRecords = (data.data || []).map(row => {
+        const rec = row.record || {}; // Lấy record ra trước để dùng cho khỏe
+
+        // Tính toán lại điểm số trực tiếp từ mảng answers nếu record thiếu score/pct
+        const sCorrect = rec.answers ? rec.answers.filter(a => a.correct).length : (Number(row.score) || 0);
+        const sTotal = rec.answers ? rec.answers.length : (Number(row.total) || 0);
+        const sPct = sTotal > 0 ? Math.round((sCorrect / sTotal) * 100) : (Number(row.pct) || 0);
+
         return {
-          testID: row.testID || '',
-          date: row.record?.date || row.timestamp || '',
-          timestamp: row.record?.timestamp || 0,
-          studentName: row.studentName || row.record?.studentName || '',
-          lessonName: row.lessonName || row.record?.lessonName || '',
-          score: Number(row.score) || 0,
-          total: Number(row.total) || 0,
-          pct: Number(row.pct) || 0,
+          testID: row.testID || rec.id || '',
+          date: rec.date || row.timestamp || '',
+          timestamp: rec.timestamp || row.timestamp || 0,
+          studentName: row.studentName || rec.studentName || '',
+          lessonName: row.lessonName || rec.lessonName || '',
+          score: sCorrect, // Dùng giá trị đã tính toán
+          total: sTotal,   // Dùng giá trị đã tính toán
+          pct: sPct,       // Dùng giá trị đã tính toán
           xpEarned: Number(row.xpEarned) || 0,
-          answers: row.record?.answers || []
+          answers: rec.answers || []
         };
       });
 
@@ -11079,9 +11086,14 @@ color:#5d4037;
     function renderPHStats(records) {
       if (!records.length) return;
       const totalTests = records.length;
-      const totalCorrect = records.reduce((s, r) => s + r.answers.filter(a => a.correct).length, 0);
-      const totalWrong = records.reduce((s, r) => s + r.answers.filter(a => !a.correct).length, 0);
-      const avgPct = Math.round(records.reduce((s, r) => s + r.pct, 0) / totalTests);
+
+      // Tính tổng câu đúng và sai từ mảng answers trong từng record
+      const totalCorrect = records.reduce((s, r) => s + (r.answers ? r.answers.filter(a => a.correct).length : 0), 0);
+      const totalWrong = records.reduce((s, r) => s + (r.answers ? r.answers.filter(a => !a.correct).length : 0), 0);
+
+      // Tính % trung bình dựa trên (tổng đúng / tổng câu đã làm) để chính xác nhất
+      const totalQuestions = totalCorrect + totalWrong;
+      const avgPct = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
 
       document.getElementById('ph-total-tests').textContent = totalTests;
       document.getElementById('ph-avg-pct').textContent = avgPct + '%';
