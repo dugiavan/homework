@@ -2283,14 +2283,16 @@
       }
     }
 
-    /* ══ PERSONAL HISTORY MODAL ══ */
+    /* ══ PERSONAL HISTORY MODAL - LUXURY EDITION ══ */
     .ph-modal-overlay {
       position: fixed;
       inset: 0;
       z-index: 1000;
-      background: rgba(0, 0, 0, .32);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(2px);
+      background: rgba(0, 0, 0, .4);
+      /* Tăng độ tối để nổi bật modal trắng */
+      backdrop-filter: blur(8px);
+      /* Độ mờ sâu kiểu iOS cao cấp */
+      -webkit-backdrop-filter: blur(8px);
       display: none;
       align-items: flex-end;
       justify-content: center;
@@ -2302,17 +2304,22 @@
     }
 
     .ph-modal-sheet {
-      background: var(--c-surface);
+      background: #ffffff;
+      /* Trắng tinh khiết Apple */
       border-radius: 24px 24px 0 0;
       width: 100%;
-      max-width: 1000px;
-      max-height: 92vh;
+      max-width: 900px;
+      /* Thu gọn nhẹ để tạo cảm giác tập trung nội dung */
+      max-height: 94vh;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 -8px 40px rgba(0, 0, 0, .12);
-      border: 1px solid var(--c-separator);
+      box-shadow: 0 -10px 50px rgba(0, 0, 0, 0.1);
+      /* Đổ bóng mịn và sâu hơn */
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      /* Viền cực mảnh, tinh tế */
       border-bottom: none;
-      animation: sheetUp .35s cubic-bezier(.32, 1.2, .64, 1);
+      animation: sheetUp 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      /* Chuyển động lướt lên mượt mà */
       overflow: hidden;
     }
 
@@ -2328,18 +2335,23 @@
       }
     }
 
+    /* ══ NÂNG CẤP HEADER SANG TRỌNG ══ */
     .ph-header {
-      padding: 1.4rem 1.6rem 1rem;
-      border-bottom: 1px solid var(--c-separator);
+      padding: 1.8rem 2rem 1.2rem;
+      /* Tăng padding cho thoáng đúng chất High-end */
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      /* Viền mờ tinh tế */
       flex-shrink: 0;
+      background: #ffffff;
     }
 
     .ph-handle {
-      width: 36px;
-      height: 4px;
-      background: rgba(0, 0, 0, .12);
-      border-radius: 2px;
-      margin: 0 auto 1rem;
+      width: 40px;
+      height: 5px;
+      background: rgba(0, 0, 0, 0.08);
+      /* Làm mờ hơn để không gây xao nhãng */
+      border-radius: 10px;
+      margin: 0 auto 1.2rem;
     }
 
     .ph-title-row {
@@ -2347,35 +2359,41 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      margin-bottom: .9rem;
+      margin-bottom: 0.5rem;
     }
 
     .ph-title {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
+      /* Tăng size cho uy lực */
       font-weight: 800;
-      color: var(--c-text);
-      letter-spacing: -.03em;
+      color: #1d1d1f;
+      /* Đen Charcoal */
+      letter-spacing: -0.03em;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
     .ph-close {
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
-      background: var(--c-surface2);
+      background: #f5f5f7;
+      /* Màu xám bạc Apple */
       border: none;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: .9rem;
-      color: var(--c-muted2);
-      transition: var(--transition);
+      font-size: 1rem;
+      color: #86868b;
+      transition: all 0.2s ease;
       flex-shrink: 0;
     }
 
     .ph-close:hover {
-      background: var(--c-accent-light);
-      color: var(--c-accent);
+      background: #e8e8ed;
+      color: #1d1d1f;
+      transform: scale(1.1);
+      /* Nhấn nút nhẹ khi hover */
     }
 
     /* Stats bar */
@@ -2385,394 +2403,493 @@
       margin-bottom: .9rem;
     }
 
-    /* Tùy chỉnh chung cho các ô stats */
+    /* ══ NÂNG CẤP STATS BAR - CLEAN GRID STYLE ══ */
+    .ph-stats {
+      display: flex;
+      gap: 1.5rem;
+      /* Tăng khoảng cách để các chỉ số "thở" */
+      padding: 1.2rem 2rem;
+      border-bottom: 2px solid #1d1d1f;
+      /* Vạch đen tương phản mạnh làm điểm nhấn */
+      background: #ffffff;
+    }
+
     .ph-stat {
       flex: 1;
-      background: #ffffff;
-      /* Nền trắng cho sạch */
-      border: 1px solid var(--c-separator);
-      border-radius: var(--radius-sm);
-      padding: .8rem .5rem;
-      /* Tăng padding một chút cho thoáng */
-      text-align: center;
-      transition: transform 0.2s;
-      /* Thêm hiệu ứng khi di chuột vào */
+      background: transparent;
+      /* Bỏ nền trắng cũ */
+      border: none !important;
+      /* Bỏ viền cũ */
+      border-radius: 0;
+      padding: 0.5rem 0;
+      text-align: left;
+      /* Căn trái nhìn sẽ giống báo cáo tài chính sang trọng hơn */
+      transition: all 0.3s ease;
     }
 
     .ph-stat:hover {
-      transform: translateY(-3px);
-      /* Rê chuột vào ô sẽ nổi lên chút */
+      transform: none;
+      /* Trong style tối giản, không cần nhấc ô lên */
+      opacity: 0.7;
+      /* Chỉ cần hiệu ứng mờ nhẹ khi hover là đủ tinh tế */
     }
 
-    /* Đổ màu viền trên cho từng loại chỉ số */
-    .ph-stat:nth-child(1) {
-      border-top: 4px solid #0071e3;
+    /* Thay vì border-top, ta dùng màu trực tiếp cho con số để phân biệt */
+    .ph-stat:nth-child(1) .ph-stat-val {
+      color: #0071e3;
     }
 
-    /* Xanh dương - Tổng quát */
-    .ph-stat:nth-child(2) {
-      border-top: 4px solid #af52de;
+    /* Tổng quát - Blue */
+    .ph-stat:nth-child(2) .ph-stat-val {
+      color: #af52de;
     }
 
-    /* Tím - Trung bình */
-    .ph-stat:nth-child(3) {
-      border-top: 4px solid #34c759;
+    /* Trung bình - Purple */
+    .ph-stat:nth-child(3) .ph-stat-val {
+      color: #34c759;
     }
 
-    /* Xanh lá - Câu đúng */
-    .ph-stat:nth-child(4) {
-      border-top: 4px solid #ff3b30;
+    /* Đúng - Green */
+    .ph-stat:nth-child(4) .ph-stat-val {
+      color: #ff3b30;
     }
 
-    /* Đỏ - Câu sai */
+    /* Sai - Red */
 
     .ph-stat-val {
-      font-size: 1.25rem;
+      font-size: 1.8rem;
+      /* Tăng kích thước để tạo sự ấn tượng */
       font-weight: 800;
-      letter-spacing: -.03em;
-      color: var(--c-text);
+      letter-spacing: -0.04em;
+      display: block;
+      line-height: 1;
     }
 
     .ph-stat-lbl {
-      font-size: .62rem;
-      color: var(--c-muted);
-      font-weight: 500;
-      margin-top: .1rem;
+      font-size: 0.65rem;
+      /* Nhãn nhỏ lại */
+      color: #86868b;
+      /* Xám phụ trợ */
+      font-weight: 800;
+      /* Nhưng chữ phải dày */
+      text-transform: uppercase;
+      /* Viết hoa toàn bộ */
+      letter-spacing: 0.1em;
+      /* Giãn chữ ra cho sang */
+      margin-top: 6px;
     }
+
+    /* ══ NÂNG CẤP TABS & FILTERS - MINIMALIST LUXURY ══ */
 
     /* Lesson tabs */
     .ph-tabs {
       display: flex;
       flex-wrap: wrap;
-      /* <--- Đổi ở đây để xuống dòng */
-      gap: .45rem;
-      padding: 0.5rem 1rem;
-      /* Chỉnh lại padding cho cân */
-      padding-bottom: .4rem;
+      gap: 0.5rem;
+      padding: 0.8rem 2rem;
+      /* Tăng padding để cân với Header */
+      background: #f5f5f7;
+      /* Nền xám bạc nhạt kiểu Apple */
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .ph-tab {
-      /* flex-shrink: 0; <-- Có thể bỏ hoặc giữ cũng được */
-      padding: .38rem .9rem;
-      border-radius: 50px;
-      border: 1px solid var(--c-separator);
-      background: var(--c-surface2);
-      font-family: var(--font);
-      font-size: .76rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      /* Bo góc nhẹ, hiện đại hơn hình viên thuốc (pill) */
+      border: 1px solid #d2d2d7;
+      background: #ffffff;
+      font-size: 0.75rem;
       font-weight: 600;
-      color: var(--c-muted2);
+      color: #1d1d1f;
       cursor: pointer;
-      transition: var(--transition);
-      white-space: normal;
-      /* <--- Đổi để chữ bên trong nút tự xuống hàng nếu cần */
+      transition: all 0.2s ease;
       text-align: center;
     }
 
     .ph-tab.active {
-      background: var(--c-accent);
-      color: #fff;
-      border-color: transparent;
-      box-shadow: 0 2px 8px rgba(0, 113, 227, .25);
+      background: #1d1d1f;
+      /* Active màu đen tuyền sang trọng */
+      color: #ffffff;
+      border-color: #1d1d1f;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .ph-tab:hover:not(.active) {
-      background: var(--c-accent-light);
-      color: var(--c-accent);
-      border-color: rgba(0, 113, 227, .2);
+      background: #f5f5f7;
+      border-color: #86868b;
+      color: #1d1d1f;
     }
 
     /* Filter chips */
     .ph-filters {
       display: flex;
-      gap: .4rem;
-      padding: .75rem 1.6rem;
-      border-bottom: 1px solid var(--c-separator);
-      flex-shrink: 0;
+      gap: 0.6rem;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      background: #ffffff;
     }
 
     .ph-filter-chip {
-      padding: .32rem .8rem;
-      border-radius: 50px;
-      border: 1px solid var(--c-separator);
-      background: var(--c-surface2);
-      font-family: var(--font);
-      font-size: .75rem;
-      font-weight: 600;
-      color: var(--c-muted2);
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      border: 1px solid #e8e8ed;
+      background: #f5f5f7;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #86868b;
       cursor: pointer;
-      transition: var(--transition);
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
+    /* Khi active thì dùng màu sắc rất tinh tế, không dùng màu choét */
     .ph-filter-chip.active {
-      background: var(--c-text);
-      color: #fff;
-      border-color: transparent;
+      background: #1d1d1f;
+      color: #ffffff;
+      border-color: #1d1d1f;
     }
 
+    /* Riêng đúng/sai thì giữ màu nhưng làm cho nó dịu lại */
     .ph-filter-chip.f-correct.active {
-      background: var(--c-success);
+      background: #34c759;
+      /* Green Apple */
+      border-color: #34c759;
     }
 
     .ph-filter-chip.f-wrong.active {
-      background: var(--c-danger);
+      background: #ff3b30;
+      /* Red Apple */
+      border-color: #ff3b30;
     }
+
+    /* ══ NÂNG CẤP SESSION CARD - CLEAN & FLAT LUXURY ══ */
 
     /* Body scroll area */
     .ph-body {
       flex: 1;
       overflow-y: auto;
-      padding: .9rem 1.4rem 2rem;
+      padding: 1.5rem 2rem 3rem;
+      /* Tăng padding rộng rãi cho nội dung "thở" */
+      background: #ffffff;
+      /* Tùy chỉnh thanh cuộn cho mướt */
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
     }
 
     /* Test session card */
     .ph-session {
       background: #ffffff;
-      /* Nền trắng thuần cho sang */
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      border-radius: 16px;
-      /* Bo góc rộng hơn theo style hiện đại */
-      margin-bottom: 1rem;
+      border: 1px solid #f2f2f7;
+      /* Viền siêu mảnh */
+      border-radius: 14px;
+      margin-bottom: 1.2rem;
       overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      /* Hiệu ứng mượt hơn */
-      will-change: transform, box-shadow;
-      /* Giúp bớt lag khi hover */
+      transition: all 0.2s ease;
     }
 
     .ph-session:hover {
-      transform: translateY(-2px);
-      /* Nhấc nhẹ card lên */
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      /* Đổ bóng mịn */
-      border-color: var(--c-accent);
+      /* Thay vì nhấc lên và đổ bóng nặng, ta chỉ làm đậm viền nhẹ */
+      border-color: #d2d2d7;
+      background: #fafafa;
     }
 
     .ph-session-header {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.2rem;
+      gap: 1.2rem;
+      padding: 1.2rem 1.5rem;
       cursor: pointer;
       user-select: none;
-      background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(248, 249, 250, 0.5));
+      background: #ffffff;
+      /* Bỏ Gradient, dùng màu phẳng cho sang */
+      border-bottom: 1px solid #f2f2f7;
     }
 
     .ph-session-header:hover {
-      background: rgba(var(--c-accent-rgb), 0.03);
-      /* Highlight nhẹ màu chủ đạo */
+      background: #f5f5f7;
+      /* Highlight nhẹ kiểu Apple */
     }
 
+    /* Thêm một chút nhấn nhá cho tiêu đề bài học bên trong card */
+    .ph-session-lesson {
+      font-weight: 700;
+      color: #1d1d1f;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* Thời gian làm bài - nhỏ và tinh tế */
+    .ph-session-time {
+      font-size: 0.75rem;
+      color: #86868b;
+      font-weight: 500;
+    }
+
+    /* ══ NÂNG CẤP CHI TIẾT SESSION - TYPOGRAPHY FOCUS ══ */
     .ph-session-emoji {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      /* Tăng nhẹ kích thước */
+      height: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--c-surface2);
-      border-radius: 12px;
-      font-size: 1.5rem;
+      background: #f5f5f7;
+      /* Màu nền xám bạc của Mac */
+      border-radius: 10px;
+      /* Bo góc vuông vức hơn một chút */
+      font-size: 1.4rem;
       flex-shrink: 0;
+      border: 1px solid rgba(0, 0, 0, 0.03);
     }
 
     .ph-session-info {
       flex: 1;
       min-width: 0;
+      padding-left: 0.2rem;
     }
 
     .ph-session-lesson {
-      font-size: 1.05rem;
-      /* Tăng từ .86 lên 1.05 để nhìn rõ hơn hẳn */
+      font-size: 1.1rem;
+      /* Chữ to rõ, uy tín */
       font-weight: 800;
-      /* Làm chữ dày hơn một chút */
-      color: var(--c-text);
-      line-height: 1.3;
-      /* Giúp chữ không bị dính vào các dòng khác */
-      margin-bottom: 0.25rem;
-
-      /* Xử lý khi tên bài quá dài */
+      color: #1d1d1f;
+      /* Đen Charcoal */
+      line-height: 1.2;
+      margin-bottom: 2px;
       display: -webkit-box;
       -webkit-line-clamp: 1;
-      /* Chỉ hiện 1 dòng, nếu dài quá sẽ hiện ... */
       -webkit-box-orient: vertical;
       overflow: hidden;
       white-space: normal;
-      /* Đổi từ nowrap sang normal để hỗ trợ line-clamp */
+      letter-spacing: -0.01em;
     }
 
     .ph-session-meta {
-      font-size: .7rem;
-      color: var(--c-muted);
-      font-weight: 500;
+      font-size: 0.72rem;
+      color: #86868b;
+      /* Xám Apple phụ trợ */
+      font-weight: 600;
+      text-transform: uppercase;
+      /* Cho meta lên viết hoa nhìn rất chuyên nghiệp */
+      letter-spacing: 0.02em;
     }
 
     .ph-session-score {
       text-align: right;
       flex-shrink: 0;
+      padding-right: 0.5rem;
     }
 
     .ph-session-pct {
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 800;
-      letter-spacing: -.02em;
+      color: #1d1d1f;
+      letter-spacing: -0.03em;
+      display: block;
+      /* Tách dòng với số phân số */
     }
 
     .ph-session-frac {
-      font-size: .68rem;
-      color: var(--c-muted);
-      font-weight: 500;
+      font-size: 0.7rem;
+      color: #86868b;
+      font-weight: 700;
     }
 
     .ph-session-chevron {
-      font-size: .8rem;
-      color: var(--c-muted);
-      margin-left: .2rem;
-      transition: var(--transition);
+      font-size: 0.9rem;
+      color: #d2d2d7;
+      /* Mờ hơn để không tranh giành sự chú ý */
+      margin-left: 0.5rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .ph-session.expanded .ph-session-chevron {
       transform: rotate(180deg);
+      color: #1d1d1f;
+      /* Khi mở ra thì nhấn đậm cái icon lên */
     }
 
+    /* Vùng chứa danh sách câu hỏi khi mở rộng */
     .ph-session-questions {
-      display: none;
-      border-top: 1px solid var(--c-separator);
-      padding: .75rem .9rem;
+      border-top: 1px solid #f2f2f7;
+      padding: 1.2rem 1.5rem;
+      /* Rộng rãi hơn */
+      background: #fafafa;
+      /* Nền tối hơn card một chút để tạo chiều sâu */
       display: none;
       flex-direction: column;
-      gap: .5rem;
+      gap: 0.8rem;
     }
 
     .ph-session.expanded .ph-session-questions {
       display: flex;
     }
 
-    /* Question row */
+    /* ══ NÂNG CẤP QUESTION ROW - MINIMALIST LUXURY ══ */
     .ph-q-row {
-      border-radius: var(--radius-xs);
-      padding: .72rem .85rem;
-      border: 1px solid transparent;
+      border-radius: 12px;
+      padding: 1.2rem;
+      /* Tăng padding cho thoáng */
+      border: 1px solid #f2f2f7;
+      background: #ffffff;
+      margin-bottom: 0.8rem;
+      transition: all 0.2s ease;
     }
 
+    /* Thay vì tô màu nền lòe loẹt, ta chỉ nhấn màu rất nhẹ ở viền */
     .ph-q-row.correct {
-      background: rgba(52, 199, 89, .05);
-      border-color: rgba(52, 199, 89, .18);
+      border-left: 4px solid #34c759;
+      /* Vạch xanh lá đặc trưng Apple */
+      background: rgba(52, 199, 89, 0.02);
     }
 
     .ph-q-row.wrong {
-      background: rgba(255, 59, 48, .04);
-      border-color: rgba(255, 59, 48, .14);
+      border-left: 4px solid #ff3b30;
+      /* Vạch đỏ đặc trưng Apple */
+      background: rgba(255, 59, 48, 0.02);
     }
 
     .ph-q-head {
       display: flex;
       align-items: center;
-      gap: .45rem;
-      margin-bottom: .35rem;
+      gap: 0.6rem;
+      margin-bottom: 0.8rem;
     }
 
     .ph-q-badge {
-      font-size: .6rem;
-      font-weight: 700;
-      letter-spacing: .06em;
+      font-size: 0.62rem;
+      font-weight: 800;
+      /* Chữ rất dày để tạo sự uy tín */
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: .15rem .5rem;
-      border-radius: 50px;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      /* Bo góc nhẹ kiểu chuyên nghiệp, không dùng hình viên thuốc */
     }
 
     .ph-q-badge.c {
-      background: rgba(52, 199, 89, .12);
-      color: var(--c-success);
+      background: #34c759;
+      color: #ffffff;
     }
 
     .ph-q-badge.w {
-      background: rgba(255, 59, 48, .10);
-      color: var(--c-danger);
+      background: #ff3b30;
+      color: #ffffff;
     }
 
     .ph-q-num {
-      font-size: .65rem;
-      color: var(--c-muted);
-      font-weight: 600;
+      font-size: 0.75rem;
+      color: #86868b;
+      font-weight: 700;
       margin-left: auto;
+      font-family: 'SF Mono', 'Courier New', monospace;
+      /* Kiểu font số máy tính cho xịn */
     }
 
     .ph-q-text {
-      font-size: .84rem;
-      font-weight: 500;
-      color: var(--c-text);
-      line-height: 1.55;
-      margin-bottom: .28rem;
+      font-size: 1.05rem;
+      /* Chữ câu hỏi to và rõ ràng */
+      font-weight: 700;
+      color: #1d1d1f;
+      line-height: 1.5;
+      margin-bottom: 0.6rem;
     }
 
     .ph-q-ans {
-      font-size: .76rem;
-      color: var(--c-muted);
-      line-height: 1.5;
+      font-size: 0.88rem;
+      color: #48484a;
+      line-height: 1.6;
+      padding: 0.8rem;
+      background: #f5f5f7;
+      /* Đưa câu trả lời vào một box xám nhẹ */
+      border-radius: 8px;
     }
 
     .ph-q-ans strong {
-      color: var(--c-text);
+      color: #1d1d1f;
+      font-weight: 800;
     }
+
+    /* ══ NÂNG CẤP INSIGHT & TRẠNG THÁI - LUXURY FINISH ══ */
 
     .ph-q-lesson {
-      margin-top: .6rem;
-      /* Tăng khoảng cách với câu hỏi một chút */
-      padding: .7rem .9rem;
-      /* Cho khung rộng rãi hơn */
-      background: #fff9f0;
-      /* Màu nền cam sữa nhẹ nhàng */
-      border: 1px solid rgba(255, 149, 0, .25);
-      /* Viền rõ hơn chút */
+      margin-top: 1rem;
+      padding: 1.2rem 1.5rem;
+      background: #fffcf5;
+      /* Màu giấy kem cực nhẹ, rất sang */
+      border: 1px solid #f1e4d1;
+      /* Viền tiệp màu nền */
       border-left: 4px solid #ff9500;
-      /* Nhấn mạnh vạch bên trái cho chuyên nghiệp */
-      border-radius: 8px;
-
-      font-size: .88rem;
-      /* Chữ to rõ, dễ đọc hơn hẳn */
+      /* Giữ vạch cam đặc trưng nhưng làm mảnh và sắc hơn */
+      border-radius: 10px;
+      font-size: 0.95rem;
       font-weight: 500;
-      /* Cho chữ hơi đậm một chút */
-      color: #444;
-      /* Màu chữ xám đậm cho dịu mắt hơn màu đen thuần */
-      line-height: 1.6;
-      /* Khoảng cách dòng rộng rãi để dễ theo dõi kiến thức */
+      color: #3a3a3c;
+      line-height: 1.7;
+      position: relative;
     }
 
+    /* Thêm chữ nhãn nhỏ phía trên Insight để tăng độ uy tín */
+    .ph-q-lesson::before {
+      content: "LỜI KHUYÊN TỪ THẦY";
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: #ff9500;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    /* Trạng thái trống (Empty) */
     .ph-empty {
       text-align: center;
-      padding: 3rem 1rem;
-      color: var(--c-muted);
+      padding: 5rem 2rem;
+      /* Tăng padding để tạo khoảng trống nghệ thuật */
+      color: #86868b;
     }
 
     .ph-empty-icon {
-      font-size: 3rem;
-      margin-bottom: .8rem;
+      font-size: 4rem;
+      /* To hơn để làm điểm nhấn thị giác */
+      margin-bottom: 1.5rem;
+      opacity: 0.3;
+      /* Làm mờ đi để trông tinh tế */
+      filter: grayscale(100%);
     }
 
     .ph-empty-text {
-      font-size: .9rem;
-      font-weight: 600;
-      color: var(--c-text2);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1d1d1f;
+      letter-spacing: -0.02em;
     }
 
     .ph-empty-sub {
-      font-size: .8rem;
-      margin-top: .4rem;
+      font-size: 0.85rem;
+      color: #86868b;
+      margin-top: 0.6rem;
+      font-weight: 400;
     }
 
+    /* Trạng thái tải (Loading) */
     .ph-loading {
       text-align: center;
-      padding: 3rem 1rem;
-      color: var(--c-muted);
+      padding: 5rem 2rem;
     }
 
     .ph-spinner {
-      width: 28px;
-      height: 28px;
-      border: 3px solid var(--c-separator);
-      border-top-color: var(--c-accent);
+      width: 32px;
+      height: 32px;
+      border: 2px solid #f2f2f7;
+      /* Viền mỏng và nhẹ */
+      border-top-color: #1d1d1f;
+      /* Chỉ một vạch đen quay tròn trên nền xám nhạt */
       border-radius: 50%;
-      animation: spin .8s linear infinite;
-      margin: 0 auto .9rem;
+      animation: spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      margin: 0 auto 1.2rem;
     }
   </style>
 </head>
