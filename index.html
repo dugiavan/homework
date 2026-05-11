@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tiếng Anh – Thầy Du Gia Văn</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap');
 
     :root {
       --c-bg: #f5f5f7;
@@ -607,51 +607,196 @@
       color: var(--c-accent);
     }
 
-    /* ══ LOGIN PAGE ══ */
+
+    /* ══════════════════════════════════════════════════
+       LOGIN PAGE — GHIBLI EDITION
+       Sky gradient + snap scroll + CSS petals
+       Performance: only CSS transitions, zero JS animation
+    ══════════════════════════════════════════════════ */
+
     #page-login {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1.5rem;
-      min-height: 100vh;
-      width: 100%;
-      background: var(--c-bg);
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      display: none;
+      overflow: hidden;
+      background: #87ceeb;
     }
 
-    .login-card {
-      position: relative;
+    #page-login.active {
+      display: block;
+    }
+
+    /* ── Snap-scroll sky track ── */
+    .ghibli-scroll {
+      position: absolute;
+      inset: 0;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      scroll-snap-type: y mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      background: linear-gradient(to bottom,
+          #87ceeb 0%,
+          #b0e2ff 20%,
+          #c8edff 40%,
+          #d4f0e8 60%,
+          #e8f5dc 80%,
+          #f0f7e8 100%);
+    }
+
+    .ghibli-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Film-grain texture overlay */
+    .ghibli-grain {
+      position: fixed;
+      inset: 0;
+      background-image: url("https://www.transparenttextures.com/patterns/felt.png");
+      opacity: .07;
+      pointer-events: none;
       z-index: 10;
+    }
+
+    /* ── Hero sections — 100vh snap stops ── */
+    .ghibli-section {
+      height: 100vh;
       width: 100%;
-      max-width: 400px;
-      margin: 0 auto;
-      border-radius: 24px;
-      padding: 2.8rem 2.2rem 2.4rem;
-      animation: scaleIn .42s cubic-bezier(0.16, 1, 0.3, 1);
-      background: var(--c-surface);
-      border: 1px solid var(--c-separator);
-      box-shadow: var(--c-shadow-lg);
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Large atmospheric text */
+    .ghibli-text {
+      font-family: 'Quicksand', 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.6rem, 9vw, 5.2rem);
+      font-weight: 700;
+      text-align: center;
+      color: rgba(255, 255, 255, .72);
+      text-shadow:
+        0 2px 10px rgba(100, 180, 220, .35),
+        0 8px 28px rgba(135, 206, 235, .25);
+      user-select: none;
+      padding: 0 2rem;
+      letter-spacing: -.02em;
+      pointer-events: none;
+    }
+
+    /* Petals — pure CSS, position set inline by JS one-time on init */
+    .ghibli-petal {
+      position: fixed;
+      pointer-events: none;
+      z-index: 6;
+      border-radius: 60% 0 60% 0;
+      background: rgba(255, 200, 220, .7);
+      animation: petalFall var(--dur) linear infinite;
+      animation-delay: var(--delay);
+      opacity: 0;
+      /* contain paint to avoid reflow */
+      will-change: transform, opacity;
+    }
+
+    @keyframes petalFall {
+      0% {
+        transform: translateY(-60px) rotate(0deg);
+        opacity: 0;
+      }
+
+      8% {
+        opacity: .8;
+      }
+
+      88% {
+        opacity: .8;
+      }
+
+      100% {
+        transform: translateY(105vh) rotate(540deg);
+        opacity: 0;
+      }
+    }
+
+    /* ── FIXED LOGIN CARD LAYER ── */
+    .login-fixed-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      pointer-events: none;
+    }
+
+    /* ── GHIBLI LOGIN CARD ── */
+    .login-card {
+      pointer-events: all;
+      width: 100%;
+      max-width: 390px;
+      background: rgba(255, 253, 250, .88);
+      backdrop-filter: blur(22px) saturate(160%);
+      -webkit-backdrop-filter: blur(22px) saturate(160%);
+      border-radius: 44px;
+      padding: 2.4rem 2.2rem 2rem;
+      border: 2px solid rgba(255, 255, 255, .9);
+      box-shadow:
+        0 4px 24px rgba(135, 206, 235, .22),
+        0 16px 56px rgba(100, 180, 220, .16),
+        inset 0 1px 0 rgba(255, 255, 255, .95);
+      text-align: center;
+      animation: ghibliCardIn .8s cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    @keyframes ghibliCardIn {
+      from {
+        opacity: 0;
+        transform: translateY(24px) scale(.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
     .login-logo {
-      font-size: 2.8rem;
-      margin-bottom: .6rem;
+      font-size: 3rem;
+      margin-bottom: .35rem;
+      display: inline-block;
+      animation: logoBounce 3.5s ease-in-out infinite;
+    }
+
+    @keyframes logoBounce {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-3deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(3deg);
+      }
     }
 
     .login-title {
-      font-size: 1.7rem;
-      font-weight: 800;
-      color: var(--c-text);
-      margin-bottom: .25rem;
-      letter-spacing: -.04em;
+      font-family: 'Quicksand', 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #4a5568;
+      margin-bottom: .2rem;
+      letter-spacing: -.02em;
     }
 
     .login-subtitle {
-      font-size: .86rem;
-      color: var(--c-muted);
-      margin-bottom: 2rem;
-      font-weight: 400;
+      font-size: .83rem;
+      color: #8a9ab0;
+      margin-bottom: 1.6rem;
+      font-weight: 500;
     }
 
     .login-field {
@@ -660,98 +805,78 @@
     }
 
     .login-field label {
-      display: block;
-      font-size: .7rem;
+      font-size: .68rem;
       font-weight: 700;
+      color: #a0aec0;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: var(--c-muted2);
-      margin-bottom: .45rem;
-      margin-left: .3rem;
+      margin-left: 18px;
+      margin-bottom: 6px;
+      display: block;
     }
 
     .login-input-wrap {
       position: relative;
-      display: flex;
-      align-items: center;
     }
 
     .login-input-icon {
       position: absolute;
       left: 1.1rem;
+      top: 50%;
+      transform: translateY(-50%);
       font-size: 1rem;
       pointer-events: none;
-      opacity: .45;
-      z-index: 2;
     }
 
     .login-input {
       width: 100%;
-      padding: .9rem 1rem .9rem 2.8rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(0, 0, 0, 0.10);
-      background: var(--c-surface2);
-      font-family: var(--font);
-      font-size: .92rem;
-      font-weight: 500;
-      color: var(--c-text);
+      padding: .95rem 1.2rem .95rem 2.8rem;
+      border-radius: 28px;
+      border: 2px solid #e8f0f8;
+      background: #fff;
+      font-size: .95rem;
+      font-family: 'Quicksand', 'Plus Jakarta Sans', sans-serif;
       outline: none;
-      transition: var(--transition);
+      transition: border-color .25s, box-shadow .25s;
+      color: #4a5568;
     }
 
     .login-input:focus {
-      border-color: var(--c-accent);
-      background: var(--c-surface);
-      box-shadow: 0 0 0 3px rgba(0, 113, 227, .12);
+      border-color: #6fc2e9;
+      box-shadow: 0 0 0 4px rgba(111, 194, 233, .14);
     }
 
     .login-input::placeholder {
-      color: #c0c0c5;
-      font-weight: 400;
+      color: #c0cce0;
     }
 
     .btn-login {
       width: 100%;
-      margin-top: 1.5rem;
       padding: 1rem;
-      border: none;
-      border-radius: 50px;
-      background: var(--c-accent);
+      border-radius: 40px;
+      background: linear-gradient(135deg, #6fc2e9 0%, #4da8d4 100%);
       color: #fff;
-      font-family: var(--font);
-      font-size: .98rem;
+      font-family: 'Quicksand', 'Plus Jakarta Sans', sans-serif;
       font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: .05em;
+      border: none;
       cursor: pointer;
-      box-shadow: 0 4px 16px rgba(0, 113, 227, .3);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-login::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -60%;
-      width: 20%;
-      height: 200%;
-      background: rgba(255, 255, 255, .18);
-      transform: rotate(30deg);
-      transition: .6s ease;
+      margin-top: 1rem;
+      box-shadow: 0 6px 20px rgba(111, 194, 233, .38);
+      transition: transform .2s cubic-bezier(.34, 1.56, .64, 1),
+        box-shadow .2s ease,
+        letter-spacing .2s ease;
     }
 
     .btn-login:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 113, 227, .38);
-      background: var(--c-accent-hover);
-    }
-
-    .btn-login:hover::after {
-      left: 120%;
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 28px rgba(111, 194, 233, .48);
+      letter-spacing: .1em;
     }
 
     .btn-login:active {
-      transform: translateY(0);
+      transform: translateY(0) scale(.98);
     }
 
     .btn-login:disabled {
@@ -760,15 +885,16 @@
     }
 
     .login-error {
-      margin-top: .9rem;
-      padding: .75rem 1rem;
-      border-radius: var(--radius-sm);
-      background: rgba(255, 59, 48, .07);
-      border: 1px solid rgba(255, 59, 48, .18);
-      color: var(--c-danger);
-      font-size: .83rem;
-      font-weight: 600;
       display: none;
+      margin-top: .75rem;
+      padding: .65rem 1rem;
+      border-radius: 18px;
+      background: rgba(255, 100, 100, .09);
+      border: 1px solid rgba(255, 100, 100, .18);
+      color: #e05a5a;
+      font-size: .78rem;
+      font-weight: 600;
+      text-align: center;
     }
 
     .login-error.show {
@@ -3013,37 +3139,56 @@
   </div>
 
   <!-- ══════════ LOGIN ══════════ -->
+  <!-- ======== LOGIN — GHIBLI EDITION ======== -->
   <div id="page-login" class="page active">
-    <div class="login-card glass">
-      <div class="login-logo">📚</div>
-      <div class="login-title">Tiếng Anh</div>
-      <div class="login-subtitle">Thầy Du Gia Văn · Đăng nhập để tiếp tục</div>
 
-      <div class="login-field">
-        <label for="login-username">👤 Tên đăng nhập</label>
-        <div class="login-input-wrap">
-          <span class="login-input-icon">🔑</span>
-          <input type="text" id="login-username" class="login-input" placeholder="Nhập username của bạn..."
-            autocomplete="off" autocapitalize="none" onkeydown="if(event.key==='Enter')doLogin()" />
+    <!-- Film-grain overlay -->
+    <div class="ghibli-grain"></div>
+
+    <!-- Sky snap-scroll track — sections injected by JS -->
+    <div class="ghibli-scroll" id="ghibli-scroll"></div>
+
+    <!-- Petals — injected by JS once, then CSS animation handles everything -->
+    <div id="ghibli-petals"></div>
+
+    <!-- Login card — fixed, never scrolls -->
+    <div class="login-fixed-wrap">
+      <div class="login-card">
+        <div class="login-logo" id="ghibli-icon">&#128218;</div>
+        <div class="login-title">Ti&#7871;ng Anh</div>
+        <div class="login-subtitle">Th&#7847;y Du Gia V&#259;n &middot; H&#7885;c vui m&#7895;i ng&#224;y &#10024;</div>
+
+        <div class="login-field">
+          <label for="login-username">&#128100; T&#202;N &#272;&#258;NG NH&#7852;P</label>
+          <div class="login-input-wrap">
+            <span class="login-input-icon">&#128273;</span>
+            <input type="text" id="login-username" class="login-input"
+              placeholder="T&#234;n c&#7911;a b&#7841;n n&#232;..." autocomplete="off" autocapitalize="none"
+              onkeydown="if(event.key==='Enter')doLogin()" />
+          </div>
         </div>
-      </div>
 
-      <div class="login-field">
-        <label for="login-password">🔒 Mật khẩu</label>
-        <div class="login-input-wrap">
-          <span class="login-input-icon">🛡️</span>
-          <input type="password" id="login-password" class="login-input" placeholder="Nhập mật khẩu..."
-            autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()" />
+        <div class="login-field">
+          <label for="login-password">&#128274; M&#7852;T KH&#7848;U</label>
+          <div class="login-input-wrap">
+            <span class="login-input-icon">&#128737;&#65039;</span>
+            <input type="password" id="login-password" class="login-input"
+              placeholder="M&#7853;t kh&#7849;u b&#237; m&#7853;t..." autocomplete="current-password"
+              onkeydown="if(event.key==='Enter')doLogin()" />
+          </div>
         </div>
+
+        <div class="login-error" id="login-error">&#10060; T&#234;n &#273;&#259;ng nh&#7853;p ho&#7863;c m&#7853;t
+          kh&#7849;u kh&#244;ng &#273;&#250;ng. Vui l&#242;ng th&#7917; l&#7841;i.</div>
+
+        <button class="btn-login" id="btn-login" onclick="doLogin()">
+          V&#192;O H&#7884;C LU&#212;N &#10024;
+        </button>
       </div>
-
-      <div class="login-error" id="login-error">❌ Tên đăng nhập hoặc mật khẩu không đúng. Vui lòng thử lại.</div>
-
-      <button class="btn-login" id="btn-login" onclick="doLogin()">
-        🚀 Đăng nhập
-      </button>
     </div>
+
   </div>
+
 
   <!-- ══════════ LANDING ══════════ -->
   <div id="page-landing" class="page">
@@ -6187,37 +6332,691 @@ color:#5d4037;
       },
       conditionals: {
         title: "Câu điều kiện loại 1", icon: "🔀",
-        theory: `<strong>1. CÔNG THỨC VÀNG (GOLDEN STRUCTURE):</strong><br>
-        Câu điều kiện gồm 2 mệnh đề: <i>Mệnh đề If (Điều kiện)</i> và <i>Mệnh đề chính (Kết quả)</i>.<br>
-        • <strong>Vế IF:</strong> If + S + V(s/es) —> <strong>Hiện tại đơn</strong><br>
-        • <strong>Vế CHÍNH:</strong> S + will/won't + V-inf —> <strong>Tương lai đơn</strong><br>
-        • VD: If it <u>rains</u>, we <u>will stay</u> at home. (Nếu trời mưa, chúng ta sẽ ở nhà).<br><br>
+        theory: `
+<div style="font-family:'Plus Jakarta Sans',sans-serif;line-height:1.85;color:#1a1a1a;max-width:850px;margin:auto;">
 
-        <strong>2. CÁCH DÙNG CHI TIẾT (USAGE):</strong><br>
-        • <strong>Dự đoán kết quả:</strong> If you study hard, you will pass the exam. (Nếu bạn học chăm, bạn sẽ đậu kỳ thi).<br>
-        • <strong>Lời cảnh báo:</strong> If you touch that dog, it will bite you! (Nếu bạn chạm vào con chó đó, nó sẽ cắn bạn đấy!).<br>
-        • <strong>Lời hứa/đề nghị:</strong> If you help me, I will give you a gift. (Nếu bạn giúp tôi, tôi sẽ tặng bạn một món quà).<br>
-        • <strong>Chủ đề môi trường:</strong> If we recycle more, we will save the Earth. (Nếu chúng ta tái chế nhiều hơn, chúng ta sẽ cứu Trái Đất).<br><br>
+    <h2 style="text-align:center;color:#000;font-weight:800;letter-spacing:-0.04em;">
+        FIRST CONDITIONAL
+    </h2>
 
-        <strong>3. BIẾN THỂ PHỦ ĐỊNH (NEGATIVE FORM):</strong><br>
-        • <strong>Vế IF:</strong> Dùng don't/doesn't + V-inf. (Nếu... không...)<br>
-        • <strong>Vế CHÍNH:</strong> Dùng won't + V-inf. (Sẽ không...)<br>
-        • VD: If she <u>doesn't hurry</u>, she <u>won't catch</u> the bus. (Nếu cô ấy không khẩn trương, cô ấy sẽ không bắt kịp xe buýt).<br>
-        • VD: If it <u>isn't</u> sunny, we <u>won't go</u> camping. (Nếu trời không nắng, chúng tôi sẽ không đi cắm trại).<br><br>
+    <p style="text-align:center;font-style:italic;color:#666;margin-bottom:40px;">
+        (Câu điều kiện loại 1)
+    </p>
 
-        <strong>4. VỊ TRÍ MỆNH ĐỀ & DẤU PHẨY:</strong><br>
-        • <strong>If đứng đầu:</strong> Phải có dấu phẩy (,) ở giữa câu.<br>
-        • VD: <u>If</u> I have money<strong>,</strong> I will buy a robot. (Nếu tôi có tiền, tôi sẽ mua một chú rô-bốt).<br>
-        • <strong>If đứng giữa:</strong> Không dùng dấu phẩy.<br>
-        • VD: I will buy a robot <u>if</u> I have money. (Tôi sẽ mua một chú rô-bốt nếu tôi có tiền).<br><br>
+    <!-- KHÁI NIỆM -->
+    <div style="background:#eff6ff;padding:26px;border-radius:22px;margin-bottom:28px;border:1px solid #bfdbfe;">
+        <h3 style="margin-top:0;">🧠 I. KHÁI NIỆM</h3>
 
-        <strong>5. LỖI SAI "KINH ĐIỂN" CẦN TRÁNH:</strong><br>
-        • ❌ <strong>Lỗi 1:</strong> Dùng 'will' trong vế If. (Sai: If it will rain...)<br>
-        • ✅ <strong>Sửa:</strong> Phải dùng Hiện tại đơn (Đúng: If it <u>rains</u>...).<br>
-        • ❌ <strong>Lỗi 2:</strong> Quên chia động từ vế If với chủ ngữ số ít (he/she/it).<br>
-        • ✅ <strong>Sửa:</strong> If she <u>goes</u> (không phải go).<br>
-        • ❌ <strong>Lỗi 3:</strong> Dùng V-ing sau 'will'. (Sai: will helping...)<br>
-        • ✅ <strong>Sửa:</strong> Sau 'will' luôn là động từ nguyên mẫu (will <u>help</u>).`,
+        <p>
+            <b>Câu điều kiện loại 1 (First Conditional)</b> dùng để nói về:
+        </p>
+
+        <ul style="line-height:2;">
+            <li>Điều kiện <b>có thể xảy ra ở hiện tại hoặc tương lai</b></li>
+            <li>Một kết quả <b>có khả năng xảy ra thật</b></li>
+            <li>Dự đoán, cảnh báo, lời hứa, kế hoạch...</li>
+        </ul>
+
+        <p>
+            → Nghĩa đơn giản:
+            <b>Nếu điều kiện xảy ra → kết quả sẽ xảy ra.</b>
+        </p>
+
+        <div style="background:white;padding:18px;border-radius:16px;border:1px solid #dbeafe;margin-top:18px;">
+            <p style="margin:0;">
+                <b>Ví dụ:</b><br><br>
+
+                If it rains, we will stay at home.<br>
+                → Nếu trời mưa, chúng tôi sẽ ở nhà.
+            </p>
+        </div>
+    </div>
+
+ <!-- CÔNG THỨC -->
+<div style="background:#f0fdf4;padding:28px;border-radius:24px;margin-bottom:30px;border:1px solid #bbf7d0;">
+
+    <h3 style="margin-top:0;color:#166534;">
+        ⚙️ II. CÔNG THỨC VÀNG (GOLDEN STRUCTURE)
+    </h3>
+
+    <p>
+        <b>Conditional Sentence Type 1</b> dùng để nói về:
+    </p>
+
+    <div style="background:white;padding:18px;border-radius:16px;border:1px solid #dcfce7;line-height:2;">
+        ✔ Một điều kiện <b>có thể xảy ra thật</b> ở hiện tại hoặc tương lai.<br>
+        ✔ Nếu điều kiện xảy ra → kết quả sẽ xảy ra.
+    </div>
+
+    <!-- 2 MỆNH ĐỀ -->
+    <div style="margin-top:24px;">
+
+        <p><b>Câu điều kiện loại 1 gồm 2 mệnh đề:</b></p>
+
+        <ul style="line-height:2;">
+            <li>
+                <b>Mệnh đề IF</b> → điều kiện
+            </li>
+
+            <li>
+                <b>Mệnh đề chính</b> → kết quả
+            </li>
+        </ul>
+
+    </div>
+
+    <!-- CÔNG THỨC -->
+    <div style="background:white;padding:24px;border-radius:18px;border:1px solid #dcfce7;margin-top:22px;line-height:2.2;">
+
+        <p style="margin-top:0;">
+            <b>📌 Công thức chuẩn:</b>
+        </p>
+
+        <div style="background:#f0fdf4;padding:18px;border-radius:14px;border:1px dashed #86efac;">
+            <b>If + S + V(s/es), S + will + V-inf</b>
+        </div>
+
+        <p style="margin-top:18px;">
+            <b>Vế IF:</b><br>
+            If + S + V(s/es)
+        </p>
+
+        <p>
+            → Dùng <b>Hiện tại đơn</b>
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+        <p>
+            <b>Vế chính:</b><br>
+            S + will/won't + V-inf
+        </p>
+
+        <p>
+            → Dùng <b>Tương lai đơn</b>
+        </p>
+
+    </div>
+
+    <!-- PHỦ ĐỊNH -->
+    <div style="background:#ffffff;padding:24px;border-radius:18px;border:1px solid #dcfce7;margin-top:24px;line-height:2.1;">
+
+        <h4 style="margin-top:0;color:#15803d;">
+            🚫 DẠNG PHỦ ĐỊNH
+        </h4>
+
+        <p>
+            <b>Vế IF:</b> dùng don't / doesn't
+        </p>
+
+        <p>
+            <b>Vế chính:</b> dùng won't
+        </p>
+
+        <div style="background:#f9fafb;padding:16px;border-radius:14px;border:1px solid #eee;">
+
+            ❌ If he don't study, he won't pass.<br>
+            ✔ If he doesn't study, he won't pass.
+
+        </div>
+
+    </div>
+
+    <!-- MODAL -->
+    <div style="background:#ffffff;padding:24px;border-radius:18px;border:1px solid #dcfce7;margin-top:24px;line-height:2.1;">
+
+        <h4 style="margin-top:0;color:#15803d;">
+            🔥 KHÔNG CHỈ DÙNG "WILL"
+        </h4>
+
+        <p>
+            Ngoài <b>will</b>, mệnh đề chính còn có thể dùng:
+        </p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;">
+
+            <div style="background:#f9fafb;padding:16px;border-radius:14px;border:1px solid #eee;">
+                <b>can</b> → khả năng
+            </div>
+
+            <div style="background:#f9fafb;padding:16px;border-radius:14px;border:1px solid #eee;">
+                <b>may</b> → có thể
+            </div>
+
+            <div style="background:#f9fafb;padding:16px;border-radius:14px;border:1px solid #eee;">
+                <b>must</b> → bắt buộc
+            </div>
+
+            <div style="background:#f9fafb;padding:16px;border-radius:14px;border:1px solid #eee;">
+                <b>should</b> → nên
+            </div>
+
+        </div>
+
+        <div style="margin-top:18px;line-height:2;">
+
+            <p>
+                If you study hard, you <b>can</b> pass the exam.<br>
+                → Nếu học chăm, bạn có thể đậu kỳ thi.
+            </p>
+
+            <p>
+                If it rains, you <b>should</b> stay home.<br>
+                → Nếu trời mưa, bạn nên ở nhà.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- DẤU PHẨY -->
+    <div style="background:#ffffff;padding:24px;border-radius:18px;border:1px solid #dcfce7;margin-top:24px;line-height:2.1;">
+
+        <h4 style="margin-top:0;color:#15803d;">
+            ✍️ DẤU PHẨY CỰC KỲ QUAN TRỌNG
+        </h4>
+
+        <p>
+            <b>If đứng đầu câu</b> → cần dấu phẩy (,)
+        </p>
+
+        <div style="background:#f9fafb;padding:16px;border-radius:14px;border:1px solid #eee;">
+            If it rains, we will stay home.
+        </div>
+
+        <p style="margin-top:18px;">
+            <b>If đứng giữa câu</b> → không dùng dấu phẩy
+        </p>
+
+        <div style="background:#f9fafb;padding:16px;border-radius:14px;border:1px solid #eee;">
+            We will stay home if it rains.
+        </div>
+
+    </div>
+
+    <!-- TỪ THAY THẾ IF -->
+    <div style="background:#ffffff;padding:24px;border-radius:18px;border:1px solid #dcfce7;margin-top:24px;line-height:2.1;">
+
+        <h4 style="margin-top:0;color:#15803d;">
+            🔄 TỪ THAY THẾ "IF"
+        </h4>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+
+            <div style="background:#f9fafb;padding:16px;border-radius:14px;border:1px solid #eee;">
+                <b>unless</b> = if...not
+            </div>
+
+            <div style="background:#f9fafb;padding:16px;border-radius:14px;border:1px solid #eee;">
+                <b>as long as</b> = miễn là
+            </div>
+
+        </div>
+
+        <div style="margin-top:18px;line-height:2;">
+
+            <p>
+                Unless you study, you will fail.<br>
+                → Nếu bạn không học, bạn sẽ rớt.
+            </p>
+
+            <p>
+                As long as you try hard, you will improve.<br>
+                → Miễn là bạn cố gắng, bạn sẽ tiến bộ.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- VÍ DỤ -->
+    <div style="background:#ffffff;padding:24px;border-radius:18px;border:1px solid #dcfce7;margin-top:24px;line-height:2.2;">
+
+        <h4 style="margin-top:0;color:#15803d;">
+            📚 VÍ DỤ QUAN TRỌNG
+        </h4>
+
+        <p>
+            <b>1.</b> If you study hard, you will pass the exam.<br>
+            → Nếu bạn học chăm, bạn sẽ đậu kỳ thi.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+        <p>
+            <b>2.</b> If she practices every day, she will improve quickly.<br>
+            → Nếu cô ấy luyện tập mỗi ngày, cô ấy sẽ tiến bộ nhanh.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+        <p>
+            <b>3.</b> If they leave now, they will arrive on time.<br>
+            → Nếu họ đi bây giờ, họ sẽ đến đúng giờ.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+        <p>
+            <b>4.</b> If it rains, we will cancel the picnic.<br>
+            → Nếu trời mưa, chúng tôi sẽ hủy buổi dã ngoại.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+        <p>
+            <b>5.</b> If you don't hurry, you will miss the bus.<br>
+            → Nếu bạn không nhanh lên, bạn sẽ lỡ xe buýt.
+        </p>
+
+    </div>
+
+</div>
+
+    <!-- CÁCH DÙNG -->
+    <div style="background:#fefce8;padding:26px;border-radius:22px;margin-bottom:28px;border:1px solid #fde68a;">
+        <h3 style="margin-top:0;">🎯 III. CÁCH DÙNG CHI TIẾT (USAGE)</h3>
+
+        <div style="display:grid;gap:18px;">
+
+            <div style="background:white;padding:18px;border-radius:16px;">
+                <p>
+                    <b>1. Dự đoán kết quả</b>
+                </p>
+
+                <p>
+                    If you study hard, you will pass the exam.<br>
+                    → Nếu bạn học chăm, bạn sẽ đậu kỳ thi.
+                </p>
+            </div>
+
+            <div style="background:white;padding:18px;border-radius:16px;">
+                <p>
+                    <b>2. Lời cảnh báo</b>
+                </p>
+
+                <p>
+                    If you touch that dog, it will bite you.<br>
+                    → Nếu bạn chạm vào con chó đó, nó sẽ cắn bạn.
+                </p>
+            </div>
+
+            <div style="background:white;padding:18px;border-radius:16px;">
+                <p>
+                    <b>3. Lời hứa / đề nghị</b>
+                </p>
+
+                <p>
+                    If you help me, I will give you a gift.<br>
+                    → Nếu bạn giúp tôi, tôi sẽ tặng bạn một món quà.
+                </p>
+            </div>
+
+            <div style="background:white;padding:18px;border-radius:16px;">
+                <p>
+                    <b>4. Kế hoạch tương lai</b>
+                </p>
+
+                <p>
+                    If we have enough money, we will travel to Japan.<br>
+                    → Nếu chúng tôi có đủ tiền, chúng tôi sẽ đi Nhật.
+                </p>
+            </div>
+
+            <div style="background:white;padding:18px;border-radius:16px;">
+                <p>
+                    <b>5. Chủ đề môi trường</b>
+                </p>
+
+                <p>
+                    If we recycle more, we will save the Earth.<br>
+                    → Nếu chúng ta tái chế nhiều hơn, chúng ta sẽ cứu Trái Đất.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+  <!-- PHỦ ĐỊNH -->
+<div style="background:#fff7ed;padding:30px;border-radius:24px;margin-bottom:30px;border:1px solid #fdba74;">
+
+    <h3 style="margin-top:0;color:#c2410c;">
+        ❌ IV. BIẾN THỂ PHỦ ĐỊNH (NEGATIVE FORM)
+    </h3>
+
+    <p>
+        Trong câu điều kiện loại 1, chúng ta có thể phủ định:
+    </p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px;">
+
+        <div style="background:white;padding:18px;border-radius:16px;border:1px solid #fed7aa;line-height:2;">
+            <b>🔹 Vế IF (Điều kiện)</b><br>
+            → dùng:<br>
+            • don't / doesn't<br>
+            • isn't / aren't<br>
+            • can't...
+        </div>
+
+        <div style="background:white;padding:18px;border-radius:16px;border:1px solid #fed7aa;line-height:2;">
+            <b>🔹 Vế chính (Kết quả)</b><br>
+            → thường dùng:<br>
+            • won't + V-inf<br>
+            • can't + V-inf<br>
+            • may not + V-inf
+        </div>
+
+    </div>
+
+    <!-- NOTE -->
+    <div style="background:#ffffff;padding:20px;border-radius:18px;border-left:5px solid #fb923c;margin-top:24px;line-height:2;">
+
+        <p style="margin-top:0;">
+            <b>💡 Ý nghĩa:</b>
+        </p>
+
+        <p>
+            Khi phủ định:
+        </p>
+
+        <ul style="line-height:2;">
+            <li>
+                <b>Vế IF phủ định</b> → điều kiện không xảy ra
+            </li>
+
+            <li>
+                <b>Vế chính phủ định</b> → kết quả sẽ không xảy ra
+            </li>
+
+            <li>
+                Có thể phủ định <b>một vế</b> hoặc <b>cả hai vế</b>
+            </li>
+        </ul>
+
+    </div>
+
+    <!-- CÔNG THỨC -->
+    <div style="background:white;padding:24px;border-radius:18px;border:1px solid #fed7aa;margin-top:24px;line-height:2.2;">
+
+        <h4 style="margin-top:0;color:#ea580c;">
+            ⚙️ CÔNG THỨC PHỦ ĐỊNH
+        </h4>
+
+        <div style="background:#fffaf5;padding:18px;border-radius:14px;border:1px dashed #fdba74;">
+
+            <p style="margin-top:0;">
+                <b>1. Phủ định ở vế IF:</b><br>
+                If + S + don't/doesn't + V, S + will + V-inf
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+            <p>
+                <b>2. Phủ định ở vế chính:</b><br>
+                If + S + V(s/es), S + won't + V-inf
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+            <p style="margin-bottom:0;">
+                <b>3. Phủ định cả hai vế:</b><br>
+                If + S + don't/doesn't + V, S + won't + V-inf
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- VÍ DỤ -->
+    <div style="background:white;padding:24px;border-radius:18px;border:1px solid #fed7aa;margin-top:24px;line-height:2.2;">
+
+        <h4 style="margin-top:0;color:#ea580c;">
+            📚 VÍ DỤ QUAN TRỌNG
+        </h4>
+
+        <p>
+            <b>1.</b> If she doesn't hurry, she won't catch the bus.<br>
+            → Nếu cô ấy không nhanh lên, cô ấy sẽ không bắt kịp xe buýt.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+        <p>
+            <b>2.</b> If it isn't sunny, we won't go camping.<br>
+            → Nếu trời không nắng, chúng tôi sẽ không đi cắm trại.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+        <p>
+            <b>3.</b> If you don't study, you won't pass the test.<br>
+            → Nếu bạn không học, bạn sẽ không vượt qua bài kiểm tra.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+        <p>
+            <b>4.</b> If he doesn't practice, he won't improve.<br>
+            → Nếu anh ấy không luyện tập, anh ấy sẽ không tiến bộ.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+        <p>
+            <b>5.</b> If they aren't careful, they will make mistakes.<br>
+            → Nếu họ không cẩn thận, họ sẽ mắc lỗi.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+        <p>
+            <b>6.</b> If we don't recycle more, the environment will become worse.<br>
+            → Nếu chúng ta không tái chế nhiều hơn, môi trường sẽ trở nên tệ hơn.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+        <p>
+            <b>7.</b> If she isn't ready, we won't start the meeting.<br>
+            → Nếu cô ấy chưa sẵn sàng, chúng tôi sẽ không bắt đầu cuộc họp.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+        <p>
+            <b>8.</b> If you don't water the plants, they will die.<br>
+            → Nếu bạn không tưới cây, chúng sẽ chết.
+        </p>
+
+    </div>
+
+    <!-- LỖI HAY GẶP -->
+    <div style="background:#ffffff;padding:24px;border-radius:18px;border:1px solid #fecaca;margin-top:26px;line-height:2.2;">
+
+        <h4 style="margin-top:0;color:#dc2626;">
+            🚨 LỖI HỌC SINH HAY GẶP
+        </h4>
+
+        <p>
+            ❌ If he don't study, he won't pass.<br>
+            ✔ If he doesn't study, he won't pass.<br>
+            → He/She/It → dùng <b>doesn't</b>.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+        <p>
+            ❌ If she won't hurry, she misses the bus.<br>
+            ✔ If she doesn't hurry, she will miss the bus.<br>
+            → Không dùng <b>will</b> trong vế IF.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+        <p>
+            ❌ If you don't study, you won't passes.<br>
+            ✔ If you don't study, you won't pass.<br>
+            → Sau "will/won't" dùng động từ nguyên mẫu.
+        </p>
+
+    </div>
+
+</div>
+
+    <!-- DẤU PHẨY -->
+    <div style="background:#faf5ff;padding:26px;border-radius:22px;margin-bottom:28px;border:1px solid #e9d5ff;">
+        <h3 style="margin-top:0;">✍️ V. VỊ TRÍ MỆNH ĐỀ & DẤU PHẨY</h3>
+
+        <div style="background:white;padding:20px;border-radius:16px;border:1px solid #ede9fe;line-height:2.1;">
+
+            <p>
+                <b>1. If đứng đầu câu</b><br>
+                → Phải có dấu phẩy (,)
+            </p>
+
+            <p>
+                If I have money, I will buy a robot.<br>
+                → Nếu tôi có tiền, tôi sẽ mua một chú rô-bốt.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+            <p>
+                <b>2. If đứng giữa câu</b><br>
+                → Không dùng dấu phẩy
+            </p>
+
+            <p>
+                I will buy a robot if I have money.<br>
+                → Tôi sẽ mua rô-bốt nếu tôi có tiền.
+            </p>
+
+        </div>
+    </div>
+
+    <!-- CÁC BIẾN THỂ -->
+    <div style="background:#fdf2f8;padding:26px;border-radius:22px;margin-bottom:28px;border:1px solid #fbcfe8;">
+        <h3 style="margin-top:0;">🔁 VI. CÁC BIẾN THỂ THƯỜNG GẶP</h3>
+
+        <div style="line-height:2.1;">
+
+            <p>
+                <b>1. Dùng modal verbs</b><br>
+                If you finish early, you can go home.<br>
+                → Nếu bạn xong sớm, bạn có thể về nhà.
+            </p>
+
+            <p>
+                <b>2. Dùng mệnh lệnh</b><br>
+                If you see Anna, tell her to call me.<br>
+                → Nếu bạn gặp Anna, hãy bảo cô ấy gọi cho tôi.
+            </p>
+
+            <p>
+                <b>3. Dùng "unless"</b> (= if...not)<br>
+                Unless you study hard, you will fail.<br>
+                → Nếu bạn không học chăm, bạn sẽ rớt.
+            </p>
+
+        </div>
+    </div>
+<!-- LỖI -->
+<div style="background:#fff1f2;padding:26px;border-radius:22px;border-left:6px solid #f43f5e;">
+    <h3 style="margin-top:0;">🚨 VII. LỖI SAI KINH ĐIỂN CẦN TRÁNH</h3>
+
+    <div style="background:white;padding:22px;border-radius:18px;border:1px solid #fecdd3;line-height:2.3;">
+
+        <p>
+            <b>❌ Lỗi 1: Dùng "will" trong vế IF</b><br><br>
+
+            Sai: If it will rain, we will stay home.<br>
+            Đúng: If it rains, we will stay home.<br>
+
+            → Trong câu điều kiện loại 1, <b>vế IF phải dùng Hiện tại đơn</b>, không dùng "will".
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+        <p>
+            <b>❌ Lỗi 2: Quên thêm -s/-es với He / She / It</b><br><br>
+
+            Sai: If she go to school, she will see Lan.<br>
+            Đúng: If she goes to school, she will see Lan.<br>
+
+            → He / She / It trong Hiện tại đơn phải thêm <b>-s/-es</b>.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+        <p>
+            <b>❌ Lỗi 3: Dùng V-ing sau "will"</b><br><br>
+
+            Sai: If you study hard, you will passing the exam.<br>
+            Đúng: If you study hard, you will pass the exam.<br>
+
+            → Sau <b>will</b> luôn dùng <b>động từ nguyên mẫu (V-inf)</b>.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+        <p>
+            <b>❌ Lỗi 4: Dùng sai trợ động từ don't / doesn't</b><br><br>
+
+            Sai: If he don't hurry, he will miss the bus.<br>
+            Đúng: If he doesn't hurry, he will miss the bus.<br>
+
+            → He / She / It phải dùng <b>doesn't</b>, không dùng don't.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+        <p>
+            <b>❌ Lỗi 5: Dùng tương lai đơn ở cả hai vế</b><br><br>
+
+            Sai: If they will come early, we will start now.<br>
+            Đúng: If they come early, we will start now.<br>
+
+            → Chỉ <b>một vế chính</b> dùng "will", vế IF dùng Hiện tại đơn.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+        <p>
+            <b>❌ Lỗi 6: Quên dấu phẩy khi If đứng đầu câu</b><br><br>
+
+            Sai: If I have time I will help you.<br>
+            Đúng: If I have time, I will help you.<br>
+
+            → If đứng đầu câu → cần dấu phẩy (,).
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+        <p>
+            <b>❌ Lỗi 7: Dùng sai thì ở vế IF</b><br><br>
+
+            Sai: If she studied hard, she will pass the exam.<br>
+            Đúng: If she studies hard, she will pass the exam.<br>
+
+            → Câu điều kiện loại 1 dùng <b>Hiện tại đơn</b> ở vế IF.
+        </p>
+
+        <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+        <p>
+            <b>❌ Lỗi 8: Quên động từ chính sau "will"</b><br><br>
+
+            Sai: If you eat too much, you will sick.<br>
+            Đúng: If you eat too much, you will be sick.<br>
+
+            → Sau "will" phải có động từ nguyên mẫu.
+        </p>
+
+    </div>
+</div>
+
+</div>
+`,
         levels: {
           easy: [
             // --- NHÓM 1: CƠ BẢN (TRỌNG TÂM VẾ CHÍNH - WILL) ---
@@ -6462,34 +7261,547 @@ color:#5d4037;
         }
       },
       superlatives: {
-        title: "So sánh nhất", icon: "🏆",
-        theory: `<strong>1. ĐỊNH NGHĨA & CÁCH DÙNG:</strong><br>
-• <strong>So sánh hơn:</strong> So sánh giữa 2 đối tượng (người, vật).<br>
-• <strong>So sánh nhất:</strong> So sánh từ 3 đối tượng trở lên để tìm ra cái nhất.<br><br>
+        title: "Câu So Sánh", icon: "🏆",
+        theory: `
+<div style="font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.8; color: #1a1a1a; max-width: 900px; margin: auto;">
 
-<strong>2. TÍNH TỪ NGẮN (SHORT ADJECTIVES):</strong><br>
-• So sánh hơn: <strong>adj + er + than</strong><br>
-• So sánh nhất: <strong>the + adj + est</strong><br><br>
-<strong>Danh sách 20 tính từ ngắn:</strong><br>
-1. tall -> taller -> the tallest (cao)<br>2. short -> shorter -> the shortest (thấp/ngắn)<br>3. big -> bigger -> the biggest (to)<br>4. small -> smaller -> the smallest (nhỏ)<br>5. long -> longer -> the longest (dài)<br>6. high -> higher -> the highest (cao - dùng cho vật)<br>7. fast -> faster -> the fastest (nhanh)<br>8. slow -> slower -> the slowest (chậm)<br>9. old -> older -> the oldest (già/cũ)<br>10. young -> younger -> the youngest (trẻ)<br>11. cheap -> cheaper -> the cheapest (rẻ)<br>12. cold -> colder -> the coldest (lạnh)<br>13. hot -> hotter -> the hottest (nóng)<br>14. strong -> stronger -> the strongest (mạnh)<br>15. weak -> weaker -> the weakest (yếu)<br>16. new -> newer -> the newest (mới)<br>17. deep -> deeper -> the deepest (sâu)<br>18. wide -> wider -> the widest (rộng)<br>19. large -> larger -> the largest (rộng lớn)<br>20. near -> nearer -> the nearest (gần)<br><br>
+    <h2 style="text-align:center;color:#000;font-weight:800;letter-spacing:-0.05em;">
+        COMPARISONS
+    </h2>
 
-<strong>3. TÍNH TỪ DÀI (LONG ADJECTIVES):</strong><br>
-• So sánh hơn: <strong>more + adj + than</strong><br>
-• So sánh nhất: <strong>the + most + adj</strong><br><br>
-<strong>Danh sách 20 tính từ dài:</strong><br>
-1. beautiful -> more beautiful -> the most beautiful (đẹp)<br>2. expensive -> more expensive -> the most expensive (đắt)<br>3. important -> more important -> the most important (quan trọng)<br>4. intelligent -> more intelligent -> the most intelligent (thông minh)<br>5. interesting -> more interesting -> the most interesting (thú vị)<br>6. difficult -> more difficult -> the most difficult (khó)<br>7. dangerous -> more dangerous -> the most dangerous (nguy hiểm)<br>8. famous -> more famous -> the most famous (nổi tiếng)<br>9. popular -> more popular -> the most popular (phổ biến)<br>10. modern -> more modern -> the most modern (hiện đại)<br>11. comfortable -> more comfortable -> the most comfortable (thoải mái)<br>12. delicious -> more delicious -> the most delicious (ngon miệng)<br>13. patient -> more patient -> the most patient (kiên nhẫn)<br>14. creative -> more creative -> the most creative (sáng tạo)<br>15. talented -> more talented -> the most talented (tài năng)<br>16. successful -> more successful -> the most successful (thành công)<br>17. powerful -> more powerful -> the most powerful (quyền lực)<br>18. terrible -> more terrible -> the most terrible (kinh khủng)<br>19. wonderful -> more wonderful -> the most wonderful (tuyệt vời)<br>20. attractive -> more attractive -> the most attractive (lôi cuốn)<br><br>
+    <p style="text-align:center;font-style:italic;color:#666;margin-bottom:40px;">
+        (Câu so sánh)
+    </p>
 
-<strong>4. BẤT QUY TẮC & CẤU TRÚC ĐI KÈM:</strong><br>
-• good -> <strong>better</strong> -> <strong>the best</strong> (tốt)<br>
-• bad -> <strong>worse</strong> -> <strong>the worst</strong> (tệ/xấu)<br>
-• far -> <strong>farther/further</strong> -> <strong>the farthest/furthest</strong> (xa)<br>
-• little -> <strong>less</strong> -> <strong>the least</strong> (ít)<br>
-• many/much -> <strong>more</strong> -> <strong>the most</strong> (nhiều)<br><br>
-• <strong>Lưu ý:</strong> So sánh hơn luôn đi với <strong>than</strong>. So sánh nhất luôn có <strong>the</strong> và thường đi với <strong>in</strong> (địa điểm số ít) hoặc <strong>of</strong> (nhóm số nhiều).<br>
-• <strong>Cấu trúc đặc biệt:</strong> One of the + so sánh nhất + Danh từ số nhiều (Ví dụ: One of the best students).`,
+    <!-- ĐỊNH NGHĨA -->
+    <div style="background:#eff6ff;padding:28px;border-radius:24px;margin-bottom:28px;border:1px solid #bfdbfe;">
+
+        <h3 style="margin-top:0;">🧠 I. ĐỊNH NGHĨA & CÁCH DÙNG</h3>
+
+        <p>
+            <b>So sánh hơn (Comparative)</b> dùng để so sánh giữa <b>2 đối tượng</b>.
+        </p>
+
+        <p>
+            <b>So sánh nhất (Superlative)</b> dùng để so sánh từ <b>3 đối tượng trở lên</b> để tìm ra cái nhất.
+        </p>
+
+        <div style="background:white;padding:20px;border-radius:18px;border:1px solid #dbeafe;margin-top:20px;line-height:2.1;">
+
+            <p>
+                <b>1.</b> Tom is taller than Jack.<br>
+                → Tom cao hơn Jack.
+            </p>
+
+            <p>
+                <b>2.</b> Anna is the tallest student in the class.<br>
+                → Anna là học sinh cao nhất lớp.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- TÍNH TỪ NGẮN -->
+    <div style="background:#f0fdf4;padding:28px;border-radius:24px;margin-bottom:28px;border:1px solid #bbf7d0;">
+
+        <h3 style="margin-top:0;">📗 II. TÍNH TỪ NGẮN (SHORT ADJECTIVES)</h3>
+
+        <p>
+            <b>So sánh hơn:</b> adj + er + than
+        </p>
+
+        <p>
+            <b>So sánh nhất:</b> the + adj + est
+        </p>
+
+        <div style="background:white;padding:22px;border-radius:18px;border:1px solid #dcfce7;margin-top:18px;">
+
+            <p><b>Ví dụ:</b></p>
+
+            <p>
+                tall → taller → the tallest (cao)<br>
+                big → bigger → the biggest (to)<br>
+                fast → faster → the fastest (nhanh)<br>
+                hot → hotter → the hottest (nóng)<br>
+                happy → happier → the happiest (vui vẻ)
+            </p>
+
+        </div>
+
+        <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+
+            <div style="background:white;padding:18px;border-radius:16px;border:1px solid #dcfce7;">
+                1. tall → taller → the tallest (cao)<br>
+                2. short → shorter → the shortest (thấp/ngắn)<br>
+                3. big → bigger → the biggest (to)<br>
+                4. small → smaller → the smallest (nhỏ)<br>
+                5. long → longer → the longest (dài)<br>
+                6. high → higher → the highest (cao)<br>
+                7. fast → faster → the fastest (nhanh)<br>
+                8. slow → slower → the slowest (chậm)<br>
+                9. old → older → the oldest (già/cũ)<br>
+                10. young → younger → the youngest (trẻ)
+            </div>
+
+            <div style="background:white;padding:18px;border-radius:16px;border:1px solid #dcfce7;">
+                11. cheap → cheaper → the cheapest (rẻ)<br>
+                12. cold → colder → the coldest (lạnh)<br>
+                13. hot → hotter → the hottest (nóng)<br>
+                14. strong → stronger → the strongest (mạnh)<br>
+                15. weak → weaker → the weakest (yếu)<br>
+                16. new → newer → the newest (mới)<br>
+                17. deep → deeper → the deepest (sâu)<br>
+                18. wide → wider → the widest (rộng)<br>
+                19. large → larger → the largest (rộng lớn)<br>
+                20. near → nearer → the nearest (gần)
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- QUY TẮC -->
+    <div style="background:#fefce8;padding:28px;border-radius:24px;margin-bottom:28px;border:1px solid #fde68a;">
+
+        <h3 style="margin-top:0;">📌 III. QUY TẮC THÊM -ER / -EST</h3>
+
+        <div style="background:white;padding:22px;border-radius:18px;border:1px solid #fef08a;line-height:2.1;">
+
+            <p>
+                <b>1. Tính từ ngắn bình thường</b><br>
+                → thêm -er / -est
+            </p>
+
+            <p>
+                tall → taller → the tallest
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+            <p>
+                <b>2. Kết thúc bằng “e”</b><br>
+                → chỉ thêm -r / -st
+            </p>
+
+            <p>
+                large → larger → the largest
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+            <p>
+                <b>3. Dạng CVC</b><br>
+                → gấp đôi phụ âm cuối
+            </p>
+
+            <p>
+                big → bigger → the biggest<br>
+                hot → hotter → the hottest
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+            <p>
+                <b>4. Kết thúc bằng “y”</b><br>
+                → đổi y → i
+            </p>
+
+            <p>
+                happy → happier → the happiest
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- TÍNH TỪ DÀI -->
+    <div style="background:#faf5ff;padding:28px;border-radius:24px;margin-bottom:28px;border:1px solid #e9d5ff;">
+
+        <h3 style="margin-top:0;">📙 IV. TÍNH TỪ DÀI (LONG ADJECTIVES)</h3>
+
+        <p>
+            <b>So sánh hơn:</b> more + adj + than
+        </p>
+
+        <p>
+            <b>So sánh nhất:</b> the + most + adj
+        </p>
+
+        <div style="background:white;padding:22px;border-radius:18px;border:1px solid #f3e8ff;margin-top:18px;">
+
+            <p><b>Ví dụ:</b></p>
+
+            <p>
+                beautiful → more beautiful → the most beautiful<br>
+                expensive → more expensive → the most expensive
+            </p>
+
+        </div>
+
+        <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+
+            <div style="background:white;padding:18px;border-radius:16px;border:1px solid #e9d5ff;">
+                1. beautiful → more beautiful → the most beautiful (đẹp)<br>
+                2. expensive → more expensive → the most expensive (đắt)<br>
+                3. important → more important → the most important (quan trọng)<br>
+                4. intelligent → more intelligent → the most intelligent (thông minh)<br>
+                5. interesting → more interesting → the most interesting (thú vị)<br>
+                6. difficult → more difficult → the most difficult (khó)<br>
+                7. dangerous → more dangerous → the most dangerous (nguy hiểm)<br>
+                8. famous → more famous → the most famous (nổi tiếng)<br>
+                9. popular → more popular → the most popular (phổ biến)<br>
+                10. modern → more modern → the most modern (hiện đại)
+            </div>
+
+            <div style="background:white;padding:18px;border-radius:16px;border:1px solid #e9d5ff;">
+                11. comfortable → more comfortable → the most comfortable (thoải mái)<br>
+                12. delicious → more delicious → the most delicious (ngon)<br>
+                13. patient → more patient → the most patient (kiên nhẫn)<br>
+                14. creative → more creative → the most creative (sáng tạo)<br>
+                15. talented → more talented → the most talented (tài năng)<br>
+                16. successful → more successful → the most successful (thành công)<br>
+                17. powerful → more powerful → the most powerful (quyền lực)<br>
+                18. terrible → more terrible → the most terrible (kinh khủng)<br>
+                19. wonderful → more wonderful → the most wonderful (tuyệt vời)<br>
+                20. attractive → more attractive → the most attractive (lôi cuốn)
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SO SÁNH HƠN -->
+    <div style="background:#eff6ff;padding:28px;border-radius:24px;margin-bottom:28px;border:1px solid #bfdbfe;">
+
+        <h3 style="margin-top:0;">⚡ V. CẤU TRÚC SO SÁNH HƠN</h3>
+
+        <div style="background:white;padding:22px;border-radius:18px;border:1px solid #dbeafe;line-height:2.2;">
+
+            <p>
+                <b>Công thức:</b><br>
+                S + be + adj-er / more adj + than + ...
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+            <p>
+                <b>1.</b> Tom is taller than Jack.<br>
+                → Tom cao hơn Jack.
+            </p>
+
+            <p>
+                <b>2.</b> This book is more interesting than that one.<br>
+                → Quyển sách này thú vị hơn quyển kia.
+            </p>
+
+            <p>
+                <b>3.</b> My car is faster than yours.<br>
+                → Xe tôi nhanh hơn xe bạn.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- SO SÁNH NHẤT -->
+    <div style="background:#f5f3ff;padding:28px;border-radius:24px;margin-bottom:28px;border:1px solid #d8b4fe;">
+
+        <h3 style="margin-top:0;">🏆 VI. CẤU TRÚC SO SÁNH NHẤT</h3>
+
+        <div style="background:white;padding:22px;border-radius:18px;border:1px solid #e9d5ff;line-height:2.2;">
+
+            <p>
+                <b>Công thức:</b><br>
+                S + be + the + adj-est / the most + adj
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+            <p>
+                <b>1.</b> Everest is the highest mountain in the world.<br>
+                → Everest là ngọn núi cao nhất thế giới.
+            </p>
+
+            <p>
+                <b>2.</b> She is the most intelligent student in the class.<br>
+                → Cô ấy là học sinh thông minh nhất lớp.
+            </p>
+
+            <p>
+                <b>3.</b> This is the cheapest restaurant in town.<br>
+                → Đây là nhà hàng rẻ nhất thị trấn.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- BẤT QUY TẮC -->
+    <div style="background:#fff7ed;padding:28px;border-radius:24px;margin-bottom:28px;border:1px solid #fdba74;">
+
+        <h3 style="margin-top:0;">🔥 VII. TÍNH TỪ BẤT QUY TẮC</h3>
+
+        <div style="background:white;padding:22px;border-radius:18px;border:1px solid #fed7aa;line-height:2.1;">
+
+            <p>
+                good → <b>better</b> → <b>the best</b> (tốt)
+            </p>
+
+            <p>
+                bad → <b>worse</b> → <b>the worst</b> (xấu/tệ)
+            </p>
+
+            <p>
+                far → <b>farther/further</b> → <b>the farthest/furthest</b> (xa)
+            </p>
+
+            <p>
+                little → <b>less</b> → <b>the least</b> (ít)
+            </p>
+
+            <p>
+                many/much → <b>more</b> → <b>the most</b> (nhiều)
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- LƯU Ý -->
+    <div style="background:#ecfeff;padding:28px;border-radius:24px;margin-bottom:28px;border:1px solid #67e8f9;">
+
+        <h3 style="margin-top:0;">📌 VIII. LƯU Ý QUAN TRỌNG</h3>
+
+        <ul style="line-height:2.2;">
+
+            <li>
+                So sánh hơn thường đi với <b>than</b>.
+            </li>
+
+            <li>
+                So sánh nhất thường có <b>the</b>.
+            </li>
+
+            <li>
+                So sánh nhất thường đi với:
+                <br>• <b>in</b> → địa điểm số ít
+                <br>• <b>of</b> → nhóm người/vật
+            </li>
+
+            <li>
+                Ví dụ:
+                <br>She is the best student <b>in</b> the class.
+                <br>He is the tallest <b>of</b> the three boys.
+            </li>
+
+            <li>
+                Cấu trúc đặc biệt:
+                <br><b>One of the + so sánh nhất + danh từ số nhiều</b>
+            </li>
+
+            <li>
+                Ví dụ:
+                <br>One of the best students
+                <br>→ Một trong những học sinh giỏi nhất.
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- LỖI -->
+    <div style="background:#fff1f2;padding:28px;border-radius:24px;border-left:6px solid #f43f5e;">
+
+        <h3 style="margin-top:0;">🚨 IX. LỖI HỌC SINH HAY GẶP</h3>
+
+        <div style="background:white;padding:22px;border-radius:18px;border:1px solid #fecdd3;line-height:2.2;">
+
+            <p>
+                <b>❌ Lỗi 1: Quên “than”</b><br><br>
+
+                ❌ She is taller me.<br>
+                ✔ She is taller than me.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+            <p>
+                <b>❌ Lỗi 2: Dùng “more” với tính từ ngắn</b><br><br>
+
+                ❌ He is more tall than Tom.<br>
+                ✔ He is taller than Tom.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+            <p>
+                <b>❌ Lỗi 3: Dùng “-er” với tính từ dài</b><br><br>
+
+                ❌ This movie is interestinger.<br>
+                ✔ This movie is more interesting.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+            <p>
+                <b>❌ Lỗi 4: Quên “the”</b><br><br>
+
+                ❌ She is smartest student.<br>
+                ✔ She is the smartest student.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:18px 0;">
+
+            <p>
+                <b>❌ Lỗi 5: Double comparative</b><br><br>
+
+                ❌ more taller<br>
+                ✔ taller
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+`,
         levels: {
           easy: [
-            // 5 câu cũ (đã làm mới phần lesson cho dễ hiểu hơn)
+            { type: "multiple_choice", script: "She is taller than me.", q: "Câu 'She is taller than me' thuộc loại so sánh nào?", options: ["So sánh hơn", "So sánh nhất", "So sánh bằng"], a: "So sánh hơn", lesson: "Câu có cấu trúc 'adj-er + than' là đặc điểm nhận dạng của so sánh hơn giữa hai đối tượng. 'Taller' là dạng so sánh hơn của tính từ ngắn 'tall'." },
+            { type: "multiple_choice", script: "What word comes before the adjective in superlative sentences?", q: "Trong câu so sánh nhất, chúng ta thường thấy từ nào đứng trước tính từ?", options: ["than", "more", "the"], a: "the", lesson: "So sánh nhất luôn cần có mạo từ 'the' đứng trước tính từ (the + adj-est hoặc the most + adj). Ví dụ: the tallest, the most beautiful." },
+            { type: "multiple_choice", script: "Is the word beautiful a short or long adjective?", q: "Tính từ 'beautiful' (xinh đẹp) là tính từ ngắn hay dài?", options: ["Tính từ ngắn", "Tính từ dài"], a: "Tính từ dài", lesson: "Tính từ dài là những tính từ có từ 2 âm tiết trở lên (trừ các từ kết thúc bằng 'y'). 'Beautiful' có 3 âm tiết nên là tính từ dài." },
+            { type: "multiple_choice", script: "What is the comparative form of big?", q: "Dạng so sánh hơn của tính từ 'big' là gì?", options: ["biger", "bigger", "more big"], a: "bigger", lesson: "Quy tắc CVC: Với tính từ ngắn kết thúc bằng 'Phụ âm - Nguyên âm - Phụ âm', ta phải gấp đôi phụ âm cuối trước khi thêm '-er'." },
+            { type: "multiple_choice", script: "Everest is the highest mountain.", q: "Câu 'Everest is the highest mountain' thuộc loại so sánh nào?", options: ["So sánh hơn", "So sánh nhất", "Không phải so sánh"], a: "So sánh nhất", lesson: "Cấu trúc 'the + adj-est' (the highest) dùng để chỉ cái nhất trong một nhóm hoặc trên toàn thế giới. Đây là đặc điểm của so sánh nhất." },
+            { type: "multiple_choice", script: "How do you change happy into a comparative adjective?", q: "Tính từ 'happy' khi chuyển sang so sánh hơn sẽ như thế nào?", options: ["happyer", "more happy", "happier"], a: "happier", lesson: "Quy tắc 'y': Với tính từ kết thúc bằng 'y', ta đổi 'y' thành 'i' rồi mới thêm đuôi '-er' hoặc '-est'." },
+            { type: "multiple_choice", script: "Which comparison type uses the word than?", q: "Từ 'than' thường xuất hiện trong loại câu so sánh nào?", options: ["So sánh hơn", "So sánh nhất", "Cả hai"], a: "So sánh hơn", lesson: "Trong tiếng Anh, 'than' có nghĩa là 'hơn'. Nó là dấu hiệu bắt buộc phải có khi so sánh đối tượng này với đối tượng kia." },
+            { type: "multiple_choice", script: "What is the superlative form of expensive?", q: "Dạng so sánh nhất của tính từ dài 'expensive' là gì?", options: ["expensivest", "the most expensive", "more expensive"], a: "the most expensive", lesson: "Với tính từ dài, ta không thêm đuôi '-est' mà phải dùng cấu trúc 'the most + tính từ' để giữ nguyên dạng của từ." },
+            { type: "multiple_choice", script: "Which of these is an irregular adjective?", q: "Tính từ nào sau đây là tính từ bất quy tắc?", options: ["good", "tall", "cheap"], a: "good", lesson: "Tính từ bất quy tắc không thêm '-er' hay '-est'. 'Good' chuyển thành 'better' (hơn) và 'the best' (nhất)." },
+            { type: "multiple_choice", script: "What is the comparative form of bad?", q: "Đâu là dạng so sánh hơn của tính từ 'bad'?", options: ["badder", "worse", "the worst"], a: "worse", lesson: "'Bad' là tính từ bất quy tắc. So sánh hơn của nó là 'worse', không phải 'badder'. Lưu ý 'the worst' là dạng so sánh nhất." },
+            { type: "multiple_choice", script: "He is more tall than Tom.", q: "Lỗi sai trong câu 'He is more tall than Tom' là gì?", options: ["Thiếu 'the'", "Dùng 'more' với tính từ ngắn", "Dùng 'than' sai chỗ"], a: "Dùng 'more' với tính từ ngắn", lesson: "Tính từ ngắn (tall) chỉ được thêm đuôi '-er'. Việc dùng 'more tall' là lỗi sai phổ biến mà học sinh cần tránh." },
+            { type: "multiple_choice", script: "How do you add a suffix to the word large?", q: "Tính từ 'large' khi chuyển sang so sánh nhất sẽ thêm đuôi gì?", options: ["thêm -est", "thêm -st", "thêm -er"], a: "thêm -st", lesson: "Vì 'large' đã kết thúc bằng chữ 'e', chúng ta chỉ cần thêm đuôi '-st' để thành 'the largest', tránh việc viết thừa chữ 'e'." },
+            { type: "multiple_choice", script: "What is the comparative form of modern?", q: "Dạng so sánh hơn của 'modern' (hiện đại) là gì?", options: ["moderner", "more modern", "the most modern"], a: "more modern", lesson: "'Modern' là tính từ dài (2 âm tiết), vì vậy ta dùng 'more' đứng trước để tạo thành dạng so sánh hơn." },
+            { type: "multiple_choice", script: "This is the cheapest restaurant.", q: "Câu 'This is the cheapest restaurant' dùng so sánh nhất để so sánh mấy đối tượng?", options: ["2 đối tượng", "Từ 3 đối tượng trở lên", "Chỉ 1 đối tượng"], a: "Từ 3 đối tượng trở lên", lesson: "So sánh nhất dùng để tìm ra cái 'nhất' trong một tập thể hoặc một nhóm từ 3 người/vật trở lên." },
+            { type: "multiple_choice", script: "Which of these is written correctly?", q: "Cách viết nào sau đây là ĐÚNG?", options: ["more taller", "taller", "the more taller"], a: "taller", lesson: "Lỗi 'Double comparative': Không bao giờ dùng cả 'more' và đuôi '-er' cùng lúc. Chỉ dùng một trong hai tùy theo tính từ ngắn hay dài." },
+            { type: "multiple_choice", script: "He is taller than me.", q: "Dịch câu sau sang tiếng Anh: 'Anh ấy cao hơn tôi.'", options: ["He is more tall than me", "He is taller than me", "He is the tallest me"], a: "He is taller than me", lesson: "Đây là câu so sánh hơn với tính từ ngắn 'tall'. Ta thêm đuôi '-er' vào sau tính từ và phải có 'than' trước đối tượng thứ hai." },
+            { type: "multiple_choice", script: "This is the best book.", q: "Dịch câu sau sang tiếng Anh: 'Đây là quyển sách hay nhất.'", options: ["This is the better book", "This is the best book", "This is more good book"], a: "This is the best book", lesson: "So sánh nhất của 'good' là 'the best'. Chúng ta dùng cấu trúc 'the + best' để chỉ cái gì đó là tốt nhất/hay nhất." },
+            { type: "multiple_choice", script: "This car is more expensive than that one.", q: "Dịch câu sau sang tiếng Anh: 'Chiếc xe này đắt hơn chiếc xe kia.'", options: ["This car is expensiver than that one", "This car is more expensive than that one", "This car is most expensive than that one"], a: "This car is more expensive than that one", lesson: "'Expensive' là tính từ dài, vì vậy ta phải dùng 'more' + tính từ + 'than' để tạo thành câu so sánh hơn." },
+            { type: "multiple_choice", script: "Lan is the most intelligent in class.", q: "Dịch câu sau sang tiếng Anh: 'Lan là người thông minh nhất lớp.'", options: ["Lan is the most intelligent in class", "Lan is more intelligent in class", "Lan is the intelligentest in class"], a: "Lan is the most intelligent in class", lesson: "Với tính từ dài 'intelligent', dạng so sánh nhất là 'the most intelligent'. Cụm từ 'in class' chỉ phạm vi nơi Lan là nhất." },
+            { type: "multiple_choice", script: "Today is hotter than yesterday.", q: "Dịch câu sau sang tiếng Anh: 'Hôm nay nóng hơn hôm qua.'", options: ["Today is hoter than yesterday", "Today is more hot than yesterday", "Today is hotter than yesterday"], a: "Today is hotter than yesterday", lesson: "Tính từ 'hot' phải gấp đôi phụ âm cuối 't' thành 'hotter' trước khi thêm '-er' theo quy tắc CVC (Phụ âm - Nguyên âm - Phụ âm)." },
+            { type: "multiple_choice", script: "She is the most beautiful woman.", q: "Dịch câu sau sang tiếng Anh: 'Cô ấy là người phụ nữ đẹp nhất.'", options: ["She is the most beautiful woman", "She is more beautiful woman", "She is the beautifulest woman"], a: "She is the most beautiful woman", lesson: "So sánh nhất của tính từ dài 'beautiful' là 'the most beautiful'. Không có từ 'beautifulest' trong tiếng Anh." },
+            { type: "multiple_choice", script: "This dog is smaller than that one.", q: "Dịch câu sau sang tiếng Anh: 'Con chó này nhỏ hơn con chó kia.'", options: ["This dog is smaller than that one", "This dog is more small than that one", "This dog is small than that one"], a: "This dog is smaller than that one", lesson: "'Small' là tính từ ngắn, ta chỉ cần thêm đuôi '-er' và từ 'than' để so sánh giữa hai con chó." },
+            { type: "multiple_choice", script: "English is easier than French.", q: "Dịch câu sau sang tiếng Anh: 'Tiếng Anh dễ hơn tiếng Pháp.'", options: ["English is easyer than French", "English is more easy than French", "English is easier than French"], a: "English is easier than French", lesson: "Tính từ 'easy' kết thúc bằng 'y', ta phải đổi 'y' thành 'i' rồi mới thêm '-er' để tạo thành 'easier'." },
+            { type: "multiple_choice", script: "This is the worst food.", q: "Dịch câu sau sang tiếng Anh: 'Đây là món ăn tệ nhất.'", options: ["This is the baddest food", "This is the worst food", "This is the worse food"], a: "This is the worst food", lesson: "'Bad' là tính từ bất quy tắc. So sánh hơn là 'worse' và so sánh nhất là 'the worst'. Ở đây cần so sánh nhất nên chọn 'the worst'." },
+            { type: "multiple_choice", script: "Nam runs faster than his father.", q: "Dịch câu sau sang tiếng Anh: 'Nam chạy nhanh hơn ba của anh ấy.'", options: ["Nam runs faster than his father", "Nam runs more fast than his father", "Nam runs fast than his father"], a: "Nam runs faster than his father", lesson: "'Fast' vừa là tính từ vừa là trạng từ ngắn, dạng so sánh hơn của nó luôn là 'faster'. Lưu ý không dùng 'more fast'." },
+            { type: "multiple_choice", script: "This phone is more modern than that one.", q: "Dịch câu sau sang tiếng Anh: 'Chiếc điện thoại này hiện đại hơn chiếc kia.'", options: ["This phone is moderner than that one", "This phone is more modern than that one", "This phone is the most modern than that one"], a: "This phone is more modern than that one", lesson: "'Modern' là tính từ dài (2 âm tiết nhưng không kết thúc bằng các đuôi đặc biệt), nên ta dùng 'more' để so sánh hơn." },
+            { type: "multiple_choice", script: "This is the cheapest shirt in the shop.", q: "Dịch câu sau sang tiếng Anh: 'Đây là chiếc áo sơ mi rẻ nhất trong cửa hàng.'", options: ["This is the cheaper shirt in the shop", "This is the cheapest shirt in the shop", "This is the most cheap shirt in the shop"], a: "This cheapest shirt in the shop", lesson: "Với tính từ ngắn 'cheap', ta thêm đuôi '-est' và mạo từ 'the' phía trước để tạo thành dạng so sánh nhất." },
+            { type: "multiple_choice", script: "My house is smaller than yours.", q: "Dịch câu sau sang tiếng Anh: 'Nhà của tôi nhỏ hơn nhà của bạn.'", options: ["My house is smaller than yours", "My house is more small than yours", "My house is the smallest than yours"], a: "My house is smaller than yours", lesson: "'Small' là tính từ ngắn, ta thêm đuôi '-er' và từ 'than'. Lưu ý 'yours' ở đây thay thế cho 'your house' để tránh lặp từ." },
+            { type: "multiple_choice", script: "Russia is the coldest country in the world.", q: "Dịch câu sau sang tiếng Anh: 'Nga là quốc gia lạnh nhất thế giới.'", options: ["Russia is more cold country in the world", "Russia is the colder country in the world", "Russia is the coldest country in the world"], a: "Russia is the coldest country in the world", lesson: "Dùng 'the + adj-est' cho so sánh nhất của tính từ ngắn. 'Cold' thành 'the coldest' để chỉ cái lạnh nhất trong một phạm vi (in the world)." },
+            { type: "multiple_choice", script: "Pizza is more delicious than bread.", q: "Dịch câu sau sang tiếng Anh: 'Pizza ngon hơn bánh mì.'", options: ["Pizza is deliciouser than bread", "Pizza is more delicious than bread", "Pizza is the most delicious than bread"], a: "Pizza is more delicious than bread", lesson: "'Delicious' là tính từ dài (3 âm tiết), ta phải dùng 'more' + tính từ + 'than' trong câu so sánh hơn." },
+            { type: "multiple_choice", script: "He is the youngest student in my class.", q: "Dịch câu sau sang tiếng Anh: 'Cậu ấy là học sinh trẻ nhất trong lớp tôi.'", options: ["He is the youngest student in my class", "He is more young student in my class", "He is the younger student in my class"], a: "He is the youngest student in my class", lesson: "'Young' là tính từ ngắn, ta dùng 'the + youngest' để chỉ người có số tuổi ít nhất trong một nhóm (lớp học)." },
+            { type: "multiple_choice", script: "Health is more important than money.", q: "Dịch câu sau sang tiếng Anh: 'Sức khỏe quan trọng hơn tiền bạc.'", options: ["Health is importanter than money", "Health is the most important than money", "Health is more important than money"], a: "Health is more important than money", lesson: "'Important' là tính từ dài, cấu trúc so sánh hơn bắt buộc phải có 'more' và 'than'. Đây là một câu châm ngôn phổ biến." },
+            { type: "multiple_choice", script: "This film is more interesting than the last one.", q: "Dịch câu sau sang tiếng Anh: 'Bộ phim này thú vị hơn bộ phim trước.'", options: ["This film is more interesting than the last one", "This film is interestinger than the last one", "This film is the most interesting than the last one"], a: "This film is more interesting than the last one", lesson: "'Interesting' là tính từ dài, do đó ta dùng 'more' để so sánh giữa bộ phim hiện tại và bộ phim trước đó." },
+            { type: "multiple_choice", script: "She is the best teacher in my school.", q: "Dịch câu sau sang tiếng Anh: 'Cô ấy là giáo viên tốt nhất trường tôi.'", options: ["She is the goodest teacher in my school", "She is the better teacher in my school", "She is the best teacher in my school"], a: "She is the best teacher in my school", lesson: "So sánh nhất của tính từ bất quy tắc 'good' là 'the best'. Tuyệt đối không dùng 'goodest' hay 'most good'." },
+            { type: "multiple_choice", script: "A car is faster than a bike.", q: "Dịch câu sau sang tiếng Anh: 'Ô tô thì nhanh hơn xe đạp.'", options: ["A car is faster than a bike", "A car is more fast than a bike", "A car is the fastest than a bike"], a: "A car is faster than a bike", lesson: "'Fast' là tính từ ngắn, ta thêm đuôi '-er' thành 'faster'. Đây là sự so sánh giữa hai phương tiện vận chuyển phổ biến." },
+            { type: "multiple_choice", script: "A tiger is more dangerous than a cat.", q: "Dịch câu sau sang tiếng Anh: 'Một con hổ thì nguy hiểm hơn một con mèo.'", options: ["A tiger is dangerouser than a cat", "A tiger is more dangerous than a cat", "A tiger is the most dangerous than a cat"], a: "A tiger is more dangerous than a cat", lesson: "'Dangerous' là tính từ dài (3 âm tiết), ta dùng cấu trúc 'more + adj + than' để so sánh giữa hai con vật." },
+            { type: "multiple_choice", script: "This is the largest room in the house.", q: "Dịch câu sau sang tiếng Anh: 'Đây là căn phòng rộng lớn nhất trong nhà.'", options: ["This is the largest room in the house", "This is the larger room in the house", "This is the most large room in the house"], a: "This is the largest room in the house", lesson: "Với tính từ 'large' đã kết thúc bằng đuôi 'e', ta chỉ cần thêm '-st' để thành 'the largest' (so sánh nhất)." },
+            { type: "multiple_choice", script: "This sofa is more comfortable than that chair.", q: "Dịch câu sau sang tiếng Anh: 'Chiếc ghế sofa này thoải mái hơn chiếc ghế kia.'", options: ["This sofa is comfortabler than that chair", "This sofa is the most comfortable than that chair", "This sofa is more comfortable than that chair"], a: "This sofa is more comfortable than that chair", lesson: "'Comfortable' là tính từ dài, vì vậy ta dùng 'more' để so sánh sự thoải mái giữa hai loại ghế khác nhau." },
+            { type: "multiple_choice", script: "My father is older than my mother.", q: "Dịch câu sau sang tiếng Anh: 'Bố tôi thì già hơn mẹ tôi.'", options: ["My father is more old than my mother", "My father is older than my mother", "My father is the oldest than my mother"], a: "My father is older than my mother", lesson: "'Old' là tính từ ngắn, ta thêm đuôi '-er' thành 'older' để so sánh tuổi tác giữa hai người." },
+            { type: "multiple_choice", script: "This is the most delicious cake I have ever eaten.", q: "Dịch câu sau sang tiếng Anh: 'Đây là chiếc bánh ngon nhất tôi từng ăn.'", options: ["This is the deliciousest cake", "This is the most delicious cake", "This is more delicious cake"], a: "This is the most delicious cake", lesson: "Để nói về cái gì đó 'ngon nhất', ta dùng 'the most' đi với tính từ dài 'delicious'." },
+            { type: "multiple_choice", script: "A plane is faster than a train.", q: "Dịch câu sau sang tiếng Anh: 'Máy bay thì nhanh hơn tàu hỏa.'", options: ["A plane is faster than a train", "A plane is more fast than a train", "A plane is fast than a train"], a: "A plane is faster than a train", lesson: "Tiếp tục ôn tập tính từ ngắn 'fast'. Trong so sánh hơn, 'fast' luôn chuyển thành 'faster'." },
+            { type: "multiple_choice", script: "He is the most famous singer in my country.", q: "Dịch câu sau sang tiếng Anh: 'Anh ấy là ca sĩ nổi tiếng nhất nước tôi.'", options: ["He is the famousest singer", "He is more famous singer", "He is the most famous singer"], a: "He is the most famous singer", lesson: "'Famous' là tính từ dài, dạng so sánh nhất là 'the most famous'. Cụm 'in my country' xác định phạm vi so sánh." },
+            { type: "multiple_choice", script: "A blue whale is bigger than an elephant.", q: "Dịch câu sau sang tiếng Anh: 'Cá voi xanh thì to hơn một con voi.'", options: ["A blue whale is bigger than an elephant", "A blue whale is biger than an elephant", "A blue whale is more big than an elephant"], a: "A blue whale is bigger than an elephant", lesson: "Lưu ý quy tắc CVC: 'big' kết thúc bằng Phụ âm - Nguyên âm - Phụ âm, nên phải gấp đôi chữ 'g' thành 'bigger'." },
+            { type: "multiple_choice", script: "This is the most difficult exercise in the book.", q: "Dịch câu sau sang tiếng Anh: 'Đây là bài tập khó nhất trong cuốn sách.'", options: ["This is the difficultest exercise", "This is more difficult exercise", "This is the most difficult exercise"], a: "This is the most difficult exercise", lesson: "'Difficult' là tính từ dài, vì vậy ta dùng 'the most difficult' để chỉ mức độ khó cao nhất." },
+            { type: "multiple_choice", script: "The Nile is the longest river in the world.", q: "Dịch câu sau sang tiếng Anh: 'Sông Nile là con sông dài nhất thế giới.'", options: ["The Nile is the longest river in the world", "The Nile is the longer river in the world", "The Nile is more long river in the world"], a: "The Nile is the longest river in the world", lesson: "'Long' là tính từ ngắn, ta thêm đuôi '-est' và mạo từ 'the' để khẳng định kỷ lục thế giới về chiều dài." },
+            { type: "multiple_choice", script: "This laptop is more expensive than that one.", q: "Dịch câu sau sang tiếng Việt: 'This laptop is more expensive than that one.'", options: ["Chiếc máy tính này rẻ hơn chiếc kia.", "Chiếc máy tính này đắt hơn chiếc kia.", "Chiếc máy tính này đắt nhất."], a: "Chiếc máy tính này đắt hơn chiếc kia.", lesson: "Cấu trúc 'more expensive than' là so sánh hơn của tính từ dài 'expensive' (đắt). 'That one' dùng để thay thế cho danh từ 'laptop' đã nhắc ở trước." },
+            { type: "multiple_choice", script: "She is the tallest girl in my class.", q: "Dịch câu sau sang tiếng Việt: 'She is the tallest girl in my class.'", options: ["Cô ấy là cô gái cao nhất lớp tôi.", "Cô ấy cao hơn các bạn trong lớp.", "Cô ấy là cô gái thấp nhất lớp tôi."], a: "Cô ấy là cô gái cao nhất lớp tôi.", lesson: "Cấu trúc 'the tallest' là so sánh nhất của tính từ ngắn 'tall'. Đuôi '-est' kết hợp với 'the' dùng để chỉ cái nhất." },
+            { type: "multiple_choice", script: "My brother is older than me.", q: "Dịch câu sau sang tiếng Việt: 'My brother is older than me.'", options: ["Anh trai tôi trẻ hơn tôi.", "Anh trai tôi cao hơn tôi.", "Anh trai tôi già (lớn tuổi) hơn tôi."], a: "Anh trai tôi già (lớn tuổi) hơn tôi.", lesson: "'Older' là dạng so sánh hơn của 'old' (già/lớn tuổi). Trong ngữ cảnh gia đình, ta dịch là 'lớn tuổi hơn' hoặc 'nhiều tuổi hơn'." },
+            { type: "multiple_choice", script: "This is the most interesting book I have.", q: "Dịch câu sau sang tiếng Việt: 'This is the most interesting book I have.'", options: ["Đây là quyển sách thú vị nhất mà tôi có.", "Đây là quyển sách chán nhất mà tôi có.", "Quyển sách này thú vị hơn quyển kia."], a: "Đây là quyển sách thú vị nhất mà tôi có.", lesson: "'The most interesting' là so sánh nhất của tính từ dài 'interesting'. Nó dùng để nhấn mạnh đặc điểm nổi bật nhất trong tất cả những thứ đang có." },
+            { type: "multiple_choice", script: "Health is more important than money.", q: "Dịch câu sau sang tiếng Việt: 'Health is more important than money.'", options: ["Tiền bạc quan trọng hơn sức khỏe.", "Sức khỏe quan trọng nhất.", "Sức khỏe quan trọng hơn tiền bạc."], a: "Sức khỏe quan trọng hơn tiền bạc.", lesson: "'Important' là tính từ dài, đi với 'more' và 'than' để so sánh giữa hai đối tượng là 'Health' (sức khỏe) và 'Money' (tiền bạc)." },
+            { type: "multiple_choice", script: "It is hotter today than it was yesterday.", q: "Dịch câu sau sang tiếng Việt: 'It is hotter today than it was yesterday.'", options: ["Hôm nay nóng hơn hôm qua.", "Hôm nay lạnh hơn hôm qua.", "Hôm qua nóng hơn hôm nay."], a: "Hôm nay nóng hơn hôm qua.", lesson: "'Hotter' là so sánh hơn của 'hot'. Lưu ý khi dịch cần xác định đúng thứ tự thời gian: 'today' (hôm nay) đứng trước nên là đối tượng được so sánh." },
+            { type: "multiple_choice", script: "This is the cheapest shirt in the store.", q: "Dịch câu sau sang tiếng Việt: 'This is the cheapest shirt in the store.'", options: ["Đây là chiếc áo đắt nhất cửa hàng.", "Đây là chiếc áo rẻ nhất cửa hàng.", "Chiếc áo này rẻ hơn chiếc áo kia."], a: "Đây là chiếc áo rẻ nhất cửa hàng.", lesson: "'The cheapest' là so sánh nhất của 'cheap' (rẻ). Cụm 'in the store' giới hạn phạm vi so sánh trong phạm vi một cửa hàng." },
+            { type: "multiple_choice", script: "A plane is faster than a train.", q: "Dịch câu sau sang tiếng Việt: 'A plane is faster than a train.'", options: ["Máy bay nhanh hơn tàu hỏa.", "Tàu hỏa nhanh hơn máy bay.", "Máy bay chậm hơn tàu hỏa."], a: "Máy bay nhanh hơn tàu hỏa.", lesson: "'Faster' là so sánh hơn của 'fast' (nhanh). 'Plane' là máy bay, 'train' là tàu hỏa. Câu này khẳng định tốc độ của máy bay vượt trội hơn." },
+            { type: "multiple_choice", script: "He is the best student in my school.", q: "Dịch câu sau sang tiếng Việt: 'He is the best student in my school.'", options: ["Cậu ấy là học sinh giỏi nhất trường tôi.", "Cậu ấy là học sinh khá của trường tôi.", "Cậu ấy học giỏi hơn tôi."], a: "Cậu ấy là học sinh giỏi nhất trường tôi.", lesson: "'The best' là dạng so sánh nhất đặc biệt của tính từ 'good'. Nó dùng để chỉ người dẫn đầu, giỏi nhất trong một tập thể." },
+            { type: "multiple_choice", script: "Winter is colder than summer.", q: "Dịch câu sau sang tiếng Việt: 'Winter is colder than summer.'", options: ["Mùa hè nóng hơn mùa đông.", "Mùa đông lạnh nhất.", "Mùa đông lạnh hơn mùa hè."], a: "Mùa đông lạnh hơn mùa hè.", lesson: "'Winter' là mùa đông, 'summer' là mùa hè. 'Colder' là so sánh hơn của 'cold' (lạnh). Câu này so sánh thời tiết giữa hai mùa trong năm." },
+            { type: "multiple_choice", script: "A tiger is more dangerous than a cat.", q: "Dịch câu sau sang tiếng Việt: 'A tiger is more dangerous than a cat.'", options: ["Một con hổ thì hiền hơn một con mèo.", "Một con hổ thì nguy hiểm nhất.", "Một con hổ thì nguy hiểm hơn một con mèo."], a: "Một con hổ thì nguy hiểm hơn một con mèo.", lesson: "'More dangerous than' là so sánh hơn của tính từ dài 'dangerous' (nguy hiểm). Câu này so sánh mức độ hung dữ giữa hổ và mèo." },
+            { type: "multiple_choice", script: "This is the largest room in my house.", q: "Dịch câu sau sang tiếng Việt: 'This is the largest room in my house.'", options: ["Đây là căn phòng rộng nhất trong nhà tôi.", "Căn phòng này rộng hơn căn phòng kia.", "Đây là căn phòng nhỏ nhất trong nhà tôi."], a: "Đây là căn phòng rộng nhất trong nhà tôi.", lesson: "'The largest' là so sánh nhất của 'large' (rộng lớn). Vì 'large' kết thúc bằng đuôi 'e' nên ta chỉ thêm '-st' để tạo cấp độ nhất." },
+            { type: "multiple_choice", script: "This cake is more delicious than that one.", q: "Dịch câu sau sang tiếng Việt: 'This cake is more delicious than that one.'", options: ["Chiếc bánh này ngon nhất.", "Chiếc bánh này ngon hơn chiếc bánh kia.", "Chiếc bánh này dở hơn chiếc bánh kia."], a: "Chiếc bánh này ngon hơn chiếc bánh kia.", lesson: "'More delicious than' là cấu trúc so sánh hơn dành cho tính từ dài. 'That one' giúp tránh lặp lại từ 'cake' ở phía trước." },
+            { type: "multiple_choice", script: "The Nile is the longest river in the world.", q: "Dịch câu sau sang tiếng Việt: 'The Nile is the longest river in the world.'", options: ["Sông Nile là con sông dài nhất thế giới.", "Sông Nile dài hơn các con sông khác.", "Sông Nile là con sông ngắn nhất thế giới."], a: "Sông Nile là con sông dài nhất thế giới.", lesson: "'The longest' là so sánh nhất của tính từ ngắn 'long'. Đây là cách dùng phổ biến để nói về các kỷ lục địa lý." },
+            { type: "multiple_choice", script: "A car is faster than a bicycle.", q: "Dịch câu sau sang tiếng Việt: 'A car is faster than a bicycle.'", options: ["Xe đạp nhanh hơn ô tô.", "Ô tô nhanh nhất.", "Ô tô nhanh hơn xe đạp."], a: "Ô tô nhanh hơn xe đạp.", lesson: "'Faster' là dạng so sánh hơn của 'fast' (nhanh). Câu này so sánh tốc độ của hai phương tiện giao thông phổ biến." },
+            { type: "multiple_choice", script: "This phone is more modern than mine.", q: "Dịch câu sau sang tiếng Việt: 'This phone is more modern than mine.'", options: ["Điện thoại này hiện đại hơn điện thoại của tôi.", "Điện thoại này cũ hơn điện thoại của tôi.", "Đây là chiếc điện thoại hiện đại nhất."], a: "Điện thoại này hiện đại hơn điện thoại của tôi.", lesson: "'Modern' là tính từ dài, nên dùng 'more' để so sánh hơn. 'Mine' là đại từ sở hữu, tương đương với 'my phone'." },
+            { type: "multiple_choice", script: "Mount Everest is the highest mountain.", q: "Dịch câu sau sang tiếng Việt: 'Mount Everest is the highest mountain.'", options: ["Núi Everest cao hơn các núi khác.", "Núi Everest là ngọn núi cao nhất.", "Núi Everest là ngọn núi thấp nhất."], a: "Núi Everest là ngọn núi cao nhất.", lesson: "'The highest' là so sánh nhất của 'high' (cao). Cấu trúc này khẳng định vị trí số một về chiều cao của ngọn núi này." },
+            { type: "multiple_choice", script: "My house is smaller than your house.", q: "Dịch câu sau sang tiếng Việt: 'My house is smaller than your house.'", options: ["Nhà tôi nhỏ nhất.", "Nhà tôi to hơn nhà bạn.", "Nhà tôi nhỏ hơn nhà bạn."], a: "Nhà tôi nhỏ hơn nhà bạn.", lesson: "'Smaller' là so sánh hơn của tính từ ngắn 'small'. Câu này so sánh kích thước giữa hai ngôi nhà." },
+            { type: "multiple_choice", script: "This is the most difficult exercise in the book.", q: "Dịch câu sau sang tiếng Việt: 'This is the most difficult exercise in the book.'", options: ["Đây là bài tập khó nhất trong cuốn sách.", "Bài tập này khó hơn bài tập kia.", "Đây là bài tập dễ nhất trong cuốn sách."], a: "Đây là bài tập khó nhất trong cuốn sách.", lesson: "'The most difficult' dùng để chỉ mức độ khó cao nhất của một tính từ dài (difficult - 3 âm tiết)." },
+            { type: "multiple_choice", script: "She is the best student in my school.", q: "Dịch câu sau sang tiếng Việt: 'She is the best student in my school.'", options: ["Cô ấy là học sinh giỏi nhất trường tôi.", "Cô ấy là học sinh giỏi hơn tôi.", "Cô ấy là học sinh mới của trường tôi."], a: "Cô ấy là học sinh giỏi nhất trường tôi.", lesson: "'The best' là dạng so sánh nhất đặc biệt của 'good'. Nó được dùng để chỉ người xuất sắc nhất trong một tập thể." },
+            { type: "multiple_choice", script: "What is the comparative form of good?", q: "Dạng so sánh hơn của tính từ 'good' (tốt) là gì?", options: ["gooder", "better", "best"], a: "better", lesson: "'Good' là tính từ bất quy tắc. Ta không dùng 'gooder' mà phải đổi hoàn toàn sang 'better' khi muốn nói tốt hơn." },
+            { type: "multiple_choice", script: "What is the superlative form of bad?", q: "Dạng so sánh nhất của tính từ 'bad' (tệ/xấu) là gì?", options: ["the badest", "the worse", "the worst"], a: "the worst", lesson: "'Bad' biến đổi thành 'worse' (hơn) và 'the worst' (nhất). Lưu ý chữ cái cuối là 't' cho dạng so sánh nhất." },
+            { type: "multiple_choice", script: "Which word means more far?", q: "Hai dạng so sánh hơn của 'far' (xa) là gì?", options: ["farer / farest", "farther / further", "more far / most far"], a: "farther / further", lesson: "'Far' có hai cách viết khi so sánh hơn: 'farther' thường dùng cho khoảng cách địa lý, 'further' dùng cho cả khoảng cách và thông tin sâu hơn." },
+            { type: "multiple_choice", script: "What is the comparative form of little?", q: "Dạng so sánh hơn của 'little' (ít) là gì?", options: ["littler", "less", "the least"], a: "less", lesson: "Tính từ 'little' khi so sánh hơn không dùng 'littler' mà phải dùng 'less' (ít hơn). Ví dụ: less water (ít nước hơn)." },
+            { type: "multiple_choice", script: "What is the superlative form of many and much?", q: "Dạng so sánh nhất của 'many' và 'much' là gì?", options: ["the most", "more", "the maniest"], a: "the most", lesson: "Cả 'many' (đếm được) và 'much' (không đếm được) đều có chung dạng so sánh hơn là 'more' và so sánh nhất là 'the most'." },
+            { type: "multiple_choice", script: "Is 'better' comparative or superlative?", q: "Từ 'better' thuộc loại so sánh nào?", options: ["So sánh hơn", "So sánh nhất"], a: "So sánh hơn", lesson: "'Better' là so sánh hơn (tốt hơn). Dạng so sánh nhất của nó phải là 'the best' (tốt nhất)." },
+            { type: "multiple_choice", script: "Which is the correct superlative of far?", q: "Dạng so sánh nhất của 'far' được viết là:", options: ["the farthest", "the furthest", "Cả hai đều đúng"], a: "Cả hai đều đúng", lesson: "Tương tự như dạng so sánh hơn, 'far' có hai cách viết so sánh nhất là 'the farthest' và 'the furthest' đều đúng ngữ pháp." },
+            { type: "multiple_choice", script: "What does 'the least' mean?", q: "Từ 'the least' trong so sánh nhất có nghĩa là gì?", options: ["Nhiều nhất", "Ít nhất", "Tốt nhất"], a: "Ít nhất", lesson: "'The least' là dạng so sánh nhất của 'little'. Nó dùng để chỉ lượng nhỏ nhất hoặc mức độ thấp nhất." },
+            { type: "multiple_choice", script: "Identify the incorrect word: badder.", q: "Từ nào sau đây viết SAI ngữ pháp?", options: ["worse", "the worst", "badder"], a: "badder", lesson: "Vì 'bad' là tính từ bất quy tắc, nó không bao giờ thêm đuôi '-er'. Do đó, 'badder' là một từ không tồn tại trong tiếng Anh." },
+            { type: "multiple_choice", script: "Fill in the blank: more, the ___.", q: "Hoàn thành dãy biến đổi: many/much → more → ___?", options: ["the most", "the more", "the manyest"], a: "the most", lesson: "Dãy biến đổi đầy đủ là: many/much (nguyên thể) → more (so sánh hơn) → the most (so sánh nhất)." }
+          ],
+          medium: [
+            // 4 câu gốc (đã chỉnh)
+            { type: "error_correction", q: "He is the most tall boy in the class.", a: "tallest", lesson: "Tall là tính từ ngắn (1 âm tiết) → the + tallest. Không dùng 'most tall'.", error_word: "most tall" },
+            { type: "fill_blank", q: "This is the (difficult) ___ exercise in the textbook.", a: "most difficult", lesson: "Difficult là tính từ dài (3 âm tiết) → the most + tính từ." },
+            { type: "reorder", q: ["in", "Who", "tallest", "the", "class", "is", "?"], a: "Who is the tallest in the class ?", lesson: "Cấu trúc: Who + is + the + so sánh nhất + in + nơi chốn?" },
+            { type: "error_correction", q: "This is the worse day of my life.", a: "worst", lesson: "Bất quy tắc: Bad → the worst (tệ nhất). 'Worse' chỉ dùng khi có 'than'.", error_word: "worse" },
+
+            // Nhóm Sửa lỗi
+            { type: "error_correction", q: "She is the happyest girl I know.", a: "happiest", lesson: "Quy tắc với 'y': Đổi y thành i rồi thêm -est.", error_word: "happyest" },
+            { type: "error_correction", q: "A diamond is the harder than a stone.", a: "harder", lesson: "Có 'than' là so sánh hơn → không dùng 'the' trước tính từ.", error_word: "the harder" },
+            { type: "error_correction", q: "That is the most baddest movie ever.", a: "worst", lesson: "Bad → the worst (bất quy tắc). Không dùng most + baddest.", error_word: "most baddest" },
+            { type: "error_correction", q: "My brother is the more intelligent than me.", a: "more intelligent", lesson: "Có 'than' là so sánh hơn → không dùng 'the'.", error_word: "the more intelligent" },
+            { type: "error_correction", q: "He is the cleverest of the two brothers.", a: "cleverer", lesson: "Chỉ có 2 người (of the two) → dùng so sánh hơn (cleverer).", error_word: "cleverest" },
+
+            // Nhóm Sắp xếp
+            { type: "reorder", q: ["than", "Gold", "is", "expensive", "more", "silver", "."], a: "Gold is more expensive than silver .", lesson: "Tính từ dài: S + be + more + adj + than + S2." },
+            { type: "reorder", q: ["the", "What", "is", "expensive", "most", "car", "?"], a: "What is the most expensive car ?", lesson: "Câu hỏi: What + is + the most + adj dài + N ?" },
+            { type: "reorder", q: ["health", "Important", "is", "than", "more", "money", "."], a: "Health is more important than money .", lesson: "Tính từ dài: more + important + than." },
+            { type: "reorder", q: ["of", "the", "all", "He", "is", "fastest", "runners", "."], a: "He is the fastest of all runners .", lesson: "'of all' là dấu hiệu của so sánh nhất." },
+
+            // Nhóm Điền từ & Trắc nghiệm
+            { type: "fill_blank", q: "This house is (large) ___ than mine.", a: "larger", lesson: "Có 'than' → so sánh hơn. Large có đuôi e nên chỉ thêm r." },
+            { type: "fill_blank", q: "It was (heavy) ___ rain of the decade.", a: "the heaviest", lesson: "Nặng nhất thập kỷ → đổi y thành i rồi thêm -est." },
+            { type: "fill_blank", q: "Who is the (famous) ___ person in Viet Nam?", a: "most famous", lesson: "Tính từ dài → the most famous." },
+            { type: "fill_blank", q: "The weather today is (bad) ___ than yesterday.", a: "worse", lesson: "So sánh hơn bất quy tắc: bad → worse." },
+            { type: "multiple_choice", q: "Which of these three girls is ___?", options: ["the prettier", "the prettiest", "most pretty"], a: "the prettiest", lesson: "So sánh 3 người trở lên → dùng the prettiest (đổi y thành i + est)." },
+            { type: "multiple_choice", q: "Your English is getting ___ every day.", options: ["better", "the best", "gooder"], a: "better", lesson: "Đang tiến bộ dần → dùng so sánh hơn: better." },
+            { type: "multiple_choice", q: "This room is ___ than the other one.", options: ["the most comfortable", "more comfortable", "comfortabler"], a: "more comfortable", lesson: "Có 'than' → more + comfortable (tính từ dài)." },
+            { type: "fill_blank", q: "A car is (expensive) ___ than a motorbike.", a: "more expensive", lesson: "Có 'than' → more expensive (tính từ dài)." },
+            { type: "fill_blank", q: "He is (clever) ___ student in my class.", a: "the cleverest", lesson: "Clever (2 âm tiết, đuôi -er) tính như tính từ ngắn: the cleverest." },
+            { type: "fill_blank", q: "The building is (modern) ___ than the old one.", a: "more modern", lesson: "Tính từ dài → more modern." },
+            { type: "fill_blank", q: "This is the (narrow) ___ road in the village.", a: "narrowest", lesson: "Narrow tính như tính từ ngắn → the narrowest." },
+            { type: "multiple_choice", q: "The moon is ___ to the Earth than the sun.", options: ["closer", "the closest", "more close"], a: "closer", lesson: "Có 'than' → closer (short adjective)." },
+            { type: "multiple_choice", q: "This is ___ puzzle I have ever solved.", options: ["the most simple", "the simplest", "more simple"], a: "the simplest", lesson: "Simple tính như short adj → the simplest." },
+            { type: "multiple_choice", q: "Doing exercise is ___ than watching TV.", options: ["healthier", "the healthiest", "more healthy"], a: "healthier", lesson: "Healthy đổi y thành i + er." },
+            { type: "multiple_choice", q: "Who is ___ person in the world?", options: ["the bussiest", "the busiest", "busier"], a: "the busiest", lesson: "Busy đổi y thành i + est → the busiest." },
+            { type: "multiple_choice", q: "That laptop is ___ than this one.", options: ["the best", "better", "gooder"], a: "better", lesson: "So sánh hơn của good là better." },
+            // 20 câu Medium mới bổ sung
+            { type: "error_correction", q: "She is more taller than her sister.", a: "taller", lesson: "Tính từ ngắn không dùng 'more'. Chỉ cần taller (short adjective).", error_word: "more taller" },
+            { type: "fill_blank", q: "This is the (comfortable) ___ chair in the room.", a: "most comfortable", lesson: "Comfortable là tính từ dài → the most comfortable." },
+            { type: "reorder", q: ["the", "This", "is", "book", "interesting", "most", "."], a: "This is the most interesting book .", lesson: "Tính từ dài: the most + interesting + danh từ." },
+            { type: "multiple_choice", q: "Between the two shirts, this one is ___ .", options: ["cheaper", "the cheapest", "more cheap"], a: "cheaper", lesson: "Chỉ có 2 cái (between the two) → dùng so sánh hơn (cheaper)." },
+            { type: "error_correction", q: "He runs the fastest than all his friends.", a: "fastest", lesson: "Không dùng 'the fastest than'. Dùng 'the fastest of all' hoặc 'faster than'.", error_word: "the fastest than" },
+            { type: "fill_blank", q: "This way is (narrow) ___ than the other one.", a: "narrower", lesson: "Narrow tính như tính từ ngắn → narrower (thêm -er)." },
+            { type: "reorder", q: ["of", "She", "is", "the", "cleverest", "students", "all", "."], a: "She is the cleverest of all students .", lesson: "'of all' là dấu hiệu rõ của so sánh nhất." },
+            { type: "multiple_choice", q: "My new phone is much ___ than the old one.", options: ["more expensive", "the most expensive", "expensiver"], a: "more expensive", lesson: "Có 'than' + much → more expensive (tính từ dài)." },
+            { type: "error_correction", q: "This is the baddest mistake I have made.", a: "worst", lesson: "Bad có dạng bất quy tắc: the worst, không phải baddest.", error_word: "baddest" },
+            { type: "fill_blank", q: "She is (busy) ___ person I know.", a: "the busiest", lesson: "Busy đổi y thành i rồi thêm -est → the busiest." },
+            { type: "multiple_choice", q: "Which is ___ mountain in Vietnam?", options: ["the highest", "higher", "the most high"], a: "the highest", lesson: "So sánh nhất trong cả nước → the highest (short adjective)." },
+            { type: "reorder", q: ["than", "This", "problem", "is", "more", "difficult", "that", "one", "."], a: "This problem is more difficult than that one .", lesson: "Tính từ dài: more difficult than." },
+            { type: "error_correction", q: "He is the strongger boy in the team.", a: "strongest", lesson: "Strong là tính từ ngắn → the strongest (gấp đôi g).", error_word: "strongger" },
+            { type: "fill_blank", q: "The red dress is (pretty) ___ than the blue one.", a: "prettier", lesson: "Pretty đổi y thành i + er → prettier." },
+            { type: "multiple_choice", q: "This is one of ___ books I have ever read.", options: ["the most interesting", "more interesting", "the interestingest"], a: "the most interesting", lesson: "'One of the most + adj' để nói một trong những… nhất." },
+            { type: "error_correction", q: "My house is more smaller than yours.", a: "smaller", lesson: "Tính từ ngắn không dùng 'more'. Chỉ cần smaller.", error_word: "more smaller" },
+            { type: "fill_blank", q: "He speaks English (good) ___ than his brother.", a: "better", lesson: "Good bất quy tắc: so sánh hơn là better." },
+            { type: "reorder", q: ["the", "Who", "is", "youngest", "in", "family", "your", "?"], a: "Who is the youngest in your family ?", lesson: "Câu hỏi so sánh nhất: Who + is + the + adj-est + ... ?" },
+            { type: "multiple_choice", q: "This cake tastes ___ than the last one.", options: ["better", "the best", "more good"], a: "better", lesson: "Taste + better (so sánh hơn của good)." },
+            { type: "fill_blank", q: "This is the (far) ___ place I have ever been to.", a: "farthest", lesson: "Far có hai dạng: farther/farthest hoặc further/furthest. Thường dùng farthest cho khoảng cách.", error_word: "" },
             { type: "multiple_choice", q: "Mount Everest is ___ mountain in the world.", options: ["the highest", "higher", "the most high"], a: "the highest", lesson: "Có 'in the world' (trên thế giới) -> dùng so sánh nhất. High là tính từ ngắn nên thêm đuôi -est." },
             { type: "fill_blank", q: "This is (good) ___ movie I have ever seen.", a: "the best", lesson: "Cụm 'ever seen' (từng xem) -> dùng so sánh nhất. 'Good' đổi thành 'the best' chứ không thêm -est nha." },
             { type: "multiple_choice", q: "She is ___ student in the class.", options: ["the most smart", "the smartest", "smarter"], a: "the smartest", lesson: "So sánh nhất của tính từ ngắn (smart): the + tính từ + est." },
@@ -6650,65 +7962,6 @@ color:#5d4037;
             { type: "fill_blank", q: "Viết lại: This film is bad. That film is very bad. (That film is...)", a: "That film is worse", lesson: "Tệ hơn dùng từ đặc biệt 'worse' (so sánh hơn của bad)." },
             { type: "fill_blank", q: "Viết lại: Tea is 2$. Coffee is 5$. (Coffee is...)", a: "Coffee is more expensive than tea", lesson: "5$ đắt hơn 2$ -> dùng so sánh hơn với tính từ dài: 'more expensive than'." },
             { type: "fill_blank", q: "Viết lại: I am happy. She is very happy. (She is...)", a: "She is happier than me", lesson: "Cô ấy hạnh phúc hơn tôi: 'happier than' (đổi y thành i)." }
-          ],
-          medium: [
-            // 4 câu gốc (đã chỉnh)
-            { type: "error_correction", q: "He is the most tall boy in the class.", a: "tallest", lesson: "Tall là tính từ ngắn (1 âm tiết) → the + tallest. Không dùng 'most tall'.", error_word: "most tall" },
-            { type: "fill_blank", q: "This is the (difficult) ___ exercise in the textbook.", a: "most difficult", lesson: "Difficult là tính từ dài (3 âm tiết) → the most + tính từ." },
-            { type: "reorder", q: ["in", "Who", "tallest", "the", "class", "is", "?"], a: "Who is the tallest in the class ?", lesson: "Cấu trúc: Who + is + the + so sánh nhất + in + nơi chốn?" },
-            { type: "error_correction", q: "This is the worse day of my life.", a: "worst", lesson: "Bất quy tắc: Bad → the worst (tệ nhất). 'Worse' chỉ dùng khi có 'than'.", error_word: "worse" },
-
-            // Nhóm Sửa lỗi
-            { type: "error_correction", q: "She is the happyest girl I know.", a: "happiest", lesson: "Quy tắc với 'y': Đổi y thành i rồi thêm -est.", error_word: "happyest" },
-            { type: "error_correction", q: "A diamond is the harder than a stone.", a: "harder", lesson: "Có 'than' là so sánh hơn → không dùng 'the' trước tính từ.", error_word: "the harder" },
-            { type: "error_correction", q: "That is the most baddest movie ever.", a: "worst", lesson: "Bad → the worst (bất quy tắc). Không dùng most + baddest.", error_word: "most baddest" },
-            { type: "error_correction", q: "My brother is the more intelligent than me.", a: "more intelligent", lesson: "Có 'than' là so sánh hơn → không dùng 'the'.", error_word: "the more intelligent" },
-            { type: "error_correction", q: "He is the cleverest of the two brothers.", a: "cleverer", lesson: "Chỉ có 2 người (of the two) → dùng so sánh hơn (cleverer).", error_word: "cleverest" },
-
-            // Nhóm Sắp xếp
-            { type: "reorder", q: ["than", "Gold", "is", "expensive", "more", "silver", "."], a: "Gold is more expensive than silver .", lesson: "Tính từ dài: S + be + more + adj + than + S2." },
-            { type: "reorder", q: ["the", "What", "is", "expensive", "most", "car", "?"], a: "What is the most expensive car ?", lesson: "Câu hỏi: What + is + the most + adj dài + N ?" },
-            { type: "reorder", q: ["health", "Important", "is", "than", "more", "money", "."], a: "Health is more important than money .", lesson: "Tính từ dài: more + important + than." },
-            { type: "reorder", q: ["of", "the", "all", "He", "is", "fastest", "runners", "."], a: "He is the fastest of all runners .", lesson: "'of all' là dấu hiệu của so sánh nhất." },
-
-            // Nhóm Điền từ & Trắc nghiệm
-            { type: "fill_blank", q: "This house is (large) ___ than mine.", a: "larger", lesson: "Có 'than' → so sánh hơn. Large có đuôi e nên chỉ thêm r." },
-            { type: "fill_blank", q: "It was (heavy) ___ rain of the decade.", a: "the heaviest", lesson: "Nặng nhất thập kỷ → đổi y thành i rồi thêm -est." },
-            { type: "fill_blank", q: "Who is the (famous) ___ person in Viet Nam?", a: "most famous", lesson: "Tính từ dài → the most famous." },
-            { type: "fill_blank", q: "The weather today is (bad) ___ than yesterday.", a: "worse", lesson: "So sánh hơn bất quy tắc: bad → worse." },
-            { type: "multiple_choice", q: "Which of these three girls is ___?", options: ["the prettier", "the prettiest", "most pretty"], a: "the prettiest", lesson: "So sánh 3 người trở lên → dùng the prettiest (đổi y thành i + est)." },
-            { type: "multiple_choice", q: "Your English is getting ___ every day.", options: ["better", "the best", "gooder"], a: "better", lesson: "Đang tiến bộ dần → dùng so sánh hơn: better." },
-            { type: "multiple_choice", q: "This room is ___ than the other one.", options: ["the most comfortable", "more comfortable", "comfortabler"], a: "more comfortable", lesson: "Có 'than' → more + comfortable (tính từ dài)." },
-            { type: "fill_blank", q: "A car is (expensive) ___ than a motorbike.", a: "more expensive", lesson: "Có 'than' → more expensive (tính từ dài)." },
-            { type: "fill_blank", q: "He is (clever) ___ student in my class.", a: "the cleverest", lesson: "Clever (2 âm tiết, đuôi -er) tính như tính từ ngắn: the cleverest." },
-            { type: "fill_blank", q: "The building is (modern) ___ than the old one.", a: "more modern", lesson: "Tính từ dài → more modern." },
-            { type: "fill_blank", q: "This is the (narrow) ___ road in the village.", a: "narrowest", lesson: "Narrow tính như tính từ ngắn → the narrowest." },
-            { type: "multiple_choice", q: "The moon is ___ to the Earth than the sun.", options: ["closer", "the closest", "more close"], a: "closer", lesson: "Có 'than' → closer (short adjective)." },
-            { type: "multiple_choice", q: "This is ___ puzzle I have ever solved.", options: ["the most simple", "the simplest", "more simple"], a: "the simplest", lesson: "Simple tính như short adj → the simplest." },
-            { type: "multiple_choice", q: "Doing exercise is ___ than watching TV.", options: ["healthier", "the healthiest", "more healthy"], a: "healthier", lesson: "Healthy đổi y thành i + er." },
-            { type: "multiple_choice", q: "Who is ___ person in the world?", options: ["the bussiest", "the busiest", "busier"], a: "the busiest", lesson: "Busy đổi y thành i + est → the busiest." },
-            { type: "multiple_choice", q: "That laptop is ___ than this one.", options: ["the best", "better", "gooder"], a: "better", lesson: "So sánh hơn của good là better." },
-            // 20 câu Medium mới bổ sung
-            { type: "error_correction", q: "She is more taller than her sister.", a: "taller", lesson: "Tính từ ngắn không dùng 'more'. Chỉ cần taller (short adjective).", error_word: "more taller" },
-            { type: "fill_blank", q: "This is the (comfortable) ___ chair in the room.", a: "most comfortable", lesson: "Comfortable là tính từ dài → the most comfortable." },
-            { type: "reorder", q: ["the", "This", "is", "book", "interesting", "most", "."], a: "This is the most interesting book .", lesson: "Tính từ dài: the most + interesting + danh từ." },
-            { type: "multiple_choice", q: "Between the two shirts, this one is ___ .", options: ["cheaper", "the cheapest", "more cheap"], a: "cheaper", lesson: "Chỉ có 2 cái (between the two) → dùng so sánh hơn (cheaper)." },
-            { type: "error_correction", q: "He runs the fastest than all his friends.", a: "fastest", lesson: "Không dùng 'the fastest than'. Dùng 'the fastest of all' hoặc 'faster than'.", error_word: "the fastest than" },
-            { type: "fill_blank", q: "This way is (narrow) ___ than the other one.", a: "narrower", lesson: "Narrow tính như tính từ ngắn → narrower (thêm -er)." },
-            { type: "reorder", q: ["of", "She", "is", "the", "cleverest", "students", "all", "."], a: "She is the cleverest of all students .", lesson: "'of all' là dấu hiệu rõ của so sánh nhất." },
-            { type: "multiple_choice", q: "My new phone is much ___ than the old one.", options: ["more expensive", "the most expensive", "expensiver"], a: "more expensive", lesson: "Có 'than' + much → more expensive (tính từ dài)." },
-            { type: "error_correction", q: "This is the baddest mistake I have made.", a: "worst", lesson: "Bad có dạng bất quy tắc: the worst, không phải baddest.", error_word: "baddest" },
-            { type: "fill_blank", q: "She is (busy) ___ person I know.", a: "the busiest", lesson: "Busy đổi y thành i rồi thêm -est → the busiest." },
-            { type: "multiple_choice", q: "Which is ___ mountain in Vietnam?", options: ["the highest", "higher", "the most high"], a: "the highest", lesson: "So sánh nhất trong cả nước → the highest (short adjective)." },
-            { type: "reorder", q: ["than", "This", "problem", "is", "more", "difficult", "that", "one", "."], a: "This problem is more difficult than that one .", lesson: "Tính từ dài: more difficult than." },
-            { type: "error_correction", q: "He is the strongger boy in the team.", a: "strongest", lesson: "Strong là tính từ ngắn → the strongest (gấp đôi g).", error_word: "strongger" },
-            { type: "fill_blank", q: "The red dress is (pretty) ___ than the blue one.", a: "prettier", lesson: "Pretty đổi y thành i + er → prettier." },
-            { type: "multiple_choice", q: "This is one of ___ books I have ever read.", options: ["the most interesting", "more interesting", "the interestingest"], a: "the most interesting", lesson: "'One of the most + adj' để nói một trong những… nhất." },
-            { type: "error_correction", q: "My house is more smaller than yours.", a: "smaller", lesson: "Tính từ ngắn không dùng 'more'. Chỉ cần smaller.", error_word: "more smaller" },
-            { type: "fill_blank", q: "He speaks English (good) ___ than his brother.", a: "better", lesson: "Good bất quy tắc: so sánh hơn là better." },
-            { type: "reorder", q: ["the", "Who", "is", "youngest", "in", "family", "your", "?"], a: "Who is the youngest in your family ?", lesson: "Câu hỏi so sánh nhất: Who + is + the + adj-est + ... ?" },
-            { type: "multiple_choice", q: "This cake tastes ___ than the last one.", options: ["better", "the best", "more good"], a: "better", lesson: "Taste + better (so sánh hơn của good)." },
-            { type: "fill_blank", q: "This is the (far) ___ place I have ever been to.", a: "farthest", lesson: "Far có hai dạng: farther/farthest hoặc further/furthest. Thường dùng farthest cho khoảng cách.", error_word: "" }
           ],
           hard: [
             // 3 câu gốc (giữ nguyên để làm nền tảng)
@@ -10696,7 +11949,437 @@ color:#5d4037;
             { type: "fill_blank", script: "She said she would be there at 8.", q: "Complete the reported speech: She said she ___ be there at 8.", a: "would", lesson: "Câu tường thuật (Reported Speech): will → would khi tường thuật lại." },
           ]
         }
-      }
+      },
+      sentencetransformation: {
+        title: "Viết Lại Câu Wish", icon: "🎧",
+        theory: `
+<div style="font-family:'Plus Jakarta Sans',sans-serif;line-height:1.9;color:#1a1a1a;max-width:900px;margin:auto;">
+
+    <h2 style="text-align:center;font-weight:800;letter-spacing:-0.05em;margin-bottom:8px;">
+        WISH SENTENCES
+    </h2>
+
+    <p style="text-align:center;color:#666;font-style:italic;margin-bottom:40px;">
+        (Câu Mong Ước)
+    </p>
+
+    <!-- ĐỊNH NGHĨA -->
+    <div style="background:#f0f9ff;padding:28px;border-radius:24px;margin-bottom:30px;border:1px solid #bae6fd;">
+
+        <h3 style="margin-top:0;">🧠 I. ĐỊNH NGHĨA</h3>
+
+        <p>
+            <b>Wish</b> dùng để nói về:
+        </p>
+
+        <ul style="line-height:2;">
+            <li>Điều mình muốn khác với thực tế</li>
+            <li>Một sự tiếc nuối</li>
+            <li>Một mong muốn khó hoặc không có thật ở hiện tại</li>
+        </ul>
+
+        <p>
+            Khi dùng <b>wish</b>, động từ thường phải <b>lùi thì</b>.
+        </p>
+
+        <p>
+            → Hiện tại lùi về quá khứ.
+        </p>
+
+    </div>
+
+    <!-- CÔNG THỨC -->
+    <div style="background:#fef2f2;padding:28px;border-radius:24px;margin-bottom:30px;border:1px solid #fecaca;">
+
+        <h3 style="margin-top:0;">⚙️ II. CÔNG THỨC CƠ BẢN</h3>
+
+        <div style="background:white;padding:22px;border-radius:18px;border:1px solid #fecaca;line-height:2.1;">
+
+            <p>
+                <b>Khẳng định:</b><br>
+                S + wish(es) + S + V2/ed
+            </p>
+
+            <p>
+                <b>Động từ đặc biệt:</b>
+            </p>
+
+            <ul style="line-height:2;">
+                <li>can → could</li>
+                <li>will → would</li>
+                <li>am/is → were</li>
+            </ul>
+
+        </div>
+
+        <div style="background:#fff1f2;padding:18px;border-radius:16px;border-left:5px solid #f43f5e;margin-top:20px;">
+            <b>💡 Mẹo thần chú:</b><br>
+            "Wish = lùi thì + đổi ngược thực tế."
+        </div>
+
+    </div>
+
+    <!-- DẤU HIỆU -->
+    <div style="background:#fefce8;padding:28px;border-radius:24px;margin-bottom:30px;border:1px solid #fde68a;">
+
+        <h3 style="margin-top:0;">🔍 III. DẤU HIỆU NHẬN BIẾT</h3>
+
+        <p>
+            Trong đề viết lại câu, thường gặp:
+        </p>
+
+        <div style="background:white;padding:22px;border-radius:18px;border:1px solid #fde68a;line-height:2.2;">
+
+            ❌ don't / doesn't<br>
+            ❌ can't<br>
+            ❌ am not / isn't / aren't<br>
+            ❌ won't<br>
+            ❌ never have<br>
+
+        </div>
+
+        <p style="margin-top:20px;">
+            → Thường đổi sang cấu trúc <b>wish</b>.
+        </p>
+
+    </div>
+
+    <!-- CÁCH ĐỔI -->
+    <div style="background:#ecfeff;padding:28px;border-radius:24px;margin-bottom:30px;border:1px solid #67e8f9;">
+
+        <h3 style="margin-top:0;">🔄 IV. CÁCH ĐỔI SANG WISH</h3>
+
+        <div style="background:white;padding:22px;border-radius:18px;border:1px solid #a5f3fc;line-height:2.2;">
+
+            <p>
+                <b>Bước 1:</b> Viết chủ ngữ + wish/wishes
+            </p>
+
+            <p>
+                <b>Bước 2:</b> Đổi chủ ngữ phía sau
+            </p>
+
+            <p>
+                <b>Bước 3:</b> Lùi thì động từ
+            </p>
+
+            <p>
+                <b>Bước 4:</b> Đổi sang ý ngược lại
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- BẢNG LÙI THÌ -->
+    <div style="background:#f0fdf4;padding:28px;border-radius:24px;margin-bottom:30px;border:1px solid #bbf7d0;">
+
+        <h3 style="margin-top:0;">⏳ V. BẢNG LÙI THÌ QUAN TRỌNG</h3>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;">
+
+            <div style="background:white;padding:18px;border-radius:16px;border:1px solid #dcfce7;">
+                <p><b>have/has → had</b></p>
+            </div>
+
+            <div style="background:white;padding:18px;border-radius:16px;border:1px solid #dcfce7;">
+                <p><b>can → could</b></p>
+            </div>
+
+            <div style="background:white;padding:18px;border-radius:16px;border:1px solid #dcfce7;">
+                <p><b>will → would</b></p>
+            </div>
+
+            <div style="background:white;padding:18px;border-radius:16px;border:1px solid #dcfce7;">
+                <p><b>am/is → were</b></p>
+            </div>
+
+            <div style="background:white;padding:18px;border-radius:16px;border:1px solid #dcfce7;">
+                <p><b>do/does → did</b></p>
+            </div>
+
+            <div style="background:white;padding:18px;border-radius:16px;border:1px solid #dcfce7;">
+                <p><b>go → went</b></p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- VÍ DỤ -->
+    <div style="background:#fdf4ff;padding:28px;border-radius:24px;margin-bottom:30px;border:1px solid #f5d0fe;">
+
+        <h3 style="margin-top:0;">📚 VI. 12 VÍ DỤ QUAN TRỌNG</h3>
+
+        <div style="line-height:2.2;">
+
+            <p>
+                <b>1.</b> I don't have a car.<br>
+                → I wish I had a car.<br>
+                → Tôi ước tôi có xe hơi.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+            <p>
+                <b>2.</b> She can't swim.<br>
+                → She wishes she could swim.<br>
+                → Cô ấy ước cô ấy biết bơi.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+            <p>
+                <b>3.</b> They aren't rich.<br>
+                → They wish they were rich.<br>
+                → Họ ước họ giàu có.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+            <p>
+                <b>4.</b> He doesn't know English.<br>
+                → He wishes he knew English.<br>
+                → Anh ấy ước anh ấy biết tiếng Anh.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+            <p>
+                <b>5.</b> I am not taller.<br>
+                → I wish I were taller.<br>
+                → Tôi ước tôi cao hơn.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+            <p>
+                <b>6.</b> We don't live near the beach.<br>
+                → We wish we lived near the beach.<br>
+                → Chúng tôi ước sống gần bãi biển.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+            <p>
+                <b>7.</b> She won't help me.<br>
+                → I wish she would help me.<br>
+                → Tôi ước cô ấy sẽ giúp tôi.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+            <p>
+                <b>8.</b> It is very hot today.<br>
+                → I wish it were cooler.<br>
+                → Tôi ước hôm nay mát hơn.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+            <p>
+                <b>9.</b> My brother doesn't study hard.<br>
+                → I wish my brother studied harder.<br>
+                → Tôi ước anh tôi học chăm hơn.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+            <p>
+                <b>10.</b> I can't play the guitar.<br>
+                → I wish I could play the guitar.<br>
+                → Tôi ước tôi biết chơi guitar.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+            <p>
+                <b>11.</b> They don't have enough money.<br>
+                → They wish they had enough money.<br>
+                → Họ ước họ có đủ tiền.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+            <p>
+                <b>12.</b> She isn't here now.<br>
+                → I wish she were here now.<br>
+                → Tôi ước cô ấy đang ở đây.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- LỖI -->
+    <div style="background:#fff1f2;padding:28px;border-radius:24px;border-left:6px solid #f43f5e;">
+
+        <h3 style="margin-top:0;">🚨 VII. LỖI HỌC SINH HAY GẶP</h3>
+
+        <div style="background:white;padding:22px;border-radius:18px;border:1px solid #fecdd3;line-height:2.2;">
+
+            <p>
+                <b>❌ Lỗi 1: Không lùi thì</b><br><br>
+
+                ❌ I wish I have a car.<br>
+                ✔ I wish I had a car.<br>
+
+                → Sau wish phải lùi thì.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+            <p>
+                <b>❌ Lỗi 2: Dùng can thay vì could</b><br><br>
+
+                ❌ I wish I can swim.<br>
+                ✔ I wish I could swim.<br>
+
+                → can → could.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+            <p>
+                <b>❌ Lỗi 3: Dùng was thay vì were</b><br><br>
+
+                ❌ I wish I was taller.<br>
+                ✔ I wish I were taller.<br>
+
+                → Sau wish thường dùng were.
+            </p>
+
+            <hr style="border:none;border-top:1px dashed #ddd;margin:16px 0;">
+
+            <p>
+                <b>❌ Lỗi 4: Không đổi ngược nghĩa</b><br><br>
+
+                ❌ I don't have money.<br>
+                ❌ I wish I didn't have money.<br>
+                ✔ I wish I had money.<br>
+
+                → Wish phải đổi sang ý ngược lại.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+`,
+        levels: {
+          easy: [
+            { type: "multiple_choice", script: "I don't have a new car.", q: "Viết lại câu dùng 'I wish': 'I don't have a new car.' (Tôi không có một chiếc xe hơi mới.)", options: ["I wish I have a new car. (Ước tôi có một chiếc xe hơi mới.)", "I wish I had a new car. (Ước tôi có một chiếc xe hơi mới.)", "I wish I don't have a new car. (Ước tôi không có một chiếc xe hơi mới.)"], a: "I wish I had a new car. (Ước tôi có một chiếc xe hơi mới.)", lesson: "Câu ước ở hiện tại: Ta dùng 'S + wish + S + V2/ed' (lùi thì và đổi thể khẳng định thành phủ định hoặc ngược lại so với thực tế)." },
+            { type: "multiple_choice", script: "I don't have a new car.", q: "Viết lại câu dùng 'I wish': 'I don't have a new car.' (Tôi không có một chiếc xe hơi mới.)", options: ["I wish I have a new car. (Ước tôi có một chiếc xe hơi mới.)", "I wish I had a new car. (Ước tôi có một chiếc xe hơi mới.)", "I wish I don't have a new car. (Ước tôi không có một chiếc xe hơi mới.)"], a: "I wish I had a new car. (Ước tôi có một chiếc xe hơi mới.)", lesson: "Câu ước ở hiện tại diễn tả mong muốn trái với thực tế: 1. Lùi thì Hiện tại đơn (don't have) về Quá khứ đơn (had). 2. Đổi thể Phủ định thành Khẳng định." },
+            { type: "multiple_choice", script: "I am not tall.", q: "Viết lại câu dùng 'I wish': 'I am not tall.' (Tôi không cao.)", options: ["I wish I am tall. (Ước gì tôi cao.)", "I wish I were tall. (Ước gì tôi cao.)", "I wish I was not tall. (Ước gì tôi không cao.)"], a: "I wish I were tall. (Ước gì tôi cao.)", lesson: "Khi dùng câu ước, động từ TO BE 'am/is/are' sẽ lùi thì thành 'WERE' cho tất cả các ngôi (I, he, she, it, you, we, they) để nhấn mạnh sự không có thực." },
+            { type: "multiple_choice", script: "It rains today.", q: "Viết lại câu dùng 'I wish': 'It rains today.' (Hôm nay trời mưa.)", options: ["I wish it didn't rain today. (Ước gì hôm nay trời không mưa.)", "I wish it doesn't rain today. (Ước gì hôm nay trời không mưa.)", "I wish it rained today. (Ước gì hôm nay trời mưa.)"], a: "I wish it didn't rain today. (Ước gì hôm nay trời không mưa.)", lesson: "Thực tế trời đang mưa (khẳng định), ta ước trời không mưa (phủ định). Lùi thì Hiện tại đơn (rains) về Quá khứ đơn dạng phủ định là 'didn't + V-nguyên thể'." },
+            { type: "multiple_choice", script: "I can't swim.", q: "Viết lại câu dùng 'I wish': 'I can't swim.' (Tôi không biết bơi.)", options: ["I wish I can swim. (Ước gì tôi biết bơi.)", "I wish I couldn't swim. (Ước gì tôi không biết bơi.)", "I wish I could swim. (Ước gì tôi biết bơi.)"], a: "I wish I could swim. (Ước gì tôi biết bơi.)", lesson: "Với động từ khuyết thiếu: Ta lùi 'CAN' thành 'COULD'. Thực tế là 'can't' (không thể) nên câu ước đổi thành 'could' (có thể)." },
+            { type: "multiple_choice", script: "She doesn't like me.", q: "Viết lại câu dùng 'I wish': 'She doesn't like me.' (Cô ấy không thích tôi.)", options: ["I wish she likes me. (Ước gì cô ấy thích tôi.)", "I wish she liked me. (Ước gì cô ấy thích tôi.)", "I wish she didn't like me. (Ước gì cô ấy không thích tôi.)"], a: "I wish she liked me. (Ước gì cô ấy thích tôi.)", lesson: "Quy tắc: Hiện tại phủ định (doesn't like) -> Quá khứ khẳng định (liked). Ta bỏ trợ động từ 'doesn't' và thêm đuôi 'ed' vào động từ chính." },
+            { type: "multiple_choice", script: "I have to work today.", q: "Viết lại câu dùng 'I wish': 'I have to work today.' (Tôi phải đi làm hôm nay.)", options: ["I wish I didn't have to work today. (Ước gì hôm nay tôi không phải đi làm.)", "I wish I don't have to work today. (Ước gì hôm nay tôi không phải đi làm.)", "I wish I had to work today. (Ước gì hôm nay tôi phải đi làm.)"], a: "I wish I didn't have to work today. (Ước gì hôm nay tôi không phải đi làm.)", lesson: "Để ước ngược lại với việc 'phải làm' (have to), ta dùng dạng phủ định ở quá khứ là 'didn't have to' (không phải làm)." },
+            { type: "multiple_choice", script: "He doesn't live near here.", q: "Viết lại câu dùng 'I wish': 'He doesn't live near here.' (Anh ấy không sống gần đây.)", options: ["I wish he lives near here. (Ước gì anh ấy sống gần đây.)", "I wish he lived near here. (Ước gì anh ấy sống gần đây.)", "I wish he did live near here. (Ước gì anh ấy sống gần đây.)"], a: "I wish he lived near here. (Ước gì anh ấy sống gần đây.)", lesson: "Thực tế là 'không sống' (phủ định), ta ước 'có sống' (khẳng định). Lùi động từ 'live' sang cột 2 (V2) là 'lived'." },
+            { type: "multiple_choice", script: "I am poor.", q: "Viết lại câu dùng 'I wish': 'I am poor.' (Tôi nghèo.)", options: ["I wish I am rich. (Ước gì tôi giàu.)", "I wish I was not poor. (Ước gì tôi không nghèo.)", "I wish I were rich. (Ước gì tôi giàu.)"], a: "I wish I were rich. (Ước gì tôi giàu.)", lesson: "Khi ước bằng cách dùng từ trái nghĩa (nghèo -> giàu), ta vẫn phải tuân thủ lùi thì TO BE 'am' thành 'were' cho đúng cấu trúc câu ước hiện tại." },
+            { type: "multiple_choice", script: "They make a lot of noise.", q: "Viết lại câu dùng 'I wish': 'They make a lot of noise.' (Họ làm ồn quá nhiều.)", options: ["I wish they didn't make a lot of noise. (Ước gì họ không làm ồn nhiều.)", "I wish they don't make a lot of noise. (Ước gì họ không làm ồn nhiều.)", "I wish they made a lot of noise. (Ước gì họ làm ồn nhiều.)"], a: "I wish they didn't make a lot of noise. (Ước gì họ không làm ồn nhiều.)", lesson: "Thực tế họ đang làm ồn (khẳng định), câu ước phải là không làm ồn (phủ định). Lùi thì Hiện tại đơn 'make' thành Quá khứ đơn phủ định 'didn't make'." },
+            { type: "multiple_choice", script: "I don't know the answer.", q: "Viết lại câu dùng 'I wish': 'I don't know the answer.' (Tôi không biết câu trả lời.)", options: ["I wish I know the answer. (Ước gì tôi biết câu trả lời.)", "I wish I knew the answer. (Ước gì tôi biết câu trả lời.)", "I wish I did know the answer. (Ước gì tôi biết câu trả lời.)"], a: "I wish I knew the answer. (Ước gì tôi biết câu trả lời.)", lesson: "Lùi thì và đổi thể: 'don't know' (hiện tại phủ định) chuyển sang khẳng định ở quá khứ. Động từ bất quy tắc của 'know' là 'knew'." },
+            { type: "multiple_choice", script: "I have a lot of homework.", q: "Viết lại câu dùng 'I wish': 'I have a lot of homework.' (Tôi có rất nhiều bài tập về nhà.)", options: ["I wish I didn't have a lot of homework. (Ước gì tôi không có nhiều bài tập về nhà.)", "I wish I don't have a lot of homework. (Ước gì tôi không có nhiều bài tập.)", "I wish I had a lot of homework. (Ước gì tôi có nhiều bài tập.)"], a: "I wish I didn't have a lot of homework. (Ước gì tôi không có nhiều bài tập về nhà.)", lesson: "Quy tắc câu ước hiện tại: 1. Đổi thể Khẳng định (have) sang Phủ định (didn't have). 2. Lùi thì từ Hiện tại đơn về Quá khứ đơn. Cấu trúc: S + wish + S + didn't + V-inf." },
+            { type: "multiple_choice", script: "My friends don't visit me.", q: "Viết lại câu dùng 'I wish': 'My friends don't visit me.' (Bạn bè không đến thăm tôi.)", options: ["I wish my friends visit me. (Ước gì bạn bè đến thăm tôi.)", "I wish my friends visited me. (Ước gì bạn bè đến thăm tôi.)", "I wish my friends didn't visit me. (Ước gì bạn bè không đến thăm tôi.)"], a: "I wish my friends visited me. (Ước gì bạn bè đến thăm tôi.)", lesson: "Quy tắc câu ước hiện tại: 1. Đổi thể Phủ định (don't visit) sang Khẳng định. 2. Lùi thì từ Hiện tại đơn về Quá khứ đơn (V2/ed). Vậy 'visit' trở thành 'visited'." },
+            { type: "multiple_choice", script: "The weather is very hot.", q: "Viết lại câu dùng 'I wish': 'The weather is very hot.' (Thời tiết rất nóng.)", options: ["I wish the weather is not hot. (Ước gì thời tiết không nóng.)", "I wish the weather were not hot. (Ước gì thời tiết không nóng.)", "I wish the weather was hot. (Ước gì thời tiết nóng.)"], a: "I wish the weather were not hot. (Ước gì thời tiết không nóng.)", lesson: "Với động từ TO BE: 1. Lùi 'is' thành 'were' (dùng cho mọi chủ ngữ trong câu ước). 2. Đổi thể Khẳng định sang Phủ định (thêm 'not') để thể hiện mong muốn trái ngược thực tế." },
+            { type: "multiple_choice", script: "I don't have enough money.", q: "Viết lại câu dùng 'I wish': 'I don't have enough money.' (Tôi không có đủ tiền.)", options: ["I wish I had enough money. (Ước gì tôi có đủ tiền.)", "I wish I have enough money. (Ước gì tôi có đủ tiền.)", "I wish I didn't have enough money. (Ước gì tôi không có đủ tiền.)"], a: "I wish I had enough money. (Ước gì tôi có đủ tiền.)", lesson: "Quy tắc: 1. Đổi 'don't have' (phủ định) sang khẳng định. 2. Lùi thì Hiện tại về Quá khứ: 'have' lùi thành 'had'. Đây là mong ước có nhiều tiền hơn thực tế hiện tại." },
+            { type: "multiple_choice", script: "I live far from school.", q: "Viết lại câu dùng 'I wish': 'I live far from school.' (Tôi nhà xa trường.)", options: ["I wish I lived near school. (Ước gì tôi ở gần trường.)", "I wish I live near school. (Ước gì tôi ở gần trường.)", "I wish I don't live far from school. (Ước gì tôi không ở xa trường.)"], a: "I wish I lived near school. (Ước gì tôi ở gần trường.)", lesson: "Cách làm sáng tạo: 1. Lùi thì 'live' thành 'lived'. 2. Sử dụng tính từ trái nghĩa 'near' (gần) thay cho 'far' (xa) để giữ nguyên ý nghĩa mong ước tốt đẹp hơn thực tế." },
+            { type: "multiple_choice", script: "He is always late for class.", q: "Viết lại câu dùng 'I wish': 'He is always late for class.' (Cậu ấy luôn đi học muộn.)", options: ["I wish he is not late for class. (Ước gì cậu ấy không muộn học.)", "I wish he were not late for class. (Ước gì cậu ấy không đi học muộn.)", "I wish he was late for class. (Ước gì cậu ấy đi học muộn.)"], a: "I wish he were not late for class. (Ước gì cậu ấy không đi học muộn.)", lesson: "Quy tắc lùi thì với 'is': Luôn chuyển thành 'were' trong câu ước hiện tại. Thực tế là khẳng định (late), ta đổi sang phủ định (not late) để thể hiện sự phàn nàn/mong muốn thay đổi." },
+            { type: "multiple_choice", script: "I don't understand the lesson.", q: "Viết lại câu dùng 'I wish': 'I don't understand the lesson.' (Tôi không hiểu bài giảng.)", options: ["I wish I understood the lesson. (Ước gì tôi hiểu bài giảng.)", "I wish I understand the lesson. (Ước gì tôi hiểu bài giảng.)", "I wish I didn't understand the lesson. (Ước gì tôi không hiểu bài.)"], a: "I wish I understood the lesson. (Ước gì tôi hiểu bài giảng.)", lesson: "Các bước biến đổi: 1. Bỏ phủ định 'don't'. 2. Lùi động từ chính 'understand' về quá khứ đơn. Vì 'understand' là động từ bất quy tắc nên ta chuyển thành 'understood'." },
+            { type: "multiple_choice", script: "My sister is not here.", q: "Viết lại câu dùng 'I wish': 'My sister is not here.' (Chị gái tôi không có ở đây.)", options: ["I wish my sister is here. (Ước gì chị gái tôi ở đây.)", "I wish my sister was not here. (Ước gì chị gái tôi không ở đây.)", "I wish my sister were here. (Ước gì chị gái tôi có mặt ở đây.)"], a: "I wish my sister were here. (Ước gì chị gái tôi có mặt ở đây.)", lesson: "Quy tắc: 1. Đổi 'is not' (phủ định) sang khẳng định. 2. Trong câu ước trái với hiện tại, TO BE luôn được chia là 'were' cho mọi ngôi chủ ngữ (I/You/We/They/He/She/It)." },
+            { type: "multiple_choice", script: "I can't go to the party.", q: "Viết lại câu dùng 'I wish': 'I can't go to the party.' (Tôi không thể đi dự tiệc.)", options: ["I wish I can go to the party. (Ước gì tôi có thể đi dự tiệc.)", "I wish I could go to the party. (Ước gì tôi có thể đi dự tiệc.)", "I wish I couldn't go to the party. (Ước gì tôi không thể đi dự tiệc.)"], a: "I wish I could go to the party. (Ước gì tôi có thể đi dự tiệc.)", lesson: "Với Modal Verbs (Động từ khuyết thiếu): 1. Đổi phủ định 'can't' sang khẳng định. 2. Lùi thì 'can' về quá khứ thành 'could'. Công thức: S + wish + S + could + V-inf." },
+            { type: "multiple_choice", script: "It is a cold day.", q: "Viết lại câu dùng 'I wish': 'It is a cold day.' (Hôm nay là một ngày lạnh.)", options: ["I wish it were not a cold day. (Ước gì hôm nay không phải là một ngày lạnh.)", "I wish it is a warm day. (Ước gì hôm nay trời ấm.)", "I wish it were a cold day. (Ước gì hôm nay trời lạnh.)"], a: "I wish it were not a cold day. (Ước gì hôm nay không phải là một ngày lạnh.)", lesson: "Quy tắc 'Lùi thì - Đổi thể': Hiện tại khẳng định (is) lùi về Quá khứ phủ định (were not). Dùng 'were' cho chủ ngữ 'it' giúp câu văn đúng cấu trúc giả định của câu ước." },
+            { type: "multiple_choice", script: "I don't speak English well.", q: "Viết lại câu dùng 'I wish': 'I don't speak English well.' (Tôi không nói tiếng Anh giỏi.)", options: ["I wish I speak English well. (Ước gì tôi nói tiếng Anh giỏi.)", "I wish I spoke English well. (Ước gì tôi nói tiếng Anh giỏi.)", "I wish I didn't speak English well. (Ước gì tôi không nói tiếng Anh giỏi.)"], a: "I wish I spoke English well. (Ước gì tôi nói tiếng Anh giỏi.)", lesson: "Quy tắc Lùi thì - Đổi thể: 1. Đổi phủ định (don't speak) sang khẳng định. 2. Lùi 'speak' về quá khứ đơn (V2) là 'spoke'. Đây là động từ bất quy tắc các bạn cần nhớ." },
+            { type: "multiple_choice", script: "My computer is broken.", q: "Viết lại câu dùng 'I wish': 'My computer is broken.' (Máy tính của tôi bị hỏng.)", options: ["I wish my computer were not broken. (Ước gì máy tính của tôi không bị hỏng.)", "I wish my computer is not broken. (Ước gì máy tính của tôi không hỏng.)", "I wish my computer was broken. (Ước gì máy tính của tôi bị hỏng.)"], a: "I wish my computer were not broken. (Ước gì máy tính của tôi không bị hỏng.)", lesson: "Quy tắc với TO BE: 1. Lùi 'is' thành 'were' (dùng cho mọi ngôi). 2. Đổi từ khẳng định (broken) sang phủ định (not broken) để thể hiện mong ước ngược lại thực tế." },
+            { type: "multiple_choice", script: "I have to stay at home.", q: "Viết lại câu dùng 'I wish': 'I have to stay at home.' (Tôi phải ở nhà.)", options: ["I wish I didn't have to stay at home. (Ước gì tôi không phải ở nhà.)", "I wish I don't have to stay at home. (Ước gì tôi không phải ở nhà.)", "I wish I had to stay at home. (Ước gì tôi phải ở nhà.)"], a: "I wish I didn't have to stay at home. (Ước gì tôi không phải ở nhà.)", lesson: "Biến đổi cụm 'have to' (phải làm gì): Lùi thì về quá khứ và đổi sang phủ định thành 'didn't have to' (không phải làm gì)." },
+            { type: "multiple_choice", script: "He doesn't feel well today.", q: "Viết lại câu dùng 'I wish': 'He doesn't feel well today.' (Hôm nay anh ấy không được khỏe.)", options: ["I wish he feels well today. (Ước gì anh ấy khỏe.)", "I wish he felt well today. (Ước gì hôm nay anh ấy khỏe.)", "I wish he didn't feel well today. (Ước gì hôm nay anh ấy không khỏe.)"], a: "I wish he felt well today. (Ước gì hôm nay anh ấy khỏe.)", lesson: "Các bước biến đổi: 1. Bỏ phủ định 'doesn't'. 2. Lùi động từ chính 'feel' về cột 2 (V2) là 'felt'. Mong ước trái ngược với hiện trạng sức khỏe của anh ấy." },
+            { type: "multiple_choice", script: "I don't have a big house.", q: "Viết lại câu dùng 'I wish': 'I don't have a big house.' (Tôi không có một ngôi nhà lớn.)", options: ["I wish I had a big house. (Ước gì tôi có một ngôi nhà lớn.)", "I wish I have a big house. (Ước gì tôi có một ngôi nhà lớn.)", "I wish I didn't have a big house. (Ước gì tôi không có ngôi nhà lớn.)"], a: "I wish I had a big house. (Ước gì tôi có một ngôi nhà lớn.)", lesson: "Quy tắc cơ bản: Đổi phủ định (don't have) sang khẳng định và lùi thì 'have' thành 'had'. Cấu trúc: S + wish + S + V2/ed." },
+            { type: "multiple_choice", script: "They are very busy now.", q: "Viết lại câu dùng 'I wish': 'They are very busy now.' (Bây giờ họ rất bận.)", options: ["I wish they are not busy now. (Ước gì bây giờ họ không bận.)", "I wish they were not busy now. (Ước gì bây giờ họ không bận.)", "I wish they were busy now. (Ước gì bây giờ họ bận.)"], a: "I wish they were not busy now. (Ước gì bây giờ họ không bận.)", lesson: "Với động từ 'are': Lùi thì thành 'were' và thêm 'not' để biến câu khẳng định thành phủ định, thể hiện mong ước họ rảnh rỗi hơn." },
+            { type: "multiple_choice", script: "I can't play the guitar.", q: "Viết lại câu dùng 'I wish': 'I can't play the guitar.' (Tôi không biết chơi đàn ghi-ta.)", options: ["I wish I can play the guitar. (Ước gì tôi biết chơi ghi-ta.)", "I wish I could play the guitar. (Ước gì tôi biết chơi ghi-ta.)", "I wish I couldn't play the guitar. (Ước gì tôi không biết chơi ghi-ta.)"], a: "I wish I could play the guitar. (Ước gì tôi biết chơi ghi-ta.)", lesson: "Lùi thì với Modal Verbs: 'can't' lùi về 'could'. Vì thực tế là 'không thể' nên câu ước phải là 'có thể'." },
+            { type: "multiple_choice", script: "It is very noisy here.", q: "Viết lại câu dùng 'I wish': 'It is very noisy here.' (Ở đây rất ồn ào.)", options: ["I wish it were quiet here. (Ước gì ở đây yên tĩnh.)", "I wish it is quiet here. (Ước gì ở đây yên tĩnh.)", "I wish it were noisy here. (Ước gì ở đây ồn ào.)"], a: "I wish it were quiet here. (Ước gì ở đây yên tĩnh.)", lesson: "Cách làm hay: 1. Lùi 'is' thành 'were'. 2. Sử dụng tính từ trái nghĩa 'quiet' (yên tĩnh) thay cho 'noisy' (ồn ào) để câu ước mang nghĩa tích cực hơn thực tế." },
+            { type: "multiple_choice", script: "We don't live in a city.", q: "Viết lại câu dùng 'I wish': 'We don't live in a city.' (Chúng tôi không sống ở thành phố.)", options: ["I wish we live in a city. (Ước gì chúng tôi sống ở thành phố.)", "I wish we lived in a city. (Ước gì chúng tôi sống ở thành phố.)", "I wish we didn't live in a city. (Ước gì chúng tôi không sống ở thành phố.)"], a: "I wish we lived in a city. (Ước gì chúng tôi sống ở thành phố.)", lesson: "Đổi thể và lùi thì: 'don't live' (phủ định hiện tại) chuyển thành 'lived' (khẳng định quá khứ). Đây là mong ước thay đổi nơi ở hiện tại." },
+            { type: "multiple_choice", script: "I forget her phone number.", q: "Viết lại câu dùng 'I wish': 'I forget her phone number.' (Tôi quên số điện thoại của cô ấy.)", options: ["I wish I didn't forget her phone number. (Ước gì tôi không quên số điện thoại của cô ấy.)", "I wish I don't forget her phone number. (Ước gì tôi không quên số điện thoại của cô ấy.)", "I wish I forgot her phone number. (Ước gì tôi quên số điện thoại của cô ấy.)"], a: "I wish I didn't forget her phone number. (Ước gì tôi không quên số điện thoại của cô ấy.)", lesson: "Thực tế là khẳng định (forget), ta ước phủ định (không quên). Lùi thì Hiện tại đơn về Quá khứ đơn dạng phủ định: 'didn't + forget' (V-inf)." }
+          ],
+          medium: [
+            { type: "multiple_choice", script: "I don't have a new car.", q: "Rewrite using 'I wish': 'I don't have a new car.'", options: ["I wish I have a new car.", "I wish I had a new car.", "I wish I don't have a new car."], a: "I wish I had a new car.", lesson: "Quy tắc cốt lõi: 1. Đổi thể (Phủ định 'don't have' -> Khẳng định). 2. Lùi thì (Hiện tại đơn -> Quá khứ đơn 'had'). Câu ước hiện tại dùng V2/ed để diễn tả điều không có thật." },
+            { type: "multiple_choice", script: "She is very lazy.", q: "Rewrite using 'I wish': 'She is very lazy.'", options: ["I wish she were hardworking.", "I wish she is hardworking.", "I wish she were lazy."], a: "I wish she were hardworking.", lesson: "Kỹ thuật nâng cao: 1. Lùi 'is' thành 'were'. 2. Sử dụng tính từ trái nghĩa (lazy -> hardworking) để tạo câu ước mang ý nghĩa tích cực mà không cần dùng 'not'." },
+            { type: "multiple_choice", script: "I can't go out with you.", q: "Rewrite using 'I wish': 'I can't go out with you.'", options: ["I wish I can go out with you.", "I wish I couldn't go out with you.", "I wish I could go out with you."], a: "I wish I could go out with you.", lesson: "Biến đổi với động từ khuyết thiếu: 'Can't' (không thể) phải lùi thì thành 'Could' (có thể). Luôn nhớ: Câu ước hiện tại phải ngược với thực tế." },
+            { type: "multiple_choice", script: "They don't know the way to the station.", q: "Rewrite using 'I wish': 'They don't know the way to the station.'", options: ["I wish they knew the way to the station.", "I wish they know the way to the station.", "I wish they didn't know the way to the station."], a: "I wish they knew the way to the station.", lesson: "Động từ bất quy tắc: 'don't know' là phủ định hiện tại, ta chuyển thành khẳng định quá khứ. Cột 2 của 'know' là 'knew'. Tránh nhầm lẫn với 'known' (cột 3)." },
+            { type: "multiple_choice", script: "It is so cold today.", q: "Rewrite using 'I wish': 'It is so cold today.'", options: ["I wish it is warm today.", "I wish it were not cold today.", "I wish it were cold today."], a: "I wish it were not cold today.", lesson: "Quy tắc TO BE: Thực tế 'is' (khẳng định) thì câu ước dùng 'were not' (phủ định). Trong câu ước loại này, 'were' được ưu tiên dùng cho tất cả các ngôi chủ ngữ." },
+            { type: "multiple_choice", script: "He smokes too much.", q: "Rewrite using 'I wish': 'He smokes too much.'", options: ["I wish he didn't smoke too much.", "I wish he doesn't smoke too much.", "I wish he smoked too much."], a: "I wish he didn't smoke too much.", lesson: "Diễn tả sự phàn nàn: Thực tế là 'smokes' (khẳng định), ta ước anh ấy 'không hút' (phủ định). Công thức: didn't + V-inf (nguyên thể)." },
+            { type: "multiple_choice", script: "I am not a millionaire.", q: "Rewrite using 'I wish': 'I am not a millionaire.'", options: ["I wish I am a millionaire.", "I wish I were a millionaire.", "I wish I was not a millionaire."], a: "I wish I were a millionaire.", lesson: "Giả định không có thật: 'am not' (phủ định) -> 'were' (khẳng định). Đây là cấu trúc chuẩn để nói về những ước muốn xa rời thực tế hiện tại." },
+            { type: "multiple_choice", script: "You are not here with me.", q: "Rewrite using 'I wish': 'You are not here with me.'", options: ["I wish you are here with me.", "I wish you were here with me.", "I wish you were not here with me."], a: "I wish you were here with me.", lesson: "Sự thay đổi trạng thái: 'are not' lùi thì và đổi thể thành 'were'. Đáp án đúng phải phản ánh mong muốn bạn có mặt ở đây ngay lúc này." },
+            { type: "multiple_choice", script: "I have to get up early.", q: "Rewrite using 'I wish': 'I have to get up early.'", options: ["I wish I didn't have to get up early.", "I wish I don't have to get up early.", "I wish I had to get up early."], a: "I wish I didn't have to get up early.", lesson: "Phủ định hóa nghĩa vụ: 'have to' (phải làm) lùi về quá khứ và thêm 'not' thành 'didn't have to' (không phải làm). Lưu ý: 'didn't' đã mang nghĩa quá khứ nên 'have' giữ nguyên." },
+            { type: "multiple_choice", script: "The neighbors make too much noise.", q: "Rewrite using 'I wish': 'The neighbors make too much noise.'", options: ["I wish the neighbors didn't make too much noise.", "I wish the neighbors don't make too much noise.", "I wish the neighbors made too much noise."], a: "I wish the neighbors didn't make too much noise.", lesson: "Lùi thì và đổi thể: Hiện tại khẳng định 'make' lùi về quá khứ phủ định 'didn't make'. Đây là cách dùng phổ biến để phàn nàn về một tình huống khó chịu." },
+            { type: "multiple_choice", script: "I don't know how to dance.", q: "Rewrite using 'I wish': 'I don't know how to dance.'", options: ["I wish I know how to dance.", "I wish I knew how to dance.", "I wish I didn't know how to dance."], a: "I wish I knew how to dance.", lesson: "Step 1: Change negative (don't know) to affirmative. Step 2: Backshift 'know' to its past form 'knew'. Remember: Present simple becomes Past simple in wish clauses." },
+            { type: "multiple_choice", script: "My sister lives so far away.", q: "Rewrite using 'I wish': 'My sister lives so far away.'", options: ["I wish my sister lived near me.", "I wish my sister lives near me.", "I wish my sister didn't live near me."], a: "I wish my sister lived near me.", lesson: "Strategy: Backshift the verb 'live' to 'lived' and use the opposite adverb 'near' to express a positive desire contrary to the current reality." },
+            { type: "multiple_choice", script: "I am too short to play basketball.", q: "Rewrite using 'I wish': 'I am too short to play basketball.'", options: ["I wish I am taller.", "I wish I were taller.", "I wish I were not taller."], a: "I wish I were taller.", lesson: "Key Rule: For 'to be', always use 'WERE' in present wish structures. Switch the adjective 'short' to its opposite 'taller' to create a meaningful wish." },
+            { type: "multiple_choice", script: "They don't help me with the chores.", q: "Rewrite using 'I wish': 'They don't help me with the chores.'", options: ["I wish they help me with the chores.", "I wish they helped me with the chores.", "I wish they didn't help me with the chores."], a: "I wish they helped me with the chores.", lesson: "Transformation: Change the negative 'don't help' to affirmative and backshift the main verb 'help' to 'helped'. This expresses a desire for a change in behavior." },
+            { type: "multiple_choice", script: "I can't speak Japanese.", q: "Rewrite using 'I wish': 'I can't speak Japanese.'", options: ["I wish I could speak Japanese.", "I wish I can speak Japanese.", "I wish I couldn't speak Japanese."], a: "I wish I could speak Japanese.", lesson: "Modal Verb Rule: 'Can't' must be changed to 'Could' to show a hypothetical ability in the present. Affirmative 'could' is used because the reality is negative." },
+            { type: "multiple_choice", script: "It is a rainy day.", q: "Rewrite using 'I wish': 'It is a rainy day.'", options: ["I wish it is a sunny day.", "I wish it were a sunny day.", "I wish it were a rainy day."], a: "I wish it were a sunny day.", lesson: "Backshift 'is' to 'were' and change the adjective 'rainy' to 'sunny'. 'Were' is used here to indicate a subjunctive mood (unreal situation)." },
+            { type: "multiple_choice", script: "I have a headache.", q: "Rewrite using 'I wish': 'I have a headache.'", options: ["I wish I didn't have a headache.", "I wish I don't have a headache.", "I wish I had a headache."], a: "I wish I didn't have a headache.", lesson: "Step 1: Change affirmative (have) to negative. Step 2: Use the past simple auxiliary 'didn't' + base verb 'have'. This expresses a wish for the pain to stop." },
+            { type: "multiple_choice", script: "My parents don't let me stay up late.", q: "Rewrite using 'I wish': 'My parents don't let me stay up late.'", options: ["I wish my parents let me stay up late.", "I wish my parents lets me stay up late.", "I wish my parents didn't let me stay up late."], a: "I wish my parents let me stay up late.", lesson: "Tricky Verb: 'Let' is an irregular verb (let-let-let). Here, we remove 'don't' and use the past form 'let'. It looks like the present, but grammatically it is past simple." },
+            { type: "multiple_choice", script: "The book is too expensive.", q: "Rewrite using 'I wish': 'The book is too expensive.'", options: ["I wish the book is cheaper.", "I wish the book were cheaper.", "I wish the book were not cheaper."], a: "I wish the book were cheaper.", lesson: "Rule: Use 'were' for all subjects. To make the wish logical, change 'too expensive' to 'cheaper' (affirmative past) or 'not so expensive' (negative past)." },
+            { type: "multiple_choice", script: "I don't have a brother.", q: "Rewrite using 'I wish': 'I don't have a brother.'", options: ["I wish I had a brother.", "I wish I have a brother.", "I wish I didn't have a brother."], a: "I wish I had a brother.", lesson: "Core Concept: Reality is negative (don't have), so the wish is affirmative. 'Have' moves back in time to the past simple 'had'." },
+            { type: "multiple_choice", script: "I don't have a car.", q: "I wish I ________ a car.", options: ["have", "had", "don't have"], a: "had", lesson: "Câu ước hiện tại: Thực tế phủ định (don't have) -> Câu ước khẳng định. Lùi thì hiện tại đơn về quá khứ đơn (V2/ed): 'have' thành 'had'." },
+            { type: "multiple_choice", script: "She is not here.", q: "I wish she ________ here.", options: ["is", "were", "was not"], a: "were", lesson: "Với động từ TO BE trong câu ước hiện tại: Lùi 'is not' (phủ định) thành khẳng định và luôn dùng 'were' cho tất cả các ngôi để chỉ tình huống giả định." },
+            { type: "multiple_choice", script: "It rains a lot.", q: "I wish it ________ a lot.", options: ["didn't rain", "doesn't rain", "rained"], a: "didn't rain", lesson: "Thực tế khẳng định (rains) -> Câu ước phủ định. Lùi thì hiện tại về quá khứ đơn dạng phủ định: 'didn't + V-nguyên thể', ta có 'didn't rain'." },
+            { type: "multiple_choice", script: "I can't swim.", q: "I wish I ________ swim.", options: ["can", "could", "couldn't"], a: "could", lesson: "Lùi thì với động từ khuyết thiếu: Thực tế là 'can't' (không thể), ta ước ngược lại thành 'could' (có thể) để diễn tả khả năng không có thực ở hiện tại." },
+            { type: "multiple_choice", script: "He doesn't like me.", q: "I wish he ________ me.", options: ["likes", "liked", "didn't like"], a: "liked", lesson: "Các bước biến đổi: 1. Đổi phủ định (doesn't like) sang khẳng định. 2. Lùi thì về quá khứ đơn: động từ 'like' thêm 'd' thành 'liked'." },
+            { type: "multiple_choice", script: "I am so busy.", q: "I wish I ________ so busy.", options: ["am not", "were not", "was"], a: "were not", lesson: "Thực tế khẳng định (am) -> Câu ước phủ định (không bận). Động từ TO BE lùi về quá khứ giả định luôn là 'were', thêm 'not' thành 'were not'." },
+            { type: "multiple_choice", script: "They don't visit us.", q: "I wish they ________ us.", options: ["visit", "visited", "don't visit"], a: "visited", lesson: "Quy tắc: 1. Đổi phủ định (don't visit) thành khẳng định. 2. Lùi thì từ hiện tại đơn về quá khứ đơn. Động từ có quy tắc 'visit' thành 'visited'." },
+            { type: "multiple_choice", script: "You smoke too much.", q: "I wish you ________ too much.", options: ["don't smoke", "didn't smoke", "smoked"], a: "didn't smoke", lesson: "Ước thay đổi một thói quen gây khó chịu: Thực tế khẳng định (smoke) -> Câu ước phủ định ở quá khứ: dùng trợ động từ 'didn't + V-nguyên thể'." },
+            { type: "multiple_choice", script: "We have to leave now.", q: "I wish we ________ to leave now.", options: ["don't have", "didn't have", "had"], a: "didn't have", lesson: "Biến đổi cụm chỉ nghĩa vụ: 'have to' (phải làm) lùi thì và đổi sang phủ định thành 'didn't have to' (không phải làm) để ước ngược lại thực tế." },
+            { type: "multiple_choice", script: "The weather is cold.", q: "I wish the weather ________ warmer.", options: ["is", "were", "was"], a: "were", lesson: "Dùng tính từ trái nghĩa (cold -> warmer): Dù ý nghĩa đã ngược lại nhưng cấu trúc vẫn phải lùi thì TO BE 'is' thành 'were' để đúng ngữ pháp câu ước." },
+            { type: "multiple_choice", script: "I don't know the answer.", q: "I wish I ________ the answer.", options: ["know", "knew", "don't know"], a: "knew", lesson: "Câu ước hiện tại: Thực tế phủ định (don't know) -> Câu ước khẳng định. Lùi thì 'know' về quá khứ đơn (V2) là 'knew'." },
+            { type: "multiple_choice", script: "My phone is broken.", q: "I wish my phone ________ broken.", options: ["is not", "were not", "was"], a: "were not", lesson: "Thực tế khẳng định (is) -> Câu ước phủ định (không bị hỏng). Động từ TO BE lùi về quá khứ giả định luôn là 'were', thêm 'not' thành 'were not'." },
+            { type: "multiple_choice", script: "I can't play soccer.", q: "I wish I ________ soccer.", options: ["can play", "could play", "couldn't play"], a: "could play", lesson: "Lùi thì với động từ khuyết thiếu: 'can't' (hiện tại) lùi về 'could' (quá khứ) để diễn tả một khả năng trái với thực tế." },
+            { type: "multiple_choice", script: "She doesn't live here.", q: "I wish she ________ here.", options: ["lives", "lived", "didn't live"], a: "lived", lesson: "Quy tắc: Đổi phủ định (doesn't live) thành khẳng định và lùi thì hiện tại đơn về quá khứ đơn. 'Live' là động từ có quy tắc nên thêm 'd' thành 'lived'." },
+            { type: "multiple_choice", script: "I am too short.", q: "I wish I ________ taller.", options: ["am", "were", "was"], a: "were", lesson: "Dùng tính từ trái nghĩa (short -> taller): Động từ TO BE 'am' lùi về quá khứ giả định luôn dùng 'were' cho tất cả các ngôi." },
+            { type: "multiple_choice", script: "They make a lot of noise.", q: "I wish they ________ a lot of noise.", options: ["don't make", "didn't make", "made"], a: "didn't make", lesson: "Thực tế khẳng định (make) -> Câu ước phủ định. Lùi thì hiện tại đơn về quá khứ đơn dạng phủ định: 'didn't + V-nguyên thể' (didn't make)." },
+            { type: "multiple_choice", script: "I have to work today.", q: "I wish I ________ to work today.", options: ["don't have", "didn't have", "had"], a: "didn't have", lesson: "Ước ngược lại với nghĩa vụ hiện tại: 'have to' (phải làm) lùi thì và đổi sang phủ định thành 'didn't have to' (không phải làm)." },
+            { type: "multiple_choice", script: "He doesn't understand me.", q: "I wish he ________ me.", options: ["understands", "understood", "didn't understand"], a: "understood", lesson: "Biến đổi: Bỏ phủ định 'doesn't' và lùi động từ chính 'understand' về cột 2 (V2) là 'understood' để tạo câu ước khẳng định." },
+            { type: "multiple_choice", script: "It is a very hot day.", q: "I wish it ________ so hot.", options: ["is not", "were not", "was"], a: "were not", lesson: "Thực tế khẳng định (is) -> Câu ước phủ định. Trong cấu trúc giả định 'wish', TO BE lùi thì luôn chia là 'were', thêm 'not' thành 'were not'." },
+            { type: "multiple_choice", script: "We don't have enough time.", q: "I wish we ________ more time.", options: ["have", "had", "don't have"], a: "had", lesson: "Quy tắc cốt lõi: Đổi thể phủ định (don't have) sang khẳng định và lùi thì 'have' thành 'had'. Đây là mong ước có nhiều thời gian hơn hiện tại." },
+            { type: "multiple_choice", script: "I don't have a sister.", q: "I wish I ________ a sister.", options: ["have", "had", "don't have"], a: "had", lesson: "Câu ước hiện tại: Thực tế là phủ định (don't have) -> Câu ước là khẳng định. Lùi thì 'have' về quá khứ đơn là 'had'." },
+            { type: "multiple_choice", script: "He is very selfish.", q: "I wish he ________ so selfish.", options: ["is not", "were not", "was not"], a: "were not", lesson: "Thực tế là khẳng định (is) -> Câu ước là phủ định. TO BE lùi về quá khứ giả định luôn dùng 'were', thêm 'not' thành 'were not'." },
+            { type: "multiple_choice", script: "I can't fly a plane.", q: "I wish I ________ a plane.", options: ["can fly", "could fly", "couldn't fly"], a: "could fly", lesson: "Lùi thì với động từ khuyết thiếu: Thực tế 'can't' (không thể) lùi về 'could' (có thể) để diễn tả khả năng trái với hiện thực." },
+            { type: "multiple_choice", script: "They don't help me.", q: "I wish they ________ me.", options: ["help", "helped", "don't help"], a: "helped", lesson: "Quy tắc: Đổi phủ định (don't help) sang khẳng định và lùi thì hiện tại đơn về quá khứ đơn (V2/ed). 'Help' chuyển thành 'helped'." },
+            { type: "multiple_choice", script: "It is very cold today.", q: "I wish it ________ warmer.", options: ["is", "were", "was"], a: "were", lesson: "Dùng tính từ trái nghĩa (cold -> warmer): Động từ TO BE 'is' lùi về quá khứ giả định luôn chia là 'were' cho mọi ngôi chủ ngữ." },
+            { type: "multiple_choice", script: "I don't speak English fluently.", q: "I wish I ________ English fluently.", options: ["speak", "spoke", "don't speak"], a: "spoke", lesson: "Biến đổi: 1. Đổi phủ định sang khẳng định. 2. Lùi thì 'speak' về quá khứ đơn (V2) là 'spoke' (đây là động từ bất quy tắc)." },
+            { type: "multiple_choice", script: "We are lost in the city.", q: "I wish we ________ lost.", options: ["are not", "were not", "was not"], a: "were not", lesson: "Thực tế là khẳng định (are) -> Câu ước phủ định. TO BE lùi về quá khứ giả định là 'were', thêm 'not' để ước điều ngược lại." },
+            { type: "multiple_choice", script: "I have to go to the dentist.", q: "I wish I ________ to go to the dentist.", options: ["don't have", "didn't have", "had"], a: "didn't have", lesson: "Ước ngược lại với nghĩa vụ: Cụm 'have to' (phải làm) lùi thì và chuyển sang phủ định thành 'didn't have to' (không phải làm)." },
+            { type: "multiple_choice", script: "She doesn't like her job.", q: "I wish she ________ her job.", options: ["likes", "liked", "didn't like"], a: "liked", lesson: "Các bước: 1. Đổi phủ định (doesn't like) thành khẳng định. 2. Lùi thì hiện tại về quá khứ đơn 'liked' để diễn tả mong muốn hiện tại." },
+            { type: "multiple_choice", script: "You don't understand the problem.", q: "I wish you ________ the problem.", options: ["understand", "understood", "didn't understand"], a: "understood", lesson: "Thực tế phủ định (don't understand) -> Câu ước khẳng định. Lùi 'understand' về quá khứ đơn (V2) là 'understood'." },
+            { type: "multiple_choice", script: "I didn't go to the party yesterday.", q: "I wish I ________ (go) to the party yesterday.", options: ["went", "had gone", "didn't go"], a: "had gone", lesson: "Ước cho quá khứ: Thực tế là phủ định (didn't go) -> Câu ước khẳng định. Lùi thì từ Quá khứ đơn về Quá khứ hoàn thành: 'had + V3' (had gone)." },
+            { type: "multiple_choice", script: "He failed the exam last week.", q: "He wishes he ________ (not fail) the exam last week.", options: ["didn't fail", "hadn't failed", "not failed"], a: "hadn't failed", lesson: "Ước cho quá khứ: Thực tế là khẳng định (failed) -> Câu ước phủ định. Công thức Quá khứ hoàn thành phủ định: 'hadn't + V3/ed' (hadn't failed)." },
+            { type: "multiple_choice", script: "I forgot my umbrella this morning.", q: "I wish I ________ (not forget) my umbrella this morning.", options: ["hadn't forgotten", "didn't forget", "haven't forgotten"], a: "hadn't forgotten", lesson: "Thực tế đã xảy ra (forgot) -> Ước ngược lại ở quá khứ dùng 'hadn't + V3'. Lưu ý: 'forgotten' là cột 3 của động từ 'forget'." },
+            { type: "multiple_choice", script: "She didn't buy that dress.", q: "She wishes she ________ (buy) that dress.", options: ["bought", "had bought", "has bought"], a: "had bought", lesson: "Ước cho một việc đã không làm trong quá khứ: Đổi từ phủ định sang khẳng định và dùng thì Quá khứ hoàn thành 'had + V3' (had bought)." },
+            { type: "multiple_choice", script: "We lost the match yesterday.", q: "We wish we ________ (not lose) the match yesterday.", options: ["hadn't lost", "didn't lose", "weren't losing"], a: "hadn't lost", lesson: "Thực tế là đã thua (lost) -> Ước ngược lại dùng Quá khứ hoàn thành phủ định 'hadn't + V3'. Động từ 'lose' có cột 3 là 'lost'." },
+            { type: "multiple_choice", script: "I was rude to her yesterday.", q: "I wish I ________ (not be) so rude to her yesterday.", options: ["wasn't", "hadn't been", "weren't"], a: "hadn't been", lesson: "Ước cho trạng thái trong quá khứ: Thực tế dùng 'was' (khẳng định) -> Câu ước dùng 'hadn't + V3'. Cột 3 của 'be' là 'been'." },
+            { type: "multiple_choice", script: "You didn't tell me the truth.", q: "I wish you ________ (tell) me the truth.", options: ["told", "had told", "have told"], a: "had told", lesson: "Ước cho quá khứ: Đổi từ phủ định (didn't tell) sang khẳng định và lùi về Quá khứ hoàn thành. Cột 3 của 'tell' là 'told'." },
+            { type: "multiple_choice", script: "It rained during our picnic.", q: "I wish it ________ (not rain) during our picnic.", options: ["didn't rain", "hadn't rained", "not rained"], a: "hadn't rained", lesson: "Thực tế là trời đã mưa (khẳng định) -> Ước trời không mưa (phủ định). Dùng Quá khứ hoàn thành: 'hadn't + V3/ed' (hadn't rained)." },
+            { type: "multiple_choice", script: "I spent too much money last night.", q: "I wish I ________ (not spend) so much money last night.", options: ["didn't spend", "hadn't spent", "not spent"], a: "hadn't spent", lesson: "Hối tiếc về việc đã làm: Thực tế khẳng định (spent) -> Ước phủ định dùng 'hadn't + V3'. 'Spend' chuyển sang cột 3 vẫn là 'spent'." },
+            { type: "multiple_choice", script: "They didn't arrive on time.", q: "I wish they ________ (arrive) on time.", options: ["arrived", "had arrived", "have arrived"], a: "had arrived", lesson: "Ước cho quá khứ: Thực tế phủ định (didn't arrive) -> Câu ước khẳng định. Lùi thì về Quá khứ hoàn thành: 'had + V3/ed' (had arrived)." },
+            { type: "multiple_choice", script: "I didn't study for the test.", q: "I wish I ________ (study) for the test yesterday.", options: ["studied", "had studied", "didn't study"], a: "had studied", lesson: "Ước cho quá khứ: Thực tế đã không học (phủ định) -> Ước có học (khẳng định). Dùng Quá khứ hoàn thành: 'had + V3/ed' (had studied)." },
+            { type: "multiple_choice", script: "It was cold last night.", q: "I wish it ________ (not be) so cold last night.", options: ["wasn't", "hadn't been", "weren't"], a: "hadn't been", lesson: "Ước cho trạng thái quá khứ: Thực tế là 'was' (khẳng định) -> Ước ngược lại dùng 'hadn't + V3'. Cột 3 của 'be' là 'been'." },
+            { type: "multiple_choice", script: "I ate too much cake.", q: "I wish I ________ (not eat) so much cake.", options: ["didn't eat", "hadn't eaten", "not ate"], a: "hadn't eaten", lesson: "Hối tiếc việc đã làm: Thực tế đã ăn (khẳng định) -> Ước đừng ăn (phủ định). Dùng 'hadn't + V3'. Cột 3 của 'eat' là 'eaten'." },
+            { type: "multiple_choice", script: "She didn't call me.", q: "I wish she ________ (call) me last night.", options: ["called", "had called", "has called"], a: "had called", lesson: "Ước việc đã không xảy ra: Thực tế là 'didn't call' (phủ định) -> Ước là có gọi (khẳng định). Lùi về Quá khứ hoàn thành: 'had + V3/ed' (had called)." },
+            { type: "multiple_choice", script: "We missed the bus.", q: "I wish we ________ (not miss) the bus.", options: ["hadn't missed", "didn't miss", "haven't missed"], a: "hadn't missed", lesson: "Tiếc nuối quá khứ: Thực tế đã lỡ chuyến (khẳng định) -> Ước đừng lỡ (phủ định). Dùng công thức 'hadn't + V3/ed' (hadn't missed)." },
+            { type: "multiple_choice", script: "I lost my key.", q: "I wish I ________ (not lose) my key.", options: ["didn't lose", "hadn't lost", "not lost"], a: "hadn't lost", lesson: "Ước cho việc đã mất: Thực tế là đã làm mất (khẳng định) -> Ước không mất (phủ định). Quá khứ hoàn thành: 'hadn't + V3' (hadn't lost)." },
+            { type: "multiple_choice", script: "You didn't help me.", q: "I wish you ________ (help) me with my homework.", options: ["helped", "had helped", "have helped"], a: "had helped", lesson: "Ước cho hành động quá khứ: Thực tế bạn không giúp (phủ định) -> Ước bạn có giúp (khẳng định). Dùng 'had + V3/ed' (had helped)." },
+            { type: "multiple_choice", script: "The movie was boring.", q: "I wish the movie ________ (be) more interesting.", options: ["was", "had been", "were"], a: "had been", lesson: "Ước cho trạng thái đã qua: Thực tế phim chán ('was' - khẳng định) -> Ước phim hay ('had been' - khẳng định lùi thì). Cột 3 của 'be' là 'been'." },
+            { type: "multiple_choice", script: "I didn't bring my camera.", q: "I wish I ________ (bring) my camera.", options: ["brought", "had brought", "have brought"], a: "had brought", lesson: "Ước cho việc đã quên: Thực tế không mang (phủ định) -> Ước có mang (khẳng định). Lùi về Quá khứ hoàn thành: 'had + V3' (had brought)." },
+            { type: "multiple_choice", script: "They forgot to invite him.", q: "They wish they ________ (not forget) to invite him.", options: ["didn't forget", "hadn't forgotten", "haven't forgotten"], a: "hadn't forgotten", lesson: "Ước cho lỗi lầm quá khứ: Thực tế đã quên (khẳng định) -> Ước đừng quên (phủ định). Dùng 'hadn't + V3' (hadn't forgotten)." }
+          ],
+          hard: [
+            { type: "multiple_choice", script: "Attention students: the school trip has been postponed to next Friday due to bad weather.", q: "What happened to the school trip?", options: ["trip cancelled", "trip moved to next Friday", "trip on this Friday"], a: "trip moved to next Friday", lesson: "'Postponed' = hoãn lại. 'Due to bad weather' = do thời tiết xấu." },
+            { type: "multiple_choice", script: "I've worked here for 3 years. Before that, I was in Hanoi.", q: "How long has the speaker worked at the current job?", options: ["1 year", "3 years", "in Hanoi"], a: "3 years", lesson: "'Have worked for 3 years' → Hiện tại hoàn thành chỉ khoảng thời gian: 3 năm." },
+            { type: "fill_blank", script: "She said she would be there at 8.", q: "Complete the reported speech: She said she ___ be there at 8.", a: "would", lesson: "Câu tường thuật (Reported Speech): will → would khi tường thuật lại." },
+          ]
+        }
+      },
     };
 
     /* ═══════════════════════════════════════════════
@@ -12560,6 +14243,95 @@ color:#5d4037;
     // Khởi động: gọi SAU KHI showPage đã được patch ở trên
     checkLoginOnLoad();
 
+  </script>
+
+  <!-- GHIBLI SCROLL ENGINE -->
+  <script>
+    (function () {
+      var TOPICS = [
+        { icon: '\uD83C\uDF31', text: 'Present Simple' },
+        { icon: '\u26C5', text: 'Past Continuous' },
+        { icon: '\uD83D\uDD17', text: 'Relative Clauses' },
+        { icon: '\uD83C\uDF08', text: 'Conditionals' },
+        { icon: '\uD83D\uDEE1', text: 'Passive Voice' },
+        { icon: '\uD83D\uDE80', text: 'Future Perfect' },
+        { icon: '\uD83D\uDCDD', text: 'Modal Verbs' },
+        { icon: '\uD83E\uDD9B', text: 'Reported Speech' },
+      ];
+
+      function buildSections() {
+        var track = document.getElementById('ghibli-scroll');
+        if (!track) return;
+        track.innerHTML = '';
+        TOPICS.forEach(function (t) {
+          var sec = document.createElement('div');
+          sec.className = 'ghibli-section';
+          sec.dataset.icon = t.icon;
+          var div = document.createElement('div');
+          div.className = 'ghibli-text';
+          div.textContent = t.text;
+          sec.appendChild(div);
+          track.appendChild(sec);
+        });
+      }
+
+      function buildPetals() {
+        var wrap = document.getElementById('ghibli-petals');
+        if (!wrap) return;
+        wrap.innerHTML = '';
+        for (var i = 0; i < 10; i++) {
+          var p = document.createElement('div');
+          p.className = 'ghibli-petal';
+          var size = 8 + Math.random() * 10;
+          var left = 5 + Math.random() * 88;
+          var dur = 7 + Math.random() * 9;
+          var del = -(Math.random() * dur);
+          var col = i % 3 === 0 ? 'rgba(255,255,255,.65)' : 'rgba(255,200,220,.7)';
+          p.style.cssText =
+            'width:' + size + 'px;' +
+            'height:' + (size * 0.7) + 'px;' +
+            'left:' + left + 'vw;top:0;' +
+            'background:' + col + ';' +
+            '--dur:' + dur + 's;--delay:' + del + 's;';
+          wrap.appendChild(p);
+        }
+      }
+
+      function initIconSync() {
+        var iconEl = document.getElementById('ghibli-icon');
+        if (!iconEl || !window.IntersectionObserver) return;
+        var opts = { root: document.getElementById('ghibli-scroll'), threshold: 0.55 };
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting && e.target.dataset.icon) {
+              iconEl.textContent = e.target.dataset.icon;
+            }
+          });
+        }, opts);
+        document.querySelectorAll('.ghibli-section').forEach(function (s) { obs.observe(s); });
+      }
+
+      function init() { buildSections(); buildPetals(); initIconSync(); }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        setTimeout(init, 0);
+      }
+
+      setTimeout(function () {
+        if (typeof window.showPage === 'function') {
+          var orig = window.showPage;
+          window.showPage = function (id) {
+            orig(id);
+            if (id === 'login') {
+              var sc = document.getElementById('ghibli-scroll');
+              if (sc) sc.scrollTop = 0;
+            }
+          };
+        }
+      }, 300);
+    })();
   </script>
 </body>
 
