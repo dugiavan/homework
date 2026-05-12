@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -9,32 +10,34 @@
     @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap');
 
     :root {
-      --c-bg: #f5f5f7;
-      --c-surface: #ffffff;
-      --c-surface2: #f5f5f7;
-      --c-glass: rgba(255, 255, 255, 0.88);
-      --c-glass-border: rgba(0, 0, 0, 0.06);
-      --c-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.05);
-      --c-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.04), 0 8px 28px rgba(0, 0, 0, 0.07);
-      --c-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.04), 0 20px 48px rgba(0, 0, 0, 0.09);
-      --c-accent: #0071e3;
-      --c-accent-hover: #0077ed;
-      --c-accent-light: rgba(0, 113, 227, 0.08);
-      --c-accent2: #5e5ce6;
-      --c-success: #34c759;
-      --c-danger: #ff3b30;
-      --c-warning: #ff9500;
-      --c-text: #1d1d1f;
-      --c-text2: #3d3d3f;
-      --c-muted: #86868b;
-      --c-muted2: #6e6e73;
-      --c-separator: rgba(0, 0, 0, 0.08);
-      --radius: 18px;
-      --radius-sm: 12px;
-      --radius-xs: 8px;
-      --blur: 20px;
-      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+      /* ── Ghibli Palette ── */
+      --c-bg: #eef6f0;
+      --c-surface: rgba(255, 253, 248, 0.92);
+      --c-surface2: #f0f7f2;
+      --c-glass: rgba(255, 253, 248, 0.80);
+      --c-glass-border: rgba(111, 175, 120, 0.18);
+      --c-shadow-sm: 0 2px 8px rgba(80, 130, 90, 0.07), 0 4px 16px rgba(80, 130, 90, 0.05);
+      --c-shadow-md: 0 4px 16px rgba(80, 130, 90, 0.09), 0 10px 32px rgba(80, 130, 90, 0.07);
+      --c-shadow-lg: 0 8px 32px rgba(80, 130, 90, 0.10), 0 24px 56px rgba(80, 130, 90, 0.09);
+      /* Sage green replaces the cold blue accent */
+      --c-accent: #4a8c5c;
+      --c-accent-hover: #3d7a4e;
+      --c-accent-light: rgba(74, 140, 92, 0.10);
+      --c-accent2: #6b9e7a;
+      --c-success: #4a8c5c;
+      --c-danger: #c0584a;
+      --c-warning: #c08a2a;
+      --c-text: #2d3a2e;
+      --c-text2: #3d4e3e;
+      --c-muted: #7a9080;
+      --c-muted2: #6a8070;
+      --c-separator: rgba(74, 140, 92, 0.12);
+      --radius: 20px;
+      --radius-sm: 14px;
+      --radius-xs: 9px;
+      --blur: 18px;
+      --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+      --font: 'Quicksand', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     *,
@@ -58,6 +61,10 @@
       min-height: 100vh;
       background: var(--c-bg);
       overflow-x: hidden;
+      /* Subtle Ghibli paper texture via gradient */
+      background-image:
+        radial-gradient(ellipse 80% 50% at 20% 10%, rgba(180, 220, 190, .18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 80% 90%, rgba(135, 195, 160, .12) 0%, transparent 60%);
     }
 
     /* ══ GLASS UTILITY ══ */
@@ -71,10 +78,10 @@
 
     /* ══ GAMIFICATION ══ */
     .gami-card {
-      background: var(--c-surface);
-      border: 1px solid var(--c-separator);
-      box-shadow: var(--c-shadow-sm);
-      border-radius: 20px;
+      background: rgba(255, 253, 248, .88);
+      border: 1.5px solid rgba(111, 175, 120, .16);
+      box-shadow: 0 2px 12px rgba(80, 130, 90, .08);
+      border-radius: 22px;
       padding: 1.2rem 1.5rem 1.3rem;
       margin: 1.2rem auto 0;
       max-width: 480px;
@@ -192,7 +199,7 @@
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background: rgba(0, 0, 0, .4);
+      background: rgba(30, 60, 35, .45);
       backdrop-filter: blur(12px);
       display: flex;
       align-items: center;
@@ -912,13 +919,13 @@
       padding: 2rem 2rem 4rem;
       min-height: 100vh;
       width: 100%;
-      background: var(--c-bg);
+      background: linear-gradient(160deg, #e8f5eb 0%, #d8eee0 40%, #edf5f0 100%);
     }
 
     .landing-badge {
       display: inline-block;
-      background: var(--c-accent-light);
-      border: 1px solid rgba(0, 113, 227, .15);
+      background: rgba(74, 140, 92, .10);
+      border: 1px solid rgba(74, 140, 92, .22);
       color: var(--c-accent);
       font-size: .72rem;
       font-weight: 700;
@@ -931,11 +938,12 @@
     }
 
     .landing-title {
-      font-size: clamp(2.4rem, 7vw, 4.6rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -.04em;
+      font-size: clamp(2.2rem, 7vw, 4.4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -.03em;
       color: var(--c-text);
+      font-family: 'Quicksand', sans-serif;
       animation: slideUp .5s ease .2s both;
     }
 
@@ -961,14 +969,14 @@
     }
 
     .feature-chip {
-      background: var(--c-surface);
-      border: 1px solid var(--c-separator);
+      background: rgba(255, 253, 248, .85);
+      border: 1.5px solid rgba(111, 175, 120, .18);
       padding: .28rem .9rem;
       border-radius: 50px;
       font-size: .78rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--c-muted2);
-      box-shadow: var(--c-shadow-sm);
+      box-shadow: 0 1px 6px rgba(80, 130, 90, .06);
     }
 
     .btn-start {
@@ -1003,8 +1011,8 @@
       display: flex;
       align-items: center;
       gap: .6rem;
-      background: var(--c-surface);
-      border: 1px solid var(--c-separator);
+      background: rgba(255, 253, 248, .90);
+      border: 1.5px solid rgba(111, 175, 120, .20);
       border-radius: 50px;
       padding: .28rem .75rem .28rem .28rem;
       position: absolute;
@@ -1012,8 +1020,9 @@
       right: 1.5rem;
       z-index: 100;
       width: fit-content;
-      box-shadow: var(--c-shadow-sm);
+      box-shadow: 0 2px 12px rgba(80, 130, 90, .10);
       animation: fadeInRight .5s ease;
+      backdrop-filter: blur(12px);
     }
 
     @keyframes fadeInRight {
@@ -1073,8 +1082,8 @@
       display: inline-flex;
       align-items: center;
       gap: .4rem;
-      background: var(--c-surface);
-      border: 1px solid var(--c-separator);
+      background: rgba(255, 253, 248, .88);
+      border: 1.5px solid rgba(111, 175, 120, .20);
       border-radius: 50px;
       padding: .55rem 1.15rem;
       font-family: var(--font);
@@ -1088,8 +1097,8 @@
     }
 
     .btn-history:hover {
-      background: var(--c-accent-light);
-      border-color: rgba(0, 113, 227, .2);
+      background: rgba(74, 140, 92, .08);
+      border-color: rgba(74, 140, 92, .30);
       transform: translateY(-1px);
     }
 
@@ -1098,6 +1107,16 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 2.2rem 1.4rem 4.5rem;
+    }
+
+    /* Ghibli inner-page bg */
+    #page-topics,
+    #page-detail,
+    #page-setup,
+    #page-exercise,
+    #page-result,
+    #page-learn {
+      background: linear-gradient(160deg, #e8f5eb 0%, #d8eee0 40%, #edf5f0 100%);
     }
 
     .inner-wrap.narrow {
@@ -1142,10 +1161,11 @@
 
     .section-title {
       font-size: clamp(1.5rem, 4vw, 2rem);
-      font-weight: 800;
+      font-weight: 700;
       color: var(--c-text);
       margin-bottom: .35rem;
-      letter-spacing: -.035em;
+      letter-spacing: -.025em;
+      font-family: 'Quicksand', sans-serif;
     }
 
     .section-title span {
@@ -1166,9 +1186,9 @@
     }
 
     .topic-card {
-      background: var(--c-surface);
-      border: 1px solid var(--c-separator);
-      border-radius: var(--radius-sm);
+      background: rgba(255, 253, 248, 0.88);
+      border: 1.5px solid rgba(111, 175, 120, 0.18);
+      border-radius: 18px;
       padding: 1.3rem 1.1rem;
       cursor: pointer;
       transition: var(--transition);
@@ -1177,13 +1197,14 @@
       gap: .45rem;
       position: relative;
       overflow: hidden;
-      box-shadow: var(--c-shadow-sm);
+      box-shadow: 0 2px 12px rgba(80, 130, 90, .08), 0 1px 0 rgba(255, 255, 255, .9) inset;
+      backdrop-filter: blur(8px);
     }
 
     .topic-card:hover {
       transform: translateY(-3px);
-      box-shadow: var(--c-shadow-md);
-      border-color: rgba(0, 113, 227, .18);
+      box-shadow: 0 8px 28px rgba(74, 140, 92, .16);
+      border-color: rgba(74, 140, 92, .35);
     }
 
     .tc-icon {
@@ -1194,7 +1215,7 @@
       align-items: center;
       justify-content: center;
       font-size: 1.45rem;
-      background: var(--c-accent-light);
+      background: rgba(74, 140, 92, .10);
       flex-shrink: 0;
     }
 
@@ -1228,19 +1249,20 @@
 
     /* ── Detail Card ── */
     .detail-card {
-      background: var(--c-surface);
-      border: 1px solid var(--c-separator);
-      box-shadow: var(--c-shadow-sm);
-      border-radius: var(--radius);
+      background: rgba(255, 253, 248, .90);
+      border: 1.5px solid rgba(111, 175, 120, .16);
+      box-shadow: 0 4px 20px rgba(80, 130, 90, .08);
+      border-radius: 22px;
       padding: 2rem;
       animation: scaleIn .32s ease;
+      backdrop-filter: blur(10px);
     }
 
     .detail-icon-wrap {
       width: 60px;
       height: 60px;
       border-radius: 16px;
-      background: var(--c-accent-light);
+      background: rgba(74, 140, 92, .10);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1268,8 +1290,8 @@
     .theory-box {
       border-radius: var(--radius-sm);
       padding: 1rem 1.2rem;
-      background: var(--c-accent-light);
-      border: 1px solid rgba(0, 113, 227, .12);
+      background: rgba(74, 140, 92, .07);
+      border: 1px solid rgba(74, 140, 92, .14);
       font-size: .87rem;
       line-height: 1.75;
       color: var(--c-text);
@@ -1405,9 +1427,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: var(--c-surface);
-      border: 1px solid var(--c-separator);
-      box-shadow: var(--c-shadow-sm);
+      background: rgba(255, 253, 248, .88);
+      border: 1.5px solid rgba(111, 175, 120, .16);
+      box-shadow: 0 2px 10px rgba(80, 130, 90, .06);
       border-radius: var(--radius-sm);
       padding: .65rem 1rem;
       margin-bottom: .9rem;
@@ -1426,7 +1448,7 @@
     .prog-track {
       height: 5px;
       border-radius: 50px;
-      background: rgba(0, 113, 227, .08);
+      background: rgba(74, 140, 92, .10);
       overflow: hidden;
       margin-bottom: 1.2rem;
     }
@@ -1439,12 +1461,13 @@
     }
 
     .q-card {
-      background: var(--c-surface);
-      border: 1px solid var(--c-separator);
-      box-shadow: var(--c-shadow-sm);
-      border-radius: var(--radius);
+      background: rgba(255, 253, 248, .9);
+      border: 1.5px solid rgba(111, 175, 120, .16);
+      box-shadow: 0 4px 20px rgba(80, 130, 90, .08);
+      border-radius: 22px;
       padding: 1.8rem 2rem;
       animation: scaleIn .28s ease;
+      backdrop-filter: blur(10px);
     }
 
     .q-type-tag {
@@ -1493,8 +1516,8 @@
     .opt-btn {
       width: 100%;
       text-align: left;
-      background: var(--c-surface2);
-      border: 1px solid var(--c-separator);
+      background: rgba(255, 253, 248, .8);
+      border: 1.5px solid rgba(111, 175, 120, .15);
       border-radius: var(--radius-sm);
       padding: .8rem 1rem;
       cursor: pointer;
@@ -1509,8 +1532,8 @@
     }
 
     .opt-btn:hover:not(:disabled) {
-      background: var(--c-accent-light);
-      border-color: rgba(0, 113, 227, .22);
+      background: rgba(74, 140, 92, .08);
+      border-color: rgba(74, 140, 92, .30);
     }
 
     .opt-btn.sel {
@@ -1545,8 +1568,8 @@
 
     .fill-input {
       width: 100%;
-      background: var(--c-surface2);
-      border: 1px solid rgba(0, 0, 0, .08);
+      background: rgba(255, 253, 248, .80);
+      border: 1.5px solid rgba(111, 175, 120, .18);
       border-radius: var(--radius-sm);
       padding: .8rem 1rem;
       font-family: var(--font);
@@ -1559,8 +1582,8 @@
 
     .fill-input:focus {
       border-color: var(--c-accent);
-      background: var(--c-surface);
-      box-shadow: 0 0 0 3px rgba(0, 113, 227, .10);
+      background: rgba(255, 253, 248, .95);
+      box-shadow: 0 0 0 3px rgba(74, 140, 92, .12);
     }
 
     .fill-input:disabled {
@@ -1571,8 +1594,8 @@
       font-size: 1.02rem;
       line-height: 1.7;
       color: var(--c-text);
-      background: var(--c-surface2);
-      border: 1px solid var(--c-separator);
+      background: rgba(255, 253, 248, .80);
+      border: 1.5px solid rgba(111, 175, 120, .14);
       border-radius: var(--radius-sm);
       padding: .95rem 1.15rem;
       margin-bottom: 1rem;
@@ -1596,9 +1619,9 @@
 
     .drop-zone {
       min-height: 52px;
-      border: 1.5px dashed rgba(0, 113, 227, .22);
+      border: 1.5px dashed rgba(74, 140, 92, .28);
       border-radius: var(--radius-sm);
-      background: rgba(0, 113, 227, .025);
+      background: rgba(74, 140, 92, .03);
       padding: .7rem .95rem;
       display: flex;
       flex-wrap: wrap;
@@ -2155,7 +2178,7 @@
     }
 
     .modal-box {
-      background: var(--c-surface);
+      background: rgba(255, 253, 248, .95);
       border-radius: 22px;
       padding: 1.8rem 1.6rem;
       max-width: 600px;
@@ -2778,14 +2801,15 @@
 
     .ph-session-lesson {
       font-size: 1.1rem;
-      /* Chữ to rõ, uy tín */
       font-weight: 800;
       color: #1d1d1f;
-      /* Đen Charcoal */
       line-height: 1.2;
       margin-bottom: 2px;
       display: -webkit-box;
       -webkit-line-clamp: 1;
+      /* Cái cũ của Chrome/Safari */
+      line-clamp: 1;
+      /* <-- Thêm dòng tiêu chuẩn này vào đây */
       -webkit-box-orient: vertical;
       overflow: hidden;
       white-space: normal;
@@ -3016,6 +3040,221 @@
       border-radius: 50%;
       animation: spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
       margin: 0 auto 1.2rem;
+    }
+
+    /* ══════════════════════════════════════════════════
+       GHIBLI GLOBAL POLISH — applies on top of everything
+       Studio Ghibli: soft sage greens, warm parchment whites,
+       gentle mist blues, rounded forms, paper-like surfaces.
+    ══════════════════════════════════════════════════ */
+
+    /* Ensure Quicksand is used everywhere for headers & labels */
+    h1,
+    h2,
+    h3,
+    .landing-title,
+    .section-title,
+    .dtitle,
+    .gami-title-text,
+    .stat-num,
+    .modal-title,
+    .q-type-tag,
+    .theory-label,
+    .btn-start,
+    .btn-login,
+    .btn-go,
+    .gami-level-badge {
+      font-family: 'Quicksand', 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Warm paper scroll background on all scrollable pages */
+    #page-topics,
+    #page-detail,
+    #page-setup,
+    #page-exercise,
+    #page-result,
+    #page-learn,
+    #page-landing {
+      background:
+        radial-gradient(ellipse 70% 40% at 15% 5%, rgba(180, 220, 190, .20) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 60% at 85% 95%, rgba(135, 195, 160, .14) 0%, transparent 55%),
+        linear-gradient(160deg, #e8f5eb 0%, #deeee3 40%, #edf5f0 100%);
+    }
+
+    /* Landing page title — warmer gradient text */
+    .landing-title {
+      background: linear-gradient(135deg, #2d6e45, #4a8c5c, #3d7a4e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Ghibli stat boxes — warm parchment */
+    .stat-box {
+      background: rgba(255, 253, 248, .88) !important;
+      border: 1.5px solid rgba(111, 175, 120, .18) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 2px 10px rgba(80, 130, 90, .07) !important;
+    }
+
+    /* Result card */
+    .result-card,
+    .result-header {
+      background: rgba(255, 253, 248, .92) !important;
+      border: 1.5px solid rgba(111, 175, 120, .16) !important;
+      box-shadow: 0 4px 20px rgba(80, 130, 90, .08) !important;
+    }
+
+    /* Feedback panels (correct/wrong) */
+    .fb-correct,
+    .fb-box.correct {
+      background: rgba(74, 140, 92, .08) !important;
+      border-color: rgba(74, 140, 92, .25) !important;
+    }
+
+    .fb-wrong,
+    .fb-box.wrong {
+      background: rgba(192, 88, 74, .07) !important;
+      border-color: rgba(192, 88, 74, .22) !important;
+    }
+
+    /* Word chips (reorder exercise) */
+    .word-chip {
+      background: rgba(255, 253, 248, .90) !important;
+      border: 1.5px solid rgba(111, 175, 120, .22) !important;
+      border-radius: 22px !important;
+      color: var(--c-text) !important;
+      box-shadow: 0 2px 8px rgba(80, 130, 90, .06) !important;
+    }
+
+    .word-chip:hover {
+      border-color: rgba(74, 140, 92, .40) !important;
+    }
+
+    .word-chip.used {
+      opacity: .38 !important;
+    }
+
+    /* Setup card / options */
+    .setup-card,
+    .opt-group {
+      background: rgba(255, 253, 248, .88) !important;
+      border: 1.5px solid rgba(111, 175, 120, .16) !important;
+      border-radius: 18px !important;
+    }
+
+    /* Learn page card */
+    .learn-card {
+      background: rgba(255, 253, 248, .90) !important;
+      border: 1.5px solid rgba(111, 175, 120, .16) !important;
+      border-radius: 22px !important;
+      box-shadow: 0 4px 20px rgba(80, 130, 90, .08) !important;
+    }
+
+    /* Sheets box */
+    .sheets-box {
+      background: rgba(255, 253, 248, .88) !important;
+      border: 1.5px solid rgba(111, 175, 120, .18) !important;
+      border-radius: 18px !important;
+    }
+
+    /* Student name box */
+    .name-box {
+      background: rgba(255, 253, 248, .88) !important;
+      border: 1.5px solid rgba(111, 175, 120, .18) !important;
+      border-radius: 18px !important;
+    }
+
+    /* Leaderboard rows */
+    .lb-row {
+      background: rgba(255, 253, 248, .80) !important;
+      border: 1.5px solid rgba(111, 175, 120, .12) !important;
+      border-radius: 14px !important;
+    }
+
+    /* History session cards */
+    .session-card,
+    .hs-card {
+      background: rgba(255, 253, 248, .88) !important;
+      border: 1.5px solid rgba(111, 175, 120, .14) !important;
+      border-radius: 18px !important;
+    }
+
+    /* Progress bars — sage green fill */
+    .prog-fill,
+    .gami-bar-fill,
+    .gram-card-prog-fill {
+      background: linear-gradient(90deg, #4a8c5c, #6bb07a) !important;
+    }
+
+    /* Buttons — round & warm */
+    .btn-start,
+    .btn-go,
+    .btn-action-pri,
+    .btn-check,
+    .btn-nxt,
+    .btn-again,
+    .btn-submit-sheets {
+      border-radius: 40px !important;
+    }
+
+    .btn-other,
+    .btn-back,
+    .btn-logout,
+    .btn-history {
+      border-radius: 30px !important;
+    }
+
+    /* Modal box polish */
+    .modal-box {
+      border: 1.5px solid rgba(111, 175, 120, .18) !important;
+      box-shadow: 0 16px 56px rgba(40, 80, 50, .18) !important;
+    }
+
+    /* Gami level badge — sage green */
+    .gami-level-badge {
+      background: linear-gradient(135deg, #4a8c5c, #3d7a4e) !important;
+      box-shadow: 0 2px 8px rgba(74, 140, 92, .28) !important;
+    }
+
+    /* XP toast */
+    .xp-toast {
+      background: rgba(74, 140, 92, .92) !important;
+      border-radius: 40px !important;
+    }
+
+    /* Level-up popup card */
+    .levelup-card {
+      background: rgba(255, 253, 248, .96) !important;
+      border: 2px solid rgba(111, 175, 120, .30) !important;
+      border-radius: 30px !important;
+      box-shadow: 0 20px 60px rgba(40, 80, 50, .20) !important;
+    }
+
+    /* Ghibli decorative top stripe on inner-wrap */
+    .inner-wrap::before {
+      display: none;
+      /* keep it clean */
+    }
+
+    /* Scrollbar — thin sage green */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(74, 140, 92, .3) transparent;
+    }
+
+    *::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background: rgba(74, 140, 92, .28);
+      border-radius: 10px;
+    }
+
+    *::-webkit-scrollbar-track {
+      background: transparent;
     }
   </style>
 </head>
